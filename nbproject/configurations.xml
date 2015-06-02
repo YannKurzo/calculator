@@ -42,6 +42,9 @@
             <pElem>src/include</pElem>
           </incDir>
         </ccTool>
+        <linkerTool>
+          <output>calculator</output>
+        </linkerTool>
       </compileType>
       <item path="src/analyse.cc" ex="false" tool="1" flavor2="0">
       </item>
