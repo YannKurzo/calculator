@@ -16,9 +16,9 @@ CND_PACKAGE_NAME_Debug=calculator.tar
 CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/calculator.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux-x86
-CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux-x86
+CND_ARTIFACT_DIR_Release=
 CND_ARTIFACT_NAME_Release=calculator
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/calculator
+CND_ARTIFACT_PATH_Release=calculator
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
 CND_PACKAGE_NAME_Release=calculator.tar
 CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/calculator.tar
