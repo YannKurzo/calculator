@@ -17,11 +17,6 @@
 
 using namespace std;
 
-Token::Token(void)
-{
-    
-}
-
 
 Token::Token(const Token &token)
 {
