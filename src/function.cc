@@ -22,7 +22,7 @@ unsigned int Function::getNbParameters(std::string str)
 {
     void * ret = functions_m[str].func;
     
-    if(ret == 0)
+    if(ret == NULL)
     {
         cout << "Function \"" << str << "\" is not implemented!" << endl;
         exit(EXIT_FAILURE);
@@ -35,7 +35,7 @@ void *Function::getFunction(std::string str)
 {
     void * ret = functions_m[str].func;
     
-    if(ret == 0)
+    if(ret == NULL)
     {
         cout << "Function \"" << str << "\" is not implemented!" << endl;
         exit(EXIT_FAILURE);

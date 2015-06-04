@@ -29,7 +29,7 @@ typedef enum
 
 static std::string bracketsOpen = "([{";
 static std::string bracketsClose = ")]}";
-static std::string op = "^*/+-";
+static std::string operators = "^*/+-";
 static priority_t opPriority[] = {P_OP_POWER, P_OP_MUL, P_OP_MUL, P_OP_PLUS, P_OP_PLUS};
 
 class Token

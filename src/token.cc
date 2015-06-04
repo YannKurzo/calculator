@@ -42,7 +42,7 @@ int Token::getOpPriority(void) const
     switch(type_m)
     {
         case OPERATOR:
-            return opPriority[op.find(str_m)];
+            return opPriority[operators.find(str_m)];
         case BRACKET_CLOSE:
             return P_BRACKET_CLOSE;
         case BRACKET_OPEN:

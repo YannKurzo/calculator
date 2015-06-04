@@ -42,9 +42,9 @@ void Analyse::lexer(void) {
     cleanString();
     addBrackets();
     
-    int j;
+    unsigned int j;
     // Check whole input string
-    for(int i=0; i<str_m.length(); ++i)
+    for(unsigned int i=0; i<str_m.length(); ++i)
     {
         char c = str_m.at(i);
         // Check digit and numbers
@@ -71,7 +71,7 @@ void Analyse::lexer(void) {
                 tokenVector_m.push_back(Token(Token::BRACKET_CLOSE, str_m.substr(i, 1)));
             }
             // Check operators
-            else if(op.find(c) != string::npos)
+            else if(operators.find(c) != string::npos)
             {
                 tokenVector_m.push_back(Token(Token::OPERATOR, str_m.substr(i, 1)));
             }
@@ -87,7 +87,7 @@ void Analyse::lexer(void) {
                 j = i + 1;
                 while(j<str_m.length() && !(bracketsOpen.find(str_m.at(j)) != string::npos ||
                         bracketsClose.find(str_m.at(j)) != string::npos ||
-                        op.find(str_m.at(j)) != string::npos || isdigit(str_m.at(j))))
+                        operators.find(str_m.at(j)) != string::npos || isdigit(str_m.at(j))))
                     ++j;
 
                 tokenVector_m.push_back(Token(Token::FUNCTION, str_m.substr(i, j-i)));
