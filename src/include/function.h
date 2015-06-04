@@ -20,7 +20,6 @@
 
 #include "externalFunctions.h"
 
-#include <list>
 #include <string>
 #include <cmath>
 #include <map>

@@ -13,7 +13,9 @@
 
 #include "binTree.h"
 
-#include "function.h"
+#include <iostream>
+#include <string>
+#include <cmath>
 
 using namespace std;
 

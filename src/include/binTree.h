@@ -18,23 +18,12 @@
 #ifndef BINTREE_H
 #define	BINTREE_H
 
-#include <iostream>
-#include <string>
-#include <vector>
-#include <cmath>
-
-#include "function.h"
 #include "token.h"
+#include "function.h"
+
+#include <vector>
 
 #define DISPLAY_OPERATIONS
-
-//typedef struct {
-//    token_t token;
-//    
-//    token_t *previous;
-//    token_t *left;
-//    token_t *right;
-//}node_t;
 
 typedef std::vector<Token> TokenVector;
 typedef TokenVector::iterator ListIt;

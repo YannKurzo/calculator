@@ -13,6 +13,8 @@
 
 #include "token.h"
 
+#include <iostream>
+
 using namespace std;
 
 Token::Token(void)

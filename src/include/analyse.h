@@ -18,14 +18,10 @@
 #ifndef STRUCT_H
 #define	STRUCT_H
 
-#include <iostream>
-#include <string>
-#include <cctype>
-#include <list>
-#include <algorithm>
-
 #include "token.h"
 #include "binTree.h"
+
+#include <string>
 
 class Analyse
 { 

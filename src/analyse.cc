@@ -13,6 +13,10 @@
 
 #include "analyse.h"
 
+#include <iostream>
+#include <cctype>
+#include <algorithm>
+
 using namespace std;
 
 Analyse::Analyse(std::string str)
