@@ -14,7 +14,6 @@
 #include <iostream>
 #include <string>
 
-#include "exec.h"
 #include "analyse.h"
 
 using namespace std;

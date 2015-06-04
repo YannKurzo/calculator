@@ -42,18 +42,17 @@ class Analyse
         
     private:
         void cleanString(void);
-        void addBrackets(void);
 
     public:
         Analyse(std::string str);
         ~Analyse(void);
         
         void lexer(void);
-        void displayToken(void);
         void parserAndExec(void);
 
         double getResult() const;
 
+        void displayToken(void);
 };
 
 #endif	/* STRUCT_H */

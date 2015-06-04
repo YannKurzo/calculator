@@ -31,16 +31,10 @@ void Analyse::cleanString(void)
     str_m.erase(std::remove_if(str_m.begin(), str_m.end(), ::isspace), str_m.end());
 }
 
-void Analyse::addBrackets(void)
-{
-    
-}
-
 
 void Analyse::lexer(void) {
-    // Erase not unnecessary char and add brackets
+    // Erase unnecessary char
     cleanString();
-    addBrackets();
     
     unsigned int j;
     // Check whole input string
@@ -106,6 +100,18 @@ void Analyse::lexer(void) {
     }
 }
 
+void Analyse::parserAndExec(void)
+{
+    binTree_m = new BinTree(tokenVector_m);
+    
+    result_m = binTree_m->getResult();
+}
+
+double Analyse::getResult() const 
+{
+    return result_m;
+}
+
 void Analyse::displayToken(void)
 {
     for(ListIt it = tokenVector_m.begin(); it!=tokenVector_m.end(); ++it)
@@ -113,14 +119,4 @@ void Analyse::displayToken(void)
         cout << "\"" << *it<< "\" ";
     }
     cout << endl;
-}
-
-void Analyse::parserAndExec(void)
-{
-    binTree_m = new BinTree(tokenVector_m);
-}
-
-double Analyse::getResult() const 
-{
-    return binTree_m->getResult();
 }
