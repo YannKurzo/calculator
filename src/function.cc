@@ -20,7 +20,7 @@ using namespace std;
 
 unsigned int Function::getNbParameters(std::string str)
 {
-    void * ret = functions_m[str].func;
+    func_ptr ret = functions_m[str].func;
     
     if(ret == NULL)
     {
@@ -31,9 +31,9 @@ unsigned int Function::getNbParameters(std::string str)
     return functions_m[str].nbParameters;
 }
 
-void *Function::getFunction(std::string str)
+func_ptr Function::getFunction(std::string str)
 {
-    void * ret = functions_m[str].func;
+    func_ptr ret = functions_m[str].func;
     
     if(ret == NULL)
     {

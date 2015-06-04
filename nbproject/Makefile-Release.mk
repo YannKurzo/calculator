@@ -37,7 +37,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/src/analyse.o \
 	${OBJECTDIR}/src/binTree.o \
-	${OBJECTDIR}/src/exec.o \
 	${OBJECTDIR}/src/externalFunctions.o \
 	${OBJECTDIR}/src/function.o \
 	${OBJECTDIR}/src/main.o \
@@ -76,11 +75,6 @@ ${OBJECTDIR}/src/binTree.o: src/binTree.cc
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/binTree.o src/binTree.cc
-
-${OBJECTDIR}/src/exec.o: src/exec.cc 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/exec.o src/exec.cc
 
 ${OBJECTDIR}/src/externalFunctions.o: src/externalFunctions.cc 
 	${MKDIR} -p ${OBJECTDIR}/src

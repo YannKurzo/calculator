@@ -5,14 +5,12 @@
       <logicalFolder name="include" displayName="include" projectFiles="true">
         <itemPath>src/include/analyse.h</itemPath>
         <itemPath>src/include/binTree.h</itemPath>
-        <itemPath>src/include/exec.h</itemPath>
         <itemPath>src/include/externalFunctions.h</itemPath>
         <itemPath>src/include/function.h</itemPath>
         <itemPath>src/include/token.h</itemPath>
       </logicalFolder>
       <itemPath>src/analyse.cc</itemPath>
       <itemPath>src/binTree.cc</itemPath>
-      <itemPath>src/exec.cc</itemPath>
       <itemPath>src/externalFunctions.cc</itemPath>
       <itemPath>src/function.cc</itemPath>
       <itemPath>src/main.cc</itemPath>
@@ -41,6 +39,7 @@
           <incDir>
             <pElem>src/include</pElem>
           </incDir>
+          <commandLine>-pedantic -Wall -Wextra -Wcast-align -Wcast-qual -Wctor-dtor-privacy -Wdisabled-optimization -Wformat=2 -Winit-self -Wlogical-op -Wmissing-declarations -Wmissing-include-dirs -Wnoexcept -Wold-style-cast -Woverloaded-virtual -Wredundant-decls -Wshadow -Wsign-conversion -Wsign-promo -Wstrict-null-sentinel -Wstrict-overflow=5 -Wswitch-default -Wundef -Werror -Wno-unused -Wzero-as-null-pointer-constant -Wuseless-cast</commandLine>
         </ccTool>
         <linkerTool>
           <output>calculator</output>
@@ -50,8 +49,6 @@
       </item>
       <item path="src/binTree.cc" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/exec.cc" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/externalFunctions.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/function.cc" ex="false" tool="1" flavor2="0">
@@ -59,8 +56,6 @@
       <item path="src/include/analyse.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/binTree.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/include/exec.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/externalFunctions.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -105,8 +100,6 @@
       </item>
       <item path="src/binTree.cc" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/exec.cc" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/externalFunctions.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/function.cc" ex="false" tool="1" flavor2="0">
@@ -114,8 +107,6 @@
       <item path="src/include/analyse.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/binTree.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/include/exec.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/externalFunctions.h" ex="false" tool="3" flavor2="0">
       </item>

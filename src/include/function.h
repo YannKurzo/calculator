@@ -27,13 +27,15 @@
 
 #define MAX_NUMBER_PARAMETERS 5
 
-#define ADD(str, nbParameters, functionName) {str, {nbParameters, reinterpret_cast<void*>(&functionName)}}
+typedef void (*func_ptr)();
+
+#define ADD(str, nbParameters, functionName) {str, {nbParameters, reinterpret_cast<func_ptr>(&functionName)}}
 
 
 typedef struct
 {
     unsigned int nbParameters;
-    void *func;
+    func_ptr func;
     
 }function_t;
 
@@ -50,7 +52,7 @@ class Function
         
     public:
         static unsigned int getNbParameters(std::string str);
-        static void *getFunction(std::string str);
+        static func_ptr getFunction(std::string str);
 };
 
 // Specific call (return double)
