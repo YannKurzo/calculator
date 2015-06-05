@@ -35,6 +35,8 @@ int main(void)
     
     cout << endl << "Result:" << endl;
     cout << "        " << str << " = " << an.getResult() << endl << endl;
+	
+	getchar();
     
     return 0;
 }
