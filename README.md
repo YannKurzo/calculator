@@ -3,7 +3,7 @@
 This program can parse a string entered by the user. It calculates the mathematical result of the string.
 
 Working features:
-    Numbers
+Numbers
     Operators (+,-,*,/,^)
     Operator priority
     Brackets
