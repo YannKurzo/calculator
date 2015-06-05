@@ -12,3 +12,5 @@ Working features:
 Missing features (in development):
 - Check entered string
 - Only use double type
+- Use main arguments to enter string / or user input if empty
+- Show a list of the implemented functions
