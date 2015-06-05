@@ -4,11 +4,11 @@ This program can parse a string entered by the user. It calculates the mathemati
 
 Working features:
 Numbers
-    Operators (+,-,*,/,^)
-    Operator priority
-    Brackets
-    Functions
+- Operators (+,-,*,/,^)
+- Operator priority
+- Brackets
+- Functions
 
 Missing features (in development):
-    Check entered string
-    Only use double type
+- Check entered string
+- Only use double type
