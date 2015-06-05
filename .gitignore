@@ -4,6 +4,7 @@ calculator
 dist
 build
 *~
+autom4te.cache
 =======
 # Compiled Object files
 *.slo
