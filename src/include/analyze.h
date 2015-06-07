@@ -36,6 +36,7 @@ class Analyze
         BinTree *binTree_m;
         
     private:
+        /// @brief  Erase unnecessary characters in the string
         void cleanString(void);
 
     public:

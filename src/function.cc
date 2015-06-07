@@ -12,31 +12,16 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <exception>
 
 using namespace std;
 
 unsigned int Function::getNbParameters(std::string str)
 {
-    func_ptr ret = functions_m[str].func;
-    
-    if(ret == NULL)
-    {
-        cout << "Function \"" << str << "\" is not implemented!" << endl;
-        exit(EXIT_FAILURE);
-    }
-    
     return functions_m[str].nbParameters;
 }
 
 func_ptr Function::getFunction(std::string str)
 {
-    func_ptr ret = functions_m[str].func;
-    
-    if(ret == NULL)
-    {
-        cout << "Function \"" << str << "\" is not implemented!" << endl;
-        exit(EXIT_FAILURE);
-    }
-    
-    return ret;
+    return functions_m[str].func;
 }

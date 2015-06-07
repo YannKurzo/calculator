@@ -6,10 +6,11 @@
 /// @license GPL2
 //  ==================================================
 
+#include "analyze.h"
+
 #include <iostream>
 #include <string>
-
-#include "analyze.h"
+#include <exception>
 
 using namespace std;
 
@@ -17,19 +18,27 @@ int main(void)
 {
     string str("pow(2,pi()*pi())+pi()");
     
-    cout << "Calculator" << endl;
+    cout << "Calculator" << endl << endl;
     
     Analyze an(str);
     
-    cout << endl << "Lexer: " << endl;
-    an.lexer();
-    an.displayToken();
-    
-    cout << endl << "Parser and exec: " << endl;
-    an.parserAndExec();
-    
-    cout << endl << "Result:" << endl;
-    cout << "        " << str << " = " << an.getResult() << endl << endl;
+    try
+    {
+        // Get tokens
+        an.lexer();
+        an.displayToken();
+        
+        // Calculates
+        an.parserAndExec();
+
+        // Display result
+        cout << endl << "Result:" << endl;
+        cout << "        " << str << " = " << an.getResult() << endl << endl;
+    }
+    catch(exception const &e)
+    {
+        cerr << "Problem when analyzing entered string:\n\t" << e.what() << endl;
+    }
 	
 	cin.get();
     

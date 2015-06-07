@@ -13,9 +13,13 @@
 
 #include <iostream>
 #include <cctype>
+#include <cstdlib>
 #include <algorithm>
+#include <exception>
 
 using namespace std;
+
+#define THROW(str) throw runtime_error(str);
 
 Analyze::Analyze(std::string str)
 {
@@ -34,7 +38,8 @@ void Analyze::cleanString(void)
 }
 
 
-void Analyze::lexer(void) {
+void Analyze::lexer(void)
+{
     // Erase unnecessary char
     cleanString();
     
@@ -87,6 +92,12 @@ void Analyze::lexer(void) {
                     ++j;
 
                 tokenVector_m.push_back(Token(Token::FUNCTION, str_m.substr(i, j-i)));
+                
+                // Check if function exists
+                if(Function::getFunction(tokenVector_m.back().getStr()) == NULL)
+                {
+                    THROW("Function " + tokenVector_m.back().getStr() + "() is not implemented!");
+                }
 
                 i = j-1;
                 
