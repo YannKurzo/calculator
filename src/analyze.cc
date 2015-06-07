@@ -37,11 +37,42 @@ void Analyze::cleanString(void)
     str_m.erase(std::remove_if(str_m.begin(), str_m.end(), ::isspace), str_m.end());
 }
 
+void Analyze::checkBrackets(void)
+{
+    int bracketsCount = 0;
+    
+    // Check whole input string
+    for(unsigned int i=0; i<str_m.length(); ++i)
+    {
+        // Check brackets
+        if(bracketsOpen.find(str_m.at(i)) != string::npos)
+            ++bracketsCount;
+        
+        else if(bracketsClose.find(str_m.at(i)) != string::npos)
+            --bracketsCount;
+    }
+    
+    if(bracketsCount != 0)
+    {
+        if(bracketsCount > 0)
+        {
+            THROW("Missing " + std::to_string(bracketsCount) + " closing brackets!");
+        }
+        else
+        {
+            THROW("Missing " + std::to_string(-bracketsCount) + " opening brackets!");
+        }
+    }
+}
+
 
 void Analyze::lexer(void)
 {
     // Erase unnecessary char
     cleanString();
+    
+    // Check brackets
+    checkBrackets();
     
     unsigned int j;
     // Check whole input string
@@ -64,7 +95,6 @@ void Analyze::lexer(void)
             // Check brackets
             if(bracketsOpen.find(c) != string::npos)
             {
-                // If it is closing immediately, erase them
                 tokenVector_m.push_back(Token(Token::BRACKET_OPEN, str_m.substr(i, 1)));
             }
             else if(bracketsClose.find(c) != string::npos)

@@ -38,6 +38,9 @@ class Analyze
     private:
         /// @brief  Erase unnecessary characters in the string
         void cleanString(void);
+        
+        /// @brief  Throw an exception there is a problem with the brackets
+        void checkBrackets(void);
 
     public:
         /// @brief  Construct a calculation process
