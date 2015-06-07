@@ -1,19 +1,14 @@
 
-/*==================================================
- *
- * File:    token.h
- * 
- * Author:  Yann Kurzo
- *
- * Date:    May 17, 2015, 12:23 AM
- *
- * license: GPL2
- * 
- * Description:
- *          
- *
- ==================================================*/
-
+//  ==================================================
+/// @file   token.h
+/// @author Yann Kurzo
+/// @date   May 17, 2015, 12:23 AM
+/// @license GPL2
+/// @brief  A token represents a part of the input string.
+///         The string can be separated in multiple tokens. The following types
+///         are used: Closing brackets, Opening brackets, Functions, Operators,
+///         ... The operator priority is also defined here.
+//  ==================================================
 
 #ifndef TOKEN_H
 #define	TOKEN_H

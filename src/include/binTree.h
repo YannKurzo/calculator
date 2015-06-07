@@ -1,19 +1,11 @@
 
-/*==================================================
- *
- * File:    binTree.h
- * 
- * Author:  Yann Kurzo
- *
- * Date:    May 17, 2015, 2:06 AM
- *
- * license: GPL2
- * 
- * Description:
- *          
- *
- ==================================================*/
-
+//  ==================================================
+/// @file   binTree.h
+/// @author Yann Kurzo
+/// @date   May 17, 2015, 2:06 AM
+/// @license GPL2
+/// @brief  
+//  ==================================================
 
 #ifndef BINTREE_H
 #define	BINTREE_H
@@ -28,6 +20,8 @@
 typedef std::vector<Token> TokenVector;
 typedef TokenVector::iterator ListIt;
 
+/// @brief  This class simulates a binary tree.
+///         
 class BinTree
 {
     private:
