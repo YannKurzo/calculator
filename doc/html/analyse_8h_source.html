@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>calculator: /home/yann/Documents/Programmation/C++/calculator/src/include/analyse.h Source File</title>
+<title>calculator: /home/yann/Documents/Programmation/C++/calculator/calculator/src/include/analyse.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_46ec98a0eaec3dba456c3e63c7772753.html">calculator</a></li><li class="navelem"><a class="el" href="dir_4d25385cc4f28a0e5e556b1dc9dd8101.html">src</a></li><li class="navelem"><a class="el" href="dir_a3e243fe0219ca27751044f95fc85b4a.html">include</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b0856f6b0d80ccb263b2f415c91f9e17.html">include</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -88,67 +88,62 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">analyse.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/*==================================================</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * File:    analyse.h</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * </span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * Author:  Yann Kurzo</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * Date:    May 11, 2015, 9:32 PM</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * license: GPL2</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * </span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * Description:</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *          </span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> ==================================================*/</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<a href="analyse_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  ==================================================</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"></span><span class="comment">//  ==================================================</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef STRUCT_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define STRUCT_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;token.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;binTree.h&quot;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifndef STRUCT_H</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define STRUCT_H</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;token.h&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;binTree.h&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_analyse.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_analyse.html">Analyse</a></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{ </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="comment">// Input / Output</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        std::string str_m;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">double</span> result_m;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="comment">// List of token</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        TokenVector tokenVector_m;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="comment">// Binary tree</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="class_bin_tree.html">BinTree</a> *binTree_m;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">void</span> cleanString(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="class_analyse.html">Analyse</a>(std::string str);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        ~<a class="code" href="class_analyse.html">Analyse</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_analyse.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_analyse.html">Analyse</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{ </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_analyse.html#ace0383d76445d4f32322f7e714b2bf48">   28</a></span>&#160;        std::string <a class="code" href="class_analyse.html#ace0383d76445d4f32322f7e714b2bf48">str_m</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_analyse.html#ab3b9069ef8f159ca3bfe130570b41dd0">   30</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_analyse.html#ab3b9069ef8f159ca3bfe130570b41dd0">result_m</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_analyse.html#aab3807087a5686bb6857c9b9e6c05046">   33</a></span>&#160;        TokenVector <a class="code" href="class_analyse.html#aab3807087a5686bb6857c9b9e6c05046">tokenVector_m</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_analyse.html#a6539243dd10704caff86d24152859ffb">   36</a></span>&#160;        <a class="code" href="class_bin_tree.html">BinTree</a> *<a class="code" href="class_analyse.html#a6539243dd10704caff86d24152859ffb">binTree_m</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">void</span> cleanString(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="class_analyse.html#a58dffeb88781b6f66f32ed5536a3dc2b">Analyse</a>(std::string str);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">void</span> lexer(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">void</span> parserAndExec(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">double</span> getResult() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">void</span> displayToken(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="class_analyse.html#a6bb841ef53109f0f89bd5930f963eeb5">~Analyse</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_analyse.html#aff1a78a8c6cb282820fdbefee302c4a8">lexer</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_analyse.html#a2714cd48d2d902800407d56e23351440">parserAndExec</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* STRUCT_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_analyse.html#a7eb131b3026496b43560657b624c8788">getResult</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_analyse.html#a77d54e46123bd219487cf2e2479402e6">displayToken</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* STRUCT_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor"></span></div>
+<div class="ttc" id="class_analyse_html_aab3807087a5686bb6857c9b9e6c05046"><div class="ttname"><a href="class_analyse.html#aab3807087a5686bb6857c9b9e6c05046">Analyse::tokenVector_m</a></div><div class="ttdeci">TokenVector tokenVector_m</div><div class="ttdoc">List of tokens for the calculation. </div><div class="ttdef"><b>Definition:</b> analyse.h:33</div></div>
+<div class="ttc" id="class_analyse_html_a6bb841ef53109f0f89bd5930f963eeb5"><div class="ttname"><a href="class_analyse.html#a6bb841ef53109f0f89bd5930f963eeb5">Analyse::~Analyse</a></div><div class="ttdeci">~Analyse(void)</div><div class="ttdoc">Destructor. </div></div>
+<div class="ttc" id="class_analyse_html_a58dffeb88781b6f66f32ed5536a3dc2b"><div class="ttname"><a href="class_analyse.html#a58dffeb88781b6f66f32ed5536a3dc2b">Analyse::Analyse</a></div><div class="ttdeci">Analyse(std::string str)</div><div class="ttdoc">Construct a calculation process. </div></div>
 <div class="ttc" id="class_bin_tree_html"><div class="ttname"><a href="class_bin_tree.html">BinTree</a></div><div class="ttdef"><b>Definition:</b> binTree.h:31</div></div>
-<div class="ttc" id="class_analyse_html"><div class="ttname"><a href="class_analyse.html">Analyse</a></div><div class="ttdef"><b>Definition:</b> analyse.h:26</div></div>
+<div class="ttc" id="class_analyse_html_a7eb131b3026496b43560657b624c8788"><div class="ttname"><a href="class_analyse.html#a7eb131b3026496b43560657b624c8788">Analyse::getResult</a></div><div class="ttdeci">double getResult() const </div><div class="ttdoc">Get the result. </div></div>
+<div class="ttc" id="class_analyse_html_aff1a78a8c6cb282820fdbefee302c4a8"><div class="ttname"><a href="class_analyse.html#aff1a78a8c6cb282820fdbefee302c4a8">Analyse::lexer</a></div><div class="ttdeci">void lexer(void)</div><div class="ttdoc">Analyzes and separates in tokens the string to compute. </div></div>
+<div class="ttc" id="class_analyse_html_a6539243dd10704caff86d24152859ffb"><div class="ttname"><a href="class_analyse.html#a6539243dd10704caff86d24152859ffb">Analyse::binTree_m</a></div><div class="ttdeci">BinTree * binTree_m</div><div class="ttdoc">Binary tree to compute the list of tokens. </div><div class="ttdef"><b>Definition:</b> analyse.h:36</div></div>
+<div class="ttc" id="class_analyse_html_ace0383d76445d4f32322f7e714b2bf48"><div class="ttname"><a href="class_analyse.html#ace0383d76445d4f32322f7e714b2bf48">Analyse::str_m</a></div><div class="ttdeci">std::string str_m</div><div class="ttdoc">String to compute. </div><div class="ttdef"><b>Definition:</b> analyse.h:28</div></div>
+<div class="ttc" id="class_analyse_html"><div class="ttname"><a href="class_analyse.html">Analyse</a></div><div class="ttdoc">This class manages the complete calculation. </div><div class="ttdef"><b>Definition:</b> analyse.h:24</div></div>
+<div class="ttc" id="class_analyse_html_ab3b9069ef8f159ca3bfe130570b41dd0"><div class="ttname"><a href="class_analyse.html#ab3b9069ef8f159ca3bfe130570b41dd0">Analyse::result_m</a></div><div class="ttdeci">double result_m</div><div class="ttdoc">Result of the calculation. </div><div class="ttdef"><b>Definition:</b> analyse.h:30</div></div>
+<div class="ttc" id="class_analyse_html_a2714cd48d2d902800407d56e23351440"><div class="ttname"><a href="class_analyse.html#a2714cd48d2d902800407d56e23351440">Analyse::parserAndExec</a></div><div class="ttdeci">void parserAndExec(void)</div><div class="ttdoc">Analyzes the list of tokens and calculates the result. </div></div>
+<div class="ttc" id="class_analyse_html_a77d54e46123bd219487cf2e2479402e6"><div class="ttname"><a href="class_analyse.html#a77d54e46123bd219487cf2e2479402e6">Analyse::displayToken</a></div><div class="ttdeci">void displayToken(void)</div><div class="ttdoc">Display the list of tokens. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 4 2015 23:39:15 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 7 2015 23:37:15 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

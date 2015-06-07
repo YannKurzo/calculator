@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,20 +89,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_analyse.html">Analyse</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Analyse</b>(std::string str) (defined in <a class="el" href="class_analyse.html">Analyse</a>)</td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>binTree_m</b> (defined in <a class="el" href="class_analyse.html">Analyse</a>)</td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>displayToken</b>(void) (defined in <a class="el" href="class_analyse.html">Analyse</a>)</td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getResult</b>() const  (defined in <a class="el" href="class_analyse.html">Analyse</a>)</td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>lexer</b>(void) (defined in <a class="el" href="class_analyse.html">Analyse</a>)</td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>parserAndExec</b>(void) (defined in <a class="el" href="class_analyse.html">Analyse</a>)</td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>result_m</b> (defined in <a class="el" href="class_analyse.html">Analyse</a>)</td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>str_m</b> (defined in <a class="el" href="class_analyse.html">Analyse</a>)</td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>tokenVector_m</b> (defined in <a class="el" href="class_analyse.html">Analyse</a>)</td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>~Analyse</b>(void) (defined in <a class="el" href="class_analyse.html">Analyse</a>)</td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_analyse.html#a58dffeb88781b6f66f32ed5536a3dc2b">Analyse</a>(std::string str)</td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_analyse.html#a6539243dd10704caff86d24152859ffb">binTree_m</a></td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_analyse.html#a77d54e46123bd219487cf2e2479402e6">displayToken</a>(void)</td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_analyse.html#a7eb131b3026496b43560657b624c8788">getResult</a>() const </td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_analyse.html#aff1a78a8c6cb282820fdbefee302c4a8">lexer</a>(void)</td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_analyse.html#a2714cd48d2d902800407d56e23351440">parserAndExec</a>(void)</td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_analyse.html#ab3b9069ef8f159ca3bfe130570b41dd0">result_m</a></td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_analyse.html#ace0383d76445d4f32322f7e714b2bf48">str_m</a></td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_analyse.html#aab3807087a5686bb6857c9b9e6c05046">tokenVector_m</a></td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_analyse.html#a6bb841ef53109f0f89bd5930f963eeb5">~Analyse</a>(void)</td><td class="entry"><a class="el" href="class_analyse.html">Analyse</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 4 2015 23:39:15 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 7 2015 23:37:15 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
