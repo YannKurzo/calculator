@@ -14,7 +14,7 @@
 #include <iostream>
 #include <string>
 
-#include "analyse.h"
+#include "analyze.h"
 
 using namespace std;
 
@@ -24,7 +24,7 @@ int main(void)
     
     cout << "Calculator" << endl;
     
-    Analyse an(str);
+    Analyze an(str);
     
     cout << endl << "Lexer: " << endl;
     an.lexer();

@@ -35,7 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/src/analyse.o \
+	${OBJECTDIR}/src/analyze.o \
 	${OBJECTDIR}/src/binTree.o \
 	${OBJECTDIR}/src/externalFunctions.o \
 	${OBJECTDIR}/src/function.o \
@@ -66,10 +66,10 @@ LDLIBSOPTIONS=
 calculator: ${OBJECTFILES}
 	${LINK.cc} -o calculator ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/src/analyse.o: src/analyse.cc 
+${OBJECTDIR}/src/analyze.o: src/analyze.cc 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/analyse.o src/analyse.cc
+	$(COMPILE.cc) -g -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/analyze.o src/analyze.cc
 
 ${OBJECTDIR}/src/binTree.o: src/binTree.cc 
 	${MKDIR} -p ${OBJECTDIR}/src

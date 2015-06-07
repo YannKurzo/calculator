@@ -11,7 +11,7 @@
  *
  ==================================================*/
 
-#include "analyse.h"
+#include "analyze.h"
 
 #include <iostream>
 #include <cctype>
@@ -19,24 +19,24 @@
 
 using namespace std;
 
-Analyse::Analyse(std::string str)
+Analyze::Analyze(std::string str)
 {
     str_m = str;
     result_m = 0;
 }
 
-Analyse::~Analyse(void)
+Analyze::~Analyze(void)
 {
     delete binTree_m;
 }
 
-void Analyse::cleanString(void)
+void Analyze::cleanString(void)
 {
     str_m.erase(std::remove_if(str_m.begin(), str_m.end(), ::isspace), str_m.end());
 }
 
 
-void Analyse::lexer(void) {
+void Analyze::lexer(void) {
     // Erase unnecessary char
     cleanString();
     
@@ -104,19 +104,19 @@ void Analyse::lexer(void) {
     }
 }
 
-void Analyse::parserAndExec(void)
+void Analyze::parserAndExec(void)
 {
     binTree_m = new BinTree(tokenVector_m);
     
     result_m = binTree_m->getResult();
 }
 
-double Analyse::getResult() const 
+double Analyze::getResult() const 
 {
     return result_m;
 }
 
-void Analyse::displayToken(void)
+void Analyze::displayToken(void)
 {
     for(ListIt it = tokenVector_m.begin(); it!=tokenVector_m.end(); ++it)
     {

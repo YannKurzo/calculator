@@ -3,13 +3,13 @@
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="src" displayName="src" projectFiles="true">
       <logicalFolder name="include" displayName="include" projectFiles="true">
-        <itemPath>src/include/analyse.h</itemPath>
+        <itemPath>src/include/analyze.h</itemPath>
         <itemPath>src/include/binTree.h</itemPath>
         <itemPath>src/include/externalFunctions.h</itemPath>
         <itemPath>src/include/function.h</itemPath>
         <itemPath>src/include/token.h</itemPath>
       </logicalFolder>
-      <itemPath>src/analyse.cc</itemPath>
+      <itemPath>src/analyze.cc</itemPath>
       <itemPath>src/binTree.cc</itemPath>
       <itemPath>src/externalFunctions.cc</itemPath>
       <itemPath>src/function.cc</itemPath>
@@ -45,7 +45,7 @@
           <output>calculator</output>
         </linkerTool>
       </compileType>
-      <item path="src/analyse.cc" ex="false" tool="1" flavor2="0">
+      <item path="src/analyze.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/binTree.cc" ex="false" tool="1" flavor2="0">
       </item>
@@ -53,7 +53,7 @@
       </item>
       <item path="src/function.cc" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/include/analyse.h" ex="false" tool="3" flavor2="0">
+      <item path="src/include/analyze.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/binTree.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -96,7 +96,7 @@
           <output>calculator</output>
         </linkerTool>
       </compileType>
-      <item path="src/analyse.cc" ex="false" tool="1" flavor2="0">
+      <item path="src/analyze.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/binTree.cc" ex="false" tool="1" flavor2="0">
       </item>
@@ -104,7 +104,7 @@
       </item>
       <item path="src/function.cc" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/include/analyse.h" ex="false" tool="3" flavor2="0">
+      <item path="src/include/analyze.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/binTree.h" ex="false" tool="3" flavor2="0">
       </item>

@@ -9,8 +9,8 @@
 ///         of a string entered by the user.
 //  ==================================================
 
-#ifndef STRUCT_H
-#define	STRUCT_H
+#ifndef ANALYZE_H
+#define	ANALYZE_H
 
 #include "token.h"
 #include "binTree.h"
@@ -21,7 +21,7 @@
 /// @note   After creating the class with the constructor, the member functions
 ///         lexer() and parserAndExec() should be called in order before
 ///         getting the result with the getResult() function.
-class Analyse
+class Analyze
 { 
     protected:
         /// String to compute
@@ -41,10 +41,10 @@ class Analyse
     public:
         /// @brief  Construct a calculation process
         /// @param  str String to compute
-        Analyse(std::string str);
+        Analyze(std::string str);
         
         /// @brief  Destructor
-        ~Analyse(void);
+        ~Analyze(void);
         
         /// @brief  Analyzes and separates in tokens the string to compute
         void lexer(void);
@@ -58,5 +58,5 @@ class Analyse
         void displayToken(void);
 };
 
-#endif	/* STRUCT_H */
+#endif	/* ANALYZE_H */
 
