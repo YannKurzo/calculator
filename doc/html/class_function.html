@@ -71,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,23 +89,95 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Function Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class to get the actual function if it exists.  
+ <a href="class_function.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="function_8h_source.html">function.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:af94043af6732cf11fb8210d1f79ad66a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af94043af6732cf11fb8210d1f79ad66a"></a>
-static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getNbParameters</b> (std::string str)</td></tr>
+<tr class="memitem:af94043af6732cf11fb8210d1f79ad66a"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_function.html#af94043af6732cf11fb8210d1f79ad66a">getNbParameters</a> (std::string str)</td></tr>
+<tr class="memdesc:af94043af6732cf11fb8210d1f79ad66a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of parameters of the function.  <a href="#af94043af6732cf11fb8210d1f79ad66a">More...</a><br/></td></tr>
 <tr class="separator:af94043af6732cf11fb8210d1f79ad66a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a729042286d2b314dd4f5f5bb1394f4f0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a729042286d2b314dd4f5f5bb1394f4f0"></a>
-static func_ptr&#160;</td><td class="memItemRight" valign="bottom"><b>getFunction</b> (std::string str)</td></tr>
+<tr class="memitem:a729042286d2b314dd4f5f5bb1394f4f0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="function_8h.html#ad31d400be55ada6bfa42b57b42b2a985">func_ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_function.html#a729042286d2b314dd4f5f5bb1394f4f0">getFunction</a> (std::string str)</td></tr>
+<tr class="memdesc:a729042286d2b314dd4f5f5bb1394f4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a pointer on the function to call.  <a href="#a729042286d2b314dd4f5f5bb1394f4f0">More...</a><br/></td></tr>
 <tr class="separator:a729042286d2b314dd4f5f5bb1394f4f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class to get the actual function if it exists. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a729042286d2b314dd4f5f5bb1394f4f0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="function_8h.html#ad31d400be55ada6bfa42b57b42b2a985">func_ptr</a> Function::getFunction </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a pointer on the function to call. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Name of the function </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="af94043af6732cf11fb8210d1f79ad66a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static unsigned int Function::getNbParameters </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the number of parameters of the function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Name of the function </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/yann/Documents/Programmation/C++/calculator/calculator/src/include/<a class="el" href="function_8h_source.html">function.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 7 2015 23:37:15 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 8 2015 00:24:22 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

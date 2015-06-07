@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['bintree',['BinTree',['../class_bin_tree.html',1,'']]]
+  ['function',['Function',['../class_function.html',1,'']]],
+  ['function_5ft',['function_t',['../structfunction__t.html',1,'']]]
 ];

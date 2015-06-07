@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['analyse',['Analyse',['../class_analyse.html',1,'']]]
+  ['bintree',['BinTree',['../class_bin_tree.html',1,'']]]
 ];

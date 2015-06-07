@@ -64,6 +64,7 @@ class Function
         static func_ptr getFunction(std::string str);
 };
 
+/// @cond   Template based code / not on doxygen
 // Specific call (return double)
 template<class... Ts>
 double call(std::string str, const Ts&... args)
@@ -77,6 +78,7 @@ double call(std::string str, const Ts&... args)
 //{	
 //    return reinterpret_cast<ReturnType(*)(Ts...)>(function)(args...);
 //}
+/// @cond
 
 
 #endif	/* FUNCTION_H */

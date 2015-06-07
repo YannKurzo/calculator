@@ -1,0 +1,43 @@
+\hypertarget{token_8h}{\section{/home/yann/\-Documents/\-Programmation/\-C++/calculator/calculator/src/include/token.h File Reference}
+\label{token_8h}\index{/home/yann/\-Documents/\-Programmation/\-C++/calculator/calculator/src/include/token.\-h@{/home/yann/\-Documents/\-Programmation/\-C++/calculator/calculator/src/include/token.\-h}}
+}
+
+
+A token represents a part of the input string. The string can be separated in multiple tokens. The following types are used\-: Closing brackets, Opening brackets, Functions, Operators, ... The operator priority is also defined here.  
+
+
+{\ttfamily \#include $<$string$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_token}{Token}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries priority\-\_\-t} \{ \\*
+{\bfseries P\-\_\-\-B\-R\-A\-C\-K\-E\-T\-\_\-\-C\-L\-O\-S\-E}, 
+{\bfseries P\-\_\-\-B\-R\-A\-C\-K\-E\-T\-\_\-\-O\-P\-E\-N}, 
+{\bfseries P\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}, 
+{\bfseries P\-\_\-\-O\-P\-\_\-\-P\-O\-W\-E\-R}, 
+\\*
+{\bfseries P\-\_\-\-O\-P\-\_\-\-M\-U\-L}, 
+{\bfseries P\-\_\-\-O\-P\-\_\-\-P\-L\-U\-S}, 
+{\bfseries P\-\_\-\-L\-O\-W\-E\-R}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{token_8h_a214608c725ad5a18d7c18a8e10d878fe}{std\-::ostream \& {\bfseries operator$<$$<$} (std\-::ostream \&flow, \hyperlink{class_token}{Token} const \&token)}\label{token_8h_a214608c725ad5a18d7c18a8e10d878fe}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A token represents a part of the input string. The string can be separated in multiple tokens. The following types are used\-: Closing brackets, Opening brackets, Functions, Operators, ... The operator priority is also defined here. \begin{DoxyAuthor}{Author}
+Yann Kurzo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+May 17, 2015, 12\-:23 A\-M  G\-P\-L2 
+\end{DoxyDate}

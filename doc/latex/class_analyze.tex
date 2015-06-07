@@ -1,0 +1,79 @@
+\hypertarget{class_analyze}{\section{Analyze Class Reference}
+\label{class_analyze}\index{Analyze@{Analyze}}
+}
+
+
+This class manages the complete calculation.  
+
+
+
+
+{\ttfamily \#include $<$analyze.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_analyze_a12151b9c257f0d9c3cb29c9437a2e2fe}{Analyze} (std\-::string str)
+\begin{DoxyCompactList}\small\item\em Construct a calculation process. \end{DoxyCompactList}\item 
+\hypertarget{class_analyze_a7e2d7d56afe79f627f494489b500a2ae}{\hyperlink{class_analyze_a7e2d7d56afe79f627f494489b500a2ae}{$\sim$\-Analyze} (void)}\label{class_analyze_a7e2d7d56afe79f627f494489b500a2ae}
+
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\hypertarget{class_analyze_a1090a6b9655c4770707d65ee8ebc124a}{void \hyperlink{class_analyze_a1090a6b9655c4770707d65ee8ebc124a}{lexer} (void)}\label{class_analyze_a1090a6b9655c4770707d65ee8ebc124a}
+
+\begin{DoxyCompactList}\small\item\em Analyzes and separates in tokens the string to compute. \end{DoxyCompactList}\item 
+\hypertarget{class_analyze_aa07a4a854c10eec4f7e79bc3671dfcf8}{void \hyperlink{class_analyze_aa07a4a854c10eec4f7e79bc3671dfcf8}{parser\-And\-Exec} (void)}\label{class_analyze_aa07a4a854c10eec4f7e79bc3671dfcf8}
+
+\begin{DoxyCompactList}\small\item\em Analyzes the list of tokens and calculates the result. \end{DoxyCompactList}\item 
+\hypertarget{class_analyze_a8bc8ac0d37292d3083966c4a6bd8b13b}{double \hyperlink{class_analyze_a8bc8ac0d37292d3083966c4a6bd8b13b}{get\-Result} () const }\label{class_analyze_a8bc8ac0d37292d3083966c4a6bd8b13b}
+
+\begin{DoxyCompactList}\small\item\em Get the result. \end{DoxyCompactList}\item 
+\hypertarget{class_analyze_a9e9e81737e81f2cef3d3d3888370a845}{void \hyperlink{class_analyze_a9e9e81737e81f2cef3d3d3888370a845}{display\-Token} (void)}\label{class_analyze_a9e9e81737e81f2cef3d3d3888370a845}
+
+\begin{DoxyCompactList}\small\item\em Display the list of tokens. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_analyze_a5eaf2648206b44a7136f00f6f2aea716}{std\-::string \hyperlink{class_analyze_a5eaf2648206b44a7136f00f6f2aea716}{str\-\_\-m}}\label{class_analyze_a5eaf2648206b44a7136f00f6f2aea716}
+
+\begin{DoxyCompactList}\small\item\em String to compute. \end{DoxyCompactList}\item 
+\hypertarget{class_analyze_ac5e2e04f7a6530205899bfc8089e6a1b}{double \hyperlink{class_analyze_ac5e2e04f7a6530205899bfc8089e6a1b}{result\-\_\-m}}\label{class_analyze_ac5e2e04f7a6530205899bfc8089e6a1b}
+
+\begin{DoxyCompactList}\small\item\em Result of the calculation. \end{DoxyCompactList}\item 
+\hypertarget{class_analyze_a0cb9f60bf517b50df90aa9669199f61c}{Token\-Vector \hyperlink{class_analyze_a0cb9f60bf517b50df90aa9669199f61c}{token\-Vector\-\_\-m}}\label{class_analyze_a0cb9f60bf517b50df90aa9669199f61c}
+
+\begin{DoxyCompactList}\small\item\em List of tokens for the calculation. \end{DoxyCompactList}\item 
+\hypertarget{class_analyze_a39e0800126b89524cad70e84b5bb3704}{\hyperlink{class_bin_tree}{Bin\-Tree} $\ast$ \hyperlink{class_analyze_a39e0800126b89524cad70e84b5bb3704}{bin\-Tree\-\_\-m}}\label{class_analyze_a39e0800126b89524cad70e84b5bb3704}
+
+\begin{DoxyCompactList}\small\item\em Binary tree to compute the list of tokens. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class manages the complete calculation. 
+
+\begin{DoxyNote}{Note}
+After creating the class with the constructor, the member functions \hyperlink{class_analyze_a1090a6b9655c4770707d65ee8ebc124a}{lexer()} and \hyperlink{class_analyze_aa07a4a854c10eec4f7e79bc3671dfcf8}{parser\-And\-Exec()} should be called in order before getting the result with the \hyperlink{class_analyze_a8bc8ac0d37292d3083966c4a6bd8b13b}{get\-Result()} function. 
+\end{DoxyNote}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_analyze_a12151b9c257f0d9c3cb29c9437a2e2fe}{\index{Analyze@{Analyze}!Analyze@{Analyze}}
+\index{Analyze@{Analyze}!Analyze@{Analyze}}
+\subsubsection[{Analyze}]{\setlength{\rightskip}{0pt plus 5cm}Analyze\-::\-Analyze (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{str}
+\end{DoxyParamCaption}
+)}}\label{class_analyze_a12151b9c257f0d9c3cb29c9437a2e2fe}
+
+
+Construct a calculation process. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & String to compute \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+/home/yann/\-Documents/\-Programmation/\-C++/calculator/calculator/src/include/\hyperlink{analyze_8h}{analyze.\-h}\end{DoxyCompactItemize}
