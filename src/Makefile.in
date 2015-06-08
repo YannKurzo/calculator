@@ -90,7 +90,7 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_calculator_OBJECTS = main.$(OBJEXT) analyse.$(OBJEXT) \
+am_calculator_OBJECTS = main.$(OBJEXT) analyze.$(OBJEXT) \
 	binTree.$(OBJEXT) externalFunctions.$(OBJEXT) \
 	function.$(OBJEXT) token.$(OBJEXT)
 calculator_OBJECTS = $(am_calculator_OBJECTS)
@@ -243,7 +243,7 @@ AM_CPPFLAGS = -I$(srcdir)/include -std=c++11 -pedantic -Wall -Wextra \
 	-Wshadow -Wsign-conversion -Wsign-promo -Wstrict-null-sentinel \
 	-Wstrict-overflow=5 -Wswitch-default -Wundef -Werror \
 	-Wno-unused -Wzero-as-null-pointer-constant -Wuseless-cast
-calculator_SOURCES = main.cc analyse.cc binTree.cc externalFunctions.cc function.cc token.cc
+calculator_SOURCES = main.cc analyze.cc binTree.cc externalFunctions.cc function.cc token.cc
 all: all-am
 
 .SUFFIXES:
@@ -331,7 +331,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/analyse.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/analyze.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/binTree.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/externalFunctions.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/function.Po@am__quote@
