@@ -29,7 +29,7 @@ Analyze::Analyze(std::string str)
 
 Analyze::~Analyze(void)
 {
-    delete binTree_m;
+    
 }
 
 void Analyze::cleanString(void)
@@ -146,9 +146,11 @@ void Analyze::lexer(void)
 
 void Analyze::parserAndExec(void)
 {
-    binTree_m = new BinTree(tokenVector_m);
+    ParserExec parserExec(tokenVector_m);
     
-    result_m = binTree_m->getResult();
+    parserExec.start();
+    
+    result_m = parserExec.getResult();
 }
 
 double Analyze::getResult() const 

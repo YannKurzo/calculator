@@ -22,7 +22,7 @@ typedef TokenVector::iterator ListIt;
 
 /// @brief  This class simulates a binary tree.
 ///         
-class BinTree
+class ParserExec
 {
     private:
         TokenVector tokenVector_m;
@@ -35,11 +35,9 @@ class BinTree
         double execOperator(char op, double left, double right);
         
     public:
-        BinTree(void);
-        BinTree(TokenVector &tokenList);
-        ~BinTree(void);
+        ParserExec(TokenVector &tokenList);
         
-        void init(void);
+        void start(void);
         
         void exec(Token &root, Token &left, Token &right);
         

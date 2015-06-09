@@ -32,9 +32,6 @@ class Analyze
         /// List of tokens for the calculation
         TokenVector tokenVector_m;
         
-        /// Binary tree to compute the list of tokens
-        BinTree *binTree_m;
-        
     private:
         /// @brief  Erase unnecessary characters in the string
         void cleanString(void);

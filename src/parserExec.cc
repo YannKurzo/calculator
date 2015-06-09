@@ -20,24 +20,12 @@
 using namespace std;
 
 
-BinTree::BinTree(void)
-{
-    
-}
-
-BinTree::BinTree(TokenVector &tokenList) :
-    BinTree()
+ParserExec::ParserExec(TokenVector &tokenList)
 {
     tokenVector_m = tokenList;
-    init();
-}
-
-BinTree::~BinTree(void)
-{
-    
 }
         
-void BinTree::init(void)
+void ParserExec::start(void)
 {
     ListIt it = tokenVector_m.begin();
     ListIt min = tokenVector_m.begin();
@@ -47,7 +35,7 @@ void BinTree::init(void)
     algo(0, tokenVector_m.size()-1);
 }
 
-unsigned int BinTree::algo(unsigned int min, unsigned int max)
+unsigned int ParserExec::algo(unsigned int min, unsigned int max)
 {
     while(max - min >= 1)
     {
@@ -100,7 +88,7 @@ unsigned int BinTree::algo(unsigned int min, unsigned int max)
     return max;
 }
 
-unsigned int BinTree::findHighestOp(unsigned int min, unsigned int max)
+unsigned int ParserExec::findHighestOp(unsigned int min, unsigned int max)
 {
     unsigned int ret = min;
     int priority = tokenVector_m[min].getPriority();
@@ -116,7 +104,7 @@ unsigned int BinTree::findHighestOp(unsigned int min, unsigned int max)
     return ret;
 }
 
-unsigned int BinTree::exec(unsigned int func)
+unsigned int ParserExec::exec(unsigned int func)
 {
     // Get function name
     string str = tokenVector_m[func].getStr();
@@ -151,7 +139,7 @@ unsigned int BinTree::exec(unsigned int func)
     return nbPar;
 }
 
-void BinTree::exec(Token &root, Token &left, Token &right)
+void ParserExec::exec(Token &root, Token &left, Token &right)
 { 
     if(root.getType() == Token::eTOKENTYPE_OPERATOR)
     {
@@ -165,7 +153,7 @@ void BinTree::exec(Token &root, Token &left, Token &right)
     }
 }
 
-double BinTree::execOperator(char op, double left, double right)
+double ParserExec::execOperator(char op, double left, double right)
 {
     switch(op)
     {
@@ -185,7 +173,7 @@ double BinTree::execOperator(char op, double left, double right)
 }
 
 
-double BinTree::getResult(void) const
+double ParserExec::getResult(void) const
 {
     return tokenVector_m.begin()->getN();
 }
