@@ -14,6 +14,7 @@ Missing features (in development):
 - Only use double type
 - Use main arguments to enter string / or user input if empty
 - Show a list of the implemented functions
+- Add modulo %
 
 Code
 - Finish parserExec
