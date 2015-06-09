@@ -52,6 +52,7 @@ class Analyze
         
         /// @brief  Analyzes and separates in tokens the string to compute
         void lexer(void);
+        
         /// @brief  Analyzes the list of tokens and calculates the result
         void parserAndExec(void);
 
