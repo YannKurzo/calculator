@@ -14,3 +14,8 @@ Missing features (in development):
 - Only use double type
 - Use main arguments to enter string / or user input if empty
 - Show a list of the implemented functions
+
+Code
+- Finish parserExec
+- User lexe class
+- Use references when possible
