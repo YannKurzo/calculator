@@ -103,13 +103,13 @@ unsigned int BinTree::algo(unsigned int min, unsigned int max)
 unsigned int BinTree::findHighestOp(unsigned int min, unsigned int max)
 {
     unsigned int ret = min;
-    int priority = tokenVector_m[min].getOpPriority();
+    int priority = tokenVector_m[min].getPriority();
     
     for(unsigned int i = min+1; i<=max; ++i)
     {
-        if(tokenVector_m[i].getOpPriority() < priority)
+        if(tokenVector_m[i].getPriority() < priority)
         {
-            priority = tokenVector_m[i].getOpPriority();
+            priority = tokenVector_m[i].getPriority();
             ret = i;
         }
     }
@@ -134,7 +134,6 @@ unsigned int BinTree::exec(unsigned int func)
     
     // Update vector
     tokenVector_m[func].setN(res);
-    tokenVector_m[func].setType(Token::NUMBER);
     
 #ifdef DISPLAY_OPERATIONS
         cout << str << "(";
@@ -163,8 +162,6 @@ void BinTree::exec(Token &root, Token &left, Token &right)
 #ifdef DISPLAY_OPERATIONS
         cout << l << " " << root.getStr() << " " << r << " = " << root.getN() << endl;
 #endif
-        
-        root.setType(Token::NUMBER);
     }
 }
 

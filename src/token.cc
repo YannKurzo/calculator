@@ -14,51 +14,36 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <cmath>
 
 using namespace std;
 
 
-Token::Token(const Token &token)
-{
-    type_m = token.type_m;
-    str_m = token.str_m;
-    n_m = token.n_m;
-}
-
 Token::Token(tokenType_t type, std::string str)
 {
-    type_m = type;
-    str_m = str;
-    
-    if(type_m == NUMBER)
-        n_m = ::atof(str_m.c_str());
+    setStr(type, str);
 }
 
-int Token::getOpPriority(void) const
-{
-    switch(type_m)
-    {
-        case OPERATOR:
-            return opPriority[operators.find(str_m)];
-        case BRACKET_CLOSE:
-            return P_BRACKET_CLOSE;
-        case BRACKET_OPEN:
-            return P_BRACKET_OPEN;
-        case FUNCTION:
-            return P_FUNCTION;
-        default:
-            return P_LOWER;
-    }
-}
-
-int Token::getType(void) const
+Token::tokenType_t Token::getType(void) const
 {
     return type_m;
 }
 
-void Token::setType(tokenType_t type)
+std::string Token::getStr(void) const
+{
+    return str_m;
+}
+
+void Token::setStr(tokenType_t type, std::string str)
 {
     type_m = type;
+    str_m = str;
+    
+    // If it is a number, convert immediately
+    if(type_m == NUMBER)
+        n_m = ::atof(str_m.c_str());
+    else
+        n_m = nan("");
 }
 
 double Token::getN(void) const
@@ -68,12 +53,34 @@ double Token::getN(void) const
 
 void Token::setN(double n)
 {
+    type_m = NUMBER;
     n_m = n;
 }
 
-std::string Token::getStr(void) const
+priority_t Token::getPriority(void) const
 {
-    return str_m;
+    priority_t priority = P_LOWER;
+    
+    switch(type_m)
+    {
+        case OPERATOR:
+            priority = operatorPriority[operators.find(str_m)];
+            break;
+        case BRACKET_CLOSE:
+            priority = P_BRACKET_CLOSE;
+            break;
+        case BRACKET_OPEN:
+            priority = P_BRACKET_OPEN;
+            break;
+        case FUNCTION:
+            priority = P_FUNCTION;
+            break;
+        default:
+            priority = P_LOWER;
+            break;
+    }
+    
+    return priority;
 }
 
 void Token::display(std::ostream& flow) const

@@ -71,9 +71,6 @@ void Analyze::lexer(void)
     // Erase unnecessary char
     cleanString();
     
-    // Check brackets
-    checkBrackets();
-    
     unsigned int j;
     // Check whole input string
     for(unsigned int i=0; i<str_m.length(); ++i)
@@ -141,6 +138,10 @@ void Analyze::lexer(void)
             }
         }
     }
+    
+    // Check tokens
+    // Check brackets
+    checkBrackets();
 }
 
 void Analyze::parserAndExec(void)
