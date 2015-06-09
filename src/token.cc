@@ -40,7 +40,7 @@ void Token::setStr(tokenType_t type, std::string str)
     str_m = str;
     
     // If it is a number, convert immediately
-    if(type_m == NUMBER)
+    if(type_m == eTOKENTYPE_NUMBER)
         n_m = ::atof(str_m.c_str());
     else
         n_m = nan("");
@@ -53,30 +53,30 @@ double Token::getN(void) const
 
 void Token::setN(double n)
 {
-    type_m = NUMBER;
+    type_m = eTOKENTYPE_NUMBER;
     n_m = n;
 }
 
 priority_t Token::getPriority(void) const
 {
-    priority_t priority = P_LOWER;
+    priority_t priority = ePRIORITY_LOWEST;
     
     switch(type_m)
     {
-        case OPERATOR:
+        case eTOKENTYPE_OPERATOR:
             priority = operatorPriority[operators.find(str_m)];
             break;
-        case BRACKET_CLOSE:
-            priority = P_BRACKET_CLOSE;
+        case eTOKENTYPE_BRACKET_CLOSE:
+            priority = ePRIORITY_BRACKET_CLOSE;
             break;
-        case BRACKET_OPEN:
-            priority = P_BRACKET_OPEN;
+        case eTOKENTYPE_BRACKET_OPEN:
+            priority = ePRIORITY_BRACKET_OPEN;
             break;
-        case FUNCTION:
-            priority = P_FUNCTION;
+        case eTOKENTYPE_FUNCTION:
+            priority = ePRIORITY_FUNCTION;
             break;
         default:
-            priority = P_LOWER;
+            priority = ePRIORITY_LOWEST;
             break;
     }
     
@@ -85,7 +85,7 @@ priority_t Token::getPriority(void) const
 
 void Token::display(std::ostream& flow) const
 {
-    if(type_m == NUMBER)
+    if(type_m == eTOKENTYPE_NUMBER)
         flow << n_m;
     else
         flow << str_m;

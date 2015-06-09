@@ -19,14 +19,14 @@
 /// @brief  Enumeration that determines the token priority from high to low
 typedef enum
 {
-    P_BRACKET_CLOSE,
-    P_BRACKET_OPEN,
-    P_FUNCTION,
-    P_OP_POWER,
-    P_OP_MUL_DIV,
-    P_OP_PLUS_MINUS,
-    P_OP_MODULO,
-    P_LOWER
+    ePRIORITY_BRACKET_CLOSE,
+    ePRIORITY_BRACKET_OPEN,
+    ePRIORITY_FUNCTION,
+    ePRIORITY_OP_POWER,
+    ePRIORITY_OP_MUL_DIV,
+    ePRIORITY_OP_PLUS_MINUS,
+    ePRIORITY_OP_MODULO,
+    ePRIORITY_LOWEST
 }priority_t;
 
 /// @brief  Defines the brackets
@@ -37,12 +37,12 @@ static std::string bracketsClose = ")";
 static std::string operators = "^*/+-%";
 static priority_t operatorPriority[] =
 {
-    P_OP_POWER,
-    P_OP_MUL_DIV,
-    P_OP_MUL_DIV,
-    P_OP_PLUS_MINUS,
-    P_OP_PLUS_MINUS,
-    P_OP_MODULO
+    ePRIORITY_OP_POWER,
+    ePRIORITY_OP_MUL_DIV,
+    ePRIORITY_OP_MUL_DIV,
+    ePRIORITY_OP_PLUS_MINUS,
+    ePRIORITY_OP_PLUS_MINUS,
+    ePRIORITY_OP_MODULO
 };
 
 /// @brief  This class is used to store each token of the string
@@ -52,7 +52,12 @@ class Token
         /// @brief  Enumeration to determine the type of the token
         typedef enum
         {
-            BRACKET_CLOSE, BRACKET_OPEN, FUNCTION, OPERATOR, NUMBER, COMMA 
+            eTOKENTYPE_BRACKET_CLOSE,
+            eTOKENTYPE_BRACKET_OPEN,
+            eTOKENTYPE_FUNCTION,
+            eTOKENTYPE_OPERATOR,
+            eTOKENTYPE_NUMBER,
+            eTOKENTYPE_COMMA 
         }tokenType_t;
         
     protected:

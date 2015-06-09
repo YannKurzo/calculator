@@ -53,13 +53,13 @@ unsigned int BinTree::algo(unsigned int min, unsigned int max)
     {
         unsigned int op = findHighestOp(min, max);
         
-        if(tokenVector_m[op].getType() == Token::BRACKET_CLOSE)
+        if(tokenVector_m[op].getType() == Token::eTOKENTYPE_BRACKET_CLOSE)
         {
             unsigned int close = op;
             unsigned int open = op-1;
             
             // Get opening bracket
-            while(tokenVector_m[open].getType() != Token::BRACKET_OPEN)
+            while(tokenVector_m[open].getType() != Token::eTOKENTYPE_BRACKET_OPEN)
                 --open;
             
             // Update max
@@ -72,7 +72,7 @@ unsigned int BinTree::algo(unsigned int min, unsigned int max)
             tokenVector_m.erase(tokenVector_m.begin()+open+2);
             tokenVector_m.erase(tokenVector_m.begin()+open);
         }
-        else if(tokenVector_m[op].getType() == Token::FUNCTION)
+        else if(tokenVector_m[op].getType() == Token::eTOKENTYPE_FUNCTION)
         {
             unsigned int parameters = exec(op);
             
@@ -153,7 +153,7 @@ unsigned int BinTree::exec(unsigned int func)
 
 void BinTree::exec(Token &root, Token &left, Token &right)
 { 
-    if(root.getType() == Token::OPERATOR)
+    if(root.getType() == Token::eTOKENTYPE_OPERATOR)
     {
         double l = left.getN(), r = right.getN();
         

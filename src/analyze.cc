@@ -83,7 +83,7 @@ void Analyze::lexer(void)
             while(j<str_m.length() && (isdigit(str_m.at(j)) || str_m.at(j) == '.'))
                 ++j;
             
-            tokenVector_m.push_back(Token(Token::NUMBER, str_m.substr(i, j-i)));
+            tokenVector_m.push_back(Token(Token::eTOKENTYPE_NUMBER, str_m.substr(i, j-i)));
             
             i = j-1;
         }
@@ -92,22 +92,22 @@ void Analyze::lexer(void)
             // Check brackets
             if(bracketsOpen.find(c) != string::npos)
             {
-                tokenVector_m.push_back(Token(Token::BRACKET_OPEN, str_m.substr(i, 1)));
+                tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_OPEN, str_m.substr(i, 1)));
             }
             else if(bracketsClose.find(c) != string::npos)
             {
-                tokenVector_m.push_back(Token(Token::BRACKET_CLOSE, str_m.substr(i, 1)));
+                tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_CLOSE, str_m.substr(i, 1)));
             }
             // Check operators
             else if(operators.find(c) != string::npos)
             {
-                tokenVector_m.push_back(Token(Token::OPERATOR, str_m.substr(i, 1)));
+                tokenVector_m.push_back(Token(Token::eTOKENTYPE_OPERATOR, str_m.substr(i, 1)));
             }
             // Check separator
             else if(c == ',')
             {
-                tokenVector_m.push_back(Token(Token::BRACKET_CLOSE, ")"));
-                tokenVector_m.push_back(Token(Token::BRACKET_OPEN, "("));
+                tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_CLOSE, ")"));
+                tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_OPEN, "("));
             }
             // Functions
             else
@@ -118,7 +118,7 @@ void Analyze::lexer(void)
                         operators.find(str_m.at(j)) != string::npos || isdigit(str_m.at(j))))
                     ++j;
 
-                tokenVector_m.push_back(Token(Token::FUNCTION, str_m.substr(i, j-i)));
+                tokenVector_m.push_back(Token(Token::eTOKENTYPE_FUNCTION, str_m.substr(i, j-i)));
                 
                 // Check if function exists
                 if(Function::getFunction(tokenVector_m.back().getStr()) == NULL)
@@ -130,9 +130,9 @@ void Analyze::lexer(void)
                 
                 if(Function::getNbParameters(tokenVector_m.back().getStr()) == 0)
                 {
-                    tokenVector_m.push_back(Token(Token::BRACKET_OPEN, str_m.substr(i+1, 1)));
-                    tokenVector_m.push_back(Token(Token::NUMBER, "0"));
-                    tokenVector_m.push_back(Token(Token::BRACKET_CLOSE, str_m.substr(i+2, 1)));
+                    tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_OPEN, str_m.substr(i+1, 1)));
+                    tokenVector_m.push_back(Token(Token::eTOKENTYPE_NUMBER, "0"));
+                    tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_CLOSE, str_m.substr(i+2, 1)));
                     i+=2;
                 }
             }
