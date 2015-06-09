@@ -13,7 +13,7 @@
 #define	ANALYZE_H
 
 #include "token.h"
-#include "binTree.h"
+#include "parserExec.h"
 
 #include <string>
 

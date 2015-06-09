@@ -36,10 +36,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/src/analyze.o \
-	${OBJECTDIR}/src/binTree.o \
 	${OBJECTDIR}/src/externalFunctions.o \
 	${OBJECTDIR}/src/function.o \
 	${OBJECTDIR}/src/main.o \
+	${OBJECTDIR}/src/parserExec.o \
 	${OBJECTDIR}/src/token.o
 
 
@@ -71,11 +71,6 @@ ${OBJECTDIR}/src/analyze.o: src/analyze.cc
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/analyze.o src/analyze.cc
 
-${OBJECTDIR}/src/binTree.o: src/binTree.cc 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/binTree.o src/binTree.cc
-
 ${OBJECTDIR}/src/externalFunctions.o: src/externalFunctions.cc 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
@@ -90,6 +85,11 @@ ${OBJECTDIR}/src/main.o: src/main.cc
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/main.o src/main.cc
+
+${OBJECTDIR}/src/parserExec.o: src/parserExec.cc 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/parserExec.o src/parserExec.cc
 
 ${OBJECTDIR}/src/token.o: src/token.cc 
 	${MKDIR} -p ${OBJECTDIR}/src
