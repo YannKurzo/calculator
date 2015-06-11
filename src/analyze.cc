@@ -20,36 +20,58 @@ Analyze::Analyze(std::string str)
 {
     str_m = str;
     result_m = 0;
+	actualProcess_m = Analyze::eNOTHING_DONE;
 }
 
 void Analyze::lexer(void)
 {    
 	Lexer lexer_m(str_m);
-	
 	lexer_m.start();
-	
 	tokenVector_m = lexer_m.getTokenVector();
+	
+	// Update process
+	actualProcess_m = eLEXER_DONE;
 }
 
 void Analyze::parserExec(void)
 {
+	// Check if the previous process has been done
+	if(actualProcess_m < eLEXER_DONE)
+	{
+		lexer();
+	}
+	
     ParserExec parserExec_m(tokenVector_m);
-    
     parserExec_m.start();
-    
     result_m = parserExec_m.getResult();
+	
+	// Update process
+	actualProcess_m = ePARSEREXEC_DONE;
 }
 
-double Analyze::getResult() const 
+double Analyze::getResult() 
 {
+	// Check if the previous process has been done
+	if(actualProcess_m < ePARSEREXEC_DONE)
+	{
+		parserExec();
+	}
+	
     return result_m;
 }
 
 void Analyze::displayToken(void)
 {
-	for(unsigned int i=0; i<tokenVector_m.size(); ++i)
-    {
-        cout << "\"" << tokenVector_m[i] << "\" ";
-    }
-    cout << endl;
+	if(actualProcess_m >= eLEXER_DONE)
+	{
+		for(unsigned int i=0; i<tokenVector_m.size(); ++i)
+		{
+			cout << "\"" << tokenVector_m[i] << "\" ";
+		}
+		cout << endl;
+	}
+	else
+	{
+		cout << "The lexer method must be called first!" << endl;	
+	}
 }
