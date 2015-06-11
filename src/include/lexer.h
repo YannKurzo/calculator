@@ -20,8 +20,11 @@
 class Lexer
 {
 	private:
+        /// String to compute
+        std::string str_m;
+		
         /// List of tokens for the calculation
-        std::vector<Token> tokenVector_m;
+        TokenVector tokenVector_m;
 		
 	public:
 		/// @brief  Constructor
@@ -34,7 +37,14 @@ class Lexer
 		/// @brief	Get the result
 		/// @return Calculated result
 		/// @note	Must be called after start()
-        std::vector<Token> getTokenVector(void) const;
+        TokenVector getTokenVector(void) const;
+		
+	private:
+		/// @brief  Erase all unnecessary characters of the string
+		void cleanString(void);
+		
+        /// @brief  Throw an exception there is a problem with the brackets
+        void checkBrackets(void);
 };
 
 

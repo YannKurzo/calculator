@@ -29,7 +29,7 @@ int main(void)
         an.displayToken();
         
         // Calculates
-        an.parserAndExec();
+        an.parserExec();
 
         // Display result
         cout << endl << "Result:" << endl;

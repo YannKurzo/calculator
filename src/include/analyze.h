@@ -32,27 +32,17 @@ class Analyze
         
         /// List of tokens for the calculation
         TokenVector tokenVector_m;
-        
-    private:
-        /// @brief  Erase unnecessary characters in the string
-        void cleanString(void);
-        
-        /// @brief  Throw an exception there is a problem with the brackets
-        void checkBrackets(void);
 
     public:
         /// @brief  Construct a calculation process
         /// @param  str String to compute
         Analyze(std::string str);
         
-        /// @brief  Destructor
-        ~Analyze(void);
-        
-        /// @brief  Analyzes and separates in tokens the string to compute
+        /// @brief  Analyses and separates in tokens the string to compute
         void lexer(void);
         
-        /// @brief  Analyzes the list of tokens and calculates the result
-        void parserAndExec(void);
+        /// @brief  Analyses the list of tokens and calculates the result
+        void parserExec(void);
 
         /// @brief  Get the result
         double getResult() const;
