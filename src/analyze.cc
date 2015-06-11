@@ -159,9 +159,9 @@ double Analyze::getResult() const
 
 void Analyze::displayToken(void)
 {
-    for(ListIt it = tokenVector_m.begin(); it!=tokenVector_m.end(); ++it)
+	for(unsigned int i=0; i<tokenVector_m.size(); ++i)
     {
-        cout << "\"" << *it<< "\" ";
+        cout << "\"" << tokenVector_m[i] << "\" ";
     }
     cout << endl;
 }

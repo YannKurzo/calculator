@@ -101,7 +101,6 @@ std::ostream& operator<<(std::ostream& flow, Token const& token);
 
 /// @brief  Vector of tokens
 typedef std::vector<Token> TokenVector;
-typedef TokenVector::iterator ListIt;
 
 
 #endif	/* TOKEN_H */
