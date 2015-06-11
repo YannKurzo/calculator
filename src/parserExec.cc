@@ -27,19 +27,20 @@ ParserExec::ParserExec(TokenVector &tokenList)
         
 void ParserExec::start(void)
 {
-    ListIt it = tokenVector_m.begin();
-    ListIt min = tokenVector_m.begin();
-    ListIt max = tokenVector_m.end(); max--;
-    
     // First node
     algo(0, tokenVector_m.size()-1);
 }
 
-unsigned int ParserExec::algo(unsigned int min, unsigned int max)
+double ParserExec::getResult(void) const
 {
-    while(max - min >= 1)
+    return tokenVector_m.begin()->getN();
+}
+
+unsigned int ParserExec::algo(unsigned int lowerIndex, unsigned int upperIndex)
+{
+    while(upperIndex - lowerIndex >= 1)
     {
-        unsigned int op = findHighestOp(min, max);
+        unsigned int op = findHighestOp(lowerIndex, upperIndex);
         
         if(tokenVector_m[op].getType() == Token::eTOKENTYPE_BRACKET_CLOSE)
         {
@@ -50,8 +51,8 @@ unsigned int ParserExec::algo(unsigned int min, unsigned int max)
             while(tokenVector_m[open].getType() != Token::eTOKENTYPE_BRACKET_OPEN)
                 --open;
             
-            // Update max
-            max = max - close + open;
+            // Update upperIndex
+            upperIndex = upperIndex - close + open;
             
             // Calculate
             close = algo(open+1, close-1) + 1;
@@ -67,7 +68,7 @@ unsigned int ParserExec::algo(unsigned int min, unsigned int max)
             for(unsigned int i=op+parameters; i>op; --i)
                 tokenVector_m.erase(tokenVector_m.begin()+i);
             
-            max -= parameters;
+            upperIndex -= parameters;
         }
         else
         {
@@ -81,19 +82,19 @@ unsigned int ParserExec::algo(unsigned int min, unsigned int max)
             tokenVector_m.erase(tokenVector_m.begin()+right);
             tokenVector_m.erase(tokenVector_m.begin()+left);
 
-            // Reinit max
-            max -= 2;
+            // Reinit upperIndex
+            upperIndex -= 2;
         }
     }
-    return max;
+    return upperIndex;
 }
 
-unsigned int ParserExec::findHighestOp(unsigned int min, unsigned int max)
+unsigned int ParserExec::findHighestOp(unsigned int lowerIndex, unsigned int upperIndex)
 {
-    unsigned int ret = min;
-    int priority = tokenVector_m[min].getPriority();
+    unsigned int ret = lowerIndex;
+    int priority = tokenVector_m[lowerIndex].getPriority();
     
-    for(unsigned int i = min+1; i<=max; ++i)
+    for(unsigned int i = lowerIndex+1; i<=upperIndex; ++i)
     {
         if(tokenVector_m[i].getPriority() < priority)
         {
@@ -104,10 +105,10 @@ unsigned int ParserExec::findHighestOp(unsigned int min, unsigned int max)
     return ret;
 }
 
-unsigned int ParserExec::exec(unsigned int func)
+unsigned int ParserExec::exec(unsigned int functionIndex)
 {
     // Get function name
-    string str = tokenVector_m[func].getStr();
+    string str = tokenVector_m[functionIndex].getStr();
     
     // Number of parameters
     unsigned int nbPar = Function::getNbParameters(str);
@@ -115,23 +116,23 @@ unsigned int ParserExec::exec(unsigned int func)
     
     // Set parameters
     for(unsigned int i=0; i<nbPar; ++i)
-        par[i] = tokenVector_m[func+i+1].getN();
+        par[i] = tokenVector_m[functionIndex+i+1].getN();
     
     // Result with MAX_NUMBER_PARAMETERS = 5
     double res = call(str, par[0], par[1], par[2], par[3], par[4]);
     
     // Update vector
-    tokenVector_m[func].setN(res);
+    tokenVector_m[functionIndex].setN(res);
     
 #ifdef DISPLAY_OPERATIONS
         cout << str << "(";
         if(nbPar > 0)
         {
             for(unsigned int i=0; i<nbPar-1; ++i)
-                cout << tokenVector_m[func+i+1] << ", ";
-            cout << tokenVector_m[func+nbPar];
+                cout << tokenVector_m[functionIndex+i+1] << ", ";
+            cout << tokenVector_m[functionIndex+nbPar];
         }
-        cout << ") = " << tokenVector_m[func].getN() << endl;
+        cout << ") = " << tokenVector_m[functionIndex].getN() << endl;
 #endif
     if(nbPar == 0)
         ++nbPar;
@@ -170,10 +171,4 @@ double ParserExec::execOperator(char op, double left, double right)
         default:
             return 0;
     }
-}
-
-
-double ParserExec::getResult(void) const
-{
-    return tokenVector_m.begin()->getN();
 }
