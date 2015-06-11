@@ -128,11 +128,10 @@ void Analyze::lexer(void)
 
                 i = j-1;
                 
+				// If there is no parameter
                 if(Function::getNbParameters(tokenVector_m.back().getStr()) == 0)
                 {
-                    tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_OPEN, str_m.substr(i+1, 1)));
-                    tokenVector_m.push_back(Token(Token::eTOKENTYPE_NUMBER, "0"));
-                    tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_CLOSE, str_m.substr(i+2, 1)));
+					// Skip the brackets
                     i+=2;
                 }
             }

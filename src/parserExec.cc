@@ -38,7 +38,9 @@ double ParserExec::getResult(void) const
 
 unsigned int ParserExec::algo(unsigned int lowerIndex, unsigned int upperIndex)
 {
-    while(upperIndex - lowerIndex >= 1)
+	// While there is more than 1 token or while the last token is not a number
+    while(upperIndex - lowerIndex >= 1 || 
+		 (upperIndex - lowerIndex == 0 && tokenVector_m[lowerIndex].getType() != Token::eTOKENTYPE_NUMBER))
     {
 		// Find highest operator or function
         unsigned int op = findHighestOp(lowerIndex, upperIndex);
@@ -120,15 +122,13 @@ unsigned int ParserExec::exec(unsigned int index)
 		);
 		
 		// Erase old token
-		unsigned int parameters = Function::getNbParameters(tokenVector_m[index].getStr());
-		if(parameters == 0)
-			parameters = 1;
+		unsigned int nbParameters = Function::getNbParameters(tokenVector_m[index].getStr());
 		
-		for(unsigned int i=index+parameters; i>index; --i)
-			tokenVector_m.erase(tokenVector_m.begin()+i);
+		for(unsigned int i=index+nbParameters; i>index; --i)
+			tokenVector_m.erase(tokenVector_m.begin() + i);
             
 		// Update vector length
-        vectorLenghtChange = parameters;
+        vectorLenghtChange = nbParameters;
 	}
 	
 	return vectorLenghtChange;
@@ -191,7 +191,7 @@ double ParserExec::execFunction(unsigned int functionIndex)
                 cout << tokenVector_m[functionIndex+i+1] << ", ";
             cout << tokenVector_m[functionIndex+nbPar];
         }
-        cout << ") = " << tokenVector_m[functionIndex].getN() << endl;
+        cout << ") = " << res << endl;
 #endif
 
 	return res;
