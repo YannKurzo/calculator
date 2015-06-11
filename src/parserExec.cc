@@ -91,6 +91,7 @@ unsigned int ParserExec::exec(unsigned int index)
 {
 	unsigned int vectorLenghtChange = 0;
 	
+	// Operator
     if(tokenVector_m[index].getType() == Token::eTOKENTYPE_OPERATOR)
     {
 		// Calculate
@@ -109,6 +110,8 @@ unsigned int ParserExec::exec(unsigned int index)
 		// Update vector length
 		vectorLenghtChange = 2;
     }
+	
+	// Functions
 	else if(tokenVector_m[index].getType() == Token::eTOKENTYPE_FUNCTION)
 	{
 		// Calculate
@@ -129,36 +132,6 @@ unsigned int ParserExec::exec(unsigned int index)
 	}
 	
 	return vectorLenghtChange;
-}
-
-double ParserExec::execFunction(unsigned int functionIndex)
-{
-    // Get function name
-    string str = tokenVector_m[functionIndex].getStr();
-    
-    // Number of parameters
-    unsigned int nbPar = Function::getNbParameters(str);
-    double par[MAX_NUMBER_PARAMETERS];
-    
-    // Set parameters
-    for(unsigned int i=0; i<nbPar; ++i)
-        par[i] = tokenVector_m[functionIndex+i+1].getN();
-    
-    // Result with MAX_NUMBER_PARAMETERS = 5
-    double res = call(str, par[0], par[1], par[2], par[3], par[4]);
-    
-#ifdef DISPLAY_OPERATIONS
-        cout << str << "(";
-        if(nbPar > 0)
-        {
-            for(unsigned int i=0; i<nbPar-1; ++i)
-                cout << tokenVector_m[functionIndex+i+1] << ", ";
-            cout << tokenVector_m[functionIndex+nbPar];
-        }
-        cout << ") = " << tokenVector_m[functionIndex].getN() << endl;
-#endif
-
-	return res;
 }
 
 double ParserExec::execOperator(char op, double left, double right)
@@ -189,6 +162,36 @@ double ParserExec::execOperator(char op, double left, double right)
 	
 #ifdef DISPLAY_OPERATIONS
     cout << left << " " << op << " " << right << " = " << res << endl;
+#endif
+
+	return res;
+}
+
+double ParserExec::execFunction(unsigned int functionIndex)
+{
+    // Get function name
+    string str = tokenVector_m[functionIndex].getStr();
+    
+    // Number of parameters
+    unsigned int nbPar = Function::getNbParameters(str);
+    double par[MAX_NUMBER_PARAMETERS];
+    
+    // Set parameters
+    for(unsigned int i=0; i<nbPar; ++i)
+        par[i] = tokenVector_m[functionIndex+i+1].getN();
+    
+    // Result with MAX_NUMBER_PARAMETERS = 5
+    double res = call(str, par[0], par[1], par[2], par[3], par[4]);
+    
+#ifdef DISPLAY_OPERATIONS
+        cout << str << "(";
+        if(nbPar > 0)
+        {
+            for(unsigned int i=0; i<nbPar-1; ++i)
+                cout << tokenVector_m[functionIndex+i+1] << ", ";
+            cout << tokenVector_m[functionIndex+nbPar];
+        }
+        cout << ") = " << tokenVector_m[functionIndex].getN() << endl;
 #endif
 
 	return res;

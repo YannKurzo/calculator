@@ -60,9 +60,6 @@ class ParserExec
 		/// @param	index Index of the operator or function
 		/// @return The number of token that were erased
         unsigned int exec(unsigned int index);
-		
-		/// @brief	Calculate the result of the function
-		double execFunction(unsigned int functionIndex);
         
 		/// @brief	Calculate with normal operators (+ - * / ^ %)
 		/// @param  op Character of the operator
@@ -70,6 +67,9 @@ class ParserExec
 		/// @param  right Right operand
 		/// @return The result of the operation
         double execOperator(char op, double left, double right);
+		
+		/// @brief	Calculate the result of the function
+		double execFunction(unsigned int functionIndex);
         
 };
 
