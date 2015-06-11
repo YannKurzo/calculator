@@ -1,5 +1,5 @@
 
-//  ==================================================
+//  ==========================================================================
 /// @file   analyze.h
 /// @author Yann Kurzo
 /// @date   May 11, 2015, 9:32 PM
@@ -7,7 +7,7 @@
 /// @brief  Manages the complete calculation process
 ///         The Analyze class provides a way to complete the calculation
 ///         of a string entered by the user.
-//  ==================================================
+//  ==========================================================================
 
 #ifndef ANALYZE_H
 #define	ANALYZE_H

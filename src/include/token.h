@@ -1,5 +1,5 @@
 
-//  ==================================================
+//  ==========================================================================
 /// @file   token.h
 /// @author Yann Kurzo
 /// @date   May 17, 2015, 12:23 AM
@@ -8,7 +8,7 @@
 ///         The string can be separated in multiple tokens. The following types
 ///         are used: Closing brackets, Opening brackets, Functions, Operators,
 ///         ... The operator priority is also defined here.
-//  ==================================================
+//  ==========================================================================
 
 #ifndef TOKEN_H
 #define	TOKEN_H

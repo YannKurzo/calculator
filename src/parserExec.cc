@@ -1,15 +1,11 @@
 
-/*==================================================
- *
- * File:    binTree.cc
- * 
- * Author:  Yann Kurzo
- *
- * Date:    May 17, 2015, 2:06 AM
- *
- * license: GPL2
- *
- ==================================================*/
+//  ==========================================================================
+/// @file   parserExec.cc
+/// @author Yann Kurzo
+/// @date   May 17, 2015, 2:06 AM
+/// @license GPL2
+/// @brief  Parse the vector of tokens and calculates the mathematical result
+//  ==========================================================================
 
 #include "parserExec.h"
 

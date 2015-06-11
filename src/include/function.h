@@ -1,12 +1,12 @@
 
-//  ==================================================
+//  ==========================================================================
 /// @file   function.h
 /// @author Yann Kurzo
 /// @date   May 26, 2015, 9:30 PM
 /// @license GPL2
 /// @brief  Handle existing functions of libraries
 /// @note   New functions can be easily added with the ADD macro.
-//  ==================================================
+//  ==========================================================================
 
 #ifndef FUNCTION_H
 #define	FUNCTION_H

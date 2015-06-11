@@ -1,14 +1,14 @@
 
-//  ==================================================
-/// @file   binTree.h
+//  ==========================================================================
+/// @file   parserExec.h
 /// @author Yann Kurzo
 /// @date   May 17, 2015, 2:06 AM
 /// @license GPL2
-/// @brief  
-//  ==================================================
+/// @brief  Parse the vector of tokens and calculates the mathematical result
+//  ==========================================================================
 
-#ifndef BINTREE_H
-#define	BINTREE_H
+#ifndef PARSEREXEC_H
+#define	PARSEREXEC_H
 
 #include "token.h"
 #include "function.h"
@@ -82,5 +82,5 @@ class ParserExec
 };
 
 
-#endif	/* BINTREE_H */
+#endif	/* PARSEREXEC_H */
 
