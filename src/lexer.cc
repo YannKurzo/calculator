@@ -4,7 +4,9 @@
 /// @author Yann Kurzo
 /// @date   June 11, 2015, 2:06 PM
 /// @license GPL2
-/// @brief  
+/// @brief  This class separates the string in different tokens. It also
+///			throws an exception in case the string has a problem in its
+///			format.
 //  ==========================================================================
 
 #include "lexer.h"
@@ -65,7 +67,7 @@ void Lexer::start(void)
             {
                 tokenVector_m.push_back(Token(Token::eTOKENTYPE_OPERATOR, str_m.substr(i, 1)));
             }
-            // Check separator
+            // Check separator, replace by brackets to optimize calculation
             else if(c == ',')
             {
                 tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_CLOSE, ")"));
