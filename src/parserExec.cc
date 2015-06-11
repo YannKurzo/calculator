@@ -45,24 +45,25 @@ unsigned int ParserExec::algo(unsigned int lowerIndex, unsigned int upperIndex)
 		// Find highest operator or function
         unsigned int op = findHighestOp(lowerIndex, upperIndex);
         
+		// If there is a closing bracket
         if(tokenVector_m[op].getType() == Token::eTOKENTYPE_BRACKET_CLOSE)
         {
-            unsigned int close = op;
-            unsigned int open = op-1;
+            unsigned int closingBracketIndex = op;
+            unsigned int openingBracketIndex = op-1;
             
-            // Get opening bracket
-            while(tokenVector_m[open].getType() != Token::eTOKENTYPE_BRACKET_OPEN)
-                --open;
+            // Get opening bracket index
+            while(tokenVector_m[openingBracketIndex].getType() != Token::eTOKENTYPE_BRACKET_OPEN)
+                --openingBracketIndex;
             
             // Update upperIndex
-            upperIndex = upperIndex - close + open;
+            upperIndex = upperIndex - closingBracketIndex + openingBracketIndex;
             
-            // Calculate
-            close = algo(open+1, close-1) + 1;
+            // Calculate what is between the bracket recursively
+            closingBracketIndex = algo(openingBracketIndex + 1, closingBracketIndex - 1) + 1;
             
             // Erase brackets
-            tokenVector_m.erase(tokenVector_m.begin()+open+2);
-            tokenVector_m.erase(tokenVector_m.begin()+open);
+            tokenVector_m.erase(tokenVector_m.begin() + openingBracketIndex + 2);
+            tokenVector_m.erase(tokenVector_m.begin() + openingBracketIndex);
         }
         else
         {
@@ -181,6 +182,9 @@ double ParserExec::execFunction(std::string functionName, unsigned int firstPara
         par[i] = tokenVector_m[firstParameterIndex+i].getN();
     
     // Result with MAX_NUMBER_PARAMETERS = 5
+#if(MAX_NUMBER_PARAMETERS != 5)
+	#error "Adapt the code here!"
+#endif
     double res = call(functionName, par[0], par[1], par[2], par[3], par[4]);
     
 #ifdef DISPLAY_OPERATIONS

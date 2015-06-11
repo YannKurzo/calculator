@@ -17,10 +17,6 @@
 #include <cmath>
 #include <map>
 
-/// @brief  Maximum number of parameters for the functions
-/// @note   Should not be changed, other parts of the code must be adapted.
-#define MAX_NUMBER_PARAMETERS 5
-
 /// @brief  Function pointer for every function
 typedef void (*func_ptr)();
 

@@ -15,8 +15,14 @@
 
 #include <vector>
 
+/// @brief  If defined, display the operation steps
 #define DISPLAY_OPERATIONS
 
+/// @brief  Maximum number of parameters for the functions
+/// @note   When it is changed, other parts of the code must be adapted.
+#define MAX_NUMBER_PARAMETERS 5
+
+/// @brief  Vector of tokens
 typedef std::vector<Token> TokenVector;
 typedef TokenVector::iterator ListIt;
 
@@ -37,7 +43,7 @@ class ParserExec
         void start(void);
         
 		/// @brief	Get the result
-		/// @return Result
+		/// @return Calculated result
 		/// @note	Must be called after start()
         double getResult(void) const;
         
@@ -69,9 +75,10 @@ class ParserExec
         double execOperator(std::string op, double left, double right);
 		
 		/// @brief	Calculate the result of the function
+		/// @param  functionName Name of the function
+		/// @param  firstParameterIndex Index of the first parameter in the vector of tokens
+		/// @return The result of the function
 		double execFunction(std::string functionName, unsigned int firstParameterIndex);
-		
-        
 };
 
 
