@@ -27,7 +27,7 @@ ParserExec::ParserExec(TokenVector &tokenList)
         
 void ParserExec::start(void)
 {
-    // First node
+    // First call with the whole vector of tokens
     algo(0, tokenVector_m.size()-1);
 }
 
@@ -40,6 +40,7 @@ unsigned int ParserExec::algo(unsigned int lowerIndex, unsigned int upperIndex)
 {
     while(upperIndex - lowerIndex >= 1)
     {
+		// Find highest operator or function
         unsigned int op = findHighestOp(lowerIndex, upperIndex);
         
         if(tokenVector_m[op].getType() == Token::eTOKENTYPE_BRACKET_CLOSE)
@@ -61,19 +62,9 @@ unsigned int ParserExec::algo(unsigned int lowerIndex, unsigned int upperIndex)
             tokenVector_m.erase(tokenVector_m.begin()+open+2);
             tokenVector_m.erase(tokenVector_m.begin()+open);
         }
-        // else if(tokenVector_m[op].getType() == Token::eTOKENTYPE_FUNCTION)
-        // {
-            // // unsigned int parameters = execFunc(op);
-            
-            // // for(unsigned int i=op+parameters; i>op; --i)
-                // // tokenVector_m.erase(tokenVector_m.begin()+i);
-            
-            // // upperIndex -= parameters;
-			// upperIndex -= exec(op);
-        // }
         else
         {
-            // Execute and reinitialize upperIndex
+            // Execute the operator or function and reinitialize upperIndex
             upperIndex -= exec(op);
         }
     }

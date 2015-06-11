@@ -52,6 +52,7 @@ class ParserExec
 		/// @param	lowerIndex Lower index
 		/// @param  upperIndex Upper index
 		/// @return Return the index of the highest operator priority
+		/// @note	If the priority is the same, take the first one from the left
         unsigned int findHighestOp(unsigned int lowerIndex, unsigned int upperIndex);
 		
 		/// @brief	Execute the operator or function at the determined index and update the vector of tokens
