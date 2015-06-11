@@ -61,29 +61,20 @@ unsigned int ParserExec::algo(unsigned int lowerIndex, unsigned int upperIndex)
             tokenVector_m.erase(tokenVector_m.begin()+open+2);
             tokenVector_m.erase(tokenVector_m.begin()+open);
         }
-        else if(tokenVector_m[op].getType() == Token::eTOKENTYPE_FUNCTION)
-        {
-            unsigned int parameters = exec(op);
+        // else if(tokenVector_m[op].getType() == Token::eTOKENTYPE_FUNCTION)
+        // {
+            // // unsigned int parameters = execFunc(op);
             
-            for(unsigned int i=op+parameters; i>op; --i)
-                tokenVector_m.erase(tokenVector_m.begin()+i);
+            // // for(unsigned int i=op+parameters; i>op; --i)
+                // // tokenVector_m.erase(tokenVector_m.begin()+i);
             
-            upperIndex -= parameters;
-        }
+            // // upperIndex -= parameters;
+			// upperIndex -= exec(op);
+        // }
         else
         {
-            unsigned int left = op-1;
-            unsigned int right = op+1;
-
-            // Calculate
-            exec(tokenVector_m[op], tokenVector_m[left], tokenVector_m[right]);
-
-            // Erase old token
-            tokenVector_m.erase(tokenVector_m.begin()+right);
-            tokenVector_m.erase(tokenVector_m.begin()+left);
-
-            // Reinit upperIndex
-            upperIndex -= 2;
+            // Execute and reinitialize upperIndex
+            upperIndex -= exec(op);
         }
     }
     return upperIndex;
@@ -105,7 +96,51 @@ unsigned int ParserExec::findHighestOp(unsigned int lowerIndex, unsigned int upp
     return ret;
 }
 
-unsigned int ParserExec::exec(unsigned int functionIndex)
+unsigned int ParserExec::exec(unsigned int index)
+{
+	unsigned int vectorLenghtChange = 0;
+	
+    if(tokenVector_m[index].getType() == Token::eTOKENTYPE_OPERATOR)
+    {
+		// Calculate
+        tokenVector_m[index].setN(
+			execOperator(
+				tokenVector_m[index].getStr().at(0),
+				tokenVector_m[index-1].getN(),
+				tokenVector_m[index+1].getN()
+			)
+		);
+		
+		// Erase old token
+		tokenVector_m.erase(tokenVector_m.begin()+index+1);
+		tokenVector_m.erase(tokenVector_m.begin()+index-1);
+		
+		// Update vector length
+		vectorLenghtChange = 2;
+    }
+	else if(tokenVector_m[index].getType() == Token::eTOKENTYPE_FUNCTION)
+	{
+		// Calculate
+        tokenVector_m[index].setN(
+			execFunction(index)
+		);
+		
+		// Erase old token
+		unsigned int parameters = Function::getNbParameters(tokenVector_m[index].getStr());
+		if(parameters == 0)
+			parameters = 1;
+		
+		for(unsigned int i=index+parameters; i>index; --i)
+			tokenVector_m.erase(tokenVector_m.begin()+i);
+            
+		// Update vector length
+        vectorLenghtChange = parameters;
+	}
+	
+	return vectorLenghtChange;
+}
+
+double ParserExec::execFunction(unsigned int functionIndex)
 {
     // Get function name
     string str = tokenVector_m[functionIndex].getStr();
@@ -121,9 +156,6 @@ unsigned int ParserExec::exec(unsigned int functionIndex)
     // Result with MAX_NUMBER_PARAMETERS = 5
     double res = call(str, par[0], par[1], par[2], par[3], par[4]);
     
-    // Update vector
-    tokenVector_m[functionIndex].setN(res);
-    
 #ifdef DISPLAY_OPERATIONS
         cout << str << "(";
         if(nbPar > 0)
@@ -134,41 +166,39 @@ unsigned int ParserExec::exec(unsigned int functionIndex)
         }
         cout << ") = " << tokenVector_m[functionIndex].getN() << endl;
 #endif
-    if(nbPar == 0)
-        ++nbPar;
-    
-    return nbPar;
-}
 
-void ParserExec::exec(Token &root, Token &left, Token &right)
-{ 
-    if(root.getType() == Token::eTOKENTYPE_OPERATOR)
-    {
-        double l = left.getN(), r = right.getN();
-        
-        root.setN(execOperator(root.getStr().at(0), l, r));
-        
-#ifdef DISPLAY_OPERATIONS
-        cout << l << " " << root.getStr() << " " << r << " = " << root.getN() << endl;
-#endif
-    }
+	return res;
 }
 
 double ParserExec::execOperator(char op, double left, double right)
 {
+	double res = 0;
+	
     switch(op)
     {
         case '+':
-            return left + right;
+            res = left + right;
+			break;
         case '-':
-            return left - right;
+            res = left - right;
+			break;
         case '*':
-            return left * right;
+            res = left * right;
+			break;
         case '/':
-            return left / right;
+            res = left / right;
+			break;
         case '^':
-            return pow(left, right);
+            res = pow(left, right);
+			break;
         default:
-            return 0;
+            res = 0;
+			break;
     }
+	
+#ifdef DISPLAY_OPERATIONS
+    cout << left << " " << op << " " << right << " = " << res << endl;
+#endif
+
+	return res;
 }
