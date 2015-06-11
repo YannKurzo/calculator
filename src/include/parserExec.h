@@ -22,10 +22,6 @@
 /// @note   When it is changed, other parts of the code must be adapted.
 #define MAX_NUMBER_PARAMETERS 5
 
-/// @brief  Vector of tokens
-typedef std::vector<Token> TokenVector;
-typedef TokenVector::iterator ListIt;
-
 /// @brief  This class simulates a binary tree.
 ///         
 class ParserExec

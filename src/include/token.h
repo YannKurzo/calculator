@@ -14,7 +14,7 @@
 #define	TOKEN_H
 
 #include <string>
-
+#include <vector>
     
 /// @brief  Enumeration that determines the token priority from high to low
 typedef enum
@@ -98,6 +98,10 @@ class Token
 
 /// @brief  Standard output
 std::ostream& operator<<(std::ostream& flow, Token const& token);
+
+/// @brief  Vector of tokens
+typedef std::vector<Token> TokenVector;
+typedef TokenVector::iterator ListIt;
 
 
 #endif	/* TOKEN_H */
