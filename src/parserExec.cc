@@ -99,7 +99,7 @@ unsigned int ParserExec::exec(unsigned int index)
 		// Calculate
         tokenVector_m[index].setN(
 			execOperator(
-				tokenVector_m[index].getStr().at(0),
+				tokenVector_m[index].getStr(),
 				tokenVector_m[index-1].getN(),
 				tokenVector_m[index+1].getN()
 			)
@@ -118,7 +118,10 @@ unsigned int ParserExec::exec(unsigned int index)
 	{
 		// Calculate
         tokenVector_m[index].setN(
-			execFunction(index)
+			execFunction(
+				tokenVector_m[index].getStr(),
+				index + 1
+			)
 		);
 		
 		// Erase old token
@@ -134,11 +137,11 @@ unsigned int ParserExec::exec(unsigned int index)
 	return vectorLenghtChange;
 }
 
-double ParserExec::execOperator(char op, double left, double right)
+double ParserExec::execOperator(std::string op, double left, double right)
 {
 	double res = 0;
 	
-    switch(op)
+    switch(op.at(0))
     {
         case '+':
             res = left + right;
@@ -167,29 +170,26 @@ double ParserExec::execOperator(char op, double left, double right)
 	return res;
 }
 
-double ParserExec::execFunction(unsigned int functionIndex)
+double ParserExec::execFunction(std::string functionName, unsigned int firstParameterIndex)
 {
-    // Get function name
-    string str = tokenVector_m[functionIndex].getStr();
-    
     // Number of parameters
-    unsigned int nbPar = Function::getNbParameters(str);
+    unsigned int nbPar = Function::getNbParameters(functionName);
     double par[MAX_NUMBER_PARAMETERS];
     
     // Set parameters
     for(unsigned int i=0; i<nbPar; ++i)
-        par[i] = tokenVector_m[functionIndex+i+1].getN();
+        par[i] = tokenVector_m[firstParameterIndex+i].getN();
     
     // Result with MAX_NUMBER_PARAMETERS = 5
-    double res = call(str, par[0], par[1], par[2], par[3], par[4]);
+    double res = call(functionName, par[0], par[1], par[2], par[3], par[4]);
     
 #ifdef DISPLAY_OPERATIONS
-        cout << str << "(";
+        cout << functionName << "(";
         if(nbPar > 0)
         {
             for(unsigned int i=0; i<nbPar-1; ++i)
-                cout << tokenVector_m[functionIndex+i+1] << ", ";
-            cout << tokenVector_m[functionIndex+nbPar];
+                cout << tokenVector_m[firstParameterIndex+i] << ", ";
+            cout << tokenVector_m[firstParameterIndex+nbPar-1];
         }
         cout << ") = " << res << endl;
 #endif

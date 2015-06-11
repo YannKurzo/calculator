@@ -62,14 +62,15 @@ class ParserExec
         unsigned int exec(unsigned int index);
         
 		/// @brief	Calculate with normal operators (+ - * / ^ %)
-		/// @param  op Character of the operator
+		/// @param  op Operator string
 		/// @param  left Left operand
 		/// @param  right Right operand
 		/// @return The result of the operation
-        double execOperator(char op, double left, double right);
+        double execOperator(std::string op, double left, double right);
 		
 		/// @brief	Calculate the result of the function
-		double execFunction(unsigned int functionIndex);
+		double execFunction(std::string functionName, unsigned int firstParameterIndex);
+		
         
 };
 
