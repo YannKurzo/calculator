@@ -12,3 +12,17 @@
 using namespace std;
 
 
+Lexer::Lexer(std::string str)
+{
+	str = "";
+}
+
+void Lexer::start(void)
+{
+	
+}
+
+std::vector<Token> Lexer::getTokenVector(void) const
+{
+	return tokenVector_m;
+}

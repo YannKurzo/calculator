@@ -26,6 +26,7 @@ class Analyze
     protected:
         /// String to compute
         std::string str_m;
+		
         /// Result of the calculation
         double result_m;
         
