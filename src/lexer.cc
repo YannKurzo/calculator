@@ -30,13 +30,16 @@ void Lexer::start(void)
     // Erase unnecessary char
     cleanString();
 	
+	// Check unary minus '-'
+	
+    // Check brackets
+    checkBrackets();
+	
 	// Push every token from the string
 	pushTokens();
 	
     // // Check tokens
 	
-    // // Check brackets
-    // checkBrackets();
     
 }
 
@@ -47,6 +50,9 @@ TokenVector Lexer::getTokenVector(void) const
 
 void Lexer::pushTokens(void)
 {
+	// Opening bracket at beginning
+	tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_OPEN, "("));
+	
     // Check whole input string
     for(unsigned int i=0; i<str_m.length(); ++i)
     {
@@ -82,6 +88,9 @@ void Lexer::pushTokens(void)
 			i = pushFunction(i);
 		}
     }
+	
+	// Closing bracket at ending
+	tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_CLOSE, ")"));
 }
 
 unsigned int Lexer::pushNumber(unsigned int startIndex)
@@ -142,10 +151,23 @@ void Lexer::checkBrackets(void)
     {
         // Check brackets
         if(bracketsOpen.find(str_m.at(i)) != string::npos)
+		{
             ++bracketsCount;
+			
+			if(operators.find(str_m.at(i+1)) != string::npos)
+			{
+				THROW("Operators cannot follow an opening bracket!");
+			}
+			else if(str_m.at(i+1) == ',')
+			{
+				THROW("Comma ',' cannot follow an opening bracket!");
+			}
+		}
         
         else if(bracketsClose.find(str_m.at(i)) != string::npos)
+		{
             --bracketsCount;
+		}
     }
     
     if(bracketsCount != 0)
