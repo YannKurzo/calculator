@@ -14,6 +14,7 @@ Missing features (in development):
 - Use double / GMP
 - Use main arguments to enter string / or user input if empty
 - Show a list of the implemented functions
+- Unary minus
 
 Code
 - Change analyse file name
