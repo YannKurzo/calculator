@@ -31,6 +31,11 @@ void Analyze::lexer(void)
 	
 	// Update process
 	actualProcess_m = eLEXER_DONE;
+	
+#ifdef ANALYSE_DEBUG
+	// Display tokens for debug
+	displayToken();
+#endif
 }
 
 void Analyze::parserExec(void)
@@ -60,6 +65,7 @@ double Analyze::getResult()
     return result_m;
 }
 
+#ifdef ANALYSE_DEBUG
 void Analyze::displayToken(void)
 {
 	if(actualProcess_m >= eLEXER_DONE)
@@ -75,3 +81,4 @@ void Analyze::displayToken(void)
 		cout << "The lexer method must be called first!" << endl;	
 	}
 }
+#endif

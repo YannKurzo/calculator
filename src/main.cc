@@ -26,7 +26,6 @@ int main(void)
     {
         // Get tokens
         an.lexer();
-        an.displayToken();
         
         // // Calculates
         an.parserExec();

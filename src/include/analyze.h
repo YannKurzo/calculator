@@ -17,6 +17,9 @@
 
 #include <string>
 
+/// @brief	Define to show the vector of tokens after the lexer process
+#define ANALYSE_DEBUG
+
 /// @brief  This class manages the complete calculation
 /// @note   After creating the class with the constructor, the member functions
 ///         lexer() and parserAndExec() should be called in order before
@@ -58,8 +61,12 @@ class Analyze
         /// @brief  Get the result
         double getResult();
 
+#ifdef ANALYSE_DEBUG
+	private:
         /// @brief  Display the list of tokens
+		/// @note	Debug utility
         void displayToken(void);
+#endif
 };
 
 #endif	/* ANALYZE_H */
