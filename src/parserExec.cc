@@ -155,6 +155,9 @@ double ParserExec::execOperator(std::string op, double left, double right)
         case '^':
             res = pow(left, right);
 			break;
+		case '%':
+			res = fmod(left, right);
+			break;
         default:
             res = 0;
 			break;
