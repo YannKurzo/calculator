@@ -17,6 +17,5 @@ Missing features (in development):
 - Add modulo %
 
 Code
-- Finish parserExec
-- User lexe class
+- Change analyse file name
 - Use references when possible
