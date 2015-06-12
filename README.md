@@ -15,7 +15,9 @@ Missing features (in development):
 - Use main arguments to enter string / or user input if empty
 - Show a list of the implemented functions
 - Unary minus
+- Check implicit multiplication ( 2(4+3) == 2*(4+3) )
 
 Code
 - Change analyse file name
 - Use references when possible
+- Use comma normally (without modifying , => () )
