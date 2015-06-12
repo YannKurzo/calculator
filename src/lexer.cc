@@ -88,7 +88,7 @@ unsigned int Lexer::pushNumber(unsigned int startIndex)
 {
 	unsigned int stopIndex = startIndex + 1;
 	
-	// While it is part of a number (digit or .)
+	// While it is not the end of the string and it is part of a number (digit or .)
 	while(stopIndex<str_m.length() && (isdigit(str_m.at(stopIndex)) || str_m.at(stopIndex) == '.'))
 		++stopIndex;
             
@@ -101,21 +101,25 @@ unsigned int Lexer::pushFunction(unsigned int startIndex)
 {
 	unsigned int stopIndex = startIndex + 1;
 	
-	// While it is not an opening bracket
-	while(stopIndex<str_m.length() && !(bracketsOpen.find(str_m.at(stopIndex)) != string::npos ||
-			bracketsClose.find(str_m.at(stopIndex)) != string::npos ||
-			operators.find(str_m.at(stopIndex)) != string::npos || isdigit(str_m.at(stopIndex))))
+	// While it is not the end of the string and it is not an opening bracket
+	// Every character but the opening bracket can be considered as part of the function!
+	while(stopIndex<str_m.length() && !(bracketsOpen.find(str_m.at(stopIndex)) != string::npos))
 		++stopIndex;
 
 	tokenVector_m.push_back(Token(Token::eTOKENTYPE_FUNCTION, str_m.substr(startIndex, stopIndex-startIndex)));
 	
-	// // Check if function exists
-	// if(Function::getFunction(tokenVector_m.back().getStr()) == NULL)
-	// {
-		// THROW("Function " + tokenVector_m.back().getStr() + "() is not implemented!");
-	// }
+	// Check if function exists
+	if(Function::getFunction(tokenVector_m.back().getStr()) == NULL)
+	{
+		THROW("Function " + tokenVector_m.back().getStr() + "() is not implemented!");
+	}
+	// Check for brackets when at the end of the string
+	else if(stopIndex == str_m.length())
+	{
+		THROW("Missing brackets at function " + tokenVector_m.back().getStr() + "()!");
+	}
 	
-	// If there is no parameter, skip the brackets
+	// If there is no parameter to this function, skip the brackets
 	if(Function::getNbParameters(tokenVector_m.back().getStr()) == 0)
 	{
 		stopIndex += 2;
