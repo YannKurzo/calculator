@@ -56,6 +56,12 @@ class Lexer
 		/// @brief  Erase all unnecessary characters of the string
 		void cleanString(void);
 		
+		/// @brief  Add the multiplication sign when it is omitted
+		void checkImplicitMultiplication(void);
+
+		/// @brief  Add brackets to recognize unary minus
+		void checkUnaryMinus(void);
+		
         /// @brief  Throw an exception there is a problem with the brackets
         void checkBrackets(void);
 		
