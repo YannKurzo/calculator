@@ -19,3 +19,4 @@ Missing features (in development):
 Code
 - Change analyse file name
 - Use references when possible
+- Use comma normally (without modifying , => () )
