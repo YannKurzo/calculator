@@ -30,12 +30,23 @@ void Lexer::start(void)
     // Erase unnecessary char
     cleanString();
 	
+	// Push every token from the string
+	pushTokens();
+	
     // // Check tokens
 	
     // // Check brackets
     // checkBrackets();
     
-    unsigned int j;
+}
+
+TokenVector Lexer::getTokenVector(void) const
+{
+	return tokenVector_m;
+}
+
+void Lexer::pushTokens(void)
+{
     // Check whole input string
     for(unsigned int i=0; i<str_m.length(); ++i)
     {
@@ -43,69 +54,74 @@ void Lexer::start(void)
         // Check digit and numbers
         if(isdigit(c))
         {
-            j = i + 1;
-            while(j<str_m.length() && (isdigit(str_m.at(j)) || str_m.at(j) == '.'))
-                ++j;
-            
-            tokenVector_m.push_back(Token(Token::eTOKENTYPE_NUMBER, str_m.substr(i, j-i)));
-            
-            i = j-1;
+			i = pushNumber(i);
         }
-        else
-        {
-            // Check brackets
-            if(bracketsOpen.find(c) != string::npos)
-            {
-                tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_OPEN, str_m.substr(i, 1)));
-            }
-            else if(bracketsClose.find(c) != string::npos)
-            {
-                tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_CLOSE, str_m.substr(i, 1)));
-            }
-            // Check operators
-            else if(operators.find(c) != string::npos)
-            {
-                tokenVector_m.push_back(Token(Token::eTOKENTYPE_OPERATOR, str_m.substr(i, 1)));
-            }
-            // Check separator, replace by brackets to optimize calculation
-            else if(c == ',')
-            {
-                tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_CLOSE, ")"));
-                tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_OPEN, "("));
-            }
-            // Functions
-            else
-            {
-                j = i + 1;
-                while(j<str_m.length() && !(bracketsOpen.find(str_m.at(j)) != string::npos ||
-                        bracketsClose.find(str_m.at(j)) != string::npos ||
-                        operators.find(str_m.at(j)) != string::npos || isdigit(str_m.at(j))))
-                    ++j;
-
-                tokenVector_m.push_back(Token(Token::eTOKENTYPE_FUNCTION, str_m.substr(i, j-i)));
-                
-                // // Check if function exists
-                // if(Function::getFunction(tokenVector_m.back().getStr()) == NULL)
-                // {
-                    // THROW("Function " + tokenVector_m.back().getStr() + "() is not implemented!");
-                // }
-
-                i = j-1;
-                
-				// If there is no parameter
-                if(Function::getNbParameters(tokenVector_m.back().getStr()) == 0)
-                {
-					// Skip the brackets
-                    i+=2;
-                }
-            }
-        }
+        // Check brackets
+        else if(bracketsOpen.find(c) != string::npos)
+		{
+			tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_OPEN, str_m.substr(i, 1)));
+		}
+		else if(bracketsClose.find(c) != string::npos)
+		{
+			tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_CLOSE, str_m.substr(i, 1)));
+		}
+		// Check operators
+		else if(operators.find(c) != string::npos)
+		{
+			tokenVector_m.push_back(Token(Token::eTOKENTYPE_OPERATOR, str_m.substr(i, 1)));
+		}
+		// Check separator, replace by brackets to optimize calculation
+		else if(c == ',')
+		{
+			tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_CLOSE, ")"));
+			tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_OPEN, "("));
+		}
+		// Functions
+		else
+		{
+			i = pushFunction(i);
+		}
     }
 }
 
-TokenVector Lexer::getTokenVector(void) const
+unsigned int Lexer::pushNumber(unsigned int startIndex)
 {
-	return tokenVector_m;
+	unsigned int stopIndex = startIndex + 1;
+	
+	// While it is part of a number (digit or .)
+	while(stopIndex<str_m.length() && (isdigit(str_m.at(stopIndex)) || str_m.at(stopIndex) == '.'))
+		++stopIndex;
+            
+    tokenVector_m.push_back(Token(Token::eTOKENTYPE_NUMBER, str_m.substr(startIndex, stopIndex-startIndex)));
+            
+	return stopIndex - 1;
+}
+
+unsigned int Lexer::pushFunction(unsigned int startIndex)
+{
+	unsigned int stopIndex = startIndex + 1;
+	
+	// While it is not an opening bracket
+	while(stopIndex<str_m.length() && !(bracketsOpen.find(str_m.at(stopIndex)) != string::npos ||
+			bracketsClose.find(str_m.at(stopIndex)) != string::npos ||
+			operators.find(str_m.at(stopIndex)) != string::npos || isdigit(str_m.at(stopIndex))))
+		++stopIndex;
+
+	tokenVector_m.push_back(Token(Token::eTOKENTYPE_FUNCTION, str_m.substr(startIndex, stopIndex-startIndex)));
+	
+	// // Check if function exists
+	// if(Function::getFunction(tokenVector_m.back().getStr()) == NULL)
+	// {
+		// THROW("Function " + tokenVector_m.back().getStr() + "() is not implemented!");
+	// }
+	
+	// If there is no parameter, skip the brackets
+	if(Function::getNbParameters(tokenVector_m.back().getStr()) == 0)
+	{
+		stopIndex += 2;
+	}
+	
+	return stopIndex - 1;
 }
 
 void Lexer::cleanString(void)

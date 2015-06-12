@@ -40,11 +40,25 @@ class Lexer
         TokenVector getTokenVector(void) const;
 		
 	private:
+		/// @brief  Analyses the string and push the corresponding tokens to the vector
+		void pushTokens(void);
+		
+		/// @brief	Push the number starting at the defined index of the string
+		/// @param  startIndex Starting index of the number
+		/// @return New index after pushing the number
+		unsigned int pushNumber(unsigned int startIndex);
+		
+		/// @brief	Push the function starting at the defined index of the string
+		/// @param  startIndex Starting index of the function
+		/// @return New index after pushing the number
+		unsigned int pushFunction(unsigned int startIndex);
+		
 		/// @brief  Erase all unnecessary characters of the string
 		void cleanString(void);
 		
         /// @brief  Throw an exception there is a problem with the brackets
         void checkBrackets(void);
+		
 };
 
 
