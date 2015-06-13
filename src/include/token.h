@@ -22,6 +22,7 @@ typedef enum
     ePRIORITY_BRACKET_CLOSE,
     ePRIORITY_BRACKET_OPEN,
     ePRIORITY_FUNCTION,
+    ePRIORITY_UNARY_MINUS,
     ePRIORITY_OP_POWER,
     ePRIORITY_OP_MUL_DIV,
     ePRIORITY_OP_PLUS_MINUS,
@@ -55,6 +56,7 @@ class Token
             eTOKENTYPE_BRACKET_CLOSE,
             eTOKENTYPE_BRACKET_OPEN,
             eTOKENTYPE_FUNCTION,
+            eTOKENTYPE_UNARY_MINUS,
             eTOKENTYPE_OPERATOR,
             eTOKENTYPE_NUMBER,
             eTOKENTYPE_COMMA 
@@ -81,7 +83,7 @@ class Token
         
         /// @brief  Get string of the token
         std::string getStr(void) const;
-        /// @todo   Set string with type
+        /// @brief   Set string with type
         void setStr(tokenType_t type, std::string str);
         
         /// @brief  Get value of the token

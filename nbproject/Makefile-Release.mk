@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/analyze.o \
 	${OBJECTDIR}/src/externalFunctions.o \
 	${OBJECTDIR}/src/function.o \
+	${OBJECTDIR}/src/lexer.o \
 	${OBJECTDIR}/src/main.o \
 	${OBJECTDIR}/src/parserExec.o \
 	${OBJECTDIR}/src/token.o
@@ -80,6 +81,11 @@ ${OBJECTDIR}/src/function.o: src/function.cc
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/function.o src/function.cc
+
+${OBJECTDIR}/src/lexer.o: src/lexer.cc 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/lexer.o src/lexer.cc
 
 ${OBJECTDIR}/src/main.o: src/main.cc 
 	${MKDIR} -p ${OBJECTDIR}/src

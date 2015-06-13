@@ -6,12 +6,14 @@
         <itemPath>src/include/analyze.h</itemPath>
         <itemPath>src/include/externalFunctions.h</itemPath>
         <itemPath>src/include/function.h</itemPath>
+        <itemPath>src/include/lexer.h</itemPath>
         <itemPath>src/include/parserExec.h</itemPath>
         <itemPath>src/include/token.h</itemPath>
       </logicalFolder>
       <itemPath>src/analyze.cc</itemPath>
       <itemPath>src/externalFunctions.cc</itemPath>
       <itemPath>src/function.cc</itemPath>
+      <itemPath>src/lexer.cc</itemPath>
       <itemPath>src/main.cc</itemPath>
       <itemPath>src/parserExec.cc</itemPath>
       <itemPath>src/token.cc</itemPath>
@@ -57,9 +59,13 @@
       </item>
       <item path="src/include/function.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/include/lexer.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/include/parserExec.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/token.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/lexer.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/main.cc" ex="false" tool="1" flavor2="0">
       </item>
@@ -108,9 +114,13 @@
       </item>
       <item path="src/include/function.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/include/lexer.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/include/parserExec.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/token.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/lexer.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/main.cc" ex="false" tool="1" flavor2="0">
       </item>

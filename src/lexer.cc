@@ -12,6 +12,7 @@
 #include "lexer.h"
 #include "function.h"
 
+#include <iostream>
 #include <cctype>
 #include <algorithm>
 #include <exception>
@@ -35,12 +36,12 @@ void Lexer::start(void)
 	
 	// Push every token from the string
 	pushTokens();
+    
+    // Check unary minus '-'
+//    checkUnaryMinus();
 	
 	// Check implicit multiplication
 	checkImplicitMultiplication();
-	
-	// Check unary minus '-'
-	checkUnaryMinus();
 	
     // // Check tokens
 	
@@ -79,6 +80,19 @@ void Lexer::pushTokens(void)
 		else if(operators.find(c) != string::npos)
 		{
 			tokenVector_m.push_back(Token(Token::eTOKENTYPE_OPERATOR, str_m.substr(i, 1)));
+            
+            // Check unary minus '-'
+            if(c == '-')
+            {
+                Token::tokenType_t type = tokenVector_m.at(tokenVector_m.size()-2).getType();
+                
+                // If it is the first of the string OR if last one was an operator or an opening bracket
+                if(i == 0 || type == Token::eTOKENTYPE_OPERATOR ||
+                             type == Token::eTOKENTYPE_BRACKET_OPEN)
+                {
+                    tokenVector_m.at(tokenVector_m.size()-1).setStr(Token::eTOKENTYPE_UNARY_MINUS, "--");
+                }
+            }
 		}
 		// Check separator, replace by brackets to optimize calculation
 		else if(c == ',')
@@ -151,10 +165,29 @@ void Lexer::checkImplicitMultiplication(void)
 	
 }
 
-void Lexer::checkUnaryMinus(void)
-{
-	
-}
+//void Lexer::checkUnaryMinus(void)
+//{
+//    for(unsigned int i=0; i<tokenVector_m.size(); ++i)
+//    {
+//        cout << tokenVector_m.at(i) << endl;
+//        // If it is a minus
+//        if(tokenVector_m.at(i).getStr().at(0) == '-')
+//        {
+//            // If last one is an operator or an opening bracket
+//            if(tokenVector_m.at(i).getType() == Token::eTOKENTYPE_OPERATOR)
+//            {
+//                // Add (0-X)
+//                tokenVector_m.insert(tokenVector_m.begin()+i,
+//                    Token(Token::eTOKENTYPE_BRACKET_OPEN, "("));
+//                tokenVector_m.insert(tokenVector_m.begin()+i+1,
+//                    Token(Token::eTOKENTYPE_NUMBER, "0"));
+////                tokenVector_m.insert(tokenVector_m.begin()+i+1,
+////                    Token(Token::eTOKENTYPE_BRACKET_CLOSE, ")"));
+//                i += 2;
+//            }
+//        }
+//    }
+//}
 
 void Lexer::checkBrackets(void)
 {
@@ -168,7 +201,7 @@ void Lexer::checkBrackets(void)
 		{
             ++bracketsCount;
 			
-			if(operators.find(str_m.at(i+1)) != string::npos)
+			if(operators.find(str_m.at(i+1)) != string::npos && str_m.at(i+1) != '-')
 			{
 				THROW("Operators cannot follow an opening bracket!");
 			}

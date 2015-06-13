@@ -75,6 +75,9 @@ priority_t Token::getPriority(void) const
         case eTOKENTYPE_FUNCTION:
             priority = ePRIORITY_FUNCTION;
             break;
+        case eTOKENTYPE_UNARY_MINUS:
+            priority = ePRIORITY_UNARY_MINUS;
+            break;
         default:
             priority = ePRIORITY_LOWEST;
             break;

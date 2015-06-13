@@ -60,7 +60,7 @@ class Lexer
 		void checkImplicitMultiplication(void);
 
 		/// @brief  Add brackets to recognize unary minus
-		void checkUnaryMinus(void);
+//		void checkUnaryMinus(void);
 		
         /// @brief  Throw an exception there is a problem with the brackets
         void checkBrackets(void);

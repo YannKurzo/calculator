@@ -89,9 +89,10 @@ unsigned int ParserExec::findHighestOp(unsigned int lowerIndex, unsigned int upp
 unsigned int ParserExec::exec(unsigned int index)
 {
 	unsigned int vectorLenghtChange = 0;
+    Token::tokenType_t type = tokenVector_m[index].getType();
 	
 	// Operator
-    if(tokenVector_m[index].getType() == Token::eTOKENTYPE_OPERATOR)
+    if(type == Token::eTOKENTYPE_OPERATOR)
     {
 		// Calculate
         tokenVector_m[index].setN(
@@ -111,7 +112,7 @@ unsigned int ParserExec::exec(unsigned int index)
     }
 	
 	// Functions
-	else if(tokenVector_m[index].getType() == Token::eTOKENTYPE_FUNCTION)
+	else if(type == Token::eTOKENTYPE_FUNCTION)
 	{
 		// Calculate
         tokenVector_m[index].setN(
@@ -130,6 +131,25 @@ unsigned int ParserExec::exec(unsigned int index)
 		// Update vector length
         vectorLenghtChange = nbParameters;
 	}
+    
+    // Unary minus
+    else if(type == Token::eTOKENTYPE_UNARY_MINUS)
+    {
+		// Calculate
+        tokenVector_m[index].setN(
+			execOperator(
+				tokenVector_m[index].getStr(),
+				0,
+				tokenVector_m[index+1].getN()
+			)
+		);
+		
+		// Erase old token
+		tokenVector_m.erase(tokenVector_m.begin()+index+1);
+		
+		// Update vector length
+		vectorLenghtChange = 1;
+    }
 	
 	return vectorLenghtChange;
 }
