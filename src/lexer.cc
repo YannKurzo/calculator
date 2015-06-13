@@ -40,9 +40,8 @@ void Lexer::start(void)
 	// Check implicit multiplication
 	checkImplicitMultiplication();
 	
-    // // Check tokens
-	
-    
+    // Check tokens
+	checkTokens();
 }
 
 TokenVector Lexer::getTokenVector(void) const
@@ -157,27 +156,6 @@ void Lexer::cleanString(void)
     str_m.erase(std::remove_if(str_m.begin(), str_m.end(), ::isspace), str_m.end());
 }
 
-void Lexer::checkImplicitMultiplication(void)
-{
-	for(unsigned int i=0; i<tokenVector_m.size()-1; ++i)
-    {
-        // If it is a number
-        if(tokenVector_m.at(i).getType() == Token::eTOKENTYPE_NUMBER)
-        {
-            // If next one is a function or an opening bracket
-            if(tokenVector_m.at(i+1).getType() == Token::eTOKENTYPE_FUNCTION ||
-               tokenVector_m.at(i+1).getType() == Token::eTOKENTYPE_BRACKET_OPEN)
-            {
-                // Add multiplication operator
-                tokenVector_m.insert(tokenVector_m.begin()+i+1,
-                    Token(Token::eTOKENTYPE_OPERATOR, "*"));
-                
-                ++i;
-            }
-        }
-    }
-}
-
 void Lexer::checkBrackets(void)
 {
     int bracketsCount = 0;
@@ -215,6 +193,50 @@ void Lexer::checkBrackets(void)
         else
         {
             THROW("Missing " + std::to_string(-bracketsCount) + " opening brackets!");
+        }
+    }
+}
+
+void Lexer::checkImplicitMultiplication(void)
+{
+	for(unsigned int i=0; i<tokenVector_m.size()-1; ++i)
+    {
+        // If it is a number
+        if(tokenVector_m.at(i).getType() == Token::eTOKENTYPE_NUMBER)
+        {
+            // If next one is a function or an opening bracket
+            if(tokenVector_m.at(i+1).getType() == Token::eTOKENTYPE_FUNCTION ||
+               tokenVector_m.at(i+1).getType() == Token::eTOKENTYPE_BRACKET_OPEN)
+            {
+                // Add multiplication operator
+                tokenVector_m.insert(tokenVector_m.begin()+i+1,
+                    Token(Token::eTOKENTYPE_OPERATOR, "*"));
+                
+                ++i;
+            }
+        }
+    }
+}
+
+void Lexer::checkTokens(void)
+{
+	for(unsigned int i=1; i<tokenVector_m.size()-1; ++i)
+    {
+        Token::tokenType_t type = tokenVector_m.at(i).getType();
+        Token::tokenType_t typeNext = tokenVector_m.at(i+1).getType();
+        
+        if(type == Token::eTOKENTYPE_OPERATOR ||
+           type == Token::eTOKENTYPE_UNARY_MINUS)
+        {
+            if(typeNext == Token::eTOKENTYPE_OPERATOR)
+            {
+                THROW("Multiple operator in a row!");
+            }
+            if(typeNext == Token::eTOKENTYPE_BRACKET_CLOSE ||
+               typeNext == Token::eTOKENTYPE_COMMA)
+            {
+                THROW("There must be a number or a function right to an operator!");
+            }
         }
     }
 }
