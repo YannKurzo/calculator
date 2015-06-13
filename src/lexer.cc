@@ -36,9 +36,6 @@ void Lexer::start(void)
 	
 	// Push every token from the string
 	pushTokens();
-    
-    // Check unary minus '-'
-//    checkUnaryMinus();
 	
 	// Check implicit multiplication
 	checkImplicitMultiplication();
@@ -162,32 +159,24 @@ void Lexer::cleanString(void)
 
 void Lexer::checkImplicitMultiplication(void)
 {
-	
+	for(unsigned int i=0; i<tokenVector_m.size()-1; ++i)
+    {
+        // If it is a number
+        if(tokenVector_m.at(i).getType() == Token::eTOKENTYPE_NUMBER)
+        {
+            // If next one is a function or an opening bracket
+            if(tokenVector_m.at(i+1).getType() == Token::eTOKENTYPE_FUNCTION ||
+               tokenVector_m.at(i+1).getType() == Token::eTOKENTYPE_BRACKET_OPEN)
+            {
+                // Add multiplication operator
+                tokenVector_m.insert(tokenVector_m.begin()+i+1,
+                    Token(Token::eTOKENTYPE_OPERATOR, "*"));
+                
+                ++i;
+            }
+        }
+    }
 }
-
-//void Lexer::checkUnaryMinus(void)
-//{
-//    for(unsigned int i=0; i<tokenVector_m.size(); ++i)
-//    {
-//        cout << tokenVector_m.at(i) << endl;
-//        // If it is a minus
-//        if(tokenVector_m.at(i).getStr().at(0) == '-')
-//        {
-//            // If last one is an operator or an opening bracket
-//            if(tokenVector_m.at(i).getType() == Token::eTOKENTYPE_OPERATOR)
-//            {
-//                // Add (0-X)
-//                tokenVector_m.insert(tokenVector_m.begin()+i,
-//                    Token(Token::eTOKENTYPE_BRACKET_OPEN, "("));
-//                tokenVector_m.insert(tokenVector_m.begin()+i+1,
-//                    Token(Token::eTOKENTYPE_NUMBER, "0"));
-////                tokenVector_m.insert(tokenVector_m.begin()+i+1,
-////                    Token(Token::eTOKENTYPE_BRACKET_CLOSE, ")"));
-//                i += 2;
-//            }
-//        }
-//    }
-//}
 
 void Lexer::checkBrackets(void)
 {
