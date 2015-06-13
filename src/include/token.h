@@ -46,6 +46,18 @@ static priority_t operatorPriority[] =
     ePRIORITY_OP_MODULO
 };
 
+/// @brief  Defines the different tokens and their own priority
+static priority_t tokenPriority[] =
+{
+    ePRIORITY_BRACKET_CLOSE,
+    ePRIORITY_BRACKET_OPEN,
+    ePRIORITY_FUNCTION,
+    ePRIORITY_UNARY_MINUS,
+    ePRIORITY_LOWEST,
+    ePRIORITY_LOWEST,
+    ePRIORITY_LOWEST
+};
+
 /// @brief  This class is used to store each token of the string
 class Token
 {

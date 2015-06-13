@@ -66,20 +66,8 @@ priority_t Token::getPriority(void) const
         case eTOKENTYPE_OPERATOR:
             priority = operatorPriority[operators.find(str_m)];
             break;
-        case eTOKENTYPE_BRACKET_CLOSE:
-            priority = ePRIORITY_BRACKET_CLOSE;
-            break;
-        case eTOKENTYPE_BRACKET_OPEN:
-            priority = ePRIORITY_BRACKET_OPEN;
-            break;
-        case eTOKENTYPE_FUNCTION:
-            priority = ePRIORITY_FUNCTION;
-            break;
-        case eTOKENTYPE_UNARY_MINUS:
-            priority = ePRIORITY_UNARY_MINUS;
-            break;
         default:
-            priority = ePRIORITY_LOWEST;
+            priority = tokenPriority[type_m];
             break;
     }
     
