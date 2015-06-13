@@ -15,6 +15,7 @@
 
 using namespace std;
 
+#define THROW(str) throw runtime_error(str);
 
 ParserExec::ParserExec(TokenVector &tokenList)
 {
@@ -198,7 +199,12 @@ double ParserExec::execFunction(std::string functionName, unsigned int firstPara
     
     // Set parameters
     for(unsigned int i=0; i<nbPar; ++i)
+    {
+        if(tokenVector_m[firstParameterIndex+i].getType() != Token::eTOKENTYPE_NUMBER)
+            THROW("Problem with function parameters!");
+                    
         par[i] = tokenVector_m[firstParameterIndex+i].getN();
+    }
     
     // Result with MAX_NUMBER_PARAMETERS = 5
 #if(MAX_NUMBER_PARAMETERS != 5)

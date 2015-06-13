@@ -16,7 +16,7 @@ using namespace std;
 
 int main(void)
 {
-    string str("2+5+-5");
+    string str("2+pow(2,1*2)");
     
     cout << "Calculator" << endl << endl;
     
