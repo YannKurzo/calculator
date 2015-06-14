@@ -9,9 +9,9 @@ Working features:
 - Brackets
 - Functions
 - Implicit multiplication (Ex: 2(4+3) == 2*(4+3) || 2pi() == 2*pi() )
+- Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)
 
 Missing features (in development):
-- Check entered string
 - Use double / GMP
 - Use main arguments to enter string / or user input if empty
 - Show a list of the implemented functions
@@ -19,4 +19,3 @@ Missing features (in development):
 Code
 - Change analyse file name
 - Use references when possible
-- Use comma normally (without modifying , => () )
