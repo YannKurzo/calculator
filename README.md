@@ -13,8 +13,11 @@ Working features:
 
 Missing features (in development):
 - Use double / GMP
-- Use main arguments to enter string / or user input if empty
-- Show a list of the implemented functions
+- In command line:
+-   If no argument: launch as a bash for calculation (waiting for "exit" command)
+-   If no argument: "functions" command: show the list of function
+-   If arguments: calculate every argument and exit automatically
+-   If argument = -f / --available-functions: show the list of function (cancel remaining calculations)
 
 Code
 - Use references when possible
