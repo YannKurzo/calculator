@@ -2,7 +2,7 @@
 //  ==========================================================================
 /// @file   application.cc
 /// @author Yann Kurzo
-/// @date   May 11, 2015, 9:32 PM
+/// @date   June 14, 2015, 9:32 PM
 /// @license GPL2
 /// @brief  
 //  ==========================================================================
@@ -45,15 +45,16 @@ void Application::startArgument(void)
     {
         str_m = argv_m[i];
         
-        if(str_m == arguments[eARGUMENT_LIST_AVAILABLE_FUNCTIONS] ||
-           str_m == argumentsShortcut[eARGUMENT_LIST_AVAILABLE_FUNCTIONS])
+        // Start analysis if it is not a command
+        if(checkCommand() == Command::eNB_COMMANDS)
         {
-            // Show functions and quit
-            
+            startAnalyse();
+        }
+        // Else cancel
+        else
+        {
             break;
         }
-        
-        startAnalyse();
     }
 }
 
@@ -64,9 +65,42 @@ void Application::startCommand(void)
     // While we do not exit
     while(str_m != "exit")
     {
-        startAnalyse();
+        // Start analysis if it is not a command
+        if(checkCommand() == Command::eNB_COMMANDS)
+        {
+            startAnalyse();
+        }
+        
+        // Get new line
         cin >> str_m;
     }
+}
+
+Command::command_t Application::checkCommand(void)
+{
+    Command::command_t command;
+    
+    // Get the right command
+    if(argumentPresent_m)
+    {
+        command = Command::getArgument(str_m);
+    }
+    else
+    {
+        command = Command::getCommand(str_m);
+    }
+        
+    // Execute the command if it is a command
+    if(command != Command::eNB_COMMANDS)
+    {
+        // Show functions and quit
+        if(command == Command::eARGUMENT_LIST_AVAILABLE_FUNCTIONS)
+        {
+            cout << "Functions here" << endl;
+        }
+    }
+    
+    return command;
 }
 
 void Application::startAnalyse(void)

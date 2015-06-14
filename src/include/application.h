@@ -2,7 +2,7 @@
 //  ==========================================================================
 /// @file   application.h
 /// @author Yann Kurzo
-/// @date   May 11, 2015, 9:32 PM
+/// @date   June 14, 2015, 9:32 PM
 /// @license GPL2
 /// @brief  
 //  ==========================================================================
@@ -11,23 +11,9 @@
 #define	APPLICATION_H
 
 #include "analyze.h"
+#include "command.h"
 
 #include <string>
-
-enum
-{
-    eARGUMENT_LIST_AVAILABLE_FUNCTIONS
-};
-
-static const std::string arguments[] =
-{
-    "--list-available-functions"
-};
-
-static const std::string argumentsShortcut[] =
-{
-    "-l"
-};
 
 /// @brief  
 class Application
@@ -36,37 +22,42 @@ class Application
         // String to compute
         std::string str_m;
         
-        //
+        // Number of main arguments
         int argc_m;
         
-        //
+        // Pointer on a table of main arguments
         char **argv_m;
         
-        //
+        // Used to verify if there were main arguments
         bool argumentPresent_m;
 
     public:
-        /// @brief  
+        /// @brief  Constructor
+        /// @param  argc Number of main arguments
+        /// @param  *argv[] Pointer on a table of main arguments
         Application(int argc,char *argv[]);
         
-        /// @brief  
+        /// @brief  Start the program in the right mode
         void start(void);
         
     private:
-        
-        /// @brief  
+        /// @brief  Start the program in argument mode
         void startArgument(void);
 
-        /// @brief  
+        /// @brief  Start the program in command mode
         void startCommand(void);
         
-        /// @brief  
+        /// @brief  Check the command depending on the mode and execute it
+        /// @return Executed command, eNB_ARGUMENTS elsewhere
+        Command::command_t checkCommand(void);
+        
+        /// @brief  Start the analysis with str_m as input string
         void startAnalyse(void);
 
-        /// @brief  
+        /// @brief  Show the title of the application
         void showTitle(void);
 
-        /// @brief  
+        /// @brief  Show a goodbye text
         void showExit(void);
 };
 
