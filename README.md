@@ -17,5 +17,4 @@ Missing features (in development):
 - Show a list of the implemented functions
 
 Code
-- Change analyse file name
 - Use references when possible
