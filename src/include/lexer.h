@@ -48,12 +48,24 @@ class Lexer
         /// @return New index after pushing the number
         unsigned int pushNumber(unsigned int startIndex);
         
+        /// @brief	Push an opening bracket
+        /// @param  startIndex Starting index of the number
+        /// @return New index after pushing the number
         unsigned int pushOpeningBracket(unsigned int startIndex);
         
+        /// @brief	Push a closing bracket
+        /// @param  startIndex Starting index of the number
+        /// @return New index after pushing the number
         unsigned int pushClosingBracket(unsigned int startIndex);
         
+        /// @brief	Push an operator
+        /// @param  startIndex Starting index of the number
+        /// @return New index after pushing the number
         unsigned int pushOperator(unsigned int startIndex);
         
+        /// @brief	Push a comma
+        /// @param  startIndex Starting index of the number
+        /// @return New index after pushing the number
         unsigned int pushComma(unsigned int startIndex);
 
         /// @brief	Push the function starting at the defined index of the string
