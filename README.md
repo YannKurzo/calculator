@@ -21,5 +21,6 @@ Missing features (in development):
 
 Code
 - Use references when possible
+- Use protected
 - Comments
 - Application class to manage command line
