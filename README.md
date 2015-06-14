@@ -23,6 +23,8 @@ Working features:
 Missing features (in development):
 - Use double / GMP
 
+Commands to add
+
 Code
-- Use references when possible
+- Correct indent
 - Comments
