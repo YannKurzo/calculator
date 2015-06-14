@@ -24,7 +24,6 @@ Missing features (in development):
 - Use double / GMP
 
 Commands to add
-- 
 
 Code
 - Correct indent
