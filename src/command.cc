@@ -11,26 +11,38 @@
 
 using namespace std;
 
-Command::command_t Command::getArgument(std::string str)
+command_e Command::getArgument(std::string str)
 {
     for(int i=0; i<eNB_COMMANDS; ++i)
     {
-        if(str == ("--" + commands[i]) || str == commandsShortcut[i])
+        if(str == ("--" + commands[i].command) || str == commands[i].shortcut)
         {
-            return static_cast<command_t>(i);
+            return static_cast<command_e>(i);
         }
     }
     return eNB_COMMANDS;
 }
 
-Command::command_t Command::getCommand(std::string str)
+command_e Command::getCommand(std::string str)
 {
     for(int i=0; i<eNB_COMMANDS; ++i)
     {
-        if(str == commands[i] || str == commandsShortcut[i])
+        if(str == commands[i].command || str == commands[i].shortcut)
         {
-            return static_cast<command_t>(i);
+            return static_cast<command_e>(i);
         }
     }
     return eNB_COMMANDS;
+}
+
+std::string Command::getHelp(void)
+{
+    string str("");
+    
+    for(int i=0; i<eNB_COMMANDS; ++i)
+    {
+        str = str + "  " + commands[i].command + " (" + commands[i].shortcut + ") : " + commands[i].help + "\n";
+    }
+    
+    return str;
 }

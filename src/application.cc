@@ -46,7 +46,7 @@ void Application::startArgument(void)
         str_m = argv_m[i];
         
         // Start analysis if it is not a command
-        if(checkCommand() == Command::eNB_COMMANDS)
+        if(checkCommand() == eNB_COMMANDS)
         {
             startAnalyse();
         }
@@ -66,7 +66,7 @@ void Application::startCommand(void)
     while(str_m != "exit")
     {
         // Start analysis if it is not a command
-        if(checkCommand() == Command::eNB_COMMANDS)
+        if(checkCommand() == eNB_COMMANDS)
         {
             startAnalyse();
         }
@@ -76,9 +76,9 @@ void Application::startCommand(void)
     }
 }
 
-Command::command_t Application::checkCommand(void)
+command_e Application::checkCommand(void)
 {
-    Command::command_t command;
+    command_e command;
     
     // Get the right command
     if(argumentPresent_m)
@@ -91,12 +91,19 @@ Command::command_t Application::checkCommand(void)
     }
         
     // Execute the command if it is a command
-    if(command != Command::eNB_COMMANDS)
+    if(command != eNB_COMMANDS)
     {
         // Show functions and quit
-        if(command == Command::eARGUMENT_LIST_AVAILABLE_FUNCTIONS)
+        switch(command)
         {
-            cout << Function::getFunctionList() << endl;
+            case eCOMMAND_LIST_AVAILABLE_FUNCTIONS:
+                cout << Function::getFunctionList() << endl;
+                break;
+            case eCOMMAND_HELP:
+                cout << Command::getHelp() << endl;
+                break;
+            default:
+                break;
         }
     }
     

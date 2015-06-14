@@ -49,7 +49,7 @@ class Application
         
         /// @brief  Check the command depending on the mode and execute it
         /// @return Executed command, eNB_ARGUMENTS elsewhere
-        Command::command_t checkCommand(void);
+        command_e checkCommand(void);
         
         /// @brief  Start the analysis with str_m as input string
         void startAnalyse(void);
