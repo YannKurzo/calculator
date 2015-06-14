@@ -24,6 +24,7 @@ Working features:
 
 Missing features (in development):
 - Use double / GMP
+- Set right precision (15 bits) for double with cout
 
 Commands to add
 
