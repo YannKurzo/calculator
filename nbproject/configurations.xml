@@ -4,6 +4,7 @@
     <logicalFolder name="src" displayName="src" projectFiles="true">
       <logicalFolder name="include" displayName="include" projectFiles="true">
         <itemPath>src/include/analyze.h</itemPath>
+        <itemPath>src/include/application.h</itemPath>
         <itemPath>src/include/externalFunctions.h</itemPath>
         <itemPath>src/include/function.h</itemPath>
         <itemPath>src/include/lexer.h</itemPath>
@@ -11,6 +12,7 @@
         <itemPath>src/include/token.h</itemPath>
       </logicalFolder>
       <itemPath>src/analyze.cc</itemPath>
+      <itemPath>src/application.cc</itemPath>
       <itemPath>src/externalFunctions.cc</itemPath>
       <itemPath>src/function.cc</itemPath>
       <itemPath>src/lexer.cc</itemPath>
@@ -49,11 +51,15 @@
       </compileType>
       <item path="src/analyze.cc" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="src/application.cc" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/externalFunctions.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/function.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/include/analyze.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/application.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/externalFunctions.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -104,11 +110,15 @@
       </compileType>
       <item path="src/analyze.cc" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="src/application.cc" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/externalFunctions.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/function.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/include/analyze.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/application.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/externalFunctions.h" ex="false" tool="3" flavor2="0">
       </item>

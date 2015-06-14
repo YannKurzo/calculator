@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/src/analyze.o \
+	${OBJECTDIR}/src/application.o \
 	${OBJECTDIR}/src/externalFunctions.o \
 	${OBJECTDIR}/src/function.o \
 	${OBJECTDIR}/src/lexer.o \
@@ -71,6 +72,11 @@ ${OBJECTDIR}/src/analyze.o: src/analyze.cc
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/analyze.o src/analyze.cc
+
+${OBJECTDIR}/src/application.o: src/application.cc 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/application.o src/application.cc
 
 ${OBJECTDIR}/src/externalFunctions.o: src/externalFunctions.cc 
 	${MKDIR} -p ${OBJECTDIR}/src

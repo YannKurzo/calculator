@@ -6,6 +6,7 @@
 /// @license GPL2
 //  ==========================================================================
 
+#include "application.h"
 #include "analyze.h"
 
 #include <iostream>
