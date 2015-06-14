@@ -19,7 +19,7 @@
 ///         
 class Lexer
 {
-    private:
+    protected:
         /// String to compute
         std::string str_m;
 

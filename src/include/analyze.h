@@ -36,16 +36,16 @@ class Analyze
         /// List of tokens for the calculation
         TokenVector tokenVector_m;
 		
-		/// Enumeration to check the actual process
-		typedef enum
-		{
-			eNOTHING_DONE,
-			eLEXER_DONE,
-			ePARSEREXEC_DONE
-		}actualProcess_e;
-		
-		/// Actual process
-		actualProcess_e actualProcess_m;
+        /// Enumeration to check the actual process
+        typedef enum
+        {
+                eNOTHING_DONE,
+                eLEXER_DONE,
+                ePARSEREXEC_DONE
+        }actualProcess_e;
+
+        /// Actual process
+        actualProcess_e actualProcess_m;
 
     public:
         /// @brief  Construct a calculation process

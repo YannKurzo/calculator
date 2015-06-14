@@ -52,8 +52,6 @@ static functionMap_t functions_m =
 /// @brief  Class to get the actual function if it exists
 class Function
 {
-    private:
-        
     public:
         /// @brief  Get the number of parameters of the function
         /// @param  str Name of the function

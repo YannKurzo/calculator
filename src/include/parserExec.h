@@ -26,7 +26,7 @@
 ///         
 class ParserExec
 {
-    private:
+    protected:
         /// List of tokens for the calculation
         TokenVector tokenVector_m;
         
