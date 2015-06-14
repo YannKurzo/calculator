@@ -100,12 +100,12 @@ class Function
         /// @brief  Get the number of parameters of the function
         /// @param  str Name of the function
         /// @return Number of parameters of the function
-        static unsigned int getNbParameters(std::string str);
+        static unsigned int getNbParameters(const std::string &str);
         
         /// @brief  Get a pointer on the function to call
         /// @param  str Name of the function
         /// @return Pointer to the function, NULL if it does not exist
-        static func_ptr getFunction(std::string str);
+        static func_ptr getFunction(const std::string &str);
         
         /// @brief  Get a string containing the list of implemented functions
         /// @return Function list

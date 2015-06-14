@@ -88,7 +88,7 @@ class Token
         /// @brief  Constructor
         /// @param  type Type of the token
         /// @param  str String of the token
-        Token(tokenType_t type, std::string str);
+        Token(tokenType_t type, const std::string &str);
         
         /// @brief  Get type of the token
         tokenType_t getType(void) const;
@@ -96,7 +96,7 @@ class Token
         /// @brief  Get string of the token
         std::string getStr(void) const;
         /// @brief   Set string with type
-        void setStr(tokenType_t type, std::string str);
+        void setStr(tokenType_t type, const std::string &str);
         
         /// @brief  Get value of the token
         double getN(void) const;

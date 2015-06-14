@@ -19,7 +19,7 @@
 using namespace std;
 
 
-Token::Token(tokenType_t type, std::string str)
+Token::Token(tokenType_t type, const std::string &str)
 {
     setStr(type, str);
 }
@@ -34,7 +34,7 @@ std::string Token::getStr(void) const
     return str_m;
 }
 
-void Token::setStr(tokenType_t type, std::string str)
+void Token::setStr(tokenType_t type, const std::string &str)
 {
     type_m = type;
     str_m = str;

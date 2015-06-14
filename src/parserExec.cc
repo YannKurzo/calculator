@@ -17,7 +17,7 @@ using namespace std;
 
 #define THROW(str) throw runtime_error(str);
 
-ParserExec::ParserExec(TokenVector &tokenList)
+ParserExec::ParserExec(const TokenVector &tokenList)
 {
     tokenVector_m = tokenList;
 }

@@ -16,7 +16,7 @@
 
 using namespace std;
 
-Analyze::Analyze(std::string str)
+Analyze::Analyze(const std::string &str)
 {
     str_m = str;
     result_m = 0;
@@ -66,7 +66,7 @@ double Analyze::getResult()
 }
 
 #ifdef ANALYSE_DEBUG
-void Analyze::displayToken(void)
+void Analyze::displayToken(void) const
 {
 	if(actualProcess_m >= eLEXER_DONE)
 	{

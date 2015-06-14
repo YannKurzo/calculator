@@ -33,7 +33,7 @@ class ParserExec
     public:
 		/// @brief  Constructor
 		/// @param	TokenVector Vector of tokens to analyse
-        ParserExec(TokenVector &tokenList);
+        ParserExec(const TokenVector &tokenList);
         
 		/// @brief	Start analysing the vector of tokens
         void start(void);

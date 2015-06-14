@@ -16,12 +16,12 @@
 
 using namespace std;
 
-unsigned int Function::getNbParameters(std::string str)
+unsigned int Function::getNbParameters(const std::string &str)
 {
     return functions_m[str].nbParameters;
 }
 
-func_ptr Function::getFunction(std::string str)
+func_ptr Function::getFunction(const std::string &str)
 {
     return functions_m[str].func;
 }

@@ -29,7 +29,7 @@ class Lexer
     public:
         /// @brief  Constructor
         /// @param	str String to transform
-        Lexer(std::string str);
+        Lexer(const std::string &str);
 
         /// @brief	Start analysing the string
         void start(void);

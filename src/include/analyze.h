@@ -50,7 +50,7 @@ class Analyze
     public:
         /// @brief  Construct a calculation process
         /// @param  str String to compute
-        Analyze(std::string str);
+        Analyze(const std::string &str);
         
         /// @brief  Analyses and separates in tokens the string to compute
         void lexer(void);
@@ -65,7 +65,7 @@ class Analyze
 	private:
         /// @brief  Display the list of tokens
 		/// @note	Debug utility
-        void displayToken(void);
+        void displayToken(void) const;
 #endif
 };
 

@@ -21,7 +21,7 @@ using namespace std;
 
 #define THROW(str) throw runtime_error(str);
 
-Lexer::Lexer(std::string str)
+Lexer::Lexer(const std::string &str)
 {
 	str_m = str;
 }
