@@ -14,6 +14,14 @@
 /// @return 3.1315...
 double pi(void);
 
+/// @brief  Get NAN
+/// @return NAN
+double NaN(void);
+
+/// @brief  Get INFINITY
+/// @return INFINITY
+double inf(void);
+
 
 #endif	/* EXTERNALFUNCTIONS_H */
 

@@ -44,9 +44,53 @@ typedef functionMap_t::iterator functionMapIterator_t;
 ///         should be called depending on its name.
 static functionMap_t functions_m = 
 {
-    ADD("pow"   , 2, pow,   "a at power b"),
-    ADD("ln"    , 1, log,   "Natural logarithm of a"),
-    ADD("pi"    , 0, pi,    "Return pi")
+    // Trigonometric functions
+    ADD("cos"   , 1, cos,   "Compute cosine"),
+    ADD("sin"   , 1, sin,   "Compute sine"),
+    ADD("tan"   , 1, tan,   "Compute tangent"),
+    ADD("acos"  , 1, acos,  "Compute arc cosine"),
+    ADD("asin"  , 1, asin,  "Compute arc sine"),
+    ADD("atan"  , 1, atan,  "Compute arc tangent"),
+    
+    // Hyperbolic functions
+    ADD("cosh"  , 1, cosh,  "Compute hyperbolic cosine"),
+    ADD("sinh"  , 1, sinh,  "Compute hyperbolic sine"),
+    ADD("tanh"  , 1, tanh,  "Compute hyperbolic tangent"),
+    ADD("acosh" , 1, acosh, "Compute arc hyperbolic cosine"),
+    ADD("asinh" , 1, asinh, "Compute arc hyperbolic sine"),
+    ADD("atanh" , 1, atanh, "Compute arc hyperbolic tangent"),
+    
+    // Exponential and logarithmic functions
+    ADD("exp"   , 1, exp,   "Compute exponential function"),
+    ADD("log"   , 1, log,   "Compute natural logarithm"),
+    ADD("log10" , 1, log10, "Compute common logarithm"),
+    ADD("log2"  , 1, log2,  "Compute binary logarithm"),
+    
+    // Power functions
+    ADD("pow"   , 2, pow,   "Raise to power"),
+    ADD("sqrt"  , 1, sqrt,  "Compute square root"),
+    ADD("cbrt"  , 1, cbrt,  "Compute cubic root"),
+    ADD("hypot" , 2, hypot, "Compute hypotenuse"),
+    
+    // Rounding and remainder functions
+    ADD("ceil"  , 1, ceil,  "Round up value"),
+    ADD("floor" , 1, floor, "Round down value"),
+    ADD("fmod"  , 2, fmod,  "Compute remainder of division"),
+    ADD("trunc" , 1, trunc, "Truncate value"),
+    ADD("round" , 1, round, "Round to nearest"),
+    
+    // Maximum, minimum, difference functions
+    ADD("fdim"  , 2, fdim,  "Positive difference"),
+    ADD("fmax"  , 2, fmax,  "Maximum value"),
+    ADD("fmin"  , 2, fmin,  "Minimum value"),
+    
+    // Other functions
+    ADD("abs"   , 1, abs,   "Compute absolute value"),
+    
+    // Defined in externalFunctions.h
+    ADD("pi"    , 0, pi,    "Return pi"),
+    ADD("NaN"   , 0, NaN,   "Return NAN"),
+    ADD("inf"   , 0, inf,   "Return INFINITY")
 };
 
 /// @brief  Class to get the actual function if it exists

@@ -9,9 +9,19 @@
 
 #include "externalFunctions.h"
 
+#include <cmath>
 
 double pi(void)
 {
     return 3.14159265359;
 }
 
+double NaN(void)
+{
+    return NAN;
+}
+
+double inf(void)
+{
+    return INFINITY;
+}
