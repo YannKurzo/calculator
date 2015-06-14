@@ -202,12 +202,37 @@ double ParserExec::execFunction(std::string functionName, unsigned int firstPara
     unsigned int nbPar = Function::getNbParameters(functionName);
     double par[MAX_NUMBER_PARAMETERS];
     
+    // Check parameters
+    if(nbPar == 0 && tokenVector_m[firstParameterIndex].getType() == Token::eTOKENTYPE_NUMBER)
+    {
+        THROW("Too much parameters!");
+    }
+    else if(nbPar > 0)
+    {
+        if(tokenVector_m[firstParameterIndex].getType() != Token::eTOKENTYPE_NUMBER)
+        {
+            THROW("Problem with function parameters!");
+        }
+        if(tokenVector_m[firstParameterIndex+2*nbPar-1].getType() == Token::eTOKENTYPE_COMMA)
+        {
+            THROW("Too much parameters!");
+        }
+    }
+    if(nbPar >= 2)
+    {
+        for(unsigned int i=1; i<nbPar; ++i)
+        {
+            if(tokenVector_m[firstParameterIndex+2*i].getType() != Token::eTOKENTYPE_NUMBER ||
+               tokenVector_m[firstParameterIndex+2*i-1].getType() != Token::eTOKENTYPE_COMMA)
+            {
+                THROW("Problem with function parameters!");
+            }
+        }
+    }
+    
     // Set parameters
     for(unsigned int i=0; i<nbPar; ++i)
-    {
-        if(tokenVector_m[firstParameterIndex+2*i].getType() != Token::eTOKENTYPE_NUMBER)
-            THROW("Problem with function parameters!");
-                    
+    {         
         par[i] = tokenVector_m[firstParameterIndex+2*i].getN();
     }
     

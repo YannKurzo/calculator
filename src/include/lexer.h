@@ -42,6 +42,8 @@ class Lexer
     private:
         /// @brief  Analyses the string and push the corresponding tokens to the vector
         void pushTokens(void);
+        
+        unsigned int pushOpeningBracket(unsigned int startIndex);
 
         /// @brief	Push the number starting at the defined index of the string
         /// @param  startIndex Starting index of the number

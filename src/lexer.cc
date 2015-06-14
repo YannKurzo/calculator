@@ -66,7 +66,8 @@ void Lexer::pushTokens(void)
         // Check brackets
         else if(bracketsOpen.find(c) != string::npos)
 		{
-			tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_OPEN, str_m.substr(i, 1)));
+            i = pushOpeningBracket(i);
+            
 		}
 		else if(bracketsClose.find(c) != string::npos)
 		{
@@ -108,6 +109,21 @@ void Lexer::pushTokens(void)
 	tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_CLOSE, ")"));
 }
 
+unsigned int Lexer::pushOpeningBracket(unsigned int startIndex)
+{
+    // If it is not "()", ok, else skip
+    if(str_m.at(startIndex+1) != ')')
+    {
+        tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_OPEN, str_m.substr(startIndex, 1)));
+    }
+    else
+    {
+        ++startIndex;
+    }
+    
+    return startIndex;
+}
+
 unsigned int Lexer::pushNumber(unsigned int startIndex)
 {
 	unsigned int stopIndex = startIndex + 1;
@@ -146,6 +162,10 @@ unsigned int Lexer::pushFunction(unsigned int startIndex)
 	// If there is no parameter to this function, skip the brackets
 	if(Function::getNbParameters(tokenVector_m.back().getStr()) == 0)
 	{
+        if(str_m.substr(stopIndex, 2) != "()")
+        {
+            THROW("Too much parameters!");
+        }
 		stopIndex += 2;
 	}
 	
@@ -226,6 +246,7 @@ void Lexer::checkTokens(void)
         Token::tokenType_t type = tokenVector_m.at(i).getType();
         Token::tokenType_t typeNext = tokenVector_m.at(i+1).getType();
         
+        // Check operators
         if(type == Token::eTOKENTYPE_OPERATOR ||
            type == Token::eTOKENTYPE_UNARY_MINUS)
         {
