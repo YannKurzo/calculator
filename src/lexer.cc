@@ -185,7 +185,7 @@ unsigned int Lexer::pushFunction(unsigned int startIndex)
 	{
         if(str_m.substr(stopIndex, 2) != "()")
         {
-            THROW("Too much parameters!");
+            THROW("Too much parameters in function " + tokenVector_m.back().getStr() + "()!");
         }
 		stopIndex += 2;
 	}

@@ -16,7 +16,7 @@ using namespace std;
 
 int main(void)
 {
-    string str("pow(2,-6+8*2,8)");
+    string str("3*pi()+-ln(2*4^4*pow(2,pi()))/0");
     
     cout << "Calculator" << endl << endl;
     

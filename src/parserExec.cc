@@ -205,17 +205,17 @@ double ParserExec::execFunction(std::string functionName, unsigned int firstPara
     // Check parameters
     if(nbPar == 0 && tokenVector_m[firstParameterIndex].getType() == Token::eTOKENTYPE_NUMBER)
     {
-        THROW("Too much parameters!");
+        THROW("Too much parameters in function " + functionName + "()!");
     }
     else if(nbPar > 0)
     {
         if(tokenVector_m[firstParameterIndex].getType() != Token::eTOKENTYPE_NUMBER)
         {
-            THROW("Problem with function parameters!");
+            THROW("Problem with function " + functionName + "() parameters!");
         }
         if(tokenVector_m[firstParameterIndex+2*nbPar-1].getType() == Token::eTOKENTYPE_COMMA)
         {
-            THROW("Too much parameters!");
+            THROW("Too much parameters in function " + functionName + "()!");
         }
     }
     if(nbPar >= 2)
@@ -225,7 +225,7 @@ double ParserExec::execFunction(std::string functionName, unsigned int firstPara
             if(tokenVector_m[firstParameterIndex+2*i].getType() != Token::eTOKENTYPE_NUMBER ||
                tokenVector_m[firstParameterIndex+2*i-1].getType() != Token::eTOKENTYPE_COMMA)
             {
-                THROW("Problem with function parameters!");
+                THROW("Problem with function " + functionName + "() parameters!");
             }
         }
     }
