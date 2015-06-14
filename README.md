@@ -23,4 +23,4 @@ Code
 - Use references when possible
 - Use protected
 - Comments
-- Application class to manage command line
+- Command class to manage commands and arguments
