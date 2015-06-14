@@ -17,6 +17,7 @@ typedef enum
 {
     eCOMMAND_LIST_AVAILABLE_FUNCTIONS,
     eCOMMAND_HELP,
+    eCOMMAND_EXIT,
     eNB_COMMANDS
 }command_e;
 
@@ -33,20 +34,9 @@ typedef struct
 static const command_t commands[] =
 {
     {eCOMMAND_LIST_AVAILABLE_FUNCTIONS, "list-available-functions", "-l", "Show a list of available functions"},
-    {eCOMMAND_HELP, "help", "-h", "Show this"}
+    {eCOMMAND_HELP, "help", "-h", "Show this"},
+    {eCOMMAND_EXIT, "exit", "-q", "Exit the program"}
 };
-
-/// @brief  List of commands
-//static const std::string commands[] =
-//{
-//    "list-available-functions"
-//};
-//
-///// @brief  List of commands shortcut
-//static const std::string commandsShortcut[] =
-//{
-//    "-l"
-//};
 
 /// @brief  Class to handle the different commands and arguments
 class Command
