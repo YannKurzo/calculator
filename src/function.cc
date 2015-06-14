@@ -25,3 +25,31 @@ func_ptr Function::getFunction(std::string str)
 {
     return functions_m[str].func;
 }
+
+std::string Function::getFunctionList(void)
+{
+    string str("");
+    
+    for(functionMapIterator_t it = functions_m.begin(); it != functions_m.end(); ++it)
+    {
+        // Begin
+        str = str + "  " + it->first + "(";
+        
+        // Parameters
+        if(it->second.nbParameters > 0)
+        {
+            // 1st
+            str = str + "a";
+            // Others
+            for(unsigned int i=1; i<it->second.nbParameters; ++i)
+            {
+                str = str + "," + string(1, 'a' + i);
+            }
+        }
+        
+        // End
+        str = str + ") : " + it->second.help + "\n";
+    }
+    
+    return str;
+}

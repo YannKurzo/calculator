@@ -96,7 +96,7 @@ Command::command_t Application::checkCommand(void)
         // Show functions and quit
         if(command == Command::eARGUMENT_LIST_AVAILABLE_FUNCTIONS)
         {
-            cout << "Functions here" << endl;
+            cout << Function::getFunctionList() << endl;
         }
     }
     

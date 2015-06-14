@@ -24,7 +24,7 @@ typedef void (*func_ptr)();
 /// @param  str Name of the function used by the user
 /// @param  str Number of parameters of the function
 /// @param  functionName Name of the function in the library or declared in externalFunctions.h
-#define ADD(str, nbParameters, functionName) {str, {nbParameters, reinterpret_cast<func_ptr>(&functionName)}}
+#define ADD(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast<func_ptr>(&functionName), help}}
 
 
 /// @brief  Function structure
@@ -33,16 +33,20 @@ typedef struct
 {
     unsigned int nbParameters;
     func_ptr func;
+    std::string help;
 }function_t;
+
+typedef std::map<std::string,function_t> functionMap_t;
+typedef functionMap_t::iterator functionMapIterator_t;
 
 /// @brief  Map to store every function
 /// @note   The function is stored in a map to be able to find which function
 ///         should be called depending on its name.
-static std::map<std::string,function_t> functions_m = 
+static functionMap_t functions_m = 
 {
-    ADD("pow"   , 2, pow),
-    ADD("ln"    , 1, log),
-    ADD("pi"    , 0, pi)
+    ADD("pow"   , 2, pow,   "a at power b"),
+    ADD("ln"    , 1, log,   "Natural logarithm of a"),
+    ADD("pi"    , 0, pi,    "Return pi")
 };
 
 /// @brief  Class to get the actual function if it exists
@@ -60,6 +64,10 @@ class Function
         /// @param  str Name of the function
         /// @return Pointer to the function, NULL if it does not exist
         static func_ptr getFunction(std::string str);
+        
+        /// @brief  Get a string containing the list of implemented functions
+        /// @return Function list
+        static std::string getFunctionList(void);
 };
 
 /// @cond   Template based code / not on doxygen

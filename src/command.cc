@@ -28,7 +28,7 @@ Command::command_t Command::getCommand(std::string str)
 {
     for(int i=0; i<eNB_COMMANDS; ++i)
     {
-        if(str == commands[i])
+        if(str == commands[i] || str == argumentsShortcut[i])
         {
             return static_cast<command_t>(i);
         }
