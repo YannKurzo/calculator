@@ -42,13 +42,19 @@ class Lexer
     private:
         /// @brief  Analyses the string and push the corresponding tokens to the vector
         void pushTokens(void);
-        
-        unsigned int pushOpeningBracket(unsigned int startIndex);
 
         /// @brief	Push the number starting at the defined index of the string
         /// @param  startIndex Starting index of the number
         /// @return New index after pushing the number
         unsigned int pushNumber(unsigned int startIndex);
+        
+        unsigned int pushOpeningBracket(unsigned int startIndex);
+        
+        unsigned int pushClosingBracket(unsigned int startIndex);
+        
+        unsigned int pushOperator(unsigned int startIndex);
+        
+        unsigned int pushComma(unsigned int startIndex);
 
         /// @brief	Push the function starting at the defined index of the string
         /// @param  startIndex Starting index of the function

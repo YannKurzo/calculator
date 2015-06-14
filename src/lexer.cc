@@ -71,32 +71,17 @@ void Lexer::pushTokens(void)
 		}
 		else if(bracketsClose.find(c) != string::npos)
 		{
-			tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_CLOSE, str_m.substr(i, 1)));
+			i = pushClosingBracket(i);
 		}
 		// Check operators
 		else if(operators.find(c) != string::npos)
 		{
-			tokenVector_m.push_back(Token(Token::eTOKENTYPE_OPERATOR, str_m.substr(i, 1)));
-            
-            // Check unary minus '-'
-            if(c == '-')
-            {
-                Token::tokenType_t type = tokenVector_m.at(tokenVector_m.size()-2).getType();
-                
-                // If it is the first of the string OR if last one was an operator or an opening bracket
-                if(i == 0 || type == Token::eTOKENTYPE_OPERATOR ||
-                             type == Token::eTOKENTYPE_BRACKET_OPEN)
-                {
-                    tokenVector_m.at(tokenVector_m.size()-1).setStr(Token::eTOKENTYPE_UNARY_MINUS, "--");
-                }
-            }
+            i = pushOperator(i);
 		}
-		// Check separator, replace by brackets to optimize calculation
+		// Check separator
 		else if(c == ',')
 		{
-			tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_CLOSE, ")"));
-			tokenVector_m.push_back(Token(Token::eTOKENTYPE_COMMA, ","));
-			tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_OPEN, "("));
+            i = pushComma(i);
 		}
 		// Functions
 		else
@@ -107,6 +92,19 @@ void Lexer::pushTokens(void)
 	
 	// Closing bracket at ending
 	tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_CLOSE, ")"));
+}
+
+unsigned int Lexer::pushNumber(unsigned int startIndex)
+{
+	unsigned int stopIndex = startIndex + 1;
+	
+	// While it is not the end of the string and it is part of a number (digit or .)
+	while(stopIndex<str_m.length() && (isdigit(str_m.at(stopIndex)) || str_m.at(stopIndex) == '.'))
+		++stopIndex;
+            
+    tokenVector_m.push_back(Token(Token::eTOKENTYPE_NUMBER, str_m.substr(startIndex, stopIndex-startIndex)));
+            
+	return stopIndex - 1;
 }
 
 unsigned int Lexer::pushOpeningBracket(unsigned int startIndex)
@@ -124,17 +122,40 @@ unsigned int Lexer::pushOpeningBracket(unsigned int startIndex)
     return startIndex;
 }
 
-unsigned int Lexer::pushNumber(unsigned int startIndex)
+unsigned int Lexer::pushClosingBracket(unsigned int startIndex)
 {
-	unsigned int stopIndex = startIndex + 1;
-	
-	// While it is not the end of the string and it is part of a number (digit or .)
-	while(stopIndex<str_m.length() && (isdigit(str_m.at(stopIndex)) || str_m.at(stopIndex) == '.'))
-		++stopIndex;
+    tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_CLOSE, str_m.substr(startIndex, 1)));
+    return startIndex;
+}
+
+unsigned int Lexer::pushOperator(unsigned int startIndex)
+{
+    tokenVector_m.push_back(Token(Token::eTOKENTYPE_OPERATOR, str_m.substr(startIndex, 1)));
             
-    tokenVector_m.push_back(Token(Token::eTOKENTYPE_NUMBER, str_m.substr(startIndex, stopIndex-startIndex)));
-            
-	return stopIndex - 1;
+    // Check unary minus '-'
+    if(str_m.at(startIndex) == '-')
+    {
+        Token::tokenType_t type = tokenVector_m.at(tokenVector_m.size()-2).getType();
+
+        // If it is the first of the string OR if last one was an operator or an opening bracket
+        if(startIndex == 0 || type == Token::eTOKENTYPE_OPERATOR ||
+                              type == Token::eTOKENTYPE_BRACKET_OPEN)
+        {
+            tokenVector_m.at(tokenVector_m.size()-1).setStr(Token::eTOKENTYPE_UNARY_MINUS, "--");
+        }
+    }
+    
+    return startIndex;
+}
+
+unsigned int Lexer::pushComma(unsigned int startIndex)
+{
+    // Add brackets to simplify calculation
+    tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_CLOSE, ")"));
+    tokenVector_m.push_back(Token(Token::eTOKENTYPE_COMMA, ","));
+    tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_OPEN, "("));
+    
+    return startIndex;
 }
 
 unsigned int Lexer::pushFunction(unsigned int startIndex)
