@@ -15,54 +15,28 @@
 
 using namespace std;
 
-void startAnalyze(string str);
-
 int main(int argc,char *argv[])
 {
-    // Title
-    cout << "--------------------" << endl;
-    cout << "---- Calculator ----" << endl;
-    cout << "--------------------" << endl << endl;
+    Application app(argc, argv);
     
-    string str("0");
+    app.start();
     
-    // If no argument, use cin
-    if(argc < 2)
-    {
-        str = "pi()";
-    }
-    // Else use line argumentvoid
-    else
-    {
-        str = argv[1];
-    }
-    
-    startAnalyze(str);
+//    string str("0");
+//    
+//    // If no argument, use cin
+//    if(argc < 2)
+//    {
+//        str = "pi()";
+//    }
+//    // Else use line argumentvoid
+//    else
+//    {
+//        str = argv[1];
+//    }
+//    
+//    startAnalyze(str);
 	
 	cin.get();
     
     return 0;
-}
-
-void startAnalyze(string str)
-{
-    // Analyze
-    Analyze an(str);
-    
-    try
-    {
-        // Get tokens
-        an.lexer();
-        
-        // // Calculates
-        an.parserExec();
-
-        // Display result
-        cout << endl << "Result:" << endl;
-        cout << "        " << str << " = " << an.getResult() << endl << endl;
-    }
-    catch(exception const &e)
-    {
-        cerr << "Problem when analyzing entered string:\n\t" << e.what() << endl;
-    }
 }

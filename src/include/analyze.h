@@ -18,7 +18,7 @@
 #include <string>
 
 /// @brief	Define to show the vector of tokens after the lexer process
-#define ANALYSE_DEBUG
+//#define ANALYSE_DEBUG
 
 /// @brief  This class manages the complete calculation
 /// @note   After creating the class with the constructor, the member functions

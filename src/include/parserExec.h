@@ -16,7 +16,7 @@
 #include <vector>
 
 /// @brief  If defined, display the operation steps
-#define DISPLAY_OPERATIONS
+//#define DISPLAY_OPERATIONS
 
 /// @brief  Maximum number of parameters for the functions
 /// @note   When it is changed, other parts of the code must be adapted.
