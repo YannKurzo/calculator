@@ -14,12 +14,27 @@
 
 using namespace std;
 
-int main(void)
+int main(int argc,char *argv[])
 {
-    string str("pi()");
+    // Title
+    cout << "--------------------" << endl;
+    cout << "---- Calculator ----" << endl;
+    cout << "--------------------" << endl << endl;
     
-    cout << "Calculator" << endl << endl;
+    string str("0");
     
+    // If no argument, use cin
+    if(argc < 2)
+    {
+        str = "pi()";
+    }
+    // Else use line argument
+    else
+    {
+        str = argv[1];
+    }
+    
+    // Analyze
     Analyze an(str);
     
     try
