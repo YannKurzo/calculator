@@ -21,22 +21,5 @@ int main(int argc,char *argv[])
     
     app.start();
     
-//    string str("0");
-//    
-//    // If no argument, use cin
-//    if(argc < 2)
-//    {
-//        str = "pi()";
-//    }
-//    // Else use line argumentvoid
-//    else
-//    {
-//        str = argv[1];
-//    }
-//    
-//    startAnalyze(str);
-	
-	cin.get();
-    
     return 0;
 }

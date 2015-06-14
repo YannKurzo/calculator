@@ -14,6 +14,21 @@
 
 #include <string>
 
+enum
+{
+    eARGUMENT_LIST_AVAILABLE_FUNCTIONS
+};
+
+static const std::string arguments[] =
+{
+    "--list-available-functions"
+};
+
+static const std::string argumentsShortcut[] =
+{
+    "-l"
+};
+
 /// @brief  
 class Application
 { 
@@ -50,6 +65,9 @@ class Application
 
         /// @brief  
         void showTitle(void);
+
+        /// @brief  
+        void showExit(void);
 };
 
 #endif	/* APPLICATION_H */

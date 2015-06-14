@@ -34,6 +34,7 @@ void Application::start(void)
     else
     {
         startCommand();
+        showExit();
     }
 }
 
@@ -44,15 +45,28 @@ void Application::startArgument(void)
     {
         str_m = argv_m[i];
         
+        if(str_m == arguments[eARGUMENT_LIST_AVAILABLE_FUNCTIONS] ||
+           str_m == argumentsShortcut[eARGUMENT_LIST_AVAILABLE_FUNCTIONS])
+        {
+            // Show functions and quit
+            
+            break;
+        }
+        
         startAnalyse();
     }
 }
 
 void Application::startCommand(void)
 {
-    str_m = "pi()";
+    cin >> str_m;
     
-    startAnalyse();
+    // While we do not exit
+    while(str_m != "exit")
+    {
+        startAnalyse();
+        cin >> str_m;
+    }
 }
 
 void Application::startAnalyse(void)
@@ -84,4 +98,10 @@ void Application::showTitle(void)
     cout << "--------------------" << endl;
     cout << "---- Calculator ----" << endl;
     cout << "--------------------" << endl << endl;
+}
+
+void Application::showExit(void)
+{
+    // Title
+    cout << "Exit Calculator ..." << endl << endl;
 }
