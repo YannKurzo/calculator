@@ -14,6 +14,8 @@
 
 using namespace std;
 
+void startAnalyze(string str);
+
 int main(int argc,char *argv[])
 {
     // Title
@@ -28,12 +30,21 @@ int main(int argc,char *argv[])
     {
         str = "pi()";
     }
-    // Else use line argument
+    // Else use line argumentvoid
     else
     {
         str = argv[1];
     }
     
+    startAnalyze(str);
+	
+	cin.get();
+    
+    return 0;
+}
+
+void startAnalyze(string str)
+{
     // Analyze
     Analyze an(str);
     
@@ -53,8 +64,4 @@ int main(int argc,char *argv[])
     {
         cerr << "Problem when analyzing entered string:\n\t" << e.what() << endl;
     }
-	
-	cin.get();
-    
-    return 0;
 }
