@@ -94,6 +94,7 @@ void Lexer::pushTokens(void)
 		else if(c == ',')
 		{
 			tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_CLOSE, ")"));
+			tokenVector_m.push_back(Token(Token::eTOKENTYPE_COMMA, ","));
 			tokenVector_m.push_back(Token(Token::eTOKENTYPE_BRACKET_OPEN, "("));
 		}
 		// Functions

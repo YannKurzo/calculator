@@ -115,17 +115,22 @@ unsigned int ParserExec::exec(unsigned int index)
 	// Functions
 	else if(type == Token::eTOKENTYPE_FUNCTION)
 	{
+        string functionName = tokenVector_m[index].getStr();
+        
 		// Calculate
         tokenVector_m[index].setN(
 			execFunction(
-				tokenVector_m[index].getStr(),
+				functionName,
 				index + 1
 			)
 		);
 		
-		// Erase old token
-		unsigned int nbParameters = Function::getNbParameters(tokenVector_m[index].getStr());
+        // Get number of tokens to erase
+		unsigned int nbParameters = Function::getNbParameters(functionName);
+        if(nbParameters >= 2)
+            nbParameters = nbParameters * 2 - 1;
 		
+		// Erase old token
 		for(unsigned int i=index+nbParameters; i>index; --i)
 			tokenVector_m.erase(tokenVector_m.begin() + i);
             
@@ -200,10 +205,10 @@ double ParserExec::execFunction(std::string functionName, unsigned int firstPara
     // Set parameters
     for(unsigned int i=0; i<nbPar; ++i)
     {
-        if(tokenVector_m[firstParameterIndex+i].getType() != Token::eTOKENTYPE_NUMBER)
+        if(tokenVector_m[firstParameterIndex+2*i].getType() != Token::eTOKENTYPE_NUMBER)
             THROW("Problem with function parameters!");
                     
-        par[i] = tokenVector_m[firstParameterIndex+i].getN();
+        par[i] = tokenVector_m[firstParameterIndex+2*i].getN();
     }
     
     // Result with MAX_NUMBER_PARAMETERS = 5
@@ -217,8 +222,8 @@ double ParserExec::execFunction(std::string functionName, unsigned int firstPara
         if(nbPar > 0)
         {
             for(unsigned int i=0; i<nbPar-1; ++i)
-                cout << tokenVector_m[firstParameterIndex+i] << ", ";
-            cout << tokenVector_m[firstParameterIndex+nbPar-1];
+                cout << tokenVector_m[firstParameterIndex+2*i] << ", ";
+            cout << tokenVector_m[firstParameterIndex+2*(nbPar-1)];
         }
         cout << ") = " << res << endl;
 #endif
