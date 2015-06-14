@@ -12,19 +12,17 @@ Working features:
 - Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)
 - Argument mode
   * "calculator 2*5 2+8" (multiple calculation in a row)
-  * "calculator -l" (show function list, not done)
-  * "calculator --list-available-functions" (show function list, not done)
+  * "calculator -l" (show function list)
+  * "calculator --list-available-functions" (show function list)
 - Command mode
   * 2*5 (single calculation at a time)
-  * "show-available-functions" command (show function list, not done)
+  * "list-available-functions" command (show function list)
+  * "-l" command (show function list)
   * "exit" to quit
 
 Missing features (in development):
 - Use double / GMP
-- Show function list
 
 Code
 - Use references when possible
-- Use protected
 - Comments
-- Command class to optimize
