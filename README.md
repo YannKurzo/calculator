@@ -24,7 +24,6 @@ This program can parse a string entered by the user. It calculates the mathemati
 
 ### Missing features (in development):
 - Use double / GMP
-- Set right precision (15 bits) for double with cout
 
 ### Code corrections
 - Correct indent
@@ -33,6 +32,6 @@ This program can parse a string entered by the user. It calculates the mathemati
 ### Doc
 - Doxygen
 
-### Copyright:
+### Copyright
 Copyright 2015 Yann Kurzo. All rights reserved.
 This project is released under the GNU Public License (see gpl-3.0.txt).
