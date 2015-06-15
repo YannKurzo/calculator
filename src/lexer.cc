@@ -197,6 +197,7 @@ unsigned int Lexer::pushFunction(unsigned int startIndex)
 void Lexer::cleanString(void)
 {
     str_m.erase(std::remove_if(str_m.begin(), str_m.end(), ::isspace), str_m.end());
+    str_m.erase(std::remove_if(str_m.begin(), str_m.end(), ::iscntrl), str_m.end());
 }
 
 void Lexer::checkBrackets(void)
