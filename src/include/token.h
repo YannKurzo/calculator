@@ -29,14 +29,14 @@ typedef enum
 }priority_t;
 
 /// @brief  Defines the opening brackets
-static std::string bracketsOpen = "(";
+static const std::string bracketsOpen = "(";
 /// @brief  Defines the closing brackets
-static std::string bracketsClose = ")";
+static const std::string bracketsClose = ")";
 
 /// @brief  Defines the different operators
-static std::string operators = "^*/+-%";
+static const std::string operators = "^*/+-%";
 /// @brief  Defines the operator priority
-static priority_t operatorPriority[] =
+static const priority_t operatorPriority[] =
 {
     ePRIORITY_OP_POWER,
     ePRIORITY_OP_MUL_DIV,
@@ -47,7 +47,7 @@ static priority_t operatorPriority[] =
 };
 
 /// @brief  Defines the different tokens and their own priority
-static priority_t tokenPriority[] =
+static const priority_t tokenPriority[] =
 {
     ePRIORITY_BRACKET_CLOSE,
     ePRIORITY_BRACKET_OPEN,
