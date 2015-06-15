@@ -3,7 +3,8 @@
 /// @file   token.h
 /// @author Yann Kurzo
 /// @date   May 17, 2015, 12:23 AM
-/// @license GPL2
+/// @copyright Copyright 2015 Yann Kurzo. All rights reserved.
+///         This project is released under the GNU Public License.
 /// @brief  This file defines the Token class. The operator priority is also
 ///         defined here.
 //  ==========================================================================

@@ -92,70 +92,70 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <a href="analyze_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//  ==========================================================================</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span><span class="comment">//  ==========================================================================</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef ANALYZE_H</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define ANALYZE_H</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="token_8h.html">token.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="parser_exec_8h.html">parserExec.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="analyze_8h.html#a53cfdac9f26e36585e8c9a7e41d210c0">   19</a></span>&#160;<span class="preprocessor">#define ANALYSE_DEBUG 0</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_analyze.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_analyze.html">Analyze</a></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{ </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_analyze.html#a5eaf2648206b44a7136f00f6f2aea716">   29</a></span>&#160;        std::string <a class="code" href="class_analyze.html#a5eaf2648206b44a7136f00f6f2aea716">str_m</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_analyze.html#ac5e2e04f7a6530205899bfc8089e6a1b">   32</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_analyze.html#ac5e2e04f7a6530205899bfc8089e6a1b">result_m</a>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_analyze.html#a0cb9f60bf517b50df90aa9669199f61c">   35</a></span>&#160;        <a class="code" href="token_8h.html#a8318de25ae453e04997e41e88c9fad7d">TokenVector</a> <a class="code" href="class_analyze.html#a0cb9f60bf517b50df90aa9669199f61c">tokenVector_m</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_analyze.html#aee7ac80c3a9b19650f0d3dd3bf8712d9">   38</a></span>&#160;        <span class="keyword">typedef</span> <span class="keyword">enum</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            eNOTHING_DONE,</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            eLEXER_DONE,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            ePARSEREXEC_DONE</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }<a class="code" href="class_analyze.html#aee7ac80c3a9b19650f0d3dd3bf8712d9">actualProcess_e</a>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_analyze.html#a41743a35d696fd86ab0e4af616a6cd9a">   46</a></span>&#160;        <a class="code" href="class_analyze.html#aee7ac80c3a9b19650f0d3dd3bf8712d9">actualProcess_e</a> <a class="code" href="class_analyze.html#a41743a35d696fd86ab0e4af616a6cd9a">actualProcess_m</a>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="class_analyze.html#a373e5e79d15401c429b980f819ce76b3">Analyze</a>(<span class="keyword">const</span> std::string &amp;str);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_analyze.html#a1090a6b9655c4770707d65ee8ebc124a">lexer</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_analyze.html#ae0c00996ea3ce2e87f6cdda0c8df7065">parserExec</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_analyze.html#a58fa5815d0944fe2540fac57c695d4af">getResult</a>();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#if(ANALYSE_DEBUG == 1)</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">void</span> displayToken(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* ANALYZE_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="ttc" id="token_8h_html_a8318de25ae453e04997e41e88c9fad7d"><div class="ttname"><a href="token_8h.html#a8318de25ae453e04997e41e88c9fad7d">TokenVector</a></div><div class="ttdeci">std::vector&lt; Token &gt; TokenVector</div><div class="ttdoc">Vector of tokens. </div><div class="ttdef"><b>Definition:</b> token.h:117</div></div>
-<div class="ttc" id="class_analyze_html_a41743a35d696fd86ab0e4af616a6cd9a"><div class="ttname"><a href="class_analyze.html#a41743a35d696fd86ab0e4af616a6cd9a">Analyze::actualProcess_m</a></div><div class="ttdeci">actualProcess_e actualProcess_m</div><div class="ttdoc">Actual process. </div><div class="ttdef"><b>Definition:</b> analyze.h:46</div></div>
-<div class="ttc" id="class_analyze_html_ac5e2e04f7a6530205899bfc8089e6a1b"><div class="ttname"><a href="class_analyze.html#ac5e2e04f7a6530205899bfc8089e6a1b">Analyze::result_m</a></div><div class="ttdeci">double result_m</div><div class="ttdoc">Result of the calculation. </div><div class="ttdef"><b>Definition:</b> analyze.h:32</div></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span><span class="comment">//  ==========================================================================</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef ANALYZE_H</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define ANALYZE_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="token_8h.html">token.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="parser_exec_8h.html">parserExec.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="analyze_8h.html#a53cfdac9f26e36585e8c9a7e41d210c0">   20</a></span>&#160;<span class="preprocessor">#define ANALYSE_DEBUG 0</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_analyze.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_analyze.html">Analyze</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{ </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_analyze.html#a5eaf2648206b44a7136f00f6f2aea716">   30</a></span>&#160;        std::string <a class="code" href="class_analyze.html#a5eaf2648206b44a7136f00f6f2aea716">str_m</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_analyze.html#ac5e2e04f7a6530205899bfc8089e6a1b">   33</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_analyze.html#ac5e2e04f7a6530205899bfc8089e6a1b">result_m</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_analyze.html#a0cb9f60bf517b50df90aa9669199f61c">   36</a></span>&#160;        <a class="code" href="token_8h.html#a8318de25ae453e04997e41e88c9fad7d">TokenVector</a> <a class="code" href="class_analyze.html#a0cb9f60bf517b50df90aa9669199f61c">tokenVector_m</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_analyze.html#aee7ac80c3a9b19650f0d3dd3bf8712d9">   39</a></span>&#160;        <span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            eNOTHING_DONE,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            eLEXER_DONE,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            ePARSEREXEC_DONE</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }<a class="code" href="class_analyze.html#aee7ac80c3a9b19650f0d3dd3bf8712d9">actualProcess_e</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_analyze.html#a41743a35d696fd86ab0e4af616a6cd9a">   47</a></span>&#160;        <a class="code" href="class_analyze.html#aee7ac80c3a9b19650f0d3dd3bf8712d9">actualProcess_e</a> <a class="code" href="class_analyze.html#a41743a35d696fd86ab0e4af616a6cd9a">actualProcess_m</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="class_analyze.html#a373e5e79d15401c429b980f819ce76b3">Analyze</a>(<span class="keyword">const</span> std::string &amp;str);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_analyze.html#a1090a6b9655c4770707d65ee8ebc124a">lexer</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_analyze.html#ae0c00996ea3ce2e87f6cdda0c8df7065">parserExec</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_analyze.html#a58fa5815d0944fe2540fac57c695d4af">getResult</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#if(ANALYSE_DEBUG == 1)</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">void</span> displayToken(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* ANALYZE_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="ttc" id="token_8h_html_a8318de25ae453e04997e41e88c9fad7d"><div class="ttname"><a href="token_8h.html#a8318de25ae453e04997e41e88c9fad7d">TokenVector</a></div><div class="ttdeci">std::vector&lt; Token &gt; TokenVector</div><div class="ttdoc">Vector of tokens. </div><div class="ttdef"><b>Definition:</b> token.h:120</div></div>
+<div class="ttc" id="class_analyze_html_a41743a35d696fd86ab0e4af616a6cd9a"><div class="ttname"><a href="class_analyze.html#a41743a35d696fd86ab0e4af616a6cd9a">Analyze::actualProcess_m</a></div><div class="ttdeci">actualProcess_e actualProcess_m</div><div class="ttdoc">Actual process. </div><div class="ttdef"><b>Definition:</b> analyze.h:47</div></div>
+<div class="ttc" id="class_analyze_html_ac5e2e04f7a6530205899bfc8089e6a1b"><div class="ttname"><a href="class_analyze.html#ac5e2e04f7a6530205899bfc8089e6a1b">Analyze::result_m</a></div><div class="ttdeci">double result_m</div><div class="ttdoc">Result of the calculation. </div><div class="ttdef"><b>Definition:</b> analyze.h:33</div></div>
 <div class="ttc" id="class_analyze_html_a1090a6b9655c4770707d65ee8ebc124a"><div class="ttname"><a href="class_analyze.html#a1090a6b9655c4770707d65ee8ebc124a">Analyze::lexer</a></div><div class="ttdeci">void lexer(void)</div><div class="ttdoc">Analyses and separates in tokens the string to compute. </div></div>
 <div class="ttc" id="class_analyze_html_a373e5e79d15401c429b980f819ce76b3"><div class="ttname"><a href="class_analyze.html#a373e5e79d15401c429b980f819ce76b3">Analyze::Analyze</a></div><div class="ttdeci">Analyze(const std::string &amp;str)</div><div class="ttdoc">Construct a calculation process. </div></div>
-<div class="ttc" id="class_analyze_html_a0cb9f60bf517b50df90aa9669199f61c"><div class="ttname"><a href="class_analyze.html#a0cb9f60bf517b50df90aa9669199f61c">Analyze::tokenVector_m</a></div><div class="ttdeci">TokenVector tokenVector_m</div><div class="ttdoc">List of tokens for the calculation. </div><div class="ttdef"><b>Definition:</b> analyze.h:35</div></div>
-<div class="ttc" id="class_analyze_html_aee7ac80c3a9b19650f0d3dd3bf8712d9"><div class="ttname"><a href="class_analyze.html#aee7ac80c3a9b19650f0d3dd3bf8712d9">Analyze::actualProcess_e</a></div><div class="ttdeci">actualProcess_e</div><div class="ttdoc">Enumeration to check the actual process. </div><div class="ttdef"><b>Definition:</b> analyze.h:38</div></div>
+<div class="ttc" id="class_analyze_html_a0cb9f60bf517b50df90aa9669199f61c"><div class="ttname"><a href="class_analyze.html#a0cb9f60bf517b50df90aa9669199f61c">Analyze::tokenVector_m</a></div><div class="ttdeci">TokenVector tokenVector_m</div><div class="ttdoc">List of tokens for the calculation. </div><div class="ttdef"><b>Definition:</b> analyze.h:36</div></div>
+<div class="ttc" id="class_analyze_html_aee7ac80c3a9b19650f0d3dd3bf8712d9"><div class="ttname"><a href="class_analyze.html#aee7ac80c3a9b19650f0d3dd3bf8712d9">Analyze::actualProcess_e</a></div><div class="ttdeci">actualProcess_e</div><div class="ttdoc">Enumeration to check the actual process. </div><div class="ttdef"><b>Definition:</b> analyze.h:39</div></div>
 <div class="ttc" id="class_analyze_html_ae0c00996ea3ce2e87f6cdda0c8df7065"><div class="ttname"><a href="class_analyze.html#ae0c00996ea3ce2e87f6cdda0c8df7065">Analyze::parserExec</a></div><div class="ttdeci">void parserExec(void)</div><div class="ttdoc">Analyses the list of tokens and calculates the result. </div></div>
-<div class="ttc" id="class_analyze_html_a5eaf2648206b44a7136f00f6f2aea716"><div class="ttname"><a href="class_analyze.html#a5eaf2648206b44a7136f00f6f2aea716">Analyze::str_m</a></div><div class="ttdeci">std::string str_m</div><div class="ttdoc">String to compute. </div><div class="ttdef"><b>Definition:</b> analyze.h:29</div></div>
+<div class="ttc" id="class_analyze_html_a5eaf2648206b44a7136f00f6f2aea716"><div class="ttname"><a href="class_analyze.html#a5eaf2648206b44a7136f00f6f2aea716">Analyze::str_m</a></div><div class="ttdeci">std::string str_m</div><div class="ttdoc">String to compute. </div><div class="ttdef"><b>Definition:</b> analyze.h:30</div></div>
 <div class="ttc" id="class_analyze_html_a58fa5815d0944fe2540fac57c695d4af"><div class="ttname"><a href="class_analyze.html#a58fa5815d0944fe2540fac57c695d4af">Analyze::getResult</a></div><div class="ttdeci">double getResult()</div><div class="ttdoc">Get the result. </div></div>
 <div class="ttc" id="parser_exec_8h_html"><div class="ttname"><a href="parser_exec_8h.html">parserExec.h</a></div><div class="ttdoc">This file defines the ParserExec class. </div></div>
-<div class="ttc" id="class_analyze_html"><div class="ttname"><a href="class_analyze.html">Analyze</a></div><div class="ttdoc">This class manages the complete calculation process. </div><div class="ttdef"><b>Definition:</b> analyze.h:25</div></div>
-<div class="ttc" id="token_8h_html"><div class="ttname"><a href="token_8h.html">token.h</a></div><div class="ttdoc">Class to handle a token which represents a part of the input string. The string can be separated in m...</div></div>
+<div class="ttc" id="class_analyze_html"><div class="ttname"><a href="class_analyze.html">Analyze</a></div><div class="ttdoc">This class manages the complete calculation process. </div><div class="ttdef"><b>Definition:</b> analyze.h:26</div></div>
+<div class="ttc" id="token_8h_html"><div class="ttname"><a href="token_8h.html">token.h</a></div><div class="ttdoc">This file defines the Token class. The operator priority is also defined here. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 15 2015 15:58:46 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 15 2015 16:59:41 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

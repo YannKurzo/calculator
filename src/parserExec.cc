@@ -3,7 +3,8 @@
 /// @file   parserExec.cc
 /// @author Yann Kurzo
 /// @date   May 17, 2015, 2:06 AM
-/// @license GPL2
+/// @copyright Copyright 2015 Yann Kurzo. All rights reserved.
+///         This project is released under the GNU Public License.
 /// @brief  This file defines the ParserExec class.
 //  ==========================================================================
 

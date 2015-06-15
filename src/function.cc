@@ -3,7 +3,8 @@
 /// @file   function.cc
 /// @author Yann Kurzo
 /// @date   May 26, 2015, 9:30 PM
-/// @license GPL2
+/// @copyright Copyright 2015 Yann Kurzo. All rights reserved.
+///         This project is released under the GNU Public License.
 /// @brief  This file defines the Function class.
 //  ==========================================================================
 

@@ -105,18 +105,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="function_8h.html#a171e664ee3179d3d1f1a7b04a747724c">   21</a></span>&#160;<span class="keyword">typedef</span> void (*<a class="code" href="function_8h.html#a171e664ee3179d3d1f1a7b04a747724c">func_ptr</a>)();</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="function_8h.html#a1f2d635e4b2f85631e81805725c3fd23">   24</a></span>&#160;<span class="keyword">typedef</span> std::map&lt;std::string,function_t&gt; <a class="code" href="function_8h.html#a1f2d635e4b2f85631e81805725c3fd23">functionMap_t</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="function_8h.html#ab0ba3e25af04f28f837cce7a390ee674">   27</a></span>&#160;<span class="keyword">typedef</span> functionMap_t::iterator <a class="code" href="function_8h.html#ab0ba3e25af04f28f837cce7a390ee674">functionMapIterator_t</a>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="function_8h.html#aab90cd668cd8bf7816ad9eb7aea209e7">   34</a></span>&#160;<span class="preprocessor">#define ADD(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast&lt;func_ptr&gt;(&amp;functionName), help}}</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structfunction__t.html">   38</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nbParameters;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="function_8h.html#a171e664ee3179d3d1f1a7b04a747724c">func_ptr</a> func;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    std::string help;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}<a class="code" href="structfunction__t.html">function_t</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="function_8h.html#aab90cd668cd8bf7816ad9eb7aea209e7">   28</a></span>&#160;<span class="preprocessor">#define ADD(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast&lt;func_ptr&gt;(&amp;functionName), help}}</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structfunction__t.html">   32</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nbParameters;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="function_8h.html#a171e664ee3179d3d1f1a7b04a747724c">func_ptr</a> func;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    std::string help;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}<a class="code" href="structfunction__t.html">function_t</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="function_8h.html#a1f2d635e4b2f85631e81805725c3fd23">   40</a></span>&#160;<span class="keyword">typedef</span> std::map&lt;std::string,function_t&gt; <a class="code" href="function_8h.html#a1f2d635e4b2f85631e81805725c3fd23">functionMap_t</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="function_8h.html#ab0ba3e25af04f28f837cce7a390ee674">   43</a></span>&#160;<span class="keyword">typedef</span> functionMap_t::iterator <a class="code" href="function_8h.html#ab0ba3e25af04f28f837cce7a390ee674">functionMapIterator_t</a>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">static</span> <a class="code" href="function_8h.html#a1f2d635e4b2f85631e81805725c3fd23">functionMap_t</a> functions_m = </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
@@ -169,50 +169,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="function_8h.html#aab90cd668cd8bf7816ad9eb7aea209e7">ADD</a>(<span class="stringliteral">&quot;inf&quot;</span>   , 0, <a class="code" href="external_functions_8h.html#ae1ca4597a88f7a45b463cc87346b0187">inf</a>,   <span class="stringliteral">&quot;Return INFINITY&quot;</span>)</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;};</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="class_function.html">  100</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_function.html">Function</a></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_function.html#a3cc694137e1698d0537d9e4672a7123a">getNbParameters</a>(<span class="keyword">const</span> std::string &amp;str);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keyword">static</span> <a class="code" href="function_8h.html#a171e664ee3179d3d1f1a7b04a747724c">func_ptr</a> <a class="code" href="class_function.html#a58dbf2a69e3cd7a82acff3ea70e642f4">getFunction</a>(<span class="keyword">const</span> std::string &amp;str);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keyword">static</span> std::string <a class="code" href="class_function.html#a321f973005de0842251559fb2ab52160">getFunctionList</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;};</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span>... Ts&gt;</div>
-<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="function_8h.html#afb3732b2855893bbaf8ccd4fb275808b">  123</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="function_8h.html#afb3732b2855893bbaf8ccd4fb275808b">call</a>(std::string str, <span class="keyword">const</span> Ts&amp;... args)</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;{</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">double</span>(*)(Ts...)<span class="keyword">&gt;</span>(<a class="code" href="class_function.html#a58dbf2a69e3cd7a82acff3ea70e642f4">Function::getFunction</a>(str))(args...);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">// Generic call</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class </span>ReturnType, <span class="keyword">class</span>... Ts&gt;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;ReturnType callFunction(<span class="keywordtype">void</span> *<span class="keyword">function</span>, <span class="keyword">const</span> Ts&amp;... args)</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;{   </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;   <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span>ReturnType(*)(Ts...)<span class="keyword">&gt;</span>(<span class="keyword">function</span>)(args...);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="class_function.html">  101</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_function.html">Function</a></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;{</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_function.html#a3cc694137e1698d0537d9e4672a7123a">getNbParameters</a>(<span class="keyword">const</span> std::string &amp;str);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keyword">static</span> <a class="code" href="function_8h.html#a171e664ee3179d3d1f1a7b04a747724c">func_ptr</a> <a class="code" href="class_function.html#a58dbf2a69e3cd7a82acff3ea70e642f4">getFunction</a>(<span class="keyword">const</span> std::string &amp;str);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keyword">static</span> std::string <a class="code" href="class_function.html#a321f973005de0842251559fb2ab52160">getFunctionList</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;};</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span>... Ts&gt;</div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="function_8h.html#afb3732b2855893bbaf8ccd4fb275808b">  124</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="function_8h.html#afb3732b2855893bbaf8ccd4fb275808b">call</a>(std::string str, <span class="keyword">const</span> Ts&amp;... args)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;{</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">double</span>(*)(Ts...)<span class="keyword">&gt;</span>(<a class="code" href="class_function.html#a58dbf2a69e3cd7a82acff3ea70e642f4">Function::getFunction</a>(str))(args...);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">// Generic call</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class </span>ReturnType, <span class="keyword">class</span>... Ts&gt;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;ReturnType callFunction(<span class="keywordtype">void</span> *<span class="keyword">function</span>, <span class="keyword">const</span> Ts&amp;... args)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;{   </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;   <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span>ReturnType(*)(Ts...)<span class="keyword">&gt;</span>(<span class="keyword">function</span>)(args...);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* FUNCTION_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* FUNCTION_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
 <div class="ttc" id="class_function_html_a321f973005de0842251559fb2ab52160"><div class="ttname"><a href="class_function.html#a321f973005de0842251559fb2ab52160">Function::getFunctionList</a></div><div class="ttdeci">static std::string getFunctionList(void)</div><div class="ttdoc">Get a string containing the list of implemented functions. </div></div>
 <div class="ttc" id="external_functions_8h_html"><div class="ttname"><a href="external_functions_8h.html">externalFunctions.h</a></div><div class="ttdoc">New function to be handled by the calculator can be declared here. </div></div>
 <div class="ttc" id="external_functions_8h_html_a8b5a5e21faf103ceb190afb9dee34d86"><div class="ttname"><a href="external_functions_8h.html#a8b5a5e21faf103ceb190afb9dee34d86">NaN</a></div><div class="ttdeci">double NaN(void)</div><div class="ttdoc">Get NAN. </div></div>
-<div class="ttc" id="structfunction__t_html"><div class="ttname"><a href="structfunction__t.html">function_t</a></div><div class="ttdoc">Function structure Each function defines its number of parameters and a help notice. </div><div class="ttdef"><b>Definition:</b> function.h:38</div></div>
+<div class="ttc" id="structfunction__t_html"><div class="ttname"><a href="structfunction__t.html">function_t</a></div><div class="ttdoc">Function structure Each function defines its number of parameters and a help notice. </div><div class="ttdef"><b>Definition:</b> function.h:32</div></div>
 <div class="ttc" id="external_functions_8h_html_a3ecbb0a635ee9d241bf99178ffedcb64"><div class="ttname"><a href="external_functions_8h.html#a3ecbb0a635ee9d241bf99178ffedcb64">pi</a></div><div class="ttdeci">double pi(void)</div><div class="ttdoc">Get pi (3.1415...) </div></div>
 <div class="ttc" id="class_function_html_a3cc694137e1698d0537d9e4672a7123a"><div class="ttname"><a href="class_function.html#a3cc694137e1698d0537d9e4672a7123a">Function::getNbParameters</a></div><div class="ttdeci">static unsigned int getNbParameters(const std::string &amp;str)</div><div class="ttdoc">Get the number of parameters of the function. </div></div>
 <div class="ttc" id="class_function_html_a58dbf2a69e3cd7a82acff3ea70e642f4"><div class="ttname"><a href="class_function.html#a58dbf2a69e3cd7a82acff3ea70e642f4">Function::getFunction</a></div><div class="ttdeci">static func_ptr getFunction(const std::string &amp;str)</div><div class="ttdoc">Get a pointer on the function to call. </div></div>
-<div class="ttc" id="function_8h_html_aab90cd668cd8bf7816ad9eb7aea209e7"><div class="ttname"><a href="function_8h.html#aab90cd668cd8bf7816ad9eb7aea209e7">ADD</a></div><div class="ttdeci">#define ADD(str, nbParameters, functionName, help)</div><div class="ttdoc">Macro to easily add a new function. </div><div class="ttdef"><b>Definition:</b> function.h:34</div></div>
+<div class="ttc" id="function_8h_html_aab90cd668cd8bf7816ad9eb7aea209e7"><div class="ttname"><a href="function_8h.html#aab90cd668cd8bf7816ad9eb7aea209e7">ADD</a></div><div class="ttdeci">#define ADD(str, nbParameters, functionName, help)</div><div class="ttdoc">Macro to easily add a new function. </div><div class="ttdef"><b>Definition:</b> function.h:28</div></div>
 <div class="ttc" id="function_8h_html_a171e664ee3179d3d1f1a7b04a747724c"><div class="ttname"><a href="function_8h.html#a171e664ee3179d3d1f1a7b04a747724c">func_ptr</a></div><div class="ttdeci">void(* func_ptr)()</div><div class="ttdoc">Function pointer for every function. </div><div class="ttdef"><b>Definition:</b> function.h:21</div></div>
 <div class="ttc" id="external_functions_8h_html_ae1ca4597a88f7a45b463cc87346b0187"><div class="ttname"><a href="external_functions_8h.html#ae1ca4597a88f7a45b463cc87346b0187">inf</a></div><div class="ttdeci">double inf(void)</div><div class="ttdoc">Get INFINITY. </div></div>
-<div class="ttc" id="function_8h_html_a1f2d635e4b2f85631e81805725c3fd23"><div class="ttname"><a href="function_8h.html#a1f2d635e4b2f85631e81805725c3fd23">functionMap_t</a></div><div class="ttdeci">std::map&lt; std::string, function_t &gt; functionMap_t</div><div class="ttdoc">Map to store the functions. </div><div class="ttdef"><b>Definition:</b> function.h:24</div></div>
-<div class="ttc" id="function_8h_html_afb3732b2855893bbaf8ccd4fb275808b"><div class="ttname"><a href="function_8h.html#afb3732b2855893bbaf8ccd4fb275808b">call</a></div><div class="ttdeci">double call(std::string str, const Ts &amp;...args)</div><div class="ttdoc">Specific call of an implemented function (return double) </div><div class="ttdef"><b>Definition:</b> function.h:123</div></div>
-<div class="ttc" id="function_8h_html_ab0ba3e25af04f28f837cce7a390ee674"><div class="ttname"><a href="function_8h.html#ab0ba3e25af04f28f837cce7a390ee674">functionMapIterator_t</a></div><div class="ttdeci">functionMap_t::iterator functionMapIterator_t</div><div class="ttdoc">Iterator on functionMap_t. </div><div class="ttdef"><b>Definition:</b> function.h:27</div></div>
-<div class="ttc" id="class_function_html"><div class="ttname"><a href="class_function.html">Function</a></div><div class="ttdoc">Class to get the actual function if it exists. </div><div class="ttdef"><b>Definition:</b> function.h:100</div></div>
+<div class="ttc" id="function_8h_html_a1f2d635e4b2f85631e81805725c3fd23"><div class="ttname"><a href="function_8h.html#a1f2d635e4b2f85631e81805725c3fd23">functionMap_t</a></div><div class="ttdeci">std::map&lt; std::string, function_t &gt; functionMap_t</div><div class="ttdoc">Map to store the functions. </div><div class="ttdef"><b>Definition:</b> function.h:40</div></div>
+<div class="ttc" id="function_8h_html_afb3732b2855893bbaf8ccd4fb275808b"><div class="ttname"><a href="function_8h.html#afb3732b2855893bbaf8ccd4fb275808b">call</a></div><div class="ttdeci">double call(std::string str, const Ts &amp;...args)</div><div class="ttdoc">Specific call of an implemented function (return double) </div><div class="ttdef"><b>Definition:</b> function.h:124</div></div>
+<div class="ttc" id="function_8h_html_ab0ba3e25af04f28f837cce7a390ee674"><div class="ttname"><a href="function_8h.html#ab0ba3e25af04f28f837cce7a390ee674">functionMapIterator_t</a></div><div class="ttdeci">functionMap_t::iterator functionMapIterator_t</div><div class="ttdoc">Iterator on functionMap_t. </div><div class="ttdef"><b>Definition:</b> function.h:43</div></div>
+<div class="ttc" id="class_function_html"><div class="ttname"><a href="class_function.html">Function</a></div><div class="ttdoc">This class is used to handle library or user defined functions. </div><div class="ttdef"><b>Definition:</b> function.h:101</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 15 2015 15:58:46 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 15 2015 16:59:41 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

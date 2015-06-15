@@ -3,7 +3,8 @@
 /// @file   application.h
 /// @author Yann Kurzo
 /// @date   June 14, 2015, 9:32 PM
-/// @license GPL2
+/// @copyright Copyright 2015 Yann Kurzo. All rights reserved.
+///         This project is released under the GNU Public License.
 /// @brief  This file defines the Application class.
 //  ==========================================================================
 
