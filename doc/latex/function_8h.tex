@@ -13,7 +13,7 @@ This file defines the \hyperlink{class_function}{Function} class.
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structfunction__t}{function\+\_\+t}
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_function}{Function} structure Each function defines its number of parameters and a help notice. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Structure to hold a function. \end{DoxyCompactList}\item 
 class \hyperlink{class_function}{Function}
 \begin{DoxyCompactList}\small\item\em This class is used to handle library or user defined functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Macros}
@@ -33,11 +33,6 @@ class \hyperlink{class_function}{Function}
 \hypertarget{function_8h_ab0ba3e25af04f28f837cce7a390ee674}{}typedef function\+Map\+\_\+t\+::iterator \hyperlink{function_8h_ab0ba3e25af04f28f837cce7a390ee674}{function\+Map\+Iterator\+\_\+t}\label{function_8h_ab0ba3e25af04f28f837cce7a390ee674}
 
 \begin{DoxyCompactList}\small\item\em Iterator on function\+Map\+\_\+t. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Functions}
-\begin{DoxyCompactItemize}
-\item 
-{\footnotesize template$<$class... Ts$>$ }\\double \hyperlink{function_8h_afb3732b2855893bbaf8ccd4fb275808b}{call} (std\+::string str, const Ts \&...args)
-\begin{DoxyCompactList}\small\item\em Specific call of an implemented function (return double) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -73,35 +68,10 @@ Macro to easily add a new function.
 \begin{DoxyParams}{Parameters}
 {\em str} & Name of the function used by the user \\
 \hline
-{\em str} & Number of parameters of the function \\
+{\em nb\+Parameters} & Number of parameters of the function \\
 \hline
 {\em function\+Name} & Name of the function in the library or declared in \hyperlink{external_functions_8h}{external\+Functions.\+h} \\
 \hline
 {\em help} & Help notice for this function \\
 \hline
 \end{DoxyParams}
-
-
-\subsection{Function Documentation}
-\hypertarget{function_8h_afb3732b2855893bbaf8ccd4fb275808b}{}\index{function.\+h@{function.\+h}!call@{call}}
-\index{call@{call}!function.\+h@{function.\+h}}
-\subsubsection[{call}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts$>$ double call (
-\begin{DoxyParamCaption}
-\item[{std\+::string}]{str, }
-\item[{const Ts \&...}]{args}
-\end{DoxyParamCaption}
-)}\label{function_8h_afb3732b2855893bbaf8ccd4fb275808b}
-
-
-Specific call of an implemented function (return double) 
-
-
-\begin{DoxyParams}{Parameters}
-{\em str} & Name of the function \\
-\hline
-{\em args} & Variable number of different types of arguments (generally double) \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Result of the function 
-\end{DoxyReturn}

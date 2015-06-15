@@ -1,0 +1,60 @@
+\section*{calculator v1.\+0}
+
+This program can parse a string entered by the user. It calculates the mathematical result of the string.
+
+\subsubsection*{Working features\+:}
+
+
+\begin{DoxyItemize}
+\item Numbers
+\item Operators (+,-\/,$\ast$,/,$^\wedge$,\%, unary minus -\/)
+\item Operator priority
+\item Brackets
+\item Functions
+\item Implicit multiplication (Ex\+: 2(4+3) == 2$\ast$(4+3) $\vert$$\vert$ 2pi() == 2$\ast$pi() )
+\item Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)
+\item Argument mode
+\begin{DoxyItemize}
+\item \char`\"{}calculator 2$\ast$5 2+8\char`\"{} (multiple calculation in a row)
+\item \char`\"{}calculator -\/h\char`\"{} (shortcut argument)
+\item \char`\"{}calculator -\/-\/help\char`\"{} (full argument)
+\end{DoxyItemize}
+\item \hyperlink{class_command}{Command} mode
+\begin{DoxyItemize}
+\item 2$\ast$5 (single calculation at a time)
+\item \char`\"{}-\/h\char`\"{} command (shortcut command)
+\item \char`\"{}help\char`\"{} command (full command)
+\end{DoxyItemize}
+\item Argument and commands
+\begin{DoxyItemize}
+\item Use help to get a list
+\item Actual list\+: exit, list-\/available-\/functions, help
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\subsubsection*{Missing features (in development)\+:}
+
+
+\begin{DoxyItemize}
+\item Use double / G\+M\+P
+\item Add usual constants
+\end{DoxyItemize}
+
+\subsubsection*{Code corrections}
+
+
+\begin{DoxyItemize}
+\item Correct indent
+\item Comments
+\end{DoxyItemize}
+
+\subsubsection*{Doc}
+
+
+\begin{DoxyItemize}
+\item Doxygen
+\end{DoxyItemize}
+
+\subsubsection*{Copyright}
+
+Copyright 2015 Yann Kurzo. All rights reserved. This project is released under the G\+N\+U Public License (see gpl-\/3.\+0.\+txt). 

@@ -140,7 +140,7 @@ void Application::startAnalyse(void)
 void Application::showTitle(void)
 {
     // Set strings to show
-    string title = "---- " + applicationName + " " + applicationVersion + " ----";
+    string title = "---- " + applicationName_m + " " + applicationVersion_m + " ----";
     string line = "";
     
     for(unsigned int i=0; i<title.size(); ++i)

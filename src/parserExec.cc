@@ -91,7 +91,7 @@ unsigned int ParserExec::findHighestOp(unsigned int lowerIndex, unsigned int upp
 unsigned int ParserExec::exec(unsigned int index)
 {
 	unsigned int vectorLenghtChange = 0;
-    Token::tokenType_t type = tokenVector_m[index].getType();
+    Token::tokenType_e type = tokenVector_m[index].getType();
 	
 	// Operator
     if(type == Token::eTOKENTYPE_OPERATOR)

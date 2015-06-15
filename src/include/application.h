@@ -36,10 +36,10 @@ class Application
         bool argumentPresent_m;
         
         /// Application name
-        const std::string applicationName = "calculator";
+        const std::string applicationName_m = "calculator";
         
         /// Application version
-        const std::string applicationVersion = "v1.0";
+        const std::string applicationVersion_m = "v1.0";
 
     public:
         /// @brief  Constructor

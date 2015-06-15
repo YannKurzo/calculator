@@ -23,7 +23,7 @@ unsigned int Function::getNbParameters(const std::string &str)
 
 func_ptr Function::getFunction(const std::string &str)
 {
-    return functions_m[str].func;
+    return functions_m[str].func_p;
 }
 
 std::string Function::getFunctionList(void)

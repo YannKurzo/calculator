@@ -27,7 +27,7 @@ typedef enum
     ePRIORITY_OP_PLUS_MINUS,
     ePRIORITY_OP_MODULO,
     ePRIORITY_LOWEST
-}priority_t;
+}priority_e;
 
 /// @brief  Defines the opening brackets
 static const std::string bracketsOpen = "(";
@@ -37,7 +37,7 @@ static const std::string bracketsClose = ")";
 /// @brief  Defines the different operators
 static const std::string operators = "^*/+-%";
 /// @brief  Defines the operator priority
-static const priority_t operatorPriority[] =
+static const priority_e operatorPriority[] =
 {
     ePRIORITY_OP_POWER,
     ePRIORITY_OP_MUL_DIV,
@@ -48,7 +48,7 @@ static const priority_t operatorPriority[] =
 };
 
 /// @brief  Defines the different tokens and their own priority
-static const priority_t tokenPriority[] =
+static const priority_e tokenPriority[] =
 {
     ePRIORITY_BRACKET_CLOSE,
     ePRIORITY_BRACKET_OPEN,
@@ -75,11 +75,11 @@ class Token
             eTOKENTYPE_OPERATOR,
             eTOKENTYPE_NUMBER,
             eTOKENTYPE_COMMA 
-        }tokenType_t;
+        }tokenType_e;
         
     protected:
         /// To store the type of the token
-        tokenType_t type_m;
+        tokenType_e type_m;
         
         /// To store the string of the token
         std::string str_m;
@@ -91,15 +91,15 @@ class Token
         /// @brief  Constructor
         /// @param  type Type of the token
         /// @param  str String of the token
-        Token(tokenType_t type, const std::string &str);
+        Token(tokenType_e type, const std::string &str);
         
         /// @brief  Get type of the token
-        tokenType_t getType(void) const;
+        tokenType_e getType(void) const;
         
         /// @brief  Get string of the token
         std::string getStr(void) const;
         /// @brief  Set string with type
-        void setStr(tokenType_t type, const std::string &str);
+        void setStr(tokenType_e type, const std::string &str);
         
         /// @brief  Get value of the token
         double getN(void) const;
@@ -107,14 +107,15 @@ class Token
         void setN(double n);
         
         /// @brief  Get the priority of the token
-        priority_t getPriority(void) const;
+        priority_e getPriority(void) const;
         
         /// @brief  Used to display the token with standard output
         void display(std::ostream& flow) const;
 };
 
-/// @brief  Standard output
+/// @cond STANDARD_OUTPUT
 std::ostream& operator<<(std::ostream& flow, Token const& token);
+/// @endcond STANDARD_OUTPUT
 
 /// @brief  Vector of tokens
 typedef std::vector<Token> TokenVector;

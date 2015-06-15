@@ -80,10 +80,54 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">calculator Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<div class="textblock"><p>This program can parse a string entered by the user. It calculates the mathematical result of the string.</p>
+<h3>Working features:</h3>
+<ul>
+<li>Numbers</li>
+<li>Operators (+,-,*,/,^,%, unary minus -)</li>
+<li>Operator priority</li>
+<li>Brackets</li>
+<li>Functions</li>
+<li>Implicit multiplication (Ex: 2(4+3) == 2*(4+3) || 2pi() == 2*pi() )</li>
+<li>Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)</li>
+<li>Argument mode<ul>
+<li>"calculator 2*5 2+8" (multiple calculation in a row)</li>
+<li>"calculator -h" (shortcut argument)</li>
+<li>"calculator --help" (full argument)</li>
+</ul>
+</li>
+<li><a class="el" href="class_command.html" title="This class handles the different commands and arguments. ">Command</a> mode<ul>
+<li>2*5 (single calculation at a time)</li>
+<li>"-h" command (shortcut command)</li>
+<li>"help" command (full command)</li>
+</ul>
+</li>
+<li>Argument and commands<ul>
+<li>Use help to get a list</li>
+<li>Actual list: exit, list-available-functions, help</li>
+</ul>
+</li>
+</ul>
+<h3>Missing features (in development):</h3>
+<ul>
+<li>Use double / GMP</li>
+<li>Add usual constants</li>
+</ul>
+<h3>Code corrections</h3>
+<ul>
+<li>Correct indent</li>
+<li>Comments</li>
+</ul>
+<h3>Doc</h3>
+<ul>
+<li>Doxygen</li>
+</ul>
+<h3>Copyright</h3>
+<p>Copyright 2015 Yann Kurzo. All rights reserved. This project is released under the GNU Public License (see gpl-3.0.txt). </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 15 2015 16:59:41 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 15 2015 17:54:25 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

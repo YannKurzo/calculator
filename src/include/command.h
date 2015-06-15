@@ -25,10 +25,10 @@ typedef enum
 /// @brief  Structure to hold a command
 typedef struct
 {
-    command_e commandEnum;
-    std::string command;
-    std::string shortcut;
-    std::string help;
+    command_e commandEnum;      ///< Command enumeration
+    std::string command;        ///< Command name
+    std::string shortcut;       ///< Command shortcut (-h)
+    std::string help;           ///< Help notice
 }command_t;
 
 /// @brief  List of commands

@@ -134,7 +134,7 @@ unsigned int Lexer::pushOperator(unsigned int startIndex)
     // Check unary minus '-'
     if(str_m.at(startIndex) == '-')
     {
-        Token::tokenType_t type = tokenVector_m.at(tokenVector_m.size()-2).getType();
+        Token::tokenType_e type = tokenVector_m.at(tokenVector_m.size()-2).getType();
 
         // If it is the first of the string OR if last one was an operator or an opening bracket
         if(startIndex == 0 || type == Token::eTOKENTYPE_OPERATOR ||
@@ -265,8 +265,8 @@ void Lexer::checkTokens(void)
 {
 	for(unsigned int i=1; i<tokenVector_m.size()-1; ++i)
     {
-        Token::tokenType_t type = tokenVector_m.at(i).getType();
-        Token::tokenType_t typeNext = tokenVector_m.at(i+1).getType();
+        Token::tokenType_e type = tokenVector_m.at(i).getType();
+        Token::tokenType_e typeNext = tokenVector_m.at(i+1).getType();
         
         // Check operators
         if(type == Token::eTOKENTYPE_OPERATOR ||

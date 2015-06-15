@@ -100,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="token_8h.html#acb95f02bc8aa11a54c8b4595158a3356">   19</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="token_8h.html#add90230972b81fc8809dc185a06a9b2a">   19</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    ePRIORITY_BRACKET_CLOSE,</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    ePRIORITY_BRACKET_OPEN,</div>
@@ -111,13 +111,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    ePRIORITY_OP_PLUS_MINUS,</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    ePRIORITY_OP_MODULO,</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    ePRIORITY_LOWEST</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}<a class="code" href="token_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}<a class="code" href="token_8h.html#add90230972b81fc8809dc185a06a9b2a">priority_e</a>;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> std::string bracketsOpen = <span class="stringliteral">&quot;(&quot;</span>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> std::string bracketsClose = <span class="stringliteral">&quot;)&quot;</span>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> std::string operators = <span class="stringliteral">&quot;^*/+-%&quot;</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="token_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> operatorPriority[] =</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="token_8h.html#add90230972b81fc8809dc185a06a9b2a">priority_e</a> operatorPriority[] =</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    ePRIORITY_OP_POWER,</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    ePRIORITY_OP_MUL_DIV,</div>
@@ -127,7 +127,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    ePRIORITY_OP_MODULO</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="token_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> tokenPriority[] =</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="token_8h.html#add90230972b81fc8809dc185a06a9b2a">priority_e</a> tokenPriority[] =</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    ePRIORITY_BRACKET_CLOSE,</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    ePRIORITY_BRACKET_OPEN,</div>
@@ -141,7 +141,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="class_token.html">   65</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_token.html">Token</a></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_token.html#af5797fcd4cb63823f3108625cbb83d11">   69</a></span>&#160;        <span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_token.html#a706d105bff3282a406a9b218fcee1bfc">   69</a></span>&#160;        <span class="keyword">typedef</span> <span class="keyword">enum</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        {</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            eTOKENTYPE_BRACKET_CLOSE,</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            eTOKENTYPE_BRACKET_OPEN,</div>
@@ -150,58 +150,57 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            eTOKENTYPE_OPERATOR,</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            eTOKENTYPE_NUMBER,</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            eTOKENTYPE_COMMA </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }<a class="code" href="class_token.html#af5797fcd4cb63823f3108625cbb83d11">tokenType_t</a>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }<a class="code" href="class_token.html#a706d105bff3282a406a9b218fcee1bfc">tokenType_e</a>;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_token.html#a01979ac699ac624615570cf0ea1e5b71">   82</a></span>&#160;        <a class="code" href="class_token.html#af5797fcd4cb63823f3108625cbb83d11">tokenType_t</a> <a class="code" href="class_token.html#a01979ac699ac624615570cf0ea1e5b71">type_m</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_token.html#a881316b1f7990524969817f25f80feae">   82</a></span>&#160;        <a class="code" href="class_token.html#a706d105bff3282a406a9b218fcee1bfc">tokenType_e</a> <a class="code" href="class_token.html#a881316b1f7990524969817f25f80feae">type_m</a>;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        </div>
 <div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="class_token.html#a2781f7d67fae2fa1cbfe4af5caf8473d">   85</a></span>&#160;        std::string <a class="code" href="class_token.html#a2781f7d67fae2fa1cbfe4af5caf8473d">str_m</a>;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        </div>
 <div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="class_token.html#ab5e62028b935156e5f69f3a50b20c078">   88</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_token.html#ab5e62028b935156e5f69f3a50b20c078">n_m</a>;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        </div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="class_token.html#a873561c98ca3fb50206e588b53ea2a35">Token</a>(<a class="code" href="class_token.html#af5797fcd4cb63823f3108625cbb83d11">tokenType_t</a> type, <span class="keyword">const</span> std::string &amp;str);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="class_token.html#ad84c27d6c4587fd359ffa52004bd370b">Token</a>(<a class="code" href="class_token.html#a706d105bff3282a406a9b218fcee1bfc">tokenType_e</a> type, <span class="keyword">const</span> std::string &amp;str);</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <a class="code" href="class_token.html#af5797fcd4cb63823f3108625cbb83d11">tokenType_t</a> <a class="code" href="class_token.html#a005b392d2172bc09aa302390506bbac4">getType</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <a class="code" href="class_token.html#a706d105bff3282a406a9b218fcee1bfc">tokenType_e</a> <a class="code" href="class_token.html#a1e326d33b7212772f3785fac4c3662be">getType</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        std::string <a class="code" href="class_token.html#ad38a4d20573a9c6c4bc2447a4701b51d">getStr</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_token.html#ae18998013091dea4eb553ec55f957562">setStr</a>(<a class="code" href="class_token.html#af5797fcd4cb63823f3108625cbb83d11">tokenType_t</a> type, <span class="keyword">const</span> std::string &amp;str);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_token.html#a5fbdba95469bc2afbaedf161e86d6d94">setStr</a>(<a class="code" href="class_token.html#a706d105bff3282a406a9b218fcee1bfc">tokenType_e</a> type, <span class="keyword">const</span> std::string &amp;str);</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        </div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_token.html#a2d5c2dc14215b3b443b3ba16d12a49aa">getN</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_token.html#a27e0713a82d278a603e4c430ff0204a3">setN</a>(<span class="keywordtype">double</span> n);</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <a class="code" href="token_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a> <a class="code" href="class_token.html#ac413c3cf2741f8807cf14815044c900f">getPriority</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <a class="code" href="token_8h.html#add90230972b81fc8809dc185a06a9b2a">priority_e</a> <a class="code" href="class_token.html#a87c0015a5a932014b9de9fa0441988ea">getPriority</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        </div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_token.html#a04cb002bc8a1ca11487fa254a4455bf9">display</a>(std::ostream&amp; flow) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;};</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;std::ostream&amp; <a class="code" href="token_8h.html#a214608c725ad5a18d7c18a8e10d878fe">operator&lt;&lt;</a>(std::ostream&amp; flow, <a class="code" href="class_token.html">Token</a> <span class="keyword">const</span>&amp; token);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="token_8h.html#a8318de25ae453e04997e41e88c9fad7d">  120</a></span>&#160;<span class="keyword">typedef</span> std::vector&lt;Token&gt; <a class="code" href="token_8h.html#a8318de25ae453e04997e41e88c9fad7d">TokenVector</a>;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp; flow, <a class="code" href="class_token.html">Token</a> <span class="keyword">const</span>&amp; token);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="token_8h.html#ab47f31774188c3fad94acfd21e12c917">  121</a></span>&#160;<span class="keyword">typedef</span> std::vector&lt;Token&gt; <a class="code" href="token_8h.html#ab47f31774188c3fad94acfd21e12c917">TokenVector</a>;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* TOKEN_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* TOKEN_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
 <div class="ttc" id="class_token_html_ad38a4d20573a9c6c4bc2447a4701b51d"><div class="ttname"><a href="class_token.html#ad38a4d20573a9c6c4bc2447a4701b51d">Token::getStr</a></div><div class="ttdeci">std::string getStr(void) const </div><div class="ttdoc">Get string of the token. </div></div>
-<div class="ttc" id="class_token_html_a005b392d2172bc09aa302390506bbac4"><div class="ttname"><a href="class_token.html#a005b392d2172bc09aa302390506bbac4">Token::getType</a></div><div class="ttdeci">tokenType_t getType(void) const </div><div class="ttdoc">Get type of the token. </div></div>
-<div class="ttc" id="token_8h_html_a8318de25ae453e04997e41e88c9fad7d"><div class="ttname"><a href="token_8h.html#a8318de25ae453e04997e41e88c9fad7d">TokenVector</a></div><div class="ttdeci">std::vector&lt; Token &gt; TokenVector</div><div class="ttdoc">Vector of tokens. </div><div class="ttdef"><b>Definition:</b> token.h:120</div></div>
-<div class="ttc" id="class_token_html_a873561c98ca3fb50206e588b53ea2a35"><div class="ttname"><a href="class_token.html#a873561c98ca3fb50206e588b53ea2a35">Token::Token</a></div><div class="ttdeci">Token(tokenType_t type, const std::string &amp;str)</div><div class="ttdoc">Constructor. </div></div>
+<div class="ttc" id="class_token_html_ad84c27d6c4587fd359ffa52004bd370b"><div class="ttname"><a href="class_token.html#ad84c27d6c4587fd359ffa52004bd370b">Token::Token</a></div><div class="ttdeci">Token(tokenType_e type, const std::string &amp;str)</div><div class="ttdoc">Constructor. </div></div>
+<div class="ttc" id="token_8h_html_add90230972b81fc8809dc185a06a9b2a"><div class="ttname"><a href="token_8h.html#add90230972b81fc8809dc185a06a9b2a">priority_e</a></div><div class="ttdeci">priority_e</div><div class="ttdoc">Enumeration that determines the token priority from high to low. </div><div class="ttdef"><b>Definition:</b> token.h:19</div></div>
+<div class="ttc" id="class_token_html_a1e326d33b7212772f3785fac4c3662be"><div class="ttname"><a href="class_token.html#a1e326d33b7212772f3785fac4c3662be">Token::getType</a></div><div class="ttdeci">tokenType_e getType(void) const </div><div class="ttdoc">Get type of the token. </div></div>
 <div class="ttc" id="class_token_html_ab5e62028b935156e5f69f3a50b20c078"><div class="ttname"><a href="class_token.html#ab5e62028b935156e5f69f3a50b20c078">Token::n_m</a></div><div class="ttdeci">double n_m</div><div class="ttdoc">To convert to number if the token is a number. </div><div class="ttdef"><b>Definition:</b> token.h:88</div></div>
-<div class="ttc" id="class_token_html_a01979ac699ac624615570cf0ea1e5b71"><div class="ttname"><a href="class_token.html#a01979ac699ac624615570cf0ea1e5b71">Token::type_m</a></div><div class="ttdeci">tokenType_t type_m</div><div class="ttdoc">To store the type of the token. </div><div class="ttdef"><b>Definition:</b> token.h:82</div></div>
-<div class="ttc" id="token_8h_html_a214608c725ad5a18d7c18a8e10d878fe"><div class="ttname"><a href="token_8h.html#a214608c725ad5a18d7c18a8e10d878fe">operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;flow, Token const &amp;token)</div><div class="ttdoc">Standard output. </div></div>
 <div class="ttc" id="class_token_html_a27e0713a82d278a603e4c430ff0204a3"><div class="ttname"><a href="class_token.html#a27e0713a82d278a603e4c430ff0204a3">Token::setN</a></div><div class="ttdeci">void setN(double n)</div><div class="ttdoc">Set value of the token. </div></div>
 <div class="ttc" id="class_token_html"><div class="ttname"><a href="class_token.html">Token</a></div><div class="ttdoc">This class handles a token which represents a part of the input string. The string can be separated i...</div><div class="ttdef"><b>Definition:</b> token.h:65</div></div>
+<div class="ttc" id="class_token_html_a706d105bff3282a406a9b218fcee1bfc"><div class="ttname"><a href="class_token.html#a706d105bff3282a406a9b218fcee1bfc">Token::tokenType_e</a></div><div class="ttdeci">tokenType_e</div><div class="ttdoc">Enumeration to determine the type of the token. </div><div class="ttdef"><b>Definition:</b> token.h:69</div></div>
 <div class="ttc" id="class_token_html_a2d5c2dc14215b3b443b3ba16d12a49aa"><div class="ttname"><a href="class_token.html#a2d5c2dc14215b3b443b3ba16d12a49aa">Token::getN</a></div><div class="ttdeci">double getN(void) const </div><div class="ttdoc">Get value of the token. </div></div>
-<div class="ttc" id="class_token_html_ae18998013091dea4eb553ec55f957562"><div class="ttname"><a href="class_token.html#ae18998013091dea4eb553ec55f957562">Token::setStr</a></div><div class="ttdeci">void setStr(tokenType_t type, const std::string &amp;str)</div><div class="ttdoc">Set string with type. </div></div>
-<div class="ttc" id="class_token_html_ac413c3cf2741f8807cf14815044c900f"><div class="ttname"><a href="class_token.html#ac413c3cf2741f8807cf14815044c900f">Token::getPriority</a></div><div class="ttdeci">priority_t getPriority(void) const </div><div class="ttdoc">Get the priority of the token. </div></div>
-<div class="ttc" id="class_token_html_af5797fcd4cb63823f3108625cbb83d11"><div class="ttname"><a href="class_token.html#af5797fcd4cb63823f3108625cbb83d11">Token::tokenType_t</a></div><div class="ttdeci">tokenType_t</div><div class="ttdoc">Enumeration to determine the type of the token. </div><div class="ttdef"><b>Definition:</b> token.h:69</div></div>
-<div class="ttc" id="token_8h_html_acb95f02bc8aa11a54c8b4595158a3356"><div class="ttname"><a href="token_8h.html#acb95f02bc8aa11a54c8b4595158a3356">priority_t</a></div><div class="ttdeci">priority_t</div><div class="ttdoc">Enumeration that determines the token priority from high to low. </div><div class="ttdef"><b>Definition:</b> token.h:19</div></div>
+<div class="ttc" id="class_token_html_a881316b1f7990524969817f25f80feae"><div class="ttname"><a href="class_token.html#a881316b1f7990524969817f25f80feae">Token::type_m</a></div><div class="ttdeci">tokenType_e type_m</div><div class="ttdoc">To store the type of the token. </div><div class="ttdef"><b>Definition:</b> token.h:82</div></div>
+<div class="ttc" id="class_token_html_a5fbdba95469bc2afbaedf161e86d6d94"><div class="ttname"><a href="class_token.html#a5fbdba95469bc2afbaedf161e86d6d94">Token::setStr</a></div><div class="ttdeci">void setStr(tokenType_e type, const std::string &amp;str)</div><div class="ttdoc">Set string with type. </div></div>
+<div class="ttc" id="token_8h_html_ab47f31774188c3fad94acfd21e12c917"><div class="ttname"><a href="token_8h.html#ab47f31774188c3fad94acfd21e12c917">TokenVector</a></div><div class="ttdeci">STANDARD_OUTPUT typedef std::vector&lt; Token &gt; TokenVector</div><div class="ttdoc">Vector of tokens. </div><div class="ttdef"><b>Definition:</b> token.h:121</div></div>
+<div class="ttc" id="class_token_html_a87c0015a5a932014b9de9fa0441988ea"><div class="ttname"><a href="class_token.html#a87c0015a5a932014b9de9fa0441988ea">Token::getPriority</a></div><div class="ttdeci">priority_e getPriority(void) const </div><div class="ttdoc">Get the priority of the token. </div></div>
 <div class="ttc" id="class_token_html_a2781f7d67fae2fa1cbfe4af5caf8473d"><div class="ttname"><a href="class_token.html#a2781f7d67fae2fa1cbfe4af5caf8473d">Token::str_m</a></div><div class="ttdeci">std::string str_m</div><div class="ttdoc">To store the string of the token. </div><div class="ttdef"><b>Definition:</b> token.h:85</div></div>
 <div class="ttc" id="class_token_html_a04cb002bc8a1ca11487fa254a4455bf9"><div class="ttname"><a href="class_token.html#a04cb002bc8a1ca11487fa254a4455bf9">Token::display</a></div><div class="ttdeci">void display(std::ostream &amp;flow) const </div><div class="ttdoc">Used to display the token with standard output. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 15 2015 16:59:41 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 15 2015 17:54:25 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

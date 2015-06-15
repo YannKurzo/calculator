@@ -89,8 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">function.h File Reference</div>  </div>
 </div><!--header-->
@@ -108,7 +107,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfunction__t.html">function_t</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_function.html" title="This class is used to handle library or user defined functions. ">Function</a> structure Each function defines its number of parameters and a help notice.  <a href="structfunction__t.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to hold a function.  <a href="structfunction__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_function.html">Function</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class is used to handle library or user defined functions.  <a href="class_function.html#details">More...</a><br /></td></tr>
@@ -134,13 +133,6 @@ typedef std::map&lt; std::string, <a class="el" href="structfunction__t.html">fu
 typedef functionMap_t::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="function_8h.html#ab0ba3e25af04f28f837cce7a390ee674">functionMapIterator_t</a></td></tr>
 <tr class="memdesc:ab0ba3e25af04f28f837cce7a390ee674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator on functionMap_t. <br /></td></tr>
 <tr class="separator:ab0ba3e25af04f28f837cce7a390ee674"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:afb3732b2855893bbaf8ccd4fb275808b"><td class="memTemplParams" colspan="2">template&lt;class... Ts&gt; </td></tr>
-<tr class="memitem:afb3732b2855893bbaf8ccd4fb275808b"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="function_8h.html#afb3732b2855893bbaf8ccd4fb275808b">call</a> (std::string str, const Ts &amp;...args)</td></tr>
-<tr class="memdesc:afb3732b2855893bbaf8ccd4fb275808b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specific call of an implemented function (return double)  <a href="#afb3732b2855893bbaf8ccd4fb275808b">More...</a><br /></td></tr>
-<tr class="separator:afb3732b2855893bbaf8ccd4fb275808b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file defines the <a class="el" href="class_function.html" title="This class is used to handle library or user defined functions. ">Function</a> class. </p>
@@ -188,7 +180,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">str</td><td>Name of the function used by the user </td></tr>
-    <tr><td class="paramname">str</td><td>Number of parameters of the function </td></tr>
+    <tr><td class="paramname">nbParameters</td><td>Number of parameters of the function </td></tr>
     <tr><td class="paramname">functionName</td><td>Name of the function in the library or declared in <a class="el" href="external_functions_8h.html" title="New function to be handled by the calculator can be declared here. ">externalFunctions.h</a> </td></tr>
     <tr><td class="paramname">help</td><td>Help notice for this function </td></tr>
   </table>
@@ -197,49 +189,10 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="afb3732b2855893bbaf8ccd4fb275808b"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class... Ts&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">double call </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Ts &amp;...&#160;</td>
-          <td class="paramname"><em>args</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Specific call of an implemented function (return double) </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>Name of the function </td></tr>
-    <tr><td class="paramname">args</td><td>Variable number of different types of arguments (generally double) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Result of the function </dd></dl>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 15 2015 16:59:41 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 15 2015 17:54:25 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
