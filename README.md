@@ -24,6 +24,7 @@ This program can parse a string entered by the user. It calculates the mathemati
 
 ### Missing features (in development):
 - Use double / GMP
+- Add usual constants
 
 ### Code corrections
 - Correct indent
