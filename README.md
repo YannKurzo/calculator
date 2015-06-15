@@ -36,4 +36,4 @@ Doc
 
 ## Copyright:
 Copyright 2015 Yann Kurzo. All rights reserved.
-This project is released under the GNU Public License (see gpl-2.0.txt).
+This project is released under the GNU Public License (see gpl-3.0.txt).
