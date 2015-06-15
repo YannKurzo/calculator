@@ -165,7 +165,9 @@ unsigned int Lexer::pushFunction(unsigned int startIndex)
 	// While it is not the end of the string and it is not an opening bracket
 	// Every character but the opening bracket can be considered as part of the function!
 	while(stopIndex<str_m.length() && !(bracketsOpen.find(str_m.at(stopIndex)) != string::npos))
+    {
 		++stopIndex;
+    }
 
 	tokenVector_m.push_back(Token(Token::eTOKENTYPE_FUNCTION, str_m.substr(startIndex, stopIndex-startIndex)));
 	

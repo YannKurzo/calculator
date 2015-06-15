@@ -24,11 +24,11 @@ typedef void (*func_ptr)();
 /// @param  str Name of the function used by the user
 /// @param  str Number of parameters of the function
 /// @param  functionName Name of the function in the library or declared in externalFunctions.h
+/// @param  help Help notice for this function
 #define ADD(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast<func_ptr>(&functionName), help}}
 
-
 /// @brief  Function structure
-///         Each function must tell its number of parameters
+///         Each function defines its number of parameters and a help notice
 typedef struct
 {
     unsigned int nbParameters;

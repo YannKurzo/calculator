@@ -39,9 +39,9 @@ class Analyze
         /// Enumeration to check the actual process
         typedef enum
         {
-                eNOTHING_DONE,
-                eLEXER_DONE,
-                ePARSEREXEC_DONE
+            eNOTHING_DONE,
+            eLEXER_DONE,
+            ePARSEREXEC_DONE
         }actualProcess_e;
 
         /// Actual process
