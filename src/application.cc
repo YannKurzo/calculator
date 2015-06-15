@@ -24,6 +24,9 @@ Application::Application(int argc, char* argv[])
         
     // Show title
     showTitle();
+    
+    // Set cout precision
+    cout.precision(15);
 }
 
 void Application::start(void)

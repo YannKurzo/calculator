@@ -14,7 +14,7 @@
 
 double pi(void)
 {
-    return 3.14159265359;
+    return 3.14159265358979323;
 }
 
 double NaN(void)
