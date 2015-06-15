@@ -4,9 +4,7 @@
 /// @author Yann Kurzo
 /// @date   May 11, 2015, 9:32 PM
 /// @license GPL2
-/// @brief  Manages the complete calculation process
-///         The Analyze class provides a way to complete the calculation
-///         of a string entered by the user.
+/// @brief  This class manages the complete calculation process.
 //  ==========================================================================
 
 #ifndef ANALYZE_H
@@ -17,13 +15,13 @@
 
 #include <string>
 
-/// @brief	Define to show the vector of tokens after the lexer process
-//#define ANALYSE_DEBUG
+/// @brief	Define to 1 to show the vector of tokens after the lexer process
+#define ANALYSE_DEBUG 0
 
-/// @brief  This class manages the complete calculation
-/// @note   After creating the class with the constructor, the member functions
-///         lexer() and parserAndExec() should be called in order before
-///         getting the result with the getResult() function.
+/// @brief  This class manages the complete calculation process.
+/// @note   Calling getResult() before lexer() and parserExec() functions
+///         will automatically execute lexer() and parserExec() before
+///         returning the result.
 class Analyze
 { 
     protected:
@@ -61,7 +59,7 @@ class Analyze
         /// @brief  Get the result
         double getResult();
 
-#ifdef ANALYSE_DEBUG
+#if(ANALYSE_DEBUG == 1)
 	private:
         /// @brief  Display the list of tokens
 		/// @note	Debug utility

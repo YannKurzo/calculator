@@ -4,7 +4,8 @@
 /// @author Yann Kurzo
 /// @date   June 14, 2015, 9:32 PM
 /// @license GPL2
-/// @brief  
+/// @brief  This class manages the whole application with the main arguments when
+///         they are specified
 //  ==========================================================================
 
 #include "application.h"
@@ -135,10 +136,19 @@ void Application::startAnalyse(void)
 
 void Application::showTitle(void)
 {
-    // Title
-    cout << "--------------------" << endl;
-    cout << "---- Calculator ----" << endl;
-    cout << "--------------------" << endl << endl;
+    // Set strings to show
+    string title = "---- " + applicationName + " " + applicationVersion + " ----";
+    string line = "";
+    
+    for(unsigned int i=0; i<title.size(); ++i)
+    {
+        line += "-";
+    }
+    
+    // Show title
+    cout << endl << line << endl;
+    cout << title << endl;
+    cout << line << endl << endl;
 }
 
 void Application::showExit(void)

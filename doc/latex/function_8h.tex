@@ -1,59 +1,70 @@
-\hypertarget{function_8h}{\section{/home/yann/\-Documents/\-Programmation/\-C++/calculator/calculator/src/include/function.h File Reference}
-\label{function_8h}\index{/home/yann/\-Documents/\-Programmation/\-C++/calculator/calculator/src/include/function.\-h@{/home/yann/\-Documents/\-Programmation/\-C++/calculator/calculator/src/include/function.\-h}}
-}
+\hypertarget{function_8h}{}\section{C\+:/\+Users/yann.kurzo/\+Documents/\+Programmation/calculator/calculator/src/include/function.h File Reference}
+\label{function_8h}\index{C\+:/\+Users/yann.\+kurzo/\+Documents/\+Programmation/calculator/calculator/src/include/function.\+h@{C\+:/\+Users/yann.\+kurzo/\+Documents/\+Programmation/calculator/calculator/src/include/function.\+h}}
 
 
-Handle existing functions of libraries.  
+Class to handle library or user defined functions.  
 
 
-{\ttfamily \#include \char`\"{}external\-Functions.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}external\+Functions.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$string$>$}\\*
 {\ttfamily \#include $<$cmath$>$}\\*
 {\ttfamily \#include $<$map$>$}\\*
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \hyperlink{structfunction__t}{function\-\_\-t}
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_function}{Function} structure Each function must tell its number of parameters. \end{DoxyCompactList}\item 
+struct \hyperlink{structfunction__t}{function\+\_\+t}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_function}{Function} structure Each function defines its number of parameters and a help notice. \end{DoxyCompactList}\item 
 class \hyperlink{class_function}{Function}
 \begin{DoxyCompactList}\small\item\em Class to get the actual function if it exists. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{function_8h_a420db710f9fcd36cd31b1323e00bff0a}{M\-A\-X\-\_\-\-N\-U\-M\-B\-E\-R\-\_\-\-P\-A\-R\-A\-M\-E\-T\-E\-R\-S}~5
-\begin{DoxyCompactList}\small\item\em Maximum number of parameters for the functions. \end{DoxyCompactList}\item 
-\#define \hyperlink{function_8h_a0df11cfe90c72f4efaa8e627acef4839}{A\-D\-D}(str, nb\-Parameters, function\-Name)~\{str, \{nb\-Parameters, reinterpret\-\_\-cast$<$\hyperlink{function_8h_ad31d400be55ada6bfa42b57b42b2a985}{func\-\_\-ptr}$>$(\&function\-Name)\}\}
+\#define \hyperlink{function_8h_aab90cd668cd8bf7816ad9eb7aea209e7}{A\+D\+D}(str,  nb\+Parameters,  function\+Name,  help)~\{str, \{nb\+Parameters, reinterpret\+\_\+cast$<$\hyperlink{function_8h_a171e664ee3179d3d1f1a7b04a747724c}{func\+\_\+ptr}$>$(\&function\+Name), help\}\}
 \begin{DoxyCompactList}\small\item\em Macro to easily add a new function. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{function_8h_ad31d400be55ada6bfa42b57b42b2a985}{typedef void($\ast$ \hyperlink{function_8h_ad31d400be55ada6bfa42b57b42b2a985}{func\-\_\-ptr} )()}\label{function_8h_ad31d400be55ada6bfa42b57b42b2a985}
+\hypertarget{function_8h_a171e664ee3179d3d1f1a7b04a747724c}{}typedef void($\ast$ \hyperlink{function_8h_a171e664ee3179d3d1f1a7b04a747724c}{func\+\_\+ptr}) ()\label{function_8h_a171e664ee3179d3d1f1a7b04a747724c}
 
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_function}{Function} pointer for every function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_function}{Function} pointer for every function. \end{DoxyCompactList}\item 
+\hypertarget{function_8h_a1f2d635e4b2f85631e81805725c3fd23}{}typedef std\+::map$<$ std\+::string, \hyperlink{structfunction__t}{function\+\_\+t} $>$ \hyperlink{function_8h_a1f2d635e4b2f85631e81805725c3fd23}{function\+Map\+\_\+t}\label{function_8h_a1f2d635e4b2f85631e81805725c3fd23}
+
+\begin{DoxyCompactList}\small\item\em Map to store the functions. \end{DoxyCompactList}\item 
+\hypertarget{function_8h_ab0ba3e25af04f28f837cce7a390ee674}{}typedef function\+Map\+\_\+t\+::iterator \hyperlink{function_8h_ab0ba3e25af04f28f837cce7a390ee674}{function\+Map\+Iterator\+\_\+t}\label{function_8h_ab0ba3e25af04f28f837cce7a390ee674}
+
+\begin{DoxyCompactList}\small\item\em Iterator on function\+Map\+\_\+t. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class... Ts$>$ }\\double \hyperlink{function_8h_afb3732b2855893bbaf8ccd4fb275808b}{call} (std\+::string str, const Ts \&...args)
+\begin{DoxyCompactList}\small\item\em Specific call of an implemented function (return double) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Handle existing functions of libraries. \begin{DoxyAuthor}{Author}
+Class to handle library or user defined functions. 
+
+\begin{DoxyAuthor}{Author}
 Yann Kurzo 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-May 26, 2015, 9\-:30 P\-M  G\-P\-L2 
+May 26, 2015, 9\+:30 P\+M  G\+P\+L2 
 \end{DoxyDate}
 \begin{DoxyNote}{Note}
-New functions can be easily added with the A\-D\-D macro. 
+New functions can be easily added with the A\+D\+D macro. 
 \end{DoxyNote}
 
 
 \subsection{Macro Definition Documentation}
-\hypertarget{function_8h_a0df11cfe90c72f4efaa8e627acef4839}{\index{function.\-h@{function.\-h}!A\-D\-D@{A\-D\-D}}
-\index{A\-D\-D@{A\-D\-D}!function.h@{function.\-h}}
-\subsubsection[{A\-D\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-D\-D(
+\hypertarget{function_8h_aab90cd668cd8bf7816ad9eb7aea209e7}{}\index{function.\+h@{function.\+h}!A\+D\+D@{A\+D\+D}}
+\index{A\+D\+D@{A\+D\+D}!function.\+h@{function.\+h}}
+\subsubsection[{A\+D\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+D\+D(
 \begin{DoxyParamCaption}
 \item[{}]{str, }
-\item[{}]{nb\-Parameters, }
-\item[{}]{function\-Name}
+\item[{}]{nb\+Parameters, }
+\item[{}]{function\+Name, }
+\item[{}]{help}
 \end{DoxyParamCaption}
-)~\{str, \{nb\-Parameters, reinterpret\-\_\-cast$<${\bf func\-\_\-ptr}$>$(\&function\-Name)\}\}}}\label{function_8h_a0df11cfe90c72f4efaa8e627acef4839}
+)~\{str, \{nb\+Parameters, reinterpret\+\_\+cast$<${\bf func\+\_\+ptr}$>$(\&function\+Name), help\}\}}\label{function_8h_aab90cd668cd8bf7816ad9eb7aea209e7}
 
 
 Macro to easily add a new function. 
@@ -64,16 +75,33 @@ Macro to easily add a new function.
 \hline
 {\em str} & Number of parameters of the function \\
 \hline
-{\em function\-Name} & Name of the function in the library or declared in \hyperlink{external_functions_8h}{external\-Functions.\-h} \\
+{\em function\+Name} & Name of the function in the library or declared in \hyperlink{external_functions_8h}{external\+Functions.\+h} \\
+\hline
+{\em help} & Help notice for this function \\
 \hline
 \end{DoxyParams}
-\hypertarget{function_8h_a420db710f9fcd36cd31b1323e00bff0a}{\index{function.\-h@{function.\-h}!M\-A\-X\-\_\-\-N\-U\-M\-B\-E\-R\-\_\-\-P\-A\-R\-A\-M\-E\-T\-E\-R\-S@{M\-A\-X\-\_\-\-N\-U\-M\-B\-E\-R\-\_\-\-P\-A\-R\-A\-M\-E\-T\-E\-R\-S}}
-\index{M\-A\-X\-\_\-\-N\-U\-M\-B\-E\-R\-\_\-\-P\-A\-R\-A\-M\-E\-T\-E\-R\-S@{M\-A\-X\-\_\-\-N\-U\-M\-B\-E\-R\-\_\-\-P\-A\-R\-A\-M\-E\-T\-E\-R\-S}!function.h@{function.\-h}}
-\subsubsection[{M\-A\-X\-\_\-\-N\-U\-M\-B\-E\-R\-\_\-\-P\-A\-R\-A\-M\-E\-T\-E\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-N\-U\-M\-B\-E\-R\-\_\-\-P\-A\-R\-A\-M\-E\-T\-E\-R\-S~5}}\label{function_8h_a420db710f9fcd36cd31b1323e00bff0a}
 
 
-Maximum number of parameters for the functions. 
+\subsection{Function Documentation}
+\hypertarget{function_8h_afb3732b2855893bbaf8ccd4fb275808b}{}\index{function.\+h@{function.\+h}!call@{call}}
+\index{call@{call}!function.\+h@{function.\+h}}
+\subsubsection[{call}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class... Ts$>$ double call (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{str, }
+\item[{const Ts \&...}]{args}
+\end{DoxyParamCaption}
+)}\label{function_8h_afb3732b2855893bbaf8ccd4fb275808b}
 
-\begin{DoxyNote}{Note}
-Should not be changed, other parts of the code must be adapted. 
-\end{DoxyNote}
+
+Specific call of an implemented function (return double) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Name of the function \\
+\hline
+{\em args} & Variable number of different types of arguments (generally double) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of the function 
+\end{DoxyReturn}

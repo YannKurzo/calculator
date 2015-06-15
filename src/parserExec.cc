@@ -4,7 +4,7 @@
 /// @author Yann Kurzo
 /// @date   May 17, 2015, 2:06 AM
 /// @license GPL2
-/// @brief  Parse the vector of tokens and calculates the mathematical result
+/// @brief  This file defines the ParserExec class.
 //  ==========================================================================
 
 #include "parserExec.h"
@@ -189,7 +189,7 @@ double ParserExec::execOperator(std::string op, double left, double right)
 			break;
     }
 	
-#ifdef DISPLAY_OPERATIONS
+#if(DISPLAY_OPERATIONS == 1)
     cout << left << " " << op << " " << right << " = " << res << endl;
 #endif
 
@@ -242,7 +242,7 @@ double ParserExec::execFunction(std::string functionName, unsigned int firstPara
 #endif
     double res = call(functionName, par[0], par[1], par[2], par[3], par[4]);
     
-#ifdef DISPLAY_OPERATIONS
+#if(DISPLAY_OPERATIONS == 1)
         cout << functionName << "(";
         if(nbPar > 0)
         {

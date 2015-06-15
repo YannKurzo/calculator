@@ -4,9 +4,7 @@
 /// @author Yann Kurzo
 /// @date   May 11, 2015, 9:32 PM
 /// @license GPL2
-/// @brief  Manages the complete calculation process
-///         The Analyze class provides a way to complete the calculation
-///         of a string entered by the user.
+/// @brief  This class manages the complete calculation process.
 //  ==========================================================================
 
 #include "analyze.h"
@@ -32,7 +30,7 @@ void Analyze::lexer(void)
 	// Update process
 	actualProcess_m = eLEXER_DONE;
 	
-#ifdef ANALYSE_DEBUG
+#if(ANALYSE_DEBUG == 1)
 	// Display tokens for debug
 	displayToken();
 #endif
@@ -65,7 +63,7 @@ double Analyze::getResult()
     return result_m;
 }
 
-#ifdef ANALYSE_DEBUG
+#if(ANALYSE_DEBUG == 1)
 void Analyze::displayToken(void) const
 {
 	if(actualProcess_m >= eLEXER_DONE)

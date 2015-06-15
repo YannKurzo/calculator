@@ -4,7 +4,7 @@
 /// @author Yann Kurzo
 /// @date   May 26, 2015, 9:30 PM
 /// @license GPL2
-/// @brief  Handle existing functions of libraries
+/// @brief  Class to handle library or user defined functions.
 /// @note   New functions can be easily added with the ADD macro.
 //  ==========================================================================
 

@@ -4,7 +4,7 @@
 /// @author Yann Kurzo
 /// @date   May 17, 2015, 2:06 AM
 /// @license GPL2
-/// @brief  Parse the vector of tokens and calculates the mathematical result
+/// @brief  This file defines the ParserExec class.
 //  ==========================================================================
 
 #ifndef PARSEREXEC_H
@@ -15,15 +15,15 @@
 
 #include <vector>
 
-/// @brief  If defined, display the operation steps
-//#define DISPLAY_OPERATIONS
+/// @brief  If defined to 1, display the operation steps
+#define DISPLAY_OPERATIONS 0
 
 /// @brief  Maximum number of parameters for the functions
 /// @note   When it is changed, other parts of the code must be adapted.
 #define MAX_NUMBER_PARAMETERS 5
 
-/// @brief  This class simulates a binary tree.
-///         
+/// @brief  This class is used to parse the vector of tokens and calculates
+///         the mathematical result.
 class ParserExec
 {
     protected:

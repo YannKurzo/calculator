@@ -4,7 +4,7 @@
 /// @author Yann Kurzo
 /// @date   June 14, 2015, 9:32 PM
 /// @license GPL2
-/// @brief  Class to handle the different commands and arguments
+/// @brief  Class to handle the different commands and arguments.
 //  ==========================================================================
 
 #ifndef COMMAND_H
@@ -42,17 +42,19 @@ static const command_t commands[] =
 class Command
 {
     protected:
-        // Command to analyze
+        /// Command to analyze
         std::string str_m;
 
     public:
-        /// @brief  Get the actual argument
-        /// @return Argument, or eNB_COMMANDS elsewhere
-        static command_e getArgument(std::string str);
+        /// @brief  Get the argument
+        /// @param  argument Argument to analyze
+        /// @return Argument, or eNB_COMMANDS otherwise
+        static command_e getArgument(std::string argument);
         
-        /// @brief  Get the actual command
-        /// @return Command, or eNB_COMMANDS elsewhere
-        static command_e getCommand(std::string str);
+        /// @brief  Get the command
+        /// @param  command Command to analyze
+        /// @return Command, or eNB_COMMANDS otherwise
+        static command_e getCommand(std::string command);
         
         /// @brief  Get help about the commands
         /// @return String containing the help

@@ -4,7 +4,7 @@
 /// @author Yann Kurzo
 /// @date   May 26, 2015, 9:30 PM
 /// @license GPL2
-/// @brief  Handle existing functions of libraries
+/// @brief  Class to handle library or user defined functions.
 /// @note   New functions can be easily added with the ADD macro.
 //  ==========================================================================
 
@@ -36,7 +36,10 @@ typedef struct
     std::string help;
 }function_t;
 
+/// @brief  Map to store the functions
 typedef std::map<std::string,function_t> functionMap_t;
+
+/// @brief  Iterator on functionMap_t
 typedef functionMap_t::iterator functionMapIterator_t;
 
 /// @brief  Map to store every function
@@ -112,21 +115,24 @@ class Function
         static std::string getFunctionList(void);
 };
 
-/// @cond   Template based code / not on doxygen
-// Specific call (return double)
+/// @brief  Specific call of an implemented function (return double)
+/// @param  str Name of the function
+/// @param  args Variable number of different types of arguments (generally double)
+/// @return Result of the function
 template<class... Ts>
 double call(std::string str, const Ts&... args)
 {
     return reinterpret_cast<double(*)(Ts...)>(Function::getFunction(str))(args...);
 }
 
+/// @cond   Template based code / not on doxygen
 // Generic call
-//template<class ReturnType, class... Ts>
-//ReturnType callFunction(void *function, const Ts&... args)
-//{	
-//    return reinterpret_cast<ReturnType(*)(Ts...)>(function)(args...);
-//}
-/// @cond
+template<class ReturnType, class... Ts>
+ReturnType callFunction(void *function, const Ts&... args)
+{	
+   return reinterpret_cast<ReturnType(*)(Ts...)>(function)(args...);
+}
+/// @endcond
 
 
 #endif	/* FUNCTION_H */

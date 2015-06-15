@@ -1,6 +1,5 @@
-\hypertarget{class_function}{\section{Function Class Reference}
+\hypertarget{class_function}{}\section{Function Class Reference}
 \label{class_function}\index{Function@{Function}}
-}
 
 
 Class to get the actual function if it exists.  
@@ -8,28 +7,30 @@ Class to get the actual function if it exists.
 
 
 
-{\ttfamily \#include $<$function.\-h$>$}
+{\ttfamily \#include $<$function.\+h$>$}
 
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static unsigned int \hyperlink{class_function_af94043af6732cf11fb8210d1f79ad66a}{get\-Nb\-Parameters} (std\-::string str)
+static unsigned int \hyperlink{class_function_a3cc694137e1698d0537d9e4672a7123a}{get\+Nb\+Parameters} (const std\+::string \&str)
 \begin{DoxyCompactList}\small\item\em Get the number of parameters of the function. \end{DoxyCompactList}\item 
-static \hyperlink{function_8h_ad31d400be55ada6bfa42b57b42b2a985}{func\-\_\-ptr} \hyperlink{class_function_a729042286d2b314dd4f5f5bb1394f4f0}{get\-Function} (std\-::string str)
-\begin{DoxyCompactList}\small\item\em Get a pointer on the function to call. \end{DoxyCompactList}\end{DoxyCompactItemize}
+static \hyperlink{function_8h_a171e664ee3179d3d1f1a7b04a747724c}{func\+\_\+ptr} \hyperlink{class_function_a58dbf2a69e3cd7a82acff3ea70e642f4}{get\+Function} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Get a pointer on the function to call. \end{DoxyCompactList}\item 
+static std\+::string \hyperlink{class_function_a321f973005de0842251559fb2ab52160}{get\+Function\+List} (void)
+\begin{DoxyCompactList}\small\item\em Get a string containing the list of implemented functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Class to get the actual function if it exists. 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_function_a729042286d2b314dd4f5f5bb1394f4f0}{\index{Function@{Function}!get\-Function@{get\-Function}}
-\index{get\-Function@{get\-Function}!Function@{Function}}
-\subsubsection[{get\-Function}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf func\-\_\-ptr} Function\-::get\-Function (
+\hypertarget{class_function_a58dbf2a69e3cd7a82acff3ea70e642f4}{}\index{Function@{Function}!get\+Function@{get\+Function}}
+\index{get\+Function@{get\+Function}!Function@{Function}}
+\subsubsection[{get\+Function}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf func\+\_\+ptr} Function\+::get\+Function (
 \begin{DoxyParamCaption}
-\item[{std\-::string}]{str}
+\item[{const std\+::string \&}]{str}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_function_a729042286d2b314dd4f5f5bb1394f4f0}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_function_a58dbf2a69e3cd7a82acff3ea70e642f4}
 
 
 Get a pointer on the function to call. 
@@ -39,13 +40,30 @@ Get a pointer on the function to call.
 {\em str} & Name of the function \\
 \hline
 \end{DoxyParams}
-\hypertarget{class_function_af94043af6732cf11fb8210d1f79ad66a}{\index{Function@{Function}!get\-Nb\-Parameters@{get\-Nb\-Parameters}}
-\index{get\-Nb\-Parameters@{get\-Nb\-Parameters}!Function@{Function}}
-\subsubsection[{get\-Nb\-Parameters}]{\setlength{\rightskip}{0pt plus 5cm}static unsigned int Function\-::get\-Nb\-Parameters (
+\begin{DoxyReturn}{Returns}
+Pointer to the function, N\+U\+L\+L if it does not exist 
+\end{DoxyReturn}
+\hypertarget{class_function_a321f973005de0842251559fb2ab52160}{}\index{Function@{Function}!get\+Function\+List@{get\+Function\+List}}
+\index{get\+Function\+List@{get\+Function\+List}!Function@{Function}}
+\subsubsection[{get\+Function\+List}]{\setlength{\rightskip}{0pt plus 5cm}static std\+::string Function\+::get\+Function\+List (
 \begin{DoxyParamCaption}
-\item[{std\-::string}]{str}
+\item[{void}]{}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_function_af94043af6732cf11fb8210d1f79ad66a}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_function_a321f973005de0842251559fb2ab52160}
+
+
+Get a string containing the list of implemented functions. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_function}{Function} list 
+\end{DoxyReturn}
+\hypertarget{class_function_a3cc694137e1698d0537d9e4672a7123a}{}\index{Function@{Function}!get\+Nb\+Parameters@{get\+Nb\+Parameters}}
+\index{get\+Nb\+Parameters@{get\+Nb\+Parameters}!Function@{Function}}
+\subsubsection[{get\+Nb\+Parameters}]{\setlength{\rightskip}{0pt plus 5cm}static unsigned int Function\+::get\+Nb\+Parameters (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{str}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_function_a3cc694137e1698d0537d9e4672a7123a}
 
 
 Get the number of parameters of the function. 
@@ -55,8 +73,11 @@ Get the number of parameters of the function.
 {\em str} & Name of the function \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of parameters of the function 
+\end{DoxyReturn}
 
 
-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/yann/\-Documents/\-Programmation/\-C++/calculator/calculator/src/include/\hyperlink{function_8h}{function.\-h}\end{DoxyCompactItemize}
+C\+:/\+Users/yann.\+kurzo/\+Documents/\+Programmation/calculator/calculator/src/include/\hyperlink{function_8h}{function.\+h}\end{DoxyCompactItemize}

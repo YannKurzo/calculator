@@ -1,68 +1,70 @@
-\hypertarget{class_analyze}{\section{Analyze Class Reference}
+\hypertarget{class_analyze}{}\section{Analyze Class Reference}
 \label{class_analyze}\index{Analyze@{Analyze}}
-}
 
 
-This class manages the complete calculation.  
+This class manages the complete calculation process.  
 
 
 
 
-{\ttfamily \#include $<$analyze.\-h$>$}
+{\ttfamily \#include $<$analyze.\+h$>$}
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_analyze_a12151b9c257f0d9c3cb29c9437a2e2fe}{Analyze} (std\-::string str)
+\hyperlink{class_analyze_a373e5e79d15401c429b980f819ce76b3}{Analyze} (const std\+::string \&str)
 \begin{DoxyCompactList}\small\item\em Construct a calculation process. \end{DoxyCompactList}\item 
-\hypertarget{class_analyze_a7e2d7d56afe79f627f494489b500a2ae}{\hyperlink{class_analyze_a7e2d7d56afe79f627f494489b500a2ae}{$\sim$\-Analyze} (void)}\label{class_analyze_a7e2d7d56afe79f627f494489b500a2ae}
+\hypertarget{class_analyze_a1090a6b9655c4770707d65ee8ebc124a}{}void \hyperlink{class_analyze_a1090a6b9655c4770707d65ee8ebc124a}{lexer} (void)\label{class_analyze_a1090a6b9655c4770707d65ee8ebc124a}
 
-\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
-\hypertarget{class_analyze_a1090a6b9655c4770707d65ee8ebc124a}{void \hyperlink{class_analyze_a1090a6b9655c4770707d65ee8ebc124a}{lexer} (void)}\label{class_analyze_a1090a6b9655c4770707d65ee8ebc124a}
+\begin{DoxyCompactList}\small\item\em Analyses and separates in tokens the string to compute. \end{DoxyCompactList}\item 
+\hypertarget{class_analyze_ae0c00996ea3ce2e87f6cdda0c8df7065}{}void \hyperlink{class_analyze_ae0c00996ea3ce2e87f6cdda0c8df7065}{parser\+Exec} (void)\label{class_analyze_ae0c00996ea3ce2e87f6cdda0c8df7065}
 
-\begin{DoxyCompactList}\small\item\em Analyzes and separates in tokens the string to compute. \end{DoxyCompactList}\item 
-\hypertarget{class_analyze_aa07a4a854c10eec4f7e79bc3671dfcf8}{void \hyperlink{class_analyze_aa07a4a854c10eec4f7e79bc3671dfcf8}{parser\-And\-Exec} (void)}\label{class_analyze_aa07a4a854c10eec4f7e79bc3671dfcf8}
+\begin{DoxyCompactList}\small\item\em Analyses the list of tokens and calculates the result. \end{DoxyCompactList}\item 
+\hypertarget{class_analyze_a58fa5815d0944fe2540fac57c695d4af}{}double \hyperlink{class_analyze_a58fa5815d0944fe2540fac57c695d4af}{get\+Result} ()\label{class_analyze_a58fa5815d0944fe2540fac57c695d4af}
 
-\begin{DoxyCompactList}\small\item\em Analyzes the list of tokens and calculates the result. \end{DoxyCompactList}\item 
-\hypertarget{class_analyze_a8bc8ac0d37292d3083966c4a6bd8b13b}{double \hyperlink{class_analyze_a8bc8ac0d37292d3083966c4a6bd8b13b}{get\-Result} () const }\label{class_analyze_a8bc8ac0d37292d3083966c4a6bd8b13b}
+\begin{DoxyCompactList}\small\item\em Get the result. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_analyze_aee7ac80c3a9b19650f0d3dd3bf8712d9}{}enum \hyperlink{class_analyze_aee7ac80c3a9b19650f0d3dd3bf8712d9}{actual\+Process\+\_\+e} \{ {\bfseries e\+N\+O\+T\+H\+I\+N\+G\+\_\+\+D\+O\+N\+E}, 
+{\bfseries e\+L\+E\+X\+E\+R\+\_\+\+D\+O\+N\+E}, 
+{\bfseries e\+P\+A\+R\+S\+E\+R\+E\+X\+E\+C\+\_\+\+D\+O\+N\+E}
+ \}\label{class_analyze_aee7ac80c3a9b19650f0d3dd3bf8712d9}
 
-\begin{DoxyCompactList}\small\item\em Get the result. \end{DoxyCompactList}\item 
-\hypertarget{class_analyze_a9e9e81737e81f2cef3d3d3888370a845}{void \hyperlink{class_analyze_a9e9e81737e81f2cef3d3d3888370a845}{display\-Token} (void)}\label{class_analyze_a9e9e81737e81f2cef3d3d3888370a845}
-
-\begin{DoxyCompactList}\small\item\em Display the list of tokens. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Enumeration to check the actual process. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_analyze_a5eaf2648206b44a7136f00f6f2aea716}{std\-::string \hyperlink{class_analyze_a5eaf2648206b44a7136f00f6f2aea716}{str\-\_\-m}}\label{class_analyze_a5eaf2648206b44a7136f00f6f2aea716}
+\hypertarget{class_analyze_a5eaf2648206b44a7136f00f6f2aea716}{}std\+::string \hyperlink{class_analyze_a5eaf2648206b44a7136f00f6f2aea716}{str\+\_\+m}\label{class_analyze_a5eaf2648206b44a7136f00f6f2aea716}
 
 \begin{DoxyCompactList}\small\item\em String to compute. \end{DoxyCompactList}\item 
-\hypertarget{class_analyze_ac5e2e04f7a6530205899bfc8089e6a1b}{double \hyperlink{class_analyze_ac5e2e04f7a6530205899bfc8089e6a1b}{result\-\_\-m}}\label{class_analyze_ac5e2e04f7a6530205899bfc8089e6a1b}
+\hypertarget{class_analyze_ac5e2e04f7a6530205899bfc8089e6a1b}{}double \hyperlink{class_analyze_ac5e2e04f7a6530205899bfc8089e6a1b}{result\+\_\+m}\label{class_analyze_ac5e2e04f7a6530205899bfc8089e6a1b}
 
 \begin{DoxyCompactList}\small\item\em Result of the calculation. \end{DoxyCompactList}\item 
-\hypertarget{class_analyze_a0cb9f60bf517b50df90aa9669199f61c}{Token\-Vector \hyperlink{class_analyze_a0cb9f60bf517b50df90aa9669199f61c}{token\-Vector\-\_\-m}}\label{class_analyze_a0cb9f60bf517b50df90aa9669199f61c}
+\hypertarget{class_analyze_a0cb9f60bf517b50df90aa9669199f61c}{}\hyperlink{token_8h_a8318de25ae453e04997e41e88c9fad7d}{Token\+Vector} \hyperlink{class_analyze_a0cb9f60bf517b50df90aa9669199f61c}{token\+Vector\+\_\+m}\label{class_analyze_a0cb9f60bf517b50df90aa9669199f61c}
 
 \begin{DoxyCompactList}\small\item\em List of tokens for the calculation. \end{DoxyCompactList}\item 
-\hypertarget{class_analyze_a39e0800126b89524cad70e84b5bb3704}{\hyperlink{class_bin_tree}{Bin\-Tree} $\ast$ \hyperlink{class_analyze_a39e0800126b89524cad70e84b5bb3704}{bin\-Tree\-\_\-m}}\label{class_analyze_a39e0800126b89524cad70e84b5bb3704}
+\hypertarget{class_analyze_a41743a35d696fd86ab0e4af616a6cd9a}{}\hyperlink{class_analyze_aee7ac80c3a9b19650f0d3dd3bf8712d9}{actual\+Process\+\_\+e} \hyperlink{class_analyze_a41743a35d696fd86ab0e4af616a6cd9a}{actual\+Process\+\_\+m}\label{class_analyze_a41743a35d696fd86ab0e4af616a6cd9a}
 
-\begin{DoxyCompactList}\small\item\em Binary tree to compute the list of tokens. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Actual process. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-This class manages the complete calculation. 
+This class manages the complete calculation process. 
 
 \begin{DoxyNote}{Note}
-After creating the class with the constructor, the member functions \hyperlink{class_analyze_a1090a6b9655c4770707d65ee8ebc124a}{lexer()} and \hyperlink{class_analyze_aa07a4a854c10eec4f7e79bc3671dfcf8}{parser\-And\-Exec()} should be called in order before getting the result with the \hyperlink{class_analyze_a8bc8ac0d37292d3083966c4a6bd8b13b}{get\-Result()} function. 
+Calling \hyperlink{class_analyze_a58fa5815d0944fe2540fac57c695d4af}{get\+Result()} before \hyperlink{class_analyze_a1090a6b9655c4770707d65ee8ebc124a}{lexer()} and \hyperlink{class_analyze_ae0c00996ea3ce2e87f6cdda0c8df7065}{parser\+Exec()} functions will automatically execute \hyperlink{class_analyze_a1090a6b9655c4770707d65ee8ebc124a}{lexer()} and \hyperlink{class_analyze_ae0c00996ea3ce2e87f6cdda0c8df7065}{parser\+Exec()} before returning the result. 
 \end{DoxyNote}
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_analyze_a12151b9c257f0d9c3cb29c9437a2e2fe}{\index{Analyze@{Analyze}!Analyze@{Analyze}}
+\hypertarget{class_analyze_a373e5e79d15401c429b980f819ce76b3}{}\index{Analyze@{Analyze}!Analyze@{Analyze}}
 \index{Analyze@{Analyze}!Analyze@{Analyze}}
-\subsubsection[{Analyze}]{\setlength{\rightskip}{0pt plus 5cm}Analyze\-::\-Analyze (
+\subsubsection[{Analyze}]{\setlength{\rightskip}{0pt plus 5cm}Analyze\+::\+Analyze (
 \begin{DoxyParamCaption}
-\item[{std\-::string}]{str}
+\item[{const std\+::string \&}]{str}
 \end{DoxyParamCaption}
-)}}\label{class_analyze_a12151b9c257f0d9c3cb29c9437a2e2fe}
+)}\label{class_analyze_a373e5e79d15401c429b980f819ce76b3}
 
 
 Construct a calculation process. 
@@ -74,6 +76,6 @@ Construct a calculation process.
 \end{DoxyParams}
 
 
-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/yann/\-Documents/\-Programmation/\-C++/calculator/calculator/src/include/\hyperlink{analyze_8h}{analyze.\-h}\end{DoxyCompactItemize}
+C\+:/\+Users/yann.\+kurzo/\+Documents/\+Programmation/calculator/calculator/src/include/\hyperlink{analyze_8h}{analyze.\+h}\end{DoxyCompactItemize}

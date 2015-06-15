@@ -4,10 +4,8 @@
 /// @author Yann Kurzo
 /// @date   May 17, 2015, 12:23 AM
 /// @license GPL2
-/// @brief  A token represents a part of the input string.
-///         The string can be separated in multiple tokens. The following types
-///         are used: Closing brackets, Opening brackets, Functions, Operators,
-///         ... The operator priority is also defined here.
+/// @brief  This file defines the Token class. The operator priority is also
+///         defined here.
 //  ==========================================================================
 
 #ifndef TOKEN_H
@@ -30,12 +28,14 @@ typedef enum
     ePRIORITY_LOWEST
 }priority_t;
 
-/// @brief  Defines the brackets
+/// @brief  Defines the opening brackets
 static std::string bracketsOpen = "(";
+/// @brief  Defines the closing brackets
 static std::string bracketsClose = ")";
 
-/// @brief  Defines the different operators and their own priority
+/// @brief  Defines the different operators
 static std::string operators = "^*/+-%";
+/// @brief  Defines the operator priority
 static priority_t operatorPriority[] =
 {
     ePRIORITY_OP_POWER,
@@ -58,7 +58,9 @@ static priority_t tokenPriority[] =
     ePRIORITY_LOWEST
 };
 
-/// @brief  This class is used to store each token of the string
+/// @brief  This class handles a token which represents a part of the input string.
+///         The string can be separated in multiple tokens. The following types
+///         are used: Closing brackets, Opening brackets, Functions, Operators, ...
 class Token
 {
     public:
@@ -95,7 +97,7 @@ class Token
         
         /// @brief  Get string of the token
         std::string getStr(void) const;
-        /// @brief   Set string with type
+        /// @brief  Set string with type
         void setStr(tokenType_t type, const std::string &str);
         
         /// @brief  Get value of the token

@@ -1,63 +1,94 @@
-\hypertarget{class_token}{\section{Token Class Reference}
+\hypertarget{class_token}{}\section{Token Class Reference}
 \label{class_token}\index{Token@{Token}}
-}
+
+
+This class is used to store each token of the string.  
+
+
+
+
+{\ttfamily \#include $<$token.\+h$>$}
+
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-enum {\bfseries token\-Type\-\_\-t} \{ \\*
-{\bfseries N\-U\-M\-B\-E\-R}, 
-{\bfseries O\-P\-E\-R\-A\-T\-O\-R}, 
-{\bfseries B\-R\-A\-C\-K\-E\-T\-\_\-\-O\-P\-E\-N}, 
-{\bfseries B\-R\-A\-C\-K\-E\-T\-\_\-\-C\-L\-O\-S\-E}, 
+\hypertarget{class_token_af5797fcd4cb63823f3108625cbb83d11}{}enum \hyperlink{class_token_af5797fcd4cb63823f3108625cbb83d11}{token\+Type\+\_\+t} \{ \\*
+{\bfseries e\+T\+O\+K\+E\+N\+T\+Y\+P\+E\+\_\+\+B\+R\+A\+C\+K\+E\+T\+\_\+\+C\+L\+O\+S\+E}, 
+{\bfseries e\+T\+O\+K\+E\+N\+T\+Y\+P\+E\+\_\+\+B\+R\+A\+C\+K\+E\+T\+\_\+\+O\+P\+E\+N}, 
+{\bfseries e\+T\+O\+K\+E\+N\+T\+Y\+P\+E\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}, 
+{\bfseries e\+T\+O\+K\+E\+N\+T\+Y\+P\+E\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+M\+I\+N\+U\+S}, 
 \\*
-{\bfseries C\-O\-M\-M\-A}, 
-{\bfseries F\-U\-N\-C\-T\-I\-O\-N}
- \}
-\end{DoxyCompactItemize}
+{\bfseries e\+T\+O\+K\+E\+N\+T\+Y\+P\+E\+\_\+\+O\+P\+E\+R\+A\+T\+O\+R}, 
+{\bfseries e\+T\+O\+K\+E\+N\+T\+Y\+P\+E\+\_\+\+N\+U\+M\+B\+E\+R}, 
+{\bfseries e\+T\+O\+K\+E\+N\+T\+Y\+P\+E\+\_\+\+C\+O\+M\+M\+A}
+ \}\label{class_token_af5797fcd4cb63823f3108625cbb83d11}
+
+\begin{DoxyCompactList}\small\item\em Enumeration to determine the type of the token. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_token_a8196c5d239a5bf9d889dee11d559258e}{{\bfseries Token} (const \hyperlink{class_token}{Token} \&token)}\label{class_token_a8196c5d239a5bf9d889dee11d559258e}
+\hyperlink{class_token_a873561c98ca3fb50206e588b53ea2a35}{Token} (\hyperlink{class_token_af5797fcd4cb63823f3108625cbb83d11}{token\+Type\+\_\+t} type, const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hypertarget{class_token_a005b392d2172bc09aa302390506bbac4}{}\hyperlink{class_token_af5797fcd4cb63823f3108625cbb83d11}{token\+Type\+\_\+t} \hyperlink{class_token_a005b392d2172bc09aa302390506bbac4}{get\+Type} (void) const \label{class_token_a005b392d2172bc09aa302390506bbac4}
 
-\item 
-\hypertarget{class_token_aada8246b17d062a3509461c86c7d45a4}{{\bfseries Token} (token\-Type\-\_\-t type, std\-::string str)}\label{class_token_aada8246b17d062a3509461c86c7d45a4}
+\begin{DoxyCompactList}\small\item\em Get type of the token. \end{DoxyCompactList}\item 
+\hypertarget{class_token_ad38a4d20573a9c6c4bc2447a4701b51d}{}std\+::string \hyperlink{class_token_ad38a4d20573a9c6c4bc2447a4701b51d}{get\+Str} (void) const \label{class_token_ad38a4d20573a9c6c4bc2447a4701b51d}
 
-\item 
-\hypertarget{class_token_abb25d5ee4ed68713d45bf6a9259affc1}{int {\bfseries get\-Op\-Priority} (void) const }\label{class_token_abb25d5ee4ed68713d45bf6a9259affc1}
+\begin{DoxyCompactList}\small\item\em Get string of the token. \end{DoxyCompactList}\item 
+\hypertarget{class_token_ae18998013091dea4eb553ec55f957562}{}void \hyperlink{class_token_ae18998013091dea4eb553ec55f957562}{set\+Str} (\hyperlink{class_token_af5797fcd4cb63823f3108625cbb83d11}{token\+Type\+\_\+t} type, const std\+::string \&str)\label{class_token_ae18998013091dea4eb553ec55f957562}
 
-\item 
-\hypertarget{class_token_a329a81e21cbcb1929df3aea9ff27a32c}{int {\bfseries get\-Type} (void) const }\label{class_token_a329a81e21cbcb1929df3aea9ff27a32c}
+\begin{DoxyCompactList}\small\item\em Set string with type. \end{DoxyCompactList}\item 
+\hypertarget{class_token_a2d5c2dc14215b3b443b3ba16d12a49aa}{}double \hyperlink{class_token_a2d5c2dc14215b3b443b3ba16d12a49aa}{get\+N} (void) const \label{class_token_a2d5c2dc14215b3b443b3ba16d12a49aa}
 
-\item 
-\hypertarget{class_token_ae6bbeac0c5da23d34f582856e911c8b2}{void {\bfseries set\-Type} (token\-Type\-\_\-t type)}\label{class_token_ae6bbeac0c5da23d34f582856e911c8b2}
+\begin{DoxyCompactList}\small\item\em Get value of the token. \end{DoxyCompactList}\item 
+\hypertarget{class_token_a27e0713a82d278a603e4c430ff0204a3}{}void \hyperlink{class_token_a27e0713a82d278a603e4c430ff0204a3}{set\+N} (double n)\label{class_token_a27e0713a82d278a603e4c430ff0204a3}
 
-\item 
-\hypertarget{class_token_a2d5c2dc14215b3b443b3ba16d12a49aa}{double {\bfseries get\-N} (void) const }\label{class_token_a2d5c2dc14215b3b443b3ba16d12a49aa}
+\begin{DoxyCompactList}\small\item\em Set value of the token. \end{DoxyCompactList}\item 
+\hypertarget{class_token_ac413c3cf2741f8807cf14815044c900f}{}\hyperlink{token_8h_acb95f02bc8aa11a54c8b4595158a3356}{priority\+\_\+t} \hyperlink{class_token_ac413c3cf2741f8807cf14815044c900f}{get\+Priority} (void) const \label{class_token_ac413c3cf2741f8807cf14815044c900f}
 
-\item 
-\hypertarget{class_token_a27e0713a82d278a603e4c430ff0204a3}{void {\bfseries set\-N} (double n)}\label{class_token_a27e0713a82d278a603e4c430ff0204a3}
+\begin{DoxyCompactList}\small\item\em Get the priority of the token. \end{DoxyCompactList}\item 
+\hypertarget{class_token_a04cb002bc8a1ca11487fa254a4455bf9}{}void \hyperlink{class_token_a04cb002bc8a1ca11487fa254a4455bf9}{display} (std\+::ostream \&flow) const \label{class_token_a04cb002bc8a1ca11487fa254a4455bf9}
 
-\item 
-\hypertarget{class_token_ad38a4d20573a9c6c4bc2447a4701b51d}{std\-::string {\bfseries get\-Str} (void) const }\label{class_token_ad38a4d20573a9c6c4bc2447a4701b51d}
-
-\item 
-\hypertarget{class_token_a04cb002bc8a1ca11487fa254a4455bf9}{void {\bfseries display} (std\-::ostream \&flow) const }\label{class_token_a04cb002bc8a1ca11487fa254a4455bf9}
-
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Used to display the token with standard output. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_token_a01979ac699ac624615570cf0ea1e5b71}{token\-Type\-\_\-t {\bfseries type\-\_\-m}}\label{class_token_a01979ac699ac624615570cf0ea1e5b71}
+\hypertarget{class_token_a01979ac699ac624615570cf0ea1e5b71}{}\hyperlink{class_token_af5797fcd4cb63823f3108625cbb83d11}{token\+Type\+\_\+t} \hyperlink{class_token_a01979ac699ac624615570cf0ea1e5b71}{type\+\_\+m}\label{class_token_a01979ac699ac624615570cf0ea1e5b71}
 
+\begin{DoxyCompactList}\small\item\em To store the type of the token. \end{DoxyCompactList}\item 
+\hypertarget{class_token_a2781f7d67fae2fa1cbfe4af5caf8473d}{}std\+::string \hyperlink{class_token_a2781f7d67fae2fa1cbfe4af5caf8473d}{str\+\_\+m}\label{class_token_a2781f7d67fae2fa1cbfe4af5caf8473d}
+
+\begin{DoxyCompactList}\small\item\em To store the string of the token. \end{DoxyCompactList}\item 
+\hypertarget{class_token_ab5e62028b935156e5f69f3a50b20c078}{}double \hyperlink{class_token_ab5e62028b935156e5f69f3a50b20c078}{n\+\_\+m}\label{class_token_ab5e62028b935156e5f69f3a50b20c078}
+
+\begin{DoxyCompactList}\small\item\em To convert to number if the token is a number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is used to store each token of the string. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_token_a873561c98ca3fb50206e588b53ea2a35}{}\index{Token@{Token}!Token@{Token}}
+\index{Token@{Token}!Token@{Token}}
+\subsubsection[{Token}]{\setlength{\rightskip}{0pt plus 5cm}Token\+::\+Token (
+\begin{DoxyParamCaption}
+\item[{{\bf token\+Type\+\_\+t}}]{type, }
+\item[{const std\+::string \&}]{str}
+\end{DoxyParamCaption}
+)}\label{class_token_a873561c98ca3fb50206e588b53ea2a35}
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Type of the token \\
+\hline
+{\em str} & String of the token \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_token_ab5e62028b935156e5f69f3a50b20c078}{double {\bfseries n\-\_\-m}}\label{class_token_ab5e62028b935156e5f69f3a50b20c078}
-
-\item 
-\hypertarget{class_token_a2781f7d67fae2fa1cbfe4af5caf8473d}{std\-::string {\bfseries str\-\_\-m}}\label{class_token_a2781f7d67fae2fa1cbfe4af5caf8473d}
-
-\end{DoxyCompactItemize}
-
-
-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
-\item 
-/home/yann/\-Documents/\-Programmation/\-C++/calculator/calculator/src/include/\hyperlink{token_8h}{token.\-h}\end{DoxyCompactItemize}
+C\+:/\+Users/yann.\+kurzo/\+Documents/\+Programmation/calculator/calculator/src/include/\hyperlink{token_8h}{token.\+h}\end{DoxyCompactItemize}

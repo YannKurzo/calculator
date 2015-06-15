@@ -1,43 +1,55 @@
-\hypertarget{token_8h}{\section{/home/yann/\-Documents/\-Programmation/\-C++/calculator/calculator/src/include/token.h File Reference}
-\label{token_8h}\index{/home/yann/\-Documents/\-Programmation/\-C++/calculator/calculator/src/include/token.\-h@{/home/yann/\-Documents/\-Programmation/\-C++/calculator/calculator/src/include/token.\-h}}
-}
+\hypertarget{token_8h}{}\section{C\+:/\+Users/yann.kurzo/\+Documents/\+Programmation/calculator/calculator/src/include/token.h File Reference}
+\label{token_8h}\index{C\+:/\+Users/yann.\+kurzo/\+Documents/\+Programmation/calculator/calculator/src/include/token.\+h@{C\+:/\+Users/yann.\+kurzo/\+Documents/\+Programmation/calculator/calculator/src/include/token.\+h}}
 
 
-A token represents a part of the input string. The string can be separated in multiple tokens. The following types are used\-: Closing brackets, Opening brackets, Functions, Operators, ... The operator priority is also defined here.  
+Class to handle a token which represents a part of the input string. The string can be separated in multiple tokens. The following types are used\+: Closing brackets, Opening brackets, Functions, Operators, ... The operator priority is also defined here.  
 
 
 {\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{class_token}{Token}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This class is used to store each token of the string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{token_8h_a8318de25ae453e04997e41e88c9fad7d}{}typedef std\+::vector$<$ \hyperlink{class_token}{Token} $>$ \hyperlink{token_8h_a8318de25ae453e04997e41e88c9fad7d}{Token\+Vector}\label{token_8h_a8318de25ae453e04997e41e88c9fad7d}
+
+\begin{DoxyCompactList}\small\item\em Vector of tokens. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum {\bfseries priority\-\_\-t} \{ \\*
-{\bfseries P\-\_\-\-B\-R\-A\-C\-K\-E\-T\-\_\-\-C\-L\-O\-S\-E}, 
-{\bfseries P\-\_\-\-B\-R\-A\-C\-K\-E\-T\-\_\-\-O\-P\-E\-N}, 
-{\bfseries P\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}, 
-{\bfseries P\-\_\-\-O\-P\-\_\-\-P\-O\-W\-E\-R}, 
+\hypertarget{token_8h_acb95f02bc8aa11a54c8b4595158a3356}{}enum \hyperlink{token_8h_acb95f02bc8aa11a54c8b4595158a3356}{priority\+\_\+t} \{ \\*
+{\bfseries e\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+B\+R\+A\+C\+K\+E\+T\+\_\+\+C\+L\+O\+S\+E}, 
+{\bfseries e\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+B\+R\+A\+C\+K\+E\+T\+\_\+\+O\+P\+E\+N}, 
+{\bfseries e\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}, 
+{\bfseries e\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+U\+N\+A\+R\+Y\+\_\+\+M\+I\+N\+U\+S}, 
 \\*
-{\bfseries P\-\_\-\-O\-P\-\_\-\-M\-U\-L}, 
-{\bfseries P\-\_\-\-O\-P\-\_\-\-P\-L\-U\-S}, 
-{\bfseries P\-\_\-\-L\-O\-W\-E\-R}
- \}
-\end{DoxyCompactItemize}
+{\bfseries e\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+O\+P\+\_\+\+P\+O\+W\+E\+R}, 
+{\bfseries e\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+O\+P\+\_\+\+M\+U\+L\+\_\+\+D\+I\+V}, 
+{\bfseries e\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+O\+P\+\_\+\+P\+L\+U\+S\+\_\+\+M\+I\+N\+U\+S}, 
+{\bfseries e\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+O\+P\+\_\+\+M\+O\+D\+U\+L\+O}, 
+\\*
+{\bfseries e\+P\+R\+I\+O\+R\+I\+T\+Y\+\_\+\+L\+O\+W\+E\+S\+T}
+ \}\label{token_8h_acb95f02bc8aa11a54c8b4595158a3356}
+
+\begin{DoxyCompactList}\small\item\em Enumeration that determines the token priority from high to low. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{token_8h_a214608c725ad5a18d7c18a8e10d878fe}{std\-::ostream \& {\bfseries operator$<$$<$} (std\-::ostream \&flow, \hyperlink{class_token}{Token} const \&token)}\label{token_8h_a214608c725ad5a18d7c18a8e10d878fe}
+\hypertarget{token_8h_a214608c725ad5a18d7c18a8e10d878fe}{}std\+::ostream \& \hyperlink{token_8h_a214608c725ad5a18d7c18a8e10d878fe}{operator$<$$<$} (std\+::ostream \&flow, \hyperlink{class_token}{Token} const \&token)\label{token_8h_a214608c725ad5a18d7c18a8e10d878fe}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Standard output. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-A token represents a part of the input string. The string can be separated in multiple tokens. The following types are used\-: Closing brackets, Opening brackets, Functions, Operators, ... The operator priority is also defined here. \begin{DoxyAuthor}{Author}
+Class to handle a token which represents a part of the input string. The string can be separated in multiple tokens. The following types are used\+: Closing brackets, Opening brackets, Functions, Operators, ... The operator priority is also defined here. 
+
+\begin{DoxyAuthor}{Author}
 Yann Kurzo 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-May 17, 2015, 12\-:23 A\-M  G\-P\-L2 
+May 17, 2015, 12\+:23 A\+M  G\+P\+L2 
 \end{DoxyDate}

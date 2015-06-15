@@ -4,7 +4,8 @@
 /// @author Yann Kurzo
 /// @date   June 11, 2015, 2:06 PM
 /// @license GPL2
-/// @brief  
+/// @brief  Class used to separate the string in different tokens. It also
+///			throws an exception in case the string format is not correct.
 //  ==========================================================================
 
 #ifndef LEXER_H
@@ -80,7 +81,7 @@ class Lexer
         void checkBrackets(void);
 
         /// @brief  Add the multiplication operator when it is omitted
-        /// @note   Before function or opening brackets
+        /// @note   Add only before a function or an opening bracket
         void checkImplicitMultiplication(void);
 
         /// @brief  Check if the tokens are correct
