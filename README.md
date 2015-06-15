@@ -28,7 +28,6 @@ This program can parse a string entered by the user. It calculates the mathemati
 - Add usual constants
 
 ### Code corrections
-- Check entered string correctly
 
 ### Doc
 - Doxygen
