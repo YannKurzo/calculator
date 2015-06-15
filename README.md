@@ -2,7 +2,7 @@
 
 This program can parse a string entered by the user. It calculates the mathematical result of the string.
 
-Working features:
+### Working features:
 - Numbers
 - Operators (+,-,*,/,^,%, unary minus -)
 - Operator priority
@@ -22,18 +22,17 @@ Working features:
   * Use help to get a list
   * Actual list: exit, list-available-functions, help
 
-Missing features (in development):
+### Missing features (in development):
 - Use double / GMP
-- Set right precision (15 bits) for double with cout
+- Add usual constants
 
-Commands to add
-
-Code
+### Code corrections
 - Correct indent
 - Comments
 
-Doc
+### Doc
+- Doxygen
 
-## Copyright:
+### Copyright
 Copyright 2015 Yann Kurzo. All rights reserved.
 This project is released under the GNU Public License (see gpl-3.0.txt).
