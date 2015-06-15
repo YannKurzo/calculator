@@ -4,7 +4,7 @@
 /// @author Yann Kurzo
 /// @date   June 14, 2015, 9:32 PM
 /// @license GPL2
-/// @brief  Class to handle the different commands and arguments.
+/// @brief  This file defines the Command class.
 //  ==========================================================================
 
 #ifndef COMMAND_H
@@ -38,7 +38,7 @@ static const command_t commands[] =
     {eCOMMAND_EXIT, "exit", "-q", "Exit the program"}
 };
 
-/// @brief  Class to handle the different commands and arguments
+/// @brief  This class handles the different commands and arguments
 class Command
 {
     protected:

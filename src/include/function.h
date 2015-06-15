@@ -4,8 +4,7 @@
 /// @author Yann Kurzo
 /// @date   May 26, 2015, 9:30 PM
 /// @license GPL2
-/// @brief  Class to handle library or user defined functions.
-/// @note   New functions can be easily added with the ADD macro.
+/// @brief  This file defines the Function class.
 //  ==========================================================================
 
 #ifndef FUNCTION_H
@@ -96,7 +95,8 @@ static functionMap_t functions_m =
     ADD("inf"   , 0, inf,   "Return INFINITY")
 };
 
-/// @brief  Class to get the actual function if it exists
+/// @brief  This class is used to handle library or user defined functions.
+/// @note   New functions can be easily added with the ADD macro.
 class Function
 {
     public:

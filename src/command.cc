@@ -4,7 +4,7 @@
 /// @author Yann Kurzo
 /// @date   June 14, 2015, 9:32 PM
 /// @license GPL2
-/// @brief  Class to handle the different commands and arguments
+/// @brief  This file defines the Command class.
 //  ==========================================================================
 
 #include "command.h"

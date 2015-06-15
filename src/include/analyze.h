@@ -4,7 +4,7 @@
 /// @author Yann Kurzo
 /// @date   May 11, 2015, 9:32 PM
 /// @license GPL2
-/// @brief  This class manages the complete calculation process.
+/// @brief  This file defines the Analyze class.
 //  ==========================================================================
 
 #ifndef ANALYZE_H

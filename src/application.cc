@@ -4,8 +4,7 @@
 /// @author Yann Kurzo
 /// @date   June 14, 2015, 9:32 PM
 /// @license GPL2
-/// @brief  This class manages the whole application with the main arguments when
-///         they are specified
+/// @brief  This file defines the Application class.
 //  ==========================================================================
 
 #include "application.h"

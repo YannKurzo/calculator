@@ -4,8 +4,7 @@
 /// @author Yann Kurzo
 /// @date   May 26, 2015, 9:30 PM
 /// @license GPL2
-/// @brief  Class to handle library or user defined functions.
-/// @note   New functions can be easily added with the ADD macro.
+/// @brief  This file defines the Function class.
 //  ==========================================================================
 
 #include "function.h"

@@ -4,10 +4,7 @@
 /// @author Yann Kurzo
 /// @date   June 14, 2015, 9:32 PM
 /// @license GPL2
-/// @brief  This class manages the whole application with the main arguments when
-///         they are specified.
-/// @note   The command mode is started when no arguments are given to the program.
-///         The argument mode is started otherwise.
+/// @brief  This file defines the Application class.
 //  ==========================================================================
 
 #ifndef APPLICATION_H
@@ -20,6 +17,8 @@
 
 /// @brief  This class manages the whole application with the main arguments when
 ///         they are specified
+/// @note   The command mode is started when no arguments are given to the program.
+///         The argument mode is started otherwise.
 class Application
 { 
     protected:

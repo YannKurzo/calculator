@@ -4,8 +4,7 @@
 /// @author Yann Kurzo
 /// @date   June 11, 2015, 2:06 PM
 /// @license GPL2
-/// @brief  Class used to separate the string in different tokens. It also
-///			throws an exception in case the string format is not correct.
+/// @brief  This file defines the Lexer class.
 //  ==========================================================================
 
 #include "lexer.h"
