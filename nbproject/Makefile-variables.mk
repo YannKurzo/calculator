@@ -7,21 +7,21 @@ CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
 # Debug configuration
-CND_PLATFORM_Debug=GNU-Linux-x86
+CND_PLATFORM_Debug=GNU_4.8.2-Linux-x86
 CND_ARTIFACT_DIR_Debug=
 CND_ARTIFACT_NAME_Debug=calculator
 CND_ARTIFACT_PATH_Debug=calculator
-CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux-x86/package
+CND_PACKAGE_DIR_Debug=dist/Debug/GNU_4.8.2-Linux-x86/package
 CND_PACKAGE_NAME_Debug=calculator.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/calculator.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU_4.8.2-Linux-x86/package/calculator.tar
 # Release configuration
-CND_PLATFORM_Release=GNU-Linux-x86
+CND_PLATFORM_Release=GNU_4.8.2-Linux-x86
 CND_ARTIFACT_DIR_Release=
 CND_ARTIFACT_NAME_Release=calculator
 CND_ARTIFACT_PATH_Release=calculator
-CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
+CND_PACKAGE_DIR_Release=dist/Release/GNU_4.8.2-Linux-x86/package
 CND_PACKAGE_NAME_Release=calculator.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/calculator.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU_4.8.2-Linux-x86/package/calculator.tar
 #
 # include compiler specific variables
 #
