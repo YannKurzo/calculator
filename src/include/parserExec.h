@@ -11,17 +11,11 @@
 #ifndef PARSEREXEC_H
 #define	PARSEREXEC_H
 
+#include "config.h"
 #include "token.h"
 #include "function.h"
 
 #include <vector>
-
-/// @brief  If defined to 1, display the operation steps
-#define DISPLAY_OPERATIONS 0
-
-/// @brief  Maximum number of parameters for the functions
-/// @note   When it is changed, other parts of the code must be adapted.
-#define MAX_NUMBER_PARAMETERS 5
 
 /// @brief  This class is used to parse the vector of tokens and calculates
 ///         the mathematical result.

@@ -42,6 +42,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/function.o \
 	${OBJECTDIR}/src/lexer.o \
 	${OBJECTDIR}/src/main.o \
+	${OBJECTDIR}/src/mpfrInterface.o \
 	${OBJECTDIR}/src/parserExec.o \
 	${OBJECTDIR}/src/token.o
 
@@ -103,6 +104,11 @@ ${OBJECTDIR}/src/main.o: src/main.cc
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/main.o src/main.cc
+
+${OBJECTDIR}/src/mpfrInterface.o: src/mpfrInterface.cc 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/mpfrInterface.o src/mpfrInterface.cc
 
 ${OBJECTDIR}/src/parserExec.o: src/parserExec.cc 
 	${MKDIR} -p ${OBJECTDIR}/src

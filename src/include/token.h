@@ -12,6 +12,12 @@
 #ifndef TOKEN_H
 #define	TOKEN_H
 
+#include "config.h"
+
+#if(USE_MPFR_LIBRARY == 1)
+#include "mpfrInterface.h"
+#endif
+
 #include <string>
 #include <vector>
     
@@ -84,8 +90,13 @@ class Token
         /// To store the string of the token
         std::string str_m;
         
+#if(USE_DOUBLE_TYPE == 1)
         /// To convert to number if the token is a number
         double n_m;
+#elif(USE_MPFR_LIBRARY == 1)
+        /// Temporary
+        double n_m;
+#endif
         
     public:
         /// @brief  Constructor

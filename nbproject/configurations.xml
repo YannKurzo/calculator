@@ -6,9 +6,11 @@
         <itemPath>src/include/analyze.h</itemPath>
         <itemPath>src/include/application.h</itemPath>
         <itemPath>src/include/command.h</itemPath>
+        <itemPath>src/include/config.h</itemPath>
         <itemPath>src/include/externalFunctions.h</itemPath>
         <itemPath>src/include/function.h</itemPath>
         <itemPath>src/include/lexer.h</itemPath>
+        <itemPath>src/include/mpfrInterface.h</itemPath>
         <itemPath>src/include/parserExec.h</itemPath>
         <itemPath>src/include/token.h</itemPath>
       </logicalFolder>
@@ -19,6 +21,7 @@
       <itemPath>src/function.cc</itemPath>
       <itemPath>src/lexer.cc</itemPath>
       <itemPath>src/main.cc</itemPath>
+      <itemPath>src/mpfrInterface.cc</itemPath>
       <itemPath>src/parserExec.cc</itemPath>
       <itemPath>src/token.cc</itemPath>
     </logicalFolder>
@@ -49,6 +52,10 @@
         </ccTool>
         <linkerTool>
           <output>calculator</output>
+          <linkerLibItems>
+            <linkerLibFileItem>/usr/lib/x86_64-linux-gnu/libmpfr.a</linkerLibFileItem>
+            <linkerLibLibItem>gmp</linkerLibLibItem>
+          </linkerLibItems>
         </linkerTool>
       </compileType>
       <item path="src/analyze.cc" ex="false" tool="1" flavor2="0">
@@ -67,11 +74,15 @@
       </item>
       <item path="src/include/command.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/include/config.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/include/externalFunctions.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/function.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/lexer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/mpfrInterface.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/parserExec.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -80,6 +91,8 @@
       <item path="src/lexer.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/main.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/mpfrInterface.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/parserExec.cc" ex="false" tool="1" flavor2="0">
       </item>
@@ -130,11 +143,15 @@
       </item>
       <item path="src/include/command.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/include/config.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/include/externalFunctions.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/function.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/lexer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/mpfrInterface.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/parserExec.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -143,6 +160,8 @@
       <item path="src/lexer.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/main.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/mpfrInterface.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/parserExec.cc" ex="false" tool="1" flavor2="0">
       </item>

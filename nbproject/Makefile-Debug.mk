@@ -42,6 +42,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/function.o \
 	${OBJECTDIR}/src/lexer.o \
 	${OBJECTDIR}/src/main.o \
+	${OBJECTDIR}/src/mpfrInterface.o \
 	${OBJECTDIR}/src/parserExec.o \
 	${OBJECTDIR}/src/token.o
 
@@ -60,11 +61,13 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=/usr/lib/x86_64-linux-gnu/libmpfr.a -lgmp
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
 	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk calculator
+
+calculator: /usr/lib/x86_64-linux-gnu/libmpfr.a
 
 calculator: ${OBJECTFILES}
 	${LINK.cc} -o calculator ${OBJECTFILES} ${LDLIBSOPTIONS}
@@ -103,6 +106,11 @@ ${OBJECTDIR}/src/main.o: src/main.cc
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/main.o src/main.cc
+
+${OBJECTDIR}/src/mpfrInterface.o: src/mpfrInterface.cc 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/mpfrInterface.o src/mpfrInterface.cc
 
 ${OBJECTDIR}/src/parserExec.o: src/parserExec.cc 
 	${MKDIR} -p ${OBJECTDIR}/src

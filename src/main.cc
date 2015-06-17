@@ -15,14 +15,23 @@
 #include <string>
 #include <exception>
 
+#include "mpfrInterface.h"
+
 using namespace std;
 
 int main(int argc,char *argv[])
 {
+    Mpfr n1("8.999");
+    Mpfr n2("2");
+    Mpfr res = n1 + n1 * n2;
+    
+    cout << res;
+//    cout << n1 + n2 << endl;
+    
     // Create new application and start
     Application app(argc, argv);
     
-    app.start();
+//    app.start();
     
     return 0;
 }
