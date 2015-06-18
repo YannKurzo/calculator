@@ -13,11 +13,11 @@
 
 /// @brief  Use double to make calculations when defined to 1
 /// @note   When defined to 1, USE_MPFR_LIBRARY must be defined to 0
-#define USE_DOUBLE_TYPE         0
+#define USE_DOUBLE_TYPE         1
 
 /// @brief  Use MPFR library to make calculations when defined to 1
 /// @note   When defined to 1, USE_DOUBLE_TYPE must be defined to 0
-#define USE_MPFR_LIBRARY        1
+#define USE_MPFR_LIBRARY        0
 
 //  ==================================================================
 
@@ -38,6 +38,13 @@
     #error "Choose either double or mpfr types!"
 #elif(USE_DOUBLE_TYPE == 0 && USE_MPFR_LIBRARY == 0)
     #error "Choose either double or mpfr types!"
+#endif
+
+// Set the type
+#if(USE_DOUBLE_TYPE == 1)
+    typedef double calculType_t;
+#elif(USE_MPFR_LIBRARY == 1)
+    typedef mpfr_t calculType_t;
 #endif
 
 #endif	/* CONFIG_H */

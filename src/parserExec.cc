@@ -29,7 +29,7 @@ void ParserExec::start(void)
     algo(0, tokenVector_m.size()-1);
 }
 
-double ParserExec::getResult(void) const
+calculType_t ParserExec::getResult(void) const
 {
     return tokenVector_m.begin()->getN();
 }
@@ -161,9 +161,9 @@ unsigned int ParserExec::exec(unsigned int index)
 	return vectorLenghtChange;
 }
 
-double ParserExec::execOperator(std::string op, double left, double right)
+calculType_t ParserExec::execOperator(std::string op, calculType_t left, calculType_t right)
 {
-	double res = 0;
+	calculType_t res = 0;
 	
     switch(op.at(0))
     {
@@ -197,11 +197,11 @@ double ParserExec::execOperator(std::string op, double left, double right)
 	return res;
 }
 
-double ParserExec::execFunction(std::string functionName, unsigned int firstParameterIndex)
+calculType_t ParserExec::execFunction(std::string functionName, unsigned int firstParameterIndex)
 {
     // Number of parameters
     unsigned int nbPar = Function::getNbParameters(functionName);
-    double par[MAX_NUMBER_PARAMETERS];
+    calculType_t par[MAX_NUMBER_PARAMETERS];
     
     // Check parameters
     if(nbPar == 0 && tokenVector_m[firstParameterIndex].getType() == Token::eTOKENTYPE_NUMBER)
@@ -241,7 +241,7 @@ double ParserExec::execFunction(std::string functionName, unsigned int firstPara
 #if(MAX_NUMBER_PARAMETERS != 5)
 	#error "Adapt the code here!"
 #endif
-    double res = call(functionName, par[0], par[1], par[2], par[3], par[4]);
+    calculType_t res = call(functionName, par[0], par[1], par[2], par[3], par[4]);
     
 #if(DISPLAY_OPERATIONS == 1)
         cout << functionName << "(";

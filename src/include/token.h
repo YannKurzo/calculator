@@ -90,13 +90,8 @@ class Token
         /// To store the string of the token
         std::string str_m;
         
-#if(USE_DOUBLE_TYPE == 1)
         /// To convert to number if the token is a number
-        double n_m;
-#elif(USE_MPFR_LIBRARY == 1)
-        /// Temporary
-        double n_m;
-#endif
+        calculType_t n_m;
         
     public:
         /// @brief  Constructor
@@ -113,9 +108,9 @@ class Token
         void setStr(tokenType_e type, const std::string &str);
         
         /// @brief  Get value of the token
-        double getN(void) const;
+        calculType_t getN(void) const;
         /// @brief  Set value of the token
-        void setN(double n);
+        void setN(calculType_t n);
         
         /// @brief  Get the priority of the token
         priority_e getPriority(void) const;

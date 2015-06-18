@@ -44,12 +44,12 @@ void Token::setStr(tokenType_e type, const std::string &str)
         n_m = nan("");
 }
 
-double Token::getN(void) const
+calculType_t Token::getN(void) const
 {
     return n_m;
 }
 
-void Token::setN(double n)
+void Token::setN(calculType_t n)
 {
     type_m = eTOKENTYPE_NUMBER;
     n_m = n;
