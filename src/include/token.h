@@ -12,11 +12,7 @@
 #ifndef TOKEN_H
 #define	TOKEN_H
 
-#include "config.h"
-
-#if(USE_MPFR_LIBRARY == 1)
 #include "mpfrInterface.h"
-#endif
 
 #include <string>
 #include <vector>

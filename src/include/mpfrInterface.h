@@ -13,7 +13,9 @@
 
 #include "config.h"
 
-#if(USE_MPFR_LIBRARY == 1)
+#if(USE_DOUBLE_TYPE == 1)
+    typedef double calculType_t;
+#elif(USE_MPFR_LIBRARY == 1)
 
 #include "mpfr.h"
 #include <ostream>
@@ -31,6 +33,9 @@ class Mpfr
         /// @brief  Constructor from a string
         Mpfr(const char *str);
         
+        /// @brief  Constructor from a double
+        Mpfr(double n);
+        
         /// @brief  Copy constructor
         Mpfr(Mpfr const& mpfr);
         
@@ -39,6 +44,9 @@ class Mpfr
         
         /// @brief  Assignment operator
         Mpfr& operator=(Mpfr const& mpfr);
+
+        /// @brief  Assignment operator
+        Mpfr& operator=(double n);
         
         /// @brief  += operator
         Mpfr& operator+=(const Mpfr& mpfr);
@@ -89,6 +97,9 @@ Mpfr operator%(Mpfr const& mpfr1, Mpfr const& mpfr2);
 /// @cond STANDARD_OUTPUT
 std::ostream& operator<<(std::ostream& flow, Mpfr const& n);
 /// @endcond STANDARD_OUTPUT
+
+// Set the type
+typedef Mpfr calculType_t;
 
 #endif
 

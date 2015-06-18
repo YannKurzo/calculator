@@ -8,6 +8,7 @@
 /// @brief  This file defines the Analyze class.
 //  ==========================================================================
 
+#include "config.h"
 #include "analyze.h"
 #include "lexer.h"
 
@@ -16,9 +17,9 @@
 using namespace std;
 
 Analyze::Analyze(const std::string &str)
+    : result_m()
 {
     str_m = str;
-    result_m = 0;
 	actualProcess_m = Analyze::eNOTHING_DONE;
 }
 
@@ -53,7 +54,7 @@ void Analyze::parserExec(void)
 	actualProcess_m = ePARSEREXEC_DONE;
 }
 
-double Analyze::getResult() 
+calculType_t Analyze::getResult(void) 
 {
 	// Check if the previous process has been done
 	if(actualProcess_m < ePARSEREXEC_DONE)

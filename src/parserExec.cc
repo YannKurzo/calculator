@@ -146,7 +146,7 @@ unsigned int ParserExec::exec(unsigned int index)
         tokenVector_m[index].setN(
 			execOperator(
 				tokenVector_m[index].getStr(),
-				0,
+				0.,
 				tokenVector_m[index+1].getN()
 			)
 		);
@@ -163,7 +163,7 @@ unsigned int ParserExec::exec(unsigned int index)
 
 calculType_t ParserExec::execOperator(std::string op, calculType_t left, calculType_t right)
 {
-	calculType_t res = 0;
+	calculType_t res;
 	
     switch(op.at(0))
     {
@@ -180,13 +180,13 @@ calculType_t ParserExec::execOperator(std::string op, calculType_t left, calculT
             res = left / right;
 			break;
         case '^':
-            res = pow(left, right);
+            res = call("pow", left, right);
 			break;
 		case '%':
-			res = fmod(left, right);
+            res = call("fmod", left, right);
 			break;
         default:
-            res = 0;
+            res = 0.;
 			break;
     }
 	

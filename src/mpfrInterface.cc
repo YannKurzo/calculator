@@ -27,6 +27,11 @@ Mpfr::Mpfr(const char *str)
     init(str);
 }
 
+Mpfr::Mpfr(double n)
+{
+    init(to_string(n).c_str());
+}
+
 Mpfr::~Mpfr(void)
 {
     mpfr_clear(n_m);
@@ -49,6 +54,12 @@ Mpfr& Mpfr::operator=(Mpfr const& mpfr)
     {
         mpfr_set(n_m, mpfr.n_m, MPFR_RNDN);
     }
+    return *this;
+}
+
+Mpfr& Mpfr::operator=(double n)
+{
+    mpfr_set_str(n_m, to_string(n).c_str(), 10, MPFR_RNDN);
     return *this;
 }
 

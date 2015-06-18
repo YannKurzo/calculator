@@ -11,7 +11,7 @@
 #ifndef ANALYZE_H
 #define	ANALYZE_H
 
-#include "config.h"
+#include "mpfrInterface.h"
 #include "token.h"
 #include "parserExec.h"
 
@@ -28,7 +28,7 @@ class Analyze
         std::string str_m;
 		
         /// Result of the calculation
-        double result_m;
+        calculType_t result_m;
         
         /// List of tokens for the calculation
         TokenVector tokenVector_m;
@@ -56,7 +56,7 @@ class Analyze
         void parserExec(void);
 
         /// @brief  Get the result
-        double getResult();
+        calculType_t getResult(void);
 
 #if(ANALYSE_DEBUG == 1)
 	private:

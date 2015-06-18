@@ -11,12 +11,11 @@
 #ifndef PARSEREXEC_H
 #define	PARSEREXEC_H
 
-#include "config.h"
+#include "mpfrInterface.h"
 #include "token.h"
 #include "function.h"
 
 #include <vector>
-
 
 
 /// @brief  This class is used to parse the vector of tokens and calculates

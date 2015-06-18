@@ -31,7 +31,7 @@ int main(int argc,char *argv[])
     // Create new application and start
     Application app(argc, argv);
     
-//    app.start();
+    app.start();
     
     return 0;
 }
