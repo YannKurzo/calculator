@@ -32,6 +32,9 @@ typedef void (*func_ptr)();
 #define ADD(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast<func_ptr>(&mpfr_##functionName), help}}
 #endif
 
+#define ADDSAMENAME(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast<func_ptr>(&functionName), help}}
+
+
 /// @brief  Structure to hold a function
 typedef struct
 {
@@ -86,18 +89,13 @@ static functionMap_t functions_m =
     ADD("trunc" , 1, trunc, "Truncate value"),
     ADD("round" , 1, round, "Round to nearest"),
     
-    // Maximum, minimum, difference functions
-//    ADD("fdim"  , 2, fdim,  "Positive difference"),
-//    ADD("fmax"  , 2, fmax,  "Maximum value"),
-//    ADD("fmin"  , 2, fmin,  "Minimum value"),
-    
     // Other functions
     ADD("abs"   , 1, abs,   "Compute absolute value"),
     
     // Defined in externalFunctions.h
-//    ADD("pi"    , 0, pi,    "Return pi"),
-//    ADD("NaN"   , 0, NaN,   "Return NAN"),
-//    ADD("inf"   , 0, inf,   "Return INFINITY")
+    ADDSAMENAME("pi"    , 0, pi,    "Return pi"),
+    ADDSAMENAME("NaN"   , 0, NaN,   "Return NAN"),
+    ADDSAMENAME("inf"   , 0, inf,   "Return INFINITY")
 };
 
 /// @brief  This class is used to handle library or user defined functions.
@@ -128,21 +126,14 @@ double call(std::string str, const Ts&... args)
 {
     return reinterpret_cast<double(*)(Ts...)>(Function::getFunction(str))(args...);
 }
-
-// Generic call
-template<class ReturnType, class... Ts>
-ReturnType callFunction(void *function, const Ts&... args)
-{	
-   return reinterpret_cast<ReturnType(*)(Ts...)>(function)(args...);
-}
 /// @endcond TEMPLATE_CODE
 
 #elif(USE_MPFR_LIBRARY == 1)
 
-int call0(std::string str, mpfr_t res);
-int call1(std::string str, mpfr_t res, mpfr_t op0);
-int call2(std::string str, mpfr_t res, mpfr_t op0, mpfr_t op1);
-int call3(std::string str, mpfr_t res, mpfr_t op0, mpfr_t op1, mpfr_t op2);
+int call(std::string str, mpfr_t res);
+int call(std::string str, mpfr_t res, mpfr_t op0);
+int call(std::string str, mpfr_t res, mpfr_t op0, mpfr_t op1);
+int call(std::string str, mpfr_t res, mpfr_t op0, mpfr_t op1, mpfr_t op2);
 
 #endif
 

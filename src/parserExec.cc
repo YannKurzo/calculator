@@ -180,10 +180,18 @@ calculType_t ParserExec::execOperator(std::string op, calculType_t left, calculT
             res = left / right;
 			break;
         case '^':
-//            res = call("pow", left, right);
+#if(USE_DOUBLE_TYPE == 1)
+            res = call("pow", left, right);
+#elif(USE_MPFR_LIBRARY == 1)
+            res = left ^ right;
+#endif
 			break;
 		case '%':
-//            res = call("fmod", left, right);
+#if(USE_DOUBLE_TYPE == 1)
+            res = call("fmod", left, right);
+#elif(USE_MPFR_LIBRARY == 1)
+            res = left % right;
+#endif
 			break;
         default:
 			break;
@@ -244,18 +252,18 @@ calculType_t ParserExec::execFunction(std::string functionName, unsigned int fir
 #if(USE_DOUBLE_TYPE == 1)
     calculType_t res = call(functionName, par[0], par[1], par[2]);
 #elif(USE_MPFR_LIBRARY == 1)
-    calculType_t res = 0.;
+    calculType_t res(0.);
     switch(nbPar)
     {
-        case 0: call0(functionName, res.n_m); 
+        case 0: call(functionName, res.n_m); 
                 break;
-        case 1: call1(functionName, res.n_m, 
+        case 1: call(functionName, res.n_m, 
                 par[0].n_m); 
                 break;
-        case 2: call2(functionName, res.n_m, 
+        case 2: call(functionName, res.n_m, 
                 par[0].n_m, par[1].n_m); 
                 break;
-        case 3: call3(functionName, res.n_m, 
+        case 3: call(functionName, res.n_m, 
                 par[0].n_m, par[1].n_m, par[2].n_m); 
                 break;
         default:

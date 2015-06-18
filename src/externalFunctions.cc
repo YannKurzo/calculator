@@ -12,17 +12,27 @@
 
 #include <cmath>
 
-double pi(void)
+calculType_t pi(calculType_t res)
 {
-    return 3.14159265358979323;
+#if(USE_DOUBLE_TYPE == 1)
+    res = calculType_t(3.14159265358979323);
+#elif(USE_MPFR_LIBRARY == 1)
+    res.n_m = calculType_t(
+            "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679"
+            "8214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196"
+            "4428810975665933446128475648233786783165271201909145648566923460348610454326648213393607260249141273");
+#endif
+    return res;
 }
 
-double NaN(void)
+calculType_t NaN(void)
 {
-    return NAN;
+    calculType_t res = NAN;
+    return res;
 }
 
-double inf(void)
+calculType_t inf(void)
 {
-    return INFINITY;
+    calculType_t res = INFINITY;
+    return res;
 }

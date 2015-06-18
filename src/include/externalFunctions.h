@@ -11,17 +11,19 @@
 #ifndef EXTERNALFUNCTIONS_H
 #define	EXTERNALFUNCTIONS_H
 
+#include "mpfrInterface.h"
+
 /// @brief  Get pi (3.1415...)
 /// @return 3.1315...
-double pi(void);
+calculType_t pi(calculType_t res);
 
 /// @brief  Get NAN
 /// @return NAN
-double NaN(void);
+calculType_t NaN(void);
 
 /// @brief  Get INFINITY
 /// @return INFINITY
-double inf(void);
+calculType_t inf(void);
 
 
 #endif	/* EXTERNALFUNCTIONS_H */

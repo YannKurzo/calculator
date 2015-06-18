@@ -21,8 +21,6 @@ using namespace std;
 
 int main(int argc,char *argv[])
 {
-    Mpfr::setPrecision(256);
-    
     // Create new application and start
     Application app(argc, argv);
     
