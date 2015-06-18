@@ -15,15 +15,21 @@
 
 #if(USE_DOUBLE_TYPE == 1)
     typedef double calculType_t;
+    
+    static int getRoundingMethod(void) {return 0;}
 #elif(USE_MPFR_LIBRARY == 1)
 
 #include "mpfr.h"
 #include <ostream>
+    
+    mpfr_rnd_t getRoundingMethod(void);
+    
+    void setRoundingMethod(mpfr_rnd_t roundingMethod);
 
 /// @brief  
 class Mpfr
 {
-    private:
+    public:
         mpfr_t n_m;
         
     public:

@@ -17,6 +17,18 @@
 
 using namespace std;
 
+static mpfr_rnd_t roundingMethod_m = MPFR_RNDN;
+    
+mpfr_rnd_t getRoundingMethod(void)
+{
+    return roundingMethod_m;
+}
+
+void setRoundingMethod(mpfr_rnd_t roundingMethod)
+{
+    roundingMethod_m = roundingMethod;
+}
+
 Mpfr::Mpfr(void)
 {
     init("0");

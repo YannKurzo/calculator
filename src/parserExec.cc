@@ -238,10 +238,34 @@ calculType_t ParserExec::execFunction(std::string functionName, unsigned int fir
     }
     
     // Result with MAX_NUMBER_PARAMETERS = 5
-#if(MAX_NUMBER_PARAMETERS != 5)
+#if(MAX_NUMBER_PARAMETERS > 5)
 	#error "Adapt the code here!"
 #endif
+
+#if(USE_DOUBLE_TYPE == 1)
     calculType_t res = call(functionName, par[0], par[1], par[2], par[3], par[4]);
+#elif(USE_MPFR_LIBRARY == 1)
+    calculType_t res = 0.;
+    switch(nbPar)
+    {
+//        case 0: call(functionName, res, 
+//                getRoundingMethod(), par[0], par[1], par[2], par[3], par[4]); break;
+//        case 1: call(functionName, res, 
+//                par[0], getRoundingMethod(), par[1], par[2], par[3], par[4]); break;
+        case 2: call2(functionName, res.n_m, 
+                par[0].n_m, par[1].n_m); 
+                break;
+//        case 3: call(functionName, res, 
+//                par[0], par[1], par[2], getRoundingMethod(), par[3], par[4]); break;
+//        case 4: call(functionName, res, 
+//                par[0], par[1], par[2], par[3], getRoundingMethod(), par[4]); break;
+//        case 5: call(functionName, res, 
+//                par[0], par[1], par[2], par[3], par[4], getRoundingMethod()); break;
+        default:
+            break;
+    }
+    
+#endif
     
 #if(DISPLAY_OPERATIONS == 1)
         cout << functionName << "(";

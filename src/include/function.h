@@ -11,6 +11,7 @@
 #ifndef FUNCTION_H
 #define	FUNCTION_H
 
+#include "mpfrInterface.h"
 #include "externalFunctions.h"
 
 #include <string>
@@ -69,7 +70,7 @@ static functionMap_t functions_m =
     ADD("log2"  , 1, log2,  "Compute binary logarithm"),
     
     // Power functions
-    ADD("pow"   , 2, pow,   "Raise to power"),
+    ADD("pow"   , 2, mpfr_pow,   "Raise to power"),
     ADD("sqrt"  , 1, sqrt,  "Compute square root"),
     ADD("cbrt"  , 1, cbrt,  "Compute cubic root"),
     ADD("hypot" , 2, hypot, "Compute hypotenuse"),
@@ -121,6 +122,10 @@ double call(std::string str, const Ts&... args)
 {
     return reinterpret_cast<double(*)(Ts...)>(Function::getFunction(str))(args...);
 }
+
+#if(USE_MPFR_LIBRARY == 1)
+int call2(std::string str, mpfr_t res, mpfr_t op0, mpfr_t op1);
+#endif
 
 // Generic call
 template<class ReturnType, class... Ts>
