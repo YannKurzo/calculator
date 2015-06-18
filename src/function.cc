@@ -55,9 +55,27 @@ std::string Function::getFunctionList(void)
 }
 
 #if(USE_MPFR_LIBRARY == 1)
+int call0(std::string str, mpfr_t res)
+{
+    return reinterpret_cast<int(*)(mpfr_t, mpfr_rnd_t)>
+            (Function::getFunction(str))(res, getRoundingMethod());
+}
+
+int call1(std::string str, mpfr_t res, mpfr_t op0)
+{
+    return reinterpret_cast<int(*)(mpfr_t, mpfr_t, mpfr_rnd_t)>
+            (Function::getFunction(str))(res, op0, getRoundingMethod());
+}
+
 int call2(std::string str, mpfr_t res, mpfr_t op0, mpfr_t op1)
 {
     return reinterpret_cast<int(*)(mpfr_t, mpfr_t, mpfr_t, mpfr_rnd_t)>
             (Function::getFunction(str))(res, op0, op1, getRoundingMethod());
+}
+
+int call3(std::string str, mpfr_t res, mpfr_t op0, mpfr_t op1, mpfr_t op2)
+{
+    return reinterpret_cast<int(*)(mpfr_t, mpfr_t, mpfr_t, mpfr_t, mpfr_rnd_t)>
+            (Function::getFunction(str))(res, op0, op1, op2, getRoundingMethod());
 }
 #endif

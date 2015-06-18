@@ -163,7 +163,7 @@ unsigned int ParserExec::exec(unsigned int index)
 
 calculType_t ParserExec::execOperator(std::string op, calculType_t left, calculType_t right)
 {
-	calculType_t res;
+	calculType_t res = 0.;
 	
     switch(op.at(0))
     {
@@ -180,13 +180,12 @@ calculType_t ParserExec::execOperator(std::string op, calculType_t left, calculT
             res = left / right;
 			break;
         case '^':
-            res = call("pow", left, right);
+//            res = call("pow", left, right);
 			break;
 		case '%':
-            res = call("fmod", left, right);
+//            res = call("fmod", left, right);
 			break;
         default:
-            res = 0.;
 			break;
     }
 	
@@ -237,30 +236,28 @@ calculType_t ParserExec::execFunction(std::string functionName, unsigned int fir
         par[i] = tokenVector_m[firstParameterIndex+2*i].getN();
     }
     
-    // Result with MAX_NUMBER_PARAMETERS = 5
-#if(MAX_NUMBER_PARAMETERS > 5)
+    // Result with MAX_NUMBER_PARAMETERS = 3
+#if(MAX_NUMBER_PARAMETERS != 3)
 	#error "Adapt the code here!"
 #endif
 
 #if(USE_DOUBLE_TYPE == 1)
-    calculType_t res = call(functionName, par[0], par[1], par[2], par[3], par[4]);
+    calculType_t res = call(functionName, par[0], par[1], par[2]);
 #elif(USE_MPFR_LIBRARY == 1)
     calculType_t res = 0.;
     switch(nbPar)
     {
-//        case 0: call(functionName, res, 
-//                getRoundingMethod(), par[0], par[1], par[2], par[3], par[4]); break;
-//        case 1: call(functionName, res, 
-//                par[0], getRoundingMethod(), par[1], par[2], par[3], par[4]); break;
+        case 0: call0(functionName, res.n_m); 
+                break;
+        case 1: call1(functionName, res.n_m, 
+                par[0].n_m); 
+                break;
         case 2: call2(functionName, res.n_m, 
                 par[0].n_m, par[1].n_m); 
                 break;
-//        case 3: call(functionName, res, 
-//                par[0], par[1], par[2], getRoundingMethod(), par[3], par[4]); break;
-//        case 4: call(functionName, res, 
-//                par[0], par[1], par[2], par[3], getRoundingMethod(), par[4]); break;
-//        case 5: call(functionName, res, 
-//                par[0], par[1], par[2], par[3], par[4], getRoundingMethod()); break;
+        case 3: call3(functionName, res.n_m, 
+                par[0].n_m, par[1].n_m, par[2].n_m); 
+                break;
         default:
             break;
     }

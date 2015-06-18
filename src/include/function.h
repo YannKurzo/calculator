@@ -26,7 +26,11 @@ typedef void (*func_ptr)();
 /// @param  nbParameters Number of parameters of the function
 /// @param  functionName Name of the function in the library or declared in externalFunctions.h
 /// @param  help Help notice for this function
+#if(USE_DOUBLE_TYPE == 1)
 #define ADD(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast<func_ptr>(&functionName), help}}
+#elif(USE_MPFR_LIBRARY == 1)
+#define ADD(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast<func_ptr>(&mpfr_##functionName), help}}
+#endif
 
 /// @brief  Structure to hold a function
 typedef struct
@@ -70,7 +74,7 @@ static functionMap_t functions_m =
     ADD("log2"  , 1, log2,  "Compute binary logarithm"),
     
     // Power functions
-    ADD("pow"   , 2, mpfr_pow,   "Raise to power"),
+    ADD("pow"   , 2, pow,   "Raise to power"),
     ADD("sqrt"  , 1, sqrt,  "Compute square root"),
     ADD("cbrt"  , 1, cbrt,  "Compute cubic root"),
     ADD("hypot" , 2, hypot, "Compute hypotenuse"),
@@ -83,17 +87,17 @@ static functionMap_t functions_m =
     ADD("round" , 1, round, "Round to nearest"),
     
     // Maximum, minimum, difference functions
-    ADD("fdim"  , 2, fdim,  "Positive difference"),
-    ADD("fmax"  , 2, fmax,  "Maximum value"),
-    ADD("fmin"  , 2, fmin,  "Minimum value"),
+//    ADD("fdim"  , 2, fdim,  "Positive difference"),
+//    ADD("fmax"  , 2, fmax,  "Maximum value"),
+//    ADD("fmin"  , 2, fmin,  "Minimum value"),
     
     // Other functions
     ADD("abs"   , 1, abs,   "Compute absolute value"),
     
     // Defined in externalFunctions.h
-    ADD("pi"    , 0, pi,    "Return pi"),
-    ADD("NaN"   , 0, NaN,   "Return NAN"),
-    ADD("inf"   , 0, inf,   "Return INFINITY")
+//    ADD("pi"    , 0, pi,    "Return pi"),
+//    ADD("NaN"   , 0, NaN,   "Return NAN"),
+//    ADD("inf"   , 0, inf,   "Return INFINITY")
 };
 
 /// @brief  This class is used to handle library or user defined functions.
@@ -116,16 +120,14 @@ class Function
         static std::string getFunctionList(void);
 };
 
+#if(USE_DOUBLE_TYPE == 1)
+
 /// @cond TEMPLATE_CODE
 template<class... Ts>
 double call(std::string str, const Ts&... args)
 {
     return reinterpret_cast<double(*)(Ts...)>(Function::getFunction(str))(args...);
 }
-
-#if(USE_MPFR_LIBRARY == 1)
-int call2(std::string str, mpfr_t res, mpfr_t op0, mpfr_t op1);
-#endif
 
 // Generic call
 template<class ReturnType, class... Ts>
@@ -134,6 +136,15 @@ ReturnType callFunction(void *function, const Ts&... args)
    return reinterpret_cast<ReturnType(*)(Ts...)>(function)(args...);
 }
 /// @endcond TEMPLATE_CODE
+
+#elif(USE_MPFR_LIBRARY == 1)
+
+int call0(std::string str, mpfr_t res);
+int call1(std::string str, mpfr_t res, mpfr_t op0);
+int call2(std::string str, mpfr_t res, mpfr_t op0, mpfr_t op1);
+int call3(std::string str, mpfr_t res, mpfr_t op0, mpfr_t op1, mpfr_t op2);
+
+#endif
 
 
 #endif	/* FUNCTION_H */
