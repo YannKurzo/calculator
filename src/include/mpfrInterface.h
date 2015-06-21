@@ -5,7 +5,9 @@
 /// @date   June 17, 2015, 8:32 PM
 /// @copyright Copyright 2015 Yann Kurzo. All rights reserved.
 ///         This project is released under the GNU Public License.
-/// @brief  Create a class for interfacing the mpfr library
+/// @brief  Create a class for interfacing the mpfr library. This class
+///         uses double or Mpfr depending on the config.h file for doing
+///         the calculations.
 //  ==========================================================================
 
 #ifndef MPFRINTERFACE_H
@@ -15,26 +17,30 @@
 
 #if(USE_DOUBLE_TYPE == 1)
 
-    typedef double calculType_t;
-    
-    // Dummy function for compilation
-    static int getRoundingMethod(void) {return 0;}
+/// @brief  Calculation type
+typedef double calculType_t;
+
+/// @brief  Dummy function for compilation
+static int getRoundingMethod(void) {return 0;}
     
 #elif(USE_MPFR_LIBRARY == 1)
 
 #include "mpfr.h"
 #include <ostream>
     
-/// @brief  
+/// @brief  Get the actual rounding method
+/// @return Rounding method
 mpfr_rnd_t getRoundingMethod(void);
 
-/// @brief  
+/// @brief  Set the rounding method
+/// @param  roundingMethod Rounding Method
 void setRoundingMethod(mpfr_rnd_t roundingMethod);
 
 /// @brief  
 class Mpfr
 {
     public:
+        /// Used for calculation
         mpfr_t n_m;
         
     public:
@@ -84,6 +90,8 @@ class Mpfr
         void display(std::ostream& flow) const;
         
     private:
+        /// @brief  Initialize from a string
+        /// @param  str String
         void init(const char *str);
 };
 
@@ -109,7 +117,7 @@ Mpfr operator%(Mpfr const& mpfr1, Mpfr const& mpfr2);
 std::ostream& operator<<(std::ostream& flow, Mpfr const& n);
 /// @endcond STANDARD_OUTPUT
 
-// Set the type
+/// @brief  Calculation type
 typedef Mpfr calculType_t;
 
 #endif  /* USE_MPFR_LIBRARY */
