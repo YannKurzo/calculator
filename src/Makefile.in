@@ -92,8 +92,10 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_calculator_OBJECTS = main.$(OBJEXT) analyze.$(OBJEXT) \
 	application.$(OBJEXT) command.$(OBJEXT) \
-	externalFunctions.$(OBJEXT) function.$(OBJEXT) lexer.$(OBJEXT) \
-	parserExec.$(OBJEXT) token.$(OBJEXT)
+	externalFunctionsDouble.$(OBJEXT) \
+	externalFunctionsMpfr.$(OBJEXT) function.$(OBJEXT) \
+	lexer.$(OBJEXT) mpfrInterface.$(OBJEXT) parserExec.$(OBJEXT) \
+	token.$(OBJEXT)
 calculator_OBJECTS = $(am_calculator_OBJECTS)
 calculator_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
@@ -244,7 +246,7 @@ AM_CPPFLAGS = -I$(srcdir)/include -std=c++11 -pedantic -Wall -Wextra \
 	-Wshadow -Wsign-conversion -Wsign-promo -Wstrict-null-sentinel \
 	-Wstrict-overflow=5 -Wswitch-default -Wundef -Werror \
 	-Wno-unused -Wzero-as-null-pointer-constant -Wuseless-cast
-calculator_SOURCES = main.cc analyze.cc application.cc command.cc externalFunctions.cc function.cc lexer.cc parserExec.cc token.cc
+calculator_SOURCES = main.cc analyze.cc application.cc command.cc externalFunctionsDouble.cc externalFunctionsMpfr.cc function.cc lexer.cc mpfrInterface.cc parserExec.cc token.cc
 all: all-am
 
 .SUFFIXES:
@@ -335,10 +337,12 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/analyze.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/application.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/command.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/externalFunctions.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/externalFunctionsDouble.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/externalFunctionsMpfr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/function.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lexer.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mpfrInterface.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/parserExec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/token.Po@am__quote@
 
