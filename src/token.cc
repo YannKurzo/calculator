@@ -39,17 +39,21 @@ void Token::setStr(tokenType_e type, const std::string &str)
     
     // If it is a number, convert immediately
     if(type_m == eTOKENTYPE_NUMBER)
+#if(USE_DOUBLE_TYPE == 1)
         n_m = ::atof(str_m.c_str());
+#elif(USE_MPFR_LIBRARY == 1)
+        n_m = calculType_t(str_m.c_str());
+#endif  /* USE_MPFR_LIBRARY */
     else
         n_m = nan("");
 }
 
-double Token::getN(void) const
+calculType_t Token::getN(void) const
 {
     return n_m;
 }
 
-void Token::setN(double n)
+void Token::setN(calculType_t n)
 {
     type_m = eTOKENTYPE_NUMBER;
     n_m = n;

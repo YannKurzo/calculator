@@ -11,7 +11,13 @@
 #ifndef FUNCTION_H
 #define	FUNCTION_H
 
-#include "externalFunctions.h"
+#include "mpfrInterface.h"
+
+#if(USE_DOUBLE_TYPE == 1)
+#include "externalFunctionsDouble.h"
+#elif(USE_MPFR_LIBRARY == 1)
+#include "externalFunctionsMpfr.h"
+#endif
 
 #include <string>
 #include <cmath>
@@ -25,7 +31,14 @@ typedef void (*func_ptr)();
 /// @param  nbParameters Number of parameters of the function
 /// @param  functionName Name of the function in the library or declared in externalFunctions.h
 /// @param  help Help notice for this function
+#if(USE_DOUBLE_TYPE == 1)
 #define ADD(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast<func_ptr>(&functionName), help}}
+#elif(USE_MPFR_LIBRARY == 1)
+#define ADD(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast<func_ptr>(&mpfr_##functionName), help}}
+#endif
+
+#define ADDSAMENAME(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast<func_ptr>(&functionName), help}}
+
 
 /// @brief  Structure to hold a function
 typedef struct
@@ -81,18 +94,12 @@ static functionMap_t functions_m =
     ADD("trunc" , 1, trunc, "Truncate value"),
     ADD("round" , 1, round, "Round to nearest"),
     
-    // Maximum, minimum, difference functions
-    ADD("fdim"  , 2, fdim,  "Positive difference"),
-    ADD("fmax"  , 2, fmax,  "Maximum value"),
-    ADD("fmin"  , 2, fmin,  "Minimum value"),
-    
     // Other functions
     ADD("abs"   , 1, abs,   "Compute absolute value"),
     
     // Defined in externalFunctions.h
-    ADD("pi"    , 0, pi,    "Return pi"),
-    ADD("NaN"   , 0, NaN,   "Return NAN"),
-    ADD("inf"   , 0, inf,   "Return INFINITY")
+    ADDSAMENAME("pi"    , 0, pi,    "Return pi"),
+    ADDSAMENAME("inf"   , 0, inf,   "Return INFINITY")
 };
 
 /// @brief  This class is used to handle library or user defined functions.
@@ -115,20 +122,29 @@ class Function
         static std::string getFunctionList(void);
 };
 
+#if(USE_DOUBLE_TYPE == 1)
+
 /// @cond TEMPLATE_CODE
 template<class... Ts>
 double call(std::string str, const Ts&... args)
 {
     return reinterpret_cast<double(*)(Ts...)>(Function::getFunction(str))(args...);
 }
+/// @endcond TEMPLATE_CODEEXTERNALFUNCTIONS_H
 
-// Generic call
-template<class ReturnType, class... Ts>
-ReturnType callFunction(void *function, const Ts&... args)
-{	
-   return reinterpret_cast<ReturnType(*)(Ts...)>(function)(args...);
-}
-/// @endcond TEMPLATE_CODE
+#elif(USE_MPFR_LIBRARY == 1)
+
+    // Result with MAX_NUMBER_PARAMETERS = 3
+#if(MAX_NUMBER_PARAMETERS != 3)
+	#error "Adapt the code here!"
+#endif
+
+int call(std::string str, mpfr_t res);
+int call(std::string str, mpfr_t res, mpfr_t op0);
+int call(std::string str, mpfr_t res, mpfr_t op0, mpfr_t op1);
+int call(std::string str, mpfr_t res, mpfr_t op0, mpfr_t op1, mpfr_t op2);
+
+#endif
 
 
 #endif	/* FUNCTION_H */

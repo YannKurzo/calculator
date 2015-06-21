@@ -10,13 +10,17 @@
 
 #include "command.h"
 
+#include <cstdlib>
+
 using namespace std;
 
 command_e Command::getArgument(std::string argument)
 {
+    string arg = argument.substr(0, argument.find("="));
+    
     for(int i=0; i<eNB_COMMANDS; ++i)
     {
-        if(argument == ("--" + commands[i].command) || argument == commands[i].shortcut)
+        if(arg == ("--" + commands[i].command) || arg == commands[i].shortcut)
         {
             return static_cast<command_e>(i);
         }
@@ -26,14 +30,21 @@ command_e Command::getArgument(std::string argument)
 
 command_e Command::getCommand(std::string command)
 {
+    string com = command.substr(0, command.find("="));
+    
     for(int i=0; i<eNB_COMMANDS; ++i)
     {
-        if(command == commands[i].command || command == commands[i].shortcut)
+        if(com == commands[i].command || com == commands[i].shortcut)
         {
             return static_cast<command_e>(i);
         }
     }
     return eNB_COMMANDS;
+}
+
+int Command::getValue(std::string command)
+{
+    return ::atoi(command.substr(command.find("=")+1, command.size()).c_str());
 }
 
 std::string Command::getHelp(void)

@@ -17,6 +17,7 @@
 typedef enum
 {
     eCOMMAND_LIST_AVAILABLE_FUNCTIONS,
+    eCOMMAND_SET_PRECISION,
     eCOMMAND_HELP,
     eCOMMAND_EXIT,
     eNB_COMMANDS
@@ -35,6 +36,7 @@ typedef struct
 static const command_t commands[] =
 {
     {eCOMMAND_LIST_AVAILABLE_FUNCTIONS, "list-available-functions", "-l", "Show a list of available functions"},
+    {eCOMMAND_SET_PRECISION, "set-precision", "-p", "Set the precision (only when using Mpfr library): set-precision=25 / -p=25 (without spaces)"},
     {eCOMMAND_HELP, "help", "-h", "Show this"},
     {eCOMMAND_EXIT, "exit", "-q", "Exit the program"}
 };
@@ -56,6 +58,11 @@ class Command
         /// @param  command Command to analyze
         /// @return Command, or eNB_COMMANDS otherwise
         static command_e getCommand(std::string command);
+        
+        /// @brief  Get the value after the = in a command
+        /// @param  command Command to analyze
+        /// @return Value
+        static int getValue(std::string command);
         
         /// @brief  Get help about the commands
         /// @return String containing the help

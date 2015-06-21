@@ -12,6 +12,8 @@
 #ifndef TOKEN_H
 #define	TOKEN_H
 
+#include "mpfrInterface.h"
+
 #include <string>
 #include <vector>
     
@@ -85,7 +87,7 @@ class Token
         std::string str_m;
         
         /// To convert to number if the token is a number
-        double n_m;
+        calculType_t n_m;
         
     public:
         /// @brief  Constructor
@@ -102,9 +104,9 @@ class Token
         void setStr(tokenType_e type, const std::string &str);
         
         /// @brief  Get value of the token
-        double getN(void) const;
+        calculType_t getN(void) const;
         /// @brief  Set value of the token
-        void setN(double n);
+        void setN(calculType_t n);
         
         /// @brief  Get the priority of the token
         priority_e getPriority(void) const;

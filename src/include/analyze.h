@@ -11,13 +11,11 @@
 #ifndef ANALYZE_H
 #define	ANALYZE_H
 
+#include "mpfrInterface.h"
 #include "token.h"
 #include "parserExec.h"
 
 #include <string>
-
-/// @brief	Define to 1 to show the vector of tokens after the lexer process
-#define ANALYSE_DEBUG 0
 
 /// @brief  This class manages the complete calculation process.
 /// @note   Calling getResult() before lexer() and parserExec() functions
@@ -30,7 +28,7 @@ class Analyze
         std::string str_m;
 		
         /// Result of the calculation
-        double result_m;
+        calculType_t result_m;
         
         /// List of tokens for the calculation
         TokenVector tokenVector_m;
@@ -58,7 +56,7 @@ class Analyze
         void parserExec(void);
 
         /// @brief  Get the result
-        double getResult();
+        calculType_t getResult(void);
 
 #if(ANALYSE_DEBUG == 1)
 	private:

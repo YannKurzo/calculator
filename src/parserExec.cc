@@ -29,7 +29,7 @@ void ParserExec::start(void)
     algo(0, tokenVector_m.size()-1);
 }
 
-double ParserExec::getResult(void) const
+calculType_t ParserExec::getResult(void) const
 {
     return tokenVector_m.begin()->getN();
 }
@@ -146,7 +146,7 @@ unsigned int ParserExec::exec(unsigned int index)
         tokenVector_m[index].setN(
 			execOperator(
 				tokenVector_m[index].getStr(),
-				0,
+				0.,
 				tokenVector_m[index+1].getN()
 			)
 		);
@@ -161,9 +161,9 @@ unsigned int ParserExec::exec(unsigned int index)
 	return vectorLenghtChange;
 }
 
-double ParserExec::execOperator(std::string op, double left, double right)
+calculType_t ParserExec::execOperator(std::string op, calculType_t left, calculType_t right)
 {
-	double res = 0;
+	calculType_t res = 0.;
 	
     switch(op.at(0))
     {
@@ -180,13 +180,24 @@ double ParserExec::execOperator(std::string op, double left, double right)
             res = left / right;
 			break;
         case '^':
-            res = pow(left, right);
+            
+#if(USE_DOUBLE_TYPE == 1)
+            res = call("pow", left, right);
+#elif(USE_MPFR_LIBRARY == 1)
+            res = left ^ right;
+#endif  /* USE_MPFR_LIBRARY */
+            
 			break;
 		case '%':
-			res = fmod(left, right);
+            
+#if(USE_DOUBLE_TYPE == 1)
+            res = call("fmod", left, right);
+#elif(USE_MPFR_LIBRARY == 1)
+            res = left % right;
+#endif  /* USE_MPFR_LIBRARY */
+            
 			break;
         default:
-            res = 0;
 			break;
     }
 	
@@ -197,11 +208,11 @@ double ParserExec::execOperator(std::string op, double left, double right)
 	return res;
 }
 
-double ParserExec::execFunction(std::string functionName, unsigned int firstParameterIndex)
+calculType_t ParserExec::execFunction(std::string functionName, unsigned int firstParameterIndex)
 {
     // Number of parameters
     unsigned int nbPar = Function::getNbParameters(functionName);
-    double par[MAX_NUMBER_PARAMETERS];
+    calculType_t par[MAX_NUMBER_PARAMETERS];
     
     // Check parameters
     if(nbPar == 0 && tokenVector_m[firstParameterIndex].getType() == Token::eTOKENTYPE_NUMBER)
@@ -237,11 +248,36 @@ double ParserExec::execFunction(std::string functionName, unsigned int firstPara
         par[i] = tokenVector_m[firstParameterIndex+2*i].getN();
     }
     
-    // Result with MAX_NUMBER_PARAMETERS = 5
-#if(MAX_NUMBER_PARAMETERS != 5)
+    // Result with MAX_NUMBER_PARAMETERS = 3
+#if(MAX_NUMBER_PARAMETERS != 3)
 	#error "Adapt the code here!"
 #endif
-    double res = call(functionName, par[0], par[1], par[2], par[3], par[4]);
+
+#if(USE_DOUBLE_TYPE == 1)
+    
+    calculType_t res = call(functionName, par[0], par[1], par[2]);
+    
+#elif(USE_MPFR_LIBRARY == 1)
+    
+    calculType_t res(0.);
+    switch(nbPar)
+    {
+        case 0: call(functionName, res.n_m); 
+                break;
+        case 1: call(functionName, res.n_m, 
+                par[0].n_m); 
+                break;
+        case 2: call(functionName, res.n_m, 
+                par[0].n_m, par[1].n_m); 
+                break;
+        case 3: call(functionName, res.n_m, 
+                par[0].n_m, par[1].n_m, par[2].n_m); 
+                break;
+        default:
+            break;
+    }
+    
+#endif  /* USE_MPFR_LIBRARY */
     
 #if(DISPLAY_OPERATIONS == 1)
         cout << functionName << "(";

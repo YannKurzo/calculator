@@ -15,6 +15,8 @@
 #include <string>
 #include <exception>
 
+#include "mpfrInterface.h"
+
 using namespace std;
 
 int main(int argc,char *argv[])

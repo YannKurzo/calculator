@@ -100,6 +100,22 @@ command_e Application::checkCommand(void)
         // Show functions and quit
         switch(command)
         {
+            case eCOMMAND_SET_PRECISION:
+                
+#if(USE_DOUBLE_TYPE == 1)
+                cout << "Command not valid when not using Mpfr library!" << endl;
+#elif(USE_MPFR_LIBRARY == 1)
+                if(Command::getValue(str_m) > 1)
+                {
+                    MPFR::setPrecision(static_cast<unsigned int>(Command::getValue(str_m)));
+                    cout << "Precision set to " << Command::getValue(str_m) << " bits" << endl;
+                }
+                else
+                {
+                    cout << "Parameter not valid!" << endl;
+                }
+#endif  /* USE_MPFR_LIBRARY */
+                break;
             case eCOMMAND_LIST_AVAILABLE_FUNCTIONS:
                 cout << Function::getFunctionList() << endl;
                 break;
