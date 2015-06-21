@@ -13,11 +13,11 @@
 
 /// @brief  Use double to make calculations when defined to 1
 /// @note   When defined to 1, USE_MPFR_LIBRARY must be defined to 0
-#define USE_DOUBLE_TYPE         1
+#define USE_DOUBLE_TYPE         0
 
 /// @brief  Use MPFR library to make calculations when defined to 1
 /// @note   When defined to 1, USE_DOUBLE_TYPE must be defined to 0
-#define USE_MPFR_LIBRARY        0
+#define USE_MPFR_LIBRARY        1
 
 //  ==================================================================
 
