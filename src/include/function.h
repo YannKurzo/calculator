@@ -12,7 +12,12 @@
 #define	FUNCTION_H
 
 #include "mpfrInterface.h"
-#include "externalFunctions.h"
+
+#if(USE_DOUBLE_TYPE == 1)
+#include "externalFunctionsDouble.h"
+#elif(USE_MPFR_LIBRARY == 1)
+#include "externalFunctionsMpfr.h"
+#endif
 
 #include <string>
 #include <cmath>
@@ -94,7 +99,6 @@ static functionMap_t functions_m =
     
     // Defined in externalFunctions.h
     ADDSAMENAME("pi"    , 0, pi,    "Return pi"),
-    ADDSAMENAME("NaN"   , 0, NaN,   "Return NAN"),
     ADDSAMENAME("inf"   , 0, inf,   "Return INFINITY")
 };
 
@@ -126,9 +130,14 @@ double call(std::string str, const Ts&... args)
 {
     return reinterpret_cast<double(*)(Ts...)>(Function::getFunction(str))(args...);
 }
-/// @endcond TEMPLATE_CODE
+/// @endcond TEMPLATE_CODEEXTERNALFUNCTIONS_H
 
 #elif(USE_MPFR_LIBRARY == 1)
+
+    // Result with MAX_NUMBER_PARAMETERS = 3
+#if(MAX_NUMBER_PARAMETERS != 3)
+	#error "Adapt the code here!"
+#endif
 
 int call(std::string str, mpfr_t res);
 int call(std::string str, mpfr_t res, mpfr_t op0);

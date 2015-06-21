@@ -7,7 +7,8 @@
         <itemPath>src/include/application.h</itemPath>
         <itemPath>src/include/command.h</itemPath>
         <itemPath>src/include/config.h</itemPath>
-        <itemPath>src/include/externalFunctions.h</itemPath>
+        <itemPath>src/include/externalFunctionsDouble.h</itemPath>
+        <itemPath>src/include/externalFunctionsMpfr.h</itemPath>
         <itemPath>src/include/function.h</itemPath>
         <itemPath>src/include/lexer.h</itemPath>
         <itemPath>src/include/mpfrInterface.h</itemPath>
@@ -17,7 +18,8 @@
       <itemPath>src/analyze.cc</itemPath>
       <itemPath>src/application.cc</itemPath>
       <itemPath>src/command.cc</itemPath>
-      <itemPath>src/externalFunctions.cc</itemPath>
+      <itemPath>src/externalFunctionsDouble.cc</itemPath>
+      <itemPath>src/externalFunctionsMpfr.cc</itemPath>
       <itemPath>src/function.cc</itemPath>
       <itemPath>src/lexer.cc</itemPath>
       <itemPath>src/main.cc</itemPath>
@@ -64,7 +66,9 @@
       </item>
       <item path="src/command.cc" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/externalFunctions.cc" ex="false" tool="1" flavor2="0">
+      <item path="src/externalFunctionsDouble.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/externalFunctionsMpfr.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/function.cc" ex="false" tool="1" flavor2="0">
       </item>
@@ -76,7 +80,15 @@
       </item>
       <item path="src/include/config.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/include/externalFunctions.h" ex="false" tool="3" flavor2="0">
+      <item path="src/include/externalFunctionsDouble.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/include/externalFunctionsMpfr.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="src/include/function.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -133,7 +145,9 @@
       </item>
       <item path="src/command.cc" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/externalFunctions.cc" ex="false" tool="1" flavor2="0">
+      <item path="src/externalFunctionsDouble.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/externalFunctionsMpfr.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/function.cc" ex="false" tool="1" flavor2="0">
       </item>
@@ -145,7 +159,15 @@
       </item>
       <item path="src/include/config.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/include/externalFunctions.h" ex="false" tool="3" flavor2="0">
+      <item path="src/include/externalFunctionsDouble.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/include/externalFunctionsMpfr.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="src/include/function.h" ex="false" tool="3" flavor2="0">
       </item>

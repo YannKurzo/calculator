@@ -160,38 +160,53 @@ void Mpfr::setPrecision(unsigned int precision)
 
 void Mpfr::display(std::ostream& flow) const
 {
-    // Get number from mpfr library
-    char *s = NULL;
-    mpfr_exp_t exp;
-    s = mpfr_get_str(s, &exp, 10, 0, n_m, MPFR_RNDN);
-    
-    // Create string and clear
-    string digits(s);
-    mpfr_free_str(s);
-    
-    // Check sign
-    unsigned long int sign = (digits.at(0) == '-');
-    if(sign != 0)
+    // Basic checks
+    if(mpfr_inf_p(n_m) != 0)
     {
-        flow << "-";
+        if(mpfr_signbit(n_m) != 0)
+        {
+            flow << "-";
+        }
+        flow << "inf";
     }
-    
-    // If bigger than 1
-    if(exp > 0)
+    else if(mpfr_nan_p(n_m) != 0)
     {
-        unsigned long int comma = static_cast<unsigned long int>(exp) + sign;
-        flow << digits.substr(sign, comma-sign) << "." << digits.substr(comma, digits.size());
+        flow << "nan";
     }
-    // Otherwise
     else
     {
-        flow << "0.";
-        for(unsigned long int i=0; i<static_cast<unsigned long int>(-exp); ++i)
-            flow << "0";
-        
-        flow << digits.substr(sign, digits.size());
+        // Get number from mpfr library
+        char *s = NULL;
+        mpfr_exp_t exp;
+        s = mpfr_get_str(s, &exp, 10, 0, n_m, MPFR_RNDN);
+
+        // Create string and clear
+        string digits(s);
+        mpfr_free_str(s);
+
+        // Check sign
+        unsigned long int sign = (digits.at(0) == '-');
+        if(sign != 0)
+        {
+            flow << "-";
+        }
+
+        // If bigger than 1
+        if(exp > 0)
+        {
+            unsigned long int comma = static_cast<unsigned long int>(exp) + sign;
+            flow << digits.substr(sign, comma-sign) << "." << digits.substr(comma, digits.size());
+        }
+        // Otherwise
+        else
+        {
+            flow << "0.";
+            for(unsigned long int i=0; i<static_cast<unsigned long int>(-exp); ++i)
+                flow << "0";
+
+            flow << digits.substr(sign, digits.size());
+        }
     }
-    
 }
 
 std::ostream& operator<<(std::ostream& flow, Mpfr const& n)

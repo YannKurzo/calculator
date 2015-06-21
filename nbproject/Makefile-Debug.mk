@@ -38,7 +38,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/analyze.o \
 	${OBJECTDIR}/src/application.o \
 	${OBJECTDIR}/src/command.o \
-	${OBJECTDIR}/src/externalFunctions.o \
+	${OBJECTDIR}/src/externalFunctionsDouble.o \
+	${OBJECTDIR}/src/externalFunctionsMpfr.o \
 	${OBJECTDIR}/src/function.o \
 	${OBJECTDIR}/src/lexer.o \
 	${OBJECTDIR}/src/main.o \
@@ -87,10 +88,15 @@ ${OBJECTDIR}/src/command.o: src/command.cc
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/command.o src/command.cc
 
-${OBJECTDIR}/src/externalFunctions.o: src/externalFunctions.cc 
+${OBJECTDIR}/src/externalFunctionsDouble.o: src/externalFunctionsDouble.cc 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/externalFunctions.o src/externalFunctions.cc
+	$(COMPILE.cc) -g -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/externalFunctionsDouble.o src/externalFunctionsDouble.cc
+
+${OBJECTDIR}/src/externalFunctionsMpfr.o: src/externalFunctionsMpfr.cc 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Isrc/include -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/externalFunctionsMpfr.o src/externalFunctionsMpfr.cc
 
 ${OBJECTDIR}/src/function.o: src/function.cc 
 	${MKDIR} -p ${OBJECTDIR}/src

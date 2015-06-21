@@ -1,6 +1,6 @@
 
 //  ==========================================================================
-/// @file   externalFunctions.h
+/// @file   externalFunctionsMpfr.h
 /// @author Yann Kurzo
 /// @date   May 28, 2015, 11:48 PM
 /// @copyright Copyright 2015 Yann Kurzo. All rights reserved.
@@ -8,23 +8,25 @@
 /// @brief  New function to be handled by the calculator can be declared here.
 //  ==========================================================================
 
-#ifndef EXTERNALFUNCTIONS_H
-#define	EXTERNALFUNCTIONS_H
+#ifndef EXTERNALFUNCTIONSMPFR_H
+#define	EXTERNALFUNCTIONSMPFR_H
 
-#include "mpfrInterface.h"
+#include "config.h"
+
+#if(USE_MPFR_LIBRARY == 1)
+
+#include <mpfr.h>
 
 /// @brief  Get pi (3.1415...)
 /// @return 3.1315...
-calculType_t pi(calculType_t res);
-
-/// @brief  Get NAN
-/// @return NAN
-calculType_t NaN(void);
+void pi(mpfr_t n);
 
 /// @brief  Get INFINITY
 /// @return INFINITY
-calculType_t inf(void);
+void inf(mpfr_t n);
+
+#endif
 
 
-#endif	/* EXTERNALFUNCTIONS_H */
+#endif	/* EXTERNALFUNCTIONSMPFR_H */
 
