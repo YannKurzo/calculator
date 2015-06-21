@@ -6,6 +6,7 @@
 /// @copyright Copyright 2015 Yann Kurzo. All rights reserved.
 ///         This project is released under the GNU Public License.
 /// @brief  New function to be handled by the calculator can be declared here.
+/// @note   This file defines the double version.
 //  ==========================================================================
 
 #include "externalFunctionsDouble.h"
@@ -24,4 +25,4 @@ double inf(void)
     return INFINITY;
 }
 
-#endif
+#endif  /* USE_DOUBLE_TYPE */

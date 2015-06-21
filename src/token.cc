@@ -43,7 +43,7 @@ void Token::setStr(tokenType_e type, const std::string &str)
         n_m = ::atof(str_m.c_str());
 #elif(USE_MPFR_LIBRARY == 1)
         n_m = calculType_t(str_m.c_str());
-#endif
+#endif  /* USE_MPFR_LIBRARY */
     else
         n_m = nan("");
 }

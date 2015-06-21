@@ -180,18 +180,22 @@ calculType_t ParserExec::execOperator(std::string op, calculType_t left, calculT
             res = left / right;
 			break;
         case '^':
+            
 #if(USE_DOUBLE_TYPE == 1)
             res = call("pow", left, right);
 #elif(USE_MPFR_LIBRARY == 1)
             res = left ^ right;
-#endif
+#endif  /* USE_MPFR_LIBRARY */
+            
 			break;
 		case '%':
+            
 #if(USE_DOUBLE_TYPE == 1)
             res = call("fmod", left, right);
 #elif(USE_MPFR_LIBRARY == 1)
             res = left % right;
-#endif
+#endif  /* USE_MPFR_LIBRARY */
+            
 			break;
         default:
 			break;
@@ -250,8 +254,11 @@ calculType_t ParserExec::execFunction(std::string functionName, unsigned int fir
 #endif
 
 #if(USE_DOUBLE_TYPE == 1)
+    
     calculType_t res = call(functionName, par[0], par[1], par[2]);
+    
 #elif(USE_MPFR_LIBRARY == 1)
+    
     calculType_t res(0.);
     switch(nbPar)
     {
@@ -270,7 +277,7 @@ calculType_t ParserExec::execFunction(std::string functionName, unsigned int fir
             break;
     }
     
-#endif
+#endif  /* USE_MPFR_LIBRARY */
     
 #if(DISPLAY_OPERATIONS == 1)
         cout << functionName << "(";

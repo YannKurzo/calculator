@@ -6,6 +6,7 @@
 /// @copyright Copyright 2015 Yann Kurzo. All rights reserved.
 ///         This project is released under the GNU Public License.
 /// @brief  New function to be handled by the calculator can be declared here.
+/// @note   This file defines the double version.
 //  ==========================================================================
 
 #ifndef EXTERNALFUNCTIONSDOUBLE_H
@@ -23,8 +24,7 @@ double pi(void);
 /// @return INFINITY
 double inf(void);
 
-#endif
-
+#endif  /* USE_DOUBLE_TYPE */
 
 #endif	/* EXTERNALFUNCTIONSDOUBLE_H */
 

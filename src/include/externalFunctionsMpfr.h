@@ -6,6 +6,7 @@
 /// @copyright Copyright 2015 Yann Kurzo. All rights reserved.
 ///         This project is released under the GNU Public License.
 /// @brief  New function to be handled by the calculator can be declared here.
+/// @note   This file defines the mpfr
 //  ==========================================================================
 
 #ifndef EXTERNALFUNCTIONSMPFR_H
@@ -18,15 +19,14 @@
 #include <mpfr.h>
 
 /// @brief  Get pi (3.1415...)
-/// @return 3.1315...
+/// @param  n Number to modify
 void pi(mpfr_t n);
 
 /// @brief  Get INFINITY
-/// @return INFINITY
+/// @param  n Number to modify
 void inf(mpfr_t n);
 
-#endif
-
+#endif  /* USE_MPFR_LIBRARY */
 
 #endif	/* EXTERNALFUNCTIONSMPFR_H */
 

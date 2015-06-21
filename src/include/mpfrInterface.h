@@ -14,17 +14,22 @@
 #include "config.h"
 
 #if(USE_DOUBLE_TYPE == 1)
+
     typedef double calculType_t;
     
+    // Dummy function for compilation
     static int getRoundingMethod(void) {return 0;}
+    
 #elif(USE_MPFR_LIBRARY == 1)
 
 #include "mpfr.h"
 #include <ostream>
     
-    mpfr_rnd_t getRoundingMethod(void);
-    
-    void setRoundingMethod(mpfr_rnd_t roundingMethod);
+/// @brief  
+mpfr_rnd_t getRoundingMethod(void);
+
+/// @brief  
+void setRoundingMethod(mpfr_rnd_t roundingMethod);
 
 /// @brief  
 class Mpfr
@@ -107,7 +112,7 @@ std::ostream& operator<<(std::ostream& flow, Mpfr const& n);
 // Set the type
 typedef Mpfr calculType_t;
 
-#endif
+#endif  /* USE_MPFR_LIBRARY */
 
 #endif	/* MPFRINTERFACE_H */
 
