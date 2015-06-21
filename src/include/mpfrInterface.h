@@ -5,8 +5,8 @@
 /// @date   June 17, 2015, 8:32 PM
 /// @copyright Copyright 2015 Yann Kurzo. All rights reserved.
 ///         This project is released under the GNU Public License.
-/// @brief  Create a class for interfacing the mpfr library. This class
-///         uses double or Mpfr depending on the config.h file for doing
+/// @brief  This file defines the Mpfr class. This file defines with a typedef
+///         either double or Mpfr depending on the config.h file for doing
 ///         the calculations.
 //  ==========================================================================
 
@@ -20,23 +20,38 @@
 /// @brief  Calculation type
 typedef double calculType_t;
 
-/// @brief  Dummy function for compilation
-static int getRoundingMethod(void) {return 0;}
+namespace MPFR
+{
+    /// @brief  Dummy function for compilation
+    static int getRoundingMethod(void) {return 0;}
+    
+    /// @brief  Dummy function for compilation
+    static void setRoundingMethod(unsigned int roundingMethod) {roundingMethod = 0;}
+
+    /// @brief  Dummy function for compilation
+    static void setPrecision(unsigned int precision) {precision = 0;}
+}
     
 #elif(USE_MPFR_LIBRARY == 1)
 
 #include "mpfr.h"
 #include <ostream>
-    
-/// @brief  Get the actual rounding method
-/// @return Rounding method
-mpfr_rnd_t getRoundingMethod(void);
 
-/// @brief  Set the rounding method
-/// @param  roundingMethod Rounding Method
-void setRoundingMethod(mpfr_rnd_t roundingMethod);
+namespace MPFR
+{
+    /// @brief  Get the actual rounding method
+    /// @return Rounding method
+    mpfr_rnd_t getRoundingMethod(void);
 
-/// @brief  
+    /// @brief  Set the rounding method
+    /// @param  roundingMethod Rounding Method
+    void setRoundingMethod(mpfr_rnd_t roundingMethod);
+
+    /// @brief  Set mpfr default precision
+    void setPrecision(unsigned int precision);
+}
+
+/// @brief  This class interfaces the mpfr library
 class Mpfr
 {
     public:
@@ -82,9 +97,6 @@ class Mpfr
         
         /// @brief  %= operator
         Mpfr& operator%=(const Mpfr& mpfr);
-        
-        /// @brief  Set mpfr default precision
-        static void setPrecision(unsigned int precision);
         
         /// @brief  Used to display the number on standard output
         void display(std::ostream& flow) const;

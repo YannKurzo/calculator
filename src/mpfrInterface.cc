@@ -17,16 +17,24 @@
 
 using namespace std;
 
-static mpfr_rnd_t roundingMethod_m = MPFR_RNDN;
-    
-mpfr_rnd_t getRoundingMethod(void)
+namespace MPFR
 {
-    return roundingMethod_m;
-}
+    static mpfr_rnd_t roundingMethod_m = MPFR_RNDN;
 
-void setRoundingMethod(mpfr_rnd_t roundingMethod)
-{
-    roundingMethod_m = roundingMethod;
+    mpfr_rnd_t getRoundingMethod(void)
+    {
+        return roundingMethod_m;
+    }
+
+    void setRoundingMethod(mpfr_rnd_t roundingMethod)
+    {
+        roundingMethod_m = roundingMethod;
+    }
+    
+    void setPrecision(unsigned int precision)
+    {
+        mpfr_set_default_prec(precision);
+    }
 }
 
 Mpfr::Mpfr(void)
@@ -51,33 +59,33 @@ Mpfr::~Mpfr(void)
 
 Mpfr::Mpfr(Mpfr const& mpfr)
 {
-    mpfr_init_set(n_m, mpfr.n_m, roundingMethod_m);
+    mpfr_init_set(n_m, mpfr.n_m, MPFR::roundingMethod_m);
 }
 
 void Mpfr::init(const char *str)
 {
     mpfr_init(n_m);
-    mpfr_set_str(n_m, str, 10, roundingMethod_m);
+    mpfr_set_str(n_m, str, 10, MPFR::roundingMethod_m);
 }
 
 Mpfr& Mpfr::operator=(Mpfr const& mpfr)
 {
     if(this != &mpfr)
     {
-        mpfr_set(n_m, mpfr.n_m, roundingMethod_m);
+        mpfr_set(n_m, mpfr.n_m, MPFR::roundingMethod_m);
     }
     return *this;
 }
 
 Mpfr& Mpfr::operator=(double n)
 {
-    mpfr_set_str(n_m, to_string(n).c_str(), 10, roundingMethod_m);
+    mpfr_set_str(n_m, to_string(n).c_str(), 10, MPFR::roundingMethod_m);
     return *this;
 }
 
 Mpfr& Mpfr::operator+=(const Mpfr& mpfr)
 {
-    mpfr_add(n_m, n_m, mpfr.n_m, roundingMethod_m);
+    mpfr_add(n_m, n_m, mpfr.n_m, MPFR::roundingMethod_m);
     return *this;
 }
 
@@ -90,7 +98,7 @@ Mpfr operator+(Mpfr const& mpfr1, Mpfr const& mpfr2)
 
 Mpfr& Mpfr::operator-=(const Mpfr& mpfr)
 {
-    mpfr_sub(n_m, n_m, mpfr.n_m, roundingMethod_m);
+    mpfr_sub(n_m, n_m, mpfr.n_m, MPFR::roundingMethod_m);
     return *this;
 }
 
@@ -103,7 +111,7 @@ Mpfr operator-(Mpfr const& mpfr1, Mpfr const& mpfr2)
 
 Mpfr& Mpfr::operator*=(const Mpfr& mpfr)
 {
-    mpfr_mul(n_m, n_m, mpfr.n_m, roundingMethod_m);
+    mpfr_mul(n_m, n_m, mpfr.n_m, MPFR::roundingMethod_m);
     return *this;
 }
 
@@ -116,7 +124,7 @@ Mpfr operator*(Mpfr const& mpfr1, Mpfr const& mpfr2)
 
 Mpfr& Mpfr::operator/=(const Mpfr& mpfr)
 {
-    mpfr_div(n_m, n_m, mpfr.n_m, roundingMethod_m);
+    mpfr_div(n_m, n_m, mpfr.n_m, MPFR::roundingMethod_m);
     return *this;
 }
 
@@ -129,7 +137,7 @@ Mpfr operator/(Mpfr const& mpfr1, Mpfr const& mpfr2)
 
 Mpfr& Mpfr::operator^=(const Mpfr& mpfr)
 {
-    mpfr_pow(n_m, n_m, mpfr.n_m, roundingMethod_m);
+    mpfr_pow(n_m, n_m, mpfr.n_m, MPFR::roundingMethod_m);
     return *this;
 }
 
@@ -142,7 +150,7 @@ Mpfr operator^(Mpfr const& mpfr1, Mpfr const& mpfr2)
 
 Mpfr& Mpfr::operator%=(const Mpfr& mpfr)
 {
-    mpfr_remainder(n_m, n_m, mpfr.n_m, roundingMethod_m);
+    mpfr_remainder(n_m, n_m, mpfr.n_m, MPFR::roundingMethod_m);
     return *this;
 }
 
@@ -151,11 +159,6 @@ Mpfr operator%(Mpfr const& mpfr1, Mpfr const& mpfr2)
     Mpfr result(mpfr1);
     result %= mpfr2;
     return result;
-}
-
-void Mpfr::setPrecision(unsigned int precision)
-{
-    mpfr_set_default_prec(precision);
 }
 
 void Mpfr::display(std::ostream& flow) const
@@ -178,7 +181,7 @@ void Mpfr::display(std::ostream& flow) const
         // Get number from mpfr library
         char *s = NULL;
         mpfr_exp_t exp;
-        s = mpfr_get_str(s, &exp, 10, 0, n_m, roundingMethod_m);
+        s = mpfr_get_str(s, &exp, 10, 0, n_m, MPFR::roundingMethod_m);
 
         // Create string and clear
         string digits(s);
