@@ -22,14 +22,16 @@ typedef double calculType_t;
 
 namespace MPFR
 {
+    #define UNUSED(x) (void)(x)
+
     /// @brief  Dummy function for compilation
     static int getRoundingMethod(void) {return 0;}
     
     /// @brief  Dummy function for compilation
-    static void setRoundingMethod(unsigned int roundingMethod) {roundingMethod = 0;}
+    static void setRoundingMethod(unsigned int roundingMethod) {UNUSED(roundingMethod);}
 
     /// @brief  Dummy function for compilation
-    static void setPrecision(unsigned int precision) {precision = 0;}
+    static void setPrecision(unsigned int precision) {UNUSED(precision);}
 }
     
 #elif(USE_MPFR_LIBRARY == 1)
