@@ -50,7 +50,10 @@ int Command::getValue(std::string command)
 std::string Command::getHelp(void)
 {
     string str("");
-    
+
+    str = str + "usage: calculator [OPTION]... CALCULATIONS\n\n";
+    str = str + "Mandatory arguments\n";
+
     for(int i=0; i<eNB_COMMANDS; ++i)
     {
         str = str + "  " + commands[i].command + " (" + commands[i].shortcut + ") : " + commands[i].help + "\n";

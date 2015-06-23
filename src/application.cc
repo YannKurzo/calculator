@@ -55,10 +55,10 @@ void Application::startArgument(void)
             startAnalyse();
         }
         // Else cancel
-        else
+/*        else
         {
             break;
-        }
+        }*/
     }
 }
 
