@@ -111,10 +111,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_analyze.html#ae0c00996ea3ce2e87f6cdda0c8df7065">parserExec</a> (void)</td></tr>
 <tr class="memdesc:ae0c00996ea3ce2e87f6cdda0c8df7065"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyses the list of tokens and calculates the result. <br /></td></tr>
 <tr class="separator:ae0c00996ea3ce2e87f6cdda0c8df7065"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58fa5815d0944fe2540fac57c695d4af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58fa5815d0944fe2540fac57c695d4af"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_analyze.html#a58fa5815d0944fe2540fac57c695d4af">getResult</a> ()</td></tr>
-<tr class="memdesc:a58fa5815d0944fe2540fac57c695d4af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the result. <br /></td></tr>
-<tr class="separator:a58fa5815d0944fe2540fac57c695d4af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20765fccf3b534b55ee65bd79ae25a83"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20765fccf3b534b55ee65bd79ae25a83"></a>
+<a class="el" href="mpfr_interface_8h.html#a16492006127cd422340be2441c22c14b">calculType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_analyze.html#a20765fccf3b534b55ee65bd79ae25a83">getResult</a> (void)</td></tr>
+<tr class="memdesc:a20765fccf3b534b55ee65bd79ae25a83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the result. <br /></td></tr>
+<tr class="separator:a20765fccf3b534b55ee65bd79ae25a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
 Protected Types</h2></td></tr>
@@ -131,10 +131,10 @@ Protected Attributes</h2></td></tr>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_analyze.html#a5eaf2648206b44a7136f00f6f2aea716">str_m</a></td></tr>
 <tr class="memdesc:a5eaf2648206b44a7136f00f6f2aea716"><td class="mdescLeft">&#160;</td><td class="mdescRight">String to compute. <br /></td></tr>
 <tr class="separator:a5eaf2648206b44a7136f00f6f2aea716"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5e2e04f7a6530205899bfc8089e6a1b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac5e2e04f7a6530205899bfc8089e6a1b"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_analyze.html#ac5e2e04f7a6530205899bfc8089e6a1b">result_m</a></td></tr>
-<tr class="memdesc:ac5e2e04f7a6530205899bfc8089e6a1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result of the calculation. <br /></td></tr>
-<tr class="separator:ac5e2e04f7a6530205899bfc8089e6a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fd3ae44bbbc0fc1c2f332da9fb3fb51"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8fd3ae44bbbc0fc1c2f332da9fb3fb51"></a>
+<a class="el" href="mpfr_interface_8h.html#a16492006127cd422340be2441c22c14b">calculType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_analyze.html#a8fd3ae44bbbc0fc1c2f332da9fb3fb51">result_m</a></td></tr>
+<tr class="memdesc:a8fd3ae44bbbc0fc1c2f332da9fb3fb51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result of the calculation. <br /></td></tr>
+<tr class="separator:a8fd3ae44bbbc0fc1c2f332da9fb3fb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cb9f60bf517b50df90aa9669199f61c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0cb9f60bf517b50df90aa9669199f61c"></a>
 <a class="el" href="token_8h.html#ab47f31774188c3fad94acfd21e12c917">TokenVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_analyze.html#a0cb9f60bf517b50df90aa9669199f61c">tokenVector_m</a></td></tr>
 <tr class="memdesc:a0cb9f60bf517b50df90aa9669199f61c"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of tokens for the calculation. <br /></td></tr>
@@ -146,7 +146,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class manages the complete calculation process. </p>
-<dl class="section note"><dt>Note</dt><dd>Calling <a class="el" href="class_analyze.html#a58fa5815d0944fe2540fac57c695d4af" title="Get the result. ">getResult()</a> before <a class="el" href="class_analyze.html#a1090a6b9655c4770707d65ee8ebc124a" title="Analyses and separates in tokens the string to compute. ">lexer()</a> and <a class="el" href="class_analyze.html#ae0c00996ea3ce2e87f6cdda0c8df7065" title="Analyses the list of tokens and calculates the result. ">parserExec()</a> functions will automatically execute <a class="el" href="class_analyze.html#a1090a6b9655c4770707d65ee8ebc124a" title="Analyses and separates in tokens the string to compute. ">lexer()</a> and <a class="el" href="class_analyze.html#ae0c00996ea3ce2e87f6cdda0c8df7065" title="Analyses the list of tokens and calculates the result. ">parserExec()</a> before returning the result. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Calling <a class="el" href="class_analyze.html#a20765fccf3b534b55ee65bd79ae25a83" title="Get the result. ">getResult()</a> before <a class="el" href="class_analyze.html#a1090a6b9655c4770707d65ee8ebc124a" title="Analyses and separates in tokens the string to compute. ">lexer()</a> and <a class="el" href="class_analyze.html#ae0c00996ea3ce2e87f6cdda0c8df7065" title="Analyses the list of tokens and calculates the result. ">parserExec()</a> functions will automatically execute <a class="el" href="class_analyze.html#a1090a6b9655c4770707d65ee8ebc124a" title="Analyses and separates in tokens the string to compute. ">lexer()</a> and <a class="el" href="class_analyze.html#ae0c00996ea3ce2e87f6cdda0c8df7065" title="Analyses the list of tokens and calculates the result. ">parserExec()</a> before returning the result. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a373e5e79d15401c429b980f819ce76b3"></a>
 <div class="memitem">
@@ -178,7 +178,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 15 2015 17:54:25 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 23 2015 09:02:32 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

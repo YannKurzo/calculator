@@ -97,7 +97,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This file defines the <a class="el" href="class_function.html" title="This class is used to handle library or user defined functions. ">Function</a> class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="external_functions_8h_source.html">externalFunctions.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="mpfr_interface_8h_source.html">mpfrInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="external_functions_double_8h_source.html">externalFunctionsDouble.h</a>&quot;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
@@ -118,6 +119,9 @@ Macros</h2></td></tr>
 <tr class="memitem:aab90cd668cd8bf7816ad9eb7aea209e7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="function_8h.html#aab90cd668cd8bf7816ad9eb7aea209e7">ADD</a>(str,  nbParameters,  functionName,  help)&#160;&#160;&#160;{str, {nbParameters, reinterpret_cast&lt;<a class="el" href="function_8h.html#a171e664ee3179d3d1f1a7b04a747724c">func_ptr</a>&gt;(&amp;functionName), help}}</td></tr>
 <tr class="memdesc:aab90cd668cd8bf7816ad9eb7aea209e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to easily add a new function.  <a href="#aab90cd668cd8bf7816ad9eb7aea209e7">More...</a><br /></td></tr>
 <tr class="separator:aab90cd668cd8bf7816ad9eb7aea209e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f34c734f321363d78f9788a7b99883b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f34c734f321363d78f9788a7b99883b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ADDSAMENAME</b>(str,  nbParameters,  functionName,  help)&#160;&#160;&#160;{str, {nbParameters, reinterpret_cast&lt;<a class="el" href="function_8h.html#a171e664ee3179d3d1f1a7b04a747724c">func_ptr</a>&gt;(&amp;functionName), help}}</td></tr>
+<tr class="separator:a0f34c734f321363d78f9788a7b99883b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -181,7 +185,7 @@ typedef functionMap_t::iterator&#160;</td><td class="memItemRight" valign="botto
   <table class="params">
     <tr><td class="paramname">str</td><td>Name of the function used by the user </td></tr>
     <tr><td class="paramname">nbParameters</td><td>Number of parameters of the function </td></tr>
-    <tr><td class="paramname">functionName</td><td>Name of the function in the library or declared in <a class="el" href="external_functions_8h.html" title="New function to be handled by the calculator can be declared here. ">externalFunctions.h</a> </td></tr>
+    <tr><td class="paramname">functionName</td><td>Name of the function in the library or declared in externalFunctions.h </td></tr>
     <tr><td class="paramname">help</td><td>Help notice for this function </td></tr>
   </table>
   </dd>
@@ -192,7 +196,7 @@ typedef functionMap_t::iterator&#160;</td><td class="memItemRight" valign="botto
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 15 2015 17:54:25 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 23 2015 09:02:32 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

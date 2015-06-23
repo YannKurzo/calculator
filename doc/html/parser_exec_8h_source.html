@@ -97,54 +97,54 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef PARSEREXEC_H</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define PARSEREXEC_H</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="token_8h.html">token.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="function_8h.html">function.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="parser_exec_8h.html#a90378aab1a9f9455ac828b115e08ff56">   20</a></span>&#160;<span class="preprocessor">#define DISPLAY_OPERATIONS 0</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="parser_exec_8h.html#a420db710f9fcd36cd31b1323e00bff0a">   24</a></span>&#160;<span class="preprocessor">#define MAX_NUMBER_PARAMETERS 5</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_parser_exec.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_parser_exec.html">ParserExec</a></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_parser_exec.html#a56bfa666d473614fa26a484036897183">   32</a></span>&#160;        <a class="code" href="token_8h.html#ab47f31774188c3fad94acfd21e12c917">TokenVector</a> <a class="code" href="class_parser_exec.html#a56bfa666d473614fa26a484036897183">tokenVector_m</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mpfr_interface_8h.html">mpfrInterface.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="token_8h.html">token.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="function_8h.html">function.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_parser_exec.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_parser_exec.html">ParserExec</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_parser_exec.html#a56bfa666d473614fa26a484036897183">   27</a></span>&#160;        <a class="code" href="token_8h.html#ab47f31774188c3fad94acfd21e12c917">TokenVector</a> <a class="code" href="class_parser_exec.html#a56bfa666d473614fa26a484036897183">tokenVector_m</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="class_parser_exec.html#a865378c0f6a301dd4bffd870512167e2">ParserExec</a>(<span class="keyword">const</span> <a class="code" href="token_8h.html#ab47f31774188c3fad94acfd21e12c917">TokenVector</a> &amp;tokenList);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="class_parser_exec.html#a865378c0f6a301dd4bffd870512167e2">ParserExec</a>(<span class="keyword">const</span> <a class="code" href="token_8h.html#ab47f31774188c3fad94acfd21e12c917">TokenVector</a> &amp;tokenList);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_parser_exec.html#aa00f3c5f1f4ea46e1c6aafebff8d4e9f">start</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_parser_exec.html#aa00f3c5f1f4ea46e1c6aafebff8d4e9f">start</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="mpfr_interface_8h.html#a16492006127cd422340be2441c22c14b">calculType_t</a> <a class="code" href="class_parser_exec.html#a4cb35c20c400f26f8894a743663ce733">getResult</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_parser_exec.html#a795310e370db53f50dd44522568409fb">getResult</a>(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> algo(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> lowerIndex, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> upperIndex);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> findHighestOp(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> lowerIndex, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> upperIndex);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> exec(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">double</span> execOperator(std::string op, <span class="keywordtype">double</span> left, <span class="keywordtype">double</span> right);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">double</span> execFunction(std::string functionName, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> firstParameterIndex);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* PARSEREXEC_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> algo(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> lowerIndex, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> upperIndex);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> findHighestOp(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> lowerIndex, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> upperIndex);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> exec(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="mpfr_interface_8h.html#a16492006127cd422340be2441c22c14b">calculType_t</a> execOperator(std::string op, <a class="code" href="mpfr_interface_8h.html#a16492006127cd422340be2441c22c14b">calculType_t</a> left, <a class="code" href="mpfr_interface_8h.html#a16492006127cd422340be2441c22c14b">calculType_t</a> right);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <a class="code" href="mpfr_interface_8h.html#a16492006127cd422340be2441c22c14b">calculType_t</a> execFunction(std::string functionName, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> firstParameterIndex);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* PARSEREXEC_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
 <div class="ttc" id="function_8h_html"><div class="ttname"><a href="function_8h.html">function.h</a></div><div class="ttdoc">This file defines the Function class. </div></div>
-<div class="ttc" id="class_parser_exec_html_a795310e370db53f50dd44522568409fb"><div class="ttname"><a href="class_parser_exec.html#a795310e370db53f50dd44522568409fb">ParserExec::getResult</a></div><div class="ttdeci">double getResult(void) const </div><div class="ttdoc">Get the result. </div></div>
-<div class="ttc" id="class_parser_exec_html"><div class="ttname"><a href="class_parser_exec.html">ParserExec</a></div><div class="ttdoc">This class is used to parse the vector of tokens and calculates the mathematical result. </div><div class="ttdef"><b>Definition:</b> parserExec.h:28</div></div>
+<div class="ttc" id="class_parser_exec_html"><div class="ttname"><a href="class_parser_exec.html">ParserExec</a></div><div class="ttdoc">This class is used to parse the vector of tokens and calculates the mathematical result. </div><div class="ttdef"><b>Definition:</b> parserExec.h:23</div></div>
 <div class="ttc" id="class_parser_exec_html_aa00f3c5f1f4ea46e1c6aafebff8d4e9f"><div class="ttname"><a href="class_parser_exec.html#aa00f3c5f1f4ea46e1c6aafebff8d4e9f">ParserExec::start</a></div><div class="ttdeci">void start(void)</div><div class="ttdoc">Start analysing the vector of tokens. </div></div>
+<div class="ttc" id="mpfr_interface_8h_html_a16492006127cd422340be2441c22c14b"><div class="ttname"><a href="mpfr_interface_8h.html#a16492006127cd422340be2441c22c14b">calculType_t</a></div><div class="ttdeci">double calculType_t</div><div class="ttdoc">Calculation type. </div><div class="ttdef"><b>Definition:</b> mpfrInterface.h:21</div></div>
+<div class="ttc" id="class_parser_exec_html_a4cb35c20c400f26f8894a743663ce733"><div class="ttname"><a href="class_parser_exec.html#a4cb35c20c400f26f8894a743663ce733">ParserExec::getResult</a></div><div class="ttdeci">calculType_t getResult(void) const </div><div class="ttdoc">Get the result. </div></div>
 <div class="ttc" id="class_parser_exec_html_a865378c0f6a301dd4bffd870512167e2"><div class="ttname"><a href="class_parser_exec.html#a865378c0f6a301dd4bffd870512167e2">ParserExec::ParserExec</a></div><div class="ttdeci">ParserExec(const TokenVector &amp;tokenList)</div><div class="ttdoc">Constructor. </div></div>
-<div class="ttc" id="token_8h_html_ab47f31774188c3fad94acfd21e12c917"><div class="ttname"><a href="token_8h.html#ab47f31774188c3fad94acfd21e12c917">TokenVector</a></div><div class="ttdeci">STANDARD_OUTPUT typedef std::vector&lt; Token &gt; TokenVector</div><div class="ttdoc">Vector of tokens. </div><div class="ttdef"><b>Definition:</b> token.h:121</div></div>
-<div class="ttc" id="class_parser_exec_html_a56bfa666d473614fa26a484036897183"><div class="ttname"><a href="class_parser_exec.html#a56bfa666d473614fa26a484036897183">ParserExec::tokenVector_m</a></div><div class="ttdeci">TokenVector tokenVector_m</div><div class="ttdoc">List of tokens for the calculation. </div><div class="ttdef"><b>Definition:</b> parserExec.h:32</div></div>
+<div class="ttc" id="token_8h_html_ab47f31774188c3fad94acfd21e12c917"><div class="ttname"><a href="token_8h.html#ab47f31774188c3fad94acfd21e12c917">TokenVector</a></div><div class="ttdeci">STANDARD_OUTPUT typedef std::vector&lt; Token &gt; TokenVector</div><div class="ttdoc">Vector of tokens. </div><div class="ttdef"><b>Definition:</b> token.h:123</div></div>
+<div class="ttc" id="mpfr_interface_8h_html"><div class="ttname"><a href="mpfr_interface_8h.html">mpfrInterface.h</a></div><div class="ttdoc">This file defines the Mpfr class. This file defines with a typedef either double or Mpfr depending on...</div></div>
+<div class="ttc" id="class_parser_exec_html_a56bfa666d473614fa26a484036897183"><div class="ttname"><a href="class_parser_exec.html#a56bfa666d473614fa26a484036897183">ParserExec::tokenVector_m</a></div><div class="ttdeci">TokenVector tokenVector_m</div><div class="ttdoc">List of tokens for the calculation. </div><div class="ttdef"><b>Definition:</b> parserExec.h:27</div></div>
 <div class="ttc" id="token_8h_html"><div class="ttname"><a href="token_8h.html">token.h</a></div><div class="ttdoc">This file defines the Token class. The operator priority is also defined here. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 15 2015 17:54:25 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 23 2015 09:02:32 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

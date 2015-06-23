@@ -16,6 +16,8 @@ static \hyperlink{command_8h_aafce48252f7b3163fa15e458dd84ba12}{command\+\_\+e} 
 \begin{DoxyCompactList}\small\item\em Get the argument. \end{DoxyCompactList}\item 
 static \hyperlink{command_8h_aafce48252f7b3163fa15e458dd84ba12}{command\+\_\+e} \hyperlink{class_command_a0a461c50ca91c39c699d35da1ae4d66d}{get\+Command} (std\+::string command)
 \begin{DoxyCompactList}\small\item\em Get the command. \end{DoxyCompactList}\item 
+static int \hyperlink{class_command_a08b18f7dba9ce77a466fd92c5617d927}{get\+Value} (std\+::string command)
+\begin{DoxyCompactList}\small\item\em Get the value after the = in a command. \end{DoxyCompactList}\item 
 static std\+::string \hyperlink{class_command_a533d4d8df620c9dd0c36c4d67a379ae5}{get\+Help} (void)
 \begin{DoxyCompactList}\small\item\em Get help about the commands. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
@@ -81,6 +83,25 @@ Get help about the commands.
 
 \begin{DoxyReturn}{Returns}
 String containing the help 
+\end{DoxyReturn}
+\hypertarget{class_command_a08b18f7dba9ce77a466fd92c5617d927}{}\index{Command@{Command}!get\+Value@{get\+Value}}
+\index{get\+Value@{get\+Value}!Command@{Command}}
+\subsubsection[{get\+Value}]{\setlength{\rightskip}{0pt plus 5cm}static int Command\+::get\+Value (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{command}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_command_a08b18f7dba9ce77a466fd92c5617d927}
+
+
+Get the value after the = in a command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & \hyperlink{class_command}{Command} to analyze \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value 
 \end{DoxyReturn}
 
 

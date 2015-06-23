@@ -102,56 +102,61 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="command_8h.html#aafce48252f7b3163fa15e458dd84ba12">   17</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    eCOMMAND_LIST_AVAILABLE_FUNCTIONS,</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    eCOMMAND_HELP,</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    eCOMMAND_EXIT,</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    eNB_COMMANDS</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}<a class="code" href="command_8h.html#aafce48252f7b3163fa15e458dd84ba12">command_e</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structcommand__t.html">   26</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structcommand__t.html#a482126330d56b967d7428d61cc5b7d6b">   28</a></span>&#160;    <a class="code" href="command_8h.html#aafce48252f7b3163fa15e458dd84ba12">command_e</a> <a class="code" href="structcommand__t.html#a482126330d56b967d7428d61cc5b7d6b">commandEnum</a>;      </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structcommand__t.html#ac126c83fffc4006f8573bb0913f0e210">   29</a></span>&#160;    std::string <a class="code" href="structcommand__t.html#ac126c83fffc4006f8573bb0913f0e210">command</a>;        </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structcommand__t.html#a2c5eb968130a5e8dcd441fa423008fbe">   30</a></span>&#160;    std::string <a class="code" href="structcommand__t.html#a2c5eb968130a5e8dcd441fa423008fbe">shortcut</a>;       </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structcommand__t.html#aea1619c73e305ebac8751c5aefdf7e6b">   31</a></span>&#160;    std::string <a class="code" href="structcommand__t.html#aea1619c73e305ebac8751c5aefdf7e6b">help</a>;           </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}<a class="code" href="structcommand__t.html">command_t</a>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="structcommand__t.html">command_t</a> commands[] =</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {eCOMMAND_LIST_AVAILABLE_FUNCTIONS, <span class="stringliteral">&quot;list-available-functions&quot;</span>, <span class="stringliteral">&quot;-l&quot;</span>, <span class="stringliteral">&quot;Show a list of available functions&quot;</span>},</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {eCOMMAND_HELP, <span class="stringliteral">&quot;help&quot;</span>, <span class="stringliteral">&quot;-h&quot;</span>, <span class="stringliteral">&quot;Show this&quot;</span>},</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {eCOMMAND_EXIT, <span class="stringliteral">&quot;exit&quot;</span>, <span class="stringliteral">&quot;-q&quot;</span>, <span class="stringliteral">&quot;Exit the program&quot;</span>}</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_command.html">   43</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_command.html">Command</a></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_command.html#a42400397858e26d0130e6eb7db208126">   47</a></span>&#160;        std::string <a class="code" href="class_command.html#a42400397858e26d0130e6eb7db208126">str_m</a>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">static</span> <a class="code" href="command_8h.html#aafce48252f7b3163fa15e458dd84ba12">command_e</a> <a class="code" href="class_command.html#ae11f4e8caf8655b98791f0a2f779d245">getArgument</a>(std::string argument);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">static</span> <a class="code" href="command_8h.html#aafce48252f7b3163fa15e458dd84ba12">command_e</a> <a class="code" href="class_command.html#a0a461c50ca91c39c699d35da1ae4d66d">getCommand</a>(std::string command);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">static</span> std::string <a class="code" href="class_command.html#a533d4d8df620c9dd0c36c4d67a379ae5">getHelp</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* COMMAND_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    eCOMMAND_SET_PRECISION,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    eCOMMAND_HELP,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    eCOMMAND_EXIT,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    eNB_COMMANDS</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}<a class="code" href="command_8h.html#aafce48252f7b3163fa15e458dd84ba12">command_e</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="structcommand__t.html">   27</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structcommand__t.html#a482126330d56b967d7428d61cc5b7d6b">   29</a></span>&#160;    <a class="code" href="command_8h.html#aafce48252f7b3163fa15e458dd84ba12">command_e</a> <a class="code" href="structcommand__t.html#a482126330d56b967d7428d61cc5b7d6b">commandEnum</a>;      </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structcommand__t.html#ac126c83fffc4006f8573bb0913f0e210">   30</a></span>&#160;    std::string <a class="code" href="structcommand__t.html#ac126c83fffc4006f8573bb0913f0e210">command</a>;        </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structcommand__t.html#a2c5eb968130a5e8dcd441fa423008fbe">   31</a></span>&#160;    std::string <a class="code" href="structcommand__t.html#a2c5eb968130a5e8dcd441fa423008fbe">shortcut</a>;       </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structcommand__t.html#aea1619c73e305ebac8751c5aefdf7e6b">   32</a></span>&#160;    std::string <a class="code" href="structcommand__t.html#aea1619c73e305ebac8751c5aefdf7e6b">help</a>;           </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}<a class="code" href="structcommand__t.html">command_t</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="structcommand__t.html">command_t</a> commands[] =</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {eCOMMAND_LIST_AVAILABLE_FUNCTIONS, <span class="stringliteral">&quot;list-available-functions&quot;</span>, <span class="stringliteral">&quot;-l&quot;</span>, <span class="stringliteral">&quot;Show a list of available functions&quot;</span>},</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {eCOMMAND_SET_PRECISION, <span class="stringliteral">&quot;set-precision&quot;</span>, <span class="stringliteral">&quot;-p&quot;</span>, <span class="stringliteral">&quot;Set the precision (only when using Mpfr library): set-precision=25 / -p=25 (without spaces)&quot;</span>},</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {eCOMMAND_HELP, <span class="stringliteral">&quot;help&quot;</span>, <span class="stringliteral">&quot;-h&quot;</span>, <span class="stringliteral">&quot;Show this&quot;</span>},</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {eCOMMAND_EXIT, <span class="stringliteral">&quot;exit&quot;</span>, <span class="stringliteral">&quot;-q&quot;</span>, <span class="stringliteral">&quot;Exit the program&quot;</span>}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_command.html">   45</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_command.html">Command</a></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_command.html#a42400397858e26d0130e6eb7db208126">   49</a></span>&#160;        std::string <a class="code" href="class_command.html#a42400397858e26d0130e6eb7db208126">str_m</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">static</span> <a class="code" href="command_8h.html#aafce48252f7b3163fa15e458dd84ba12">command_e</a> <a class="code" href="class_command.html#ae11f4e8caf8655b98791f0a2f779d245">getArgument</a>(std::string argument);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">static</span> <a class="code" href="command_8h.html#aafce48252f7b3163fa15e458dd84ba12">command_e</a> <a class="code" href="class_command.html#a0a461c50ca91c39c699d35da1ae4d66d">getCommand</a>(std::string command);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_command.html#a08b18f7dba9ce77a466fd92c5617d927">getValue</a>(std::string command);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">static</span> std::string <a class="code" href="class_command.html#a533d4d8df620c9dd0c36c4d67a379ae5">getHelp</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* COMMAND_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
 <div class="ttc" id="class_command_html_ae11f4e8caf8655b98791f0a2f779d245"><div class="ttname"><a href="class_command.html#ae11f4e8caf8655b98791f0a2f779d245">Command::getArgument</a></div><div class="ttdeci">static command_e getArgument(std::string argument)</div><div class="ttdoc">Get the argument. </div></div>
 <div class="ttc" id="command_8h_html_aafce48252f7b3163fa15e458dd84ba12"><div class="ttname"><a href="command_8h.html#aafce48252f7b3163fa15e458dd84ba12">command_e</a></div><div class="ttdeci">command_e</div><div class="ttdoc">List of available commands and arguments. </div><div class="ttdef"><b>Definition:</b> command.h:17</div></div>
-<div class="ttc" id="structcommand__t_html_a482126330d56b967d7428d61cc5b7d6b"><div class="ttname"><a href="structcommand__t.html#a482126330d56b967d7428d61cc5b7d6b">command_t::commandEnum</a></div><div class="ttdeci">command_e commandEnum</div><div class="ttdoc">Command enumeration. </div><div class="ttdef"><b>Definition:</b> command.h:28</div></div>
-<div class="ttc" id="class_command_html_a42400397858e26d0130e6eb7db208126"><div class="ttname"><a href="class_command.html#a42400397858e26d0130e6eb7db208126">Command::str_m</a></div><div class="ttdeci">std::string str_m</div><div class="ttdoc">Command to analyze. </div><div class="ttdef"><b>Definition:</b> command.h:47</div></div>
-<div class="ttc" id="class_command_html"><div class="ttname"><a href="class_command.html">Command</a></div><div class="ttdoc">This class handles the different commands and arguments. </div><div class="ttdef"><b>Definition:</b> command.h:43</div></div>
-<div class="ttc" id="structcommand__t_html"><div class="ttname"><a href="structcommand__t.html">command_t</a></div><div class="ttdoc">Structure to hold a command. </div><div class="ttdef"><b>Definition:</b> command.h:26</div></div>
-<div class="ttc" id="structcommand__t_html_aea1619c73e305ebac8751c5aefdf7e6b"><div class="ttname"><a href="structcommand__t.html#aea1619c73e305ebac8751c5aefdf7e6b">command_t::help</a></div><div class="ttdeci">std::string help</div><div class="ttdoc">Help notice. </div><div class="ttdef"><b>Definition:</b> command.h:31</div></div>
+<div class="ttc" id="structcommand__t_html_a482126330d56b967d7428d61cc5b7d6b"><div class="ttname"><a href="structcommand__t.html#a482126330d56b967d7428d61cc5b7d6b">command_t::commandEnum</a></div><div class="ttdeci">command_e commandEnum</div><div class="ttdoc">Command enumeration. </div><div class="ttdef"><b>Definition:</b> command.h:29</div></div>
+<div class="ttc" id="class_command_html_a42400397858e26d0130e6eb7db208126"><div class="ttname"><a href="class_command.html#a42400397858e26d0130e6eb7db208126">Command::str_m</a></div><div class="ttdeci">std::string str_m</div><div class="ttdoc">Command to analyze. </div><div class="ttdef"><b>Definition:</b> command.h:49</div></div>
+<div class="ttc" id="class_command_html"><div class="ttname"><a href="class_command.html">Command</a></div><div class="ttdoc">This class handles the different commands and arguments. </div><div class="ttdef"><b>Definition:</b> command.h:45</div></div>
+<div class="ttc" id="structcommand__t_html"><div class="ttname"><a href="structcommand__t.html">command_t</a></div><div class="ttdoc">Structure to hold a command. </div><div class="ttdef"><b>Definition:</b> command.h:27</div></div>
+<div class="ttc" id="class_command_html_a08b18f7dba9ce77a466fd92c5617d927"><div class="ttname"><a href="class_command.html#a08b18f7dba9ce77a466fd92c5617d927">Command::getValue</a></div><div class="ttdeci">static int getValue(std::string command)</div><div class="ttdoc">Get the value after the = in a command. </div></div>
+<div class="ttc" id="structcommand__t_html_aea1619c73e305ebac8751c5aefdf7e6b"><div class="ttname"><a href="structcommand__t.html#aea1619c73e305ebac8751c5aefdf7e6b">command_t::help</a></div><div class="ttdeci">std::string help</div><div class="ttdoc">Help notice. </div><div class="ttdef"><b>Definition:</b> command.h:32</div></div>
 <div class="ttc" id="class_command_html_a533d4d8df620c9dd0c36c4d67a379ae5"><div class="ttname"><a href="class_command.html#a533d4d8df620c9dd0c36c4d67a379ae5">Command::getHelp</a></div><div class="ttdeci">static std::string getHelp(void)</div><div class="ttdoc">Get help about the commands. </div></div>
 <div class="ttc" id="class_command_html_a0a461c50ca91c39c699d35da1ae4d66d"><div class="ttname"><a href="class_command.html#a0a461c50ca91c39c699d35da1ae4d66d">Command::getCommand</a></div><div class="ttdeci">static command_e getCommand(std::string command)</div><div class="ttdoc">Get the command. </div></div>
-<div class="ttc" id="structcommand__t_html_a2c5eb968130a5e8dcd441fa423008fbe"><div class="ttname"><a href="structcommand__t.html#a2c5eb968130a5e8dcd441fa423008fbe">command_t::shortcut</a></div><div class="ttdeci">std::string shortcut</div><div class="ttdoc">Command shortcut (-h) </div><div class="ttdef"><b>Definition:</b> command.h:30</div></div>
-<div class="ttc" id="structcommand__t_html_ac126c83fffc4006f8573bb0913f0e210"><div class="ttname"><a href="structcommand__t.html#ac126c83fffc4006f8573bb0913f0e210">command_t::command</a></div><div class="ttdeci">std::string command</div><div class="ttdoc">Command name. </div><div class="ttdef"><b>Definition:</b> command.h:29</div></div>
+<div class="ttc" id="structcommand__t_html_a2c5eb968130a5e8dcd441fa423008fbe"><div class="ttname"><a href="structcommand__t.html#a2c5eb968130a5e8dcd441fa423008fbe">command_t::shortcut</a></div><div class="ttdeci">std::string shortcut</div><div class="ttdoc">Command shortcut (-h) </div><div class="ttdef"><b>Definition:</b> command.h:31</div></div>
+<div class="ttc" id="structcommand__t_html_ac126c83fffc4006f8573bb0913f0e210"><div class="ttname"><a href="structcommand__t.html#ac126c83fffc4006f8573bb0913f0e210">command_t::command</a></div><div class="ttdeci">std::string command</div><div class="ttdoc">Command name. </div><div class="ttdef"><b>Definition:</b> command.h:30</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 15 2015 17:54:25 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 23 2015 09:02:32 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

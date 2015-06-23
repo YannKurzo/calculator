@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">calculator Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>This program can parse a string entered by the user. It calculates the mathematical result of the string.</p>
+<div class="textblock"><p>This program can parse a string entered by the user. It calculates the mathematical result of the string. The program can be configured at compilation time by modifying the <a class="el" href="config_8h.html" title="This file contains all the possible configurations. ">config.h</a> file. By default, it uses double type to make calculation. It is possible to use the mpfr library to do the calculation, so that the precision can be defined by the user and that it can be much larger than a double precision.</p>
 <h3>Working features:</h3>
 <ul>
 <li>Numbers</li>
@@ -107,17 +107,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>Actual list: exit, list-available-functions, help</li>
 </ul>
 </li>
+<li>Calculation using double type or mpfr library (see <a class="el" href="config_8h.html" title="This file contains all the possible configurations. ">config.h</a> file)</li>
 </ul>
 <h3>Missing features (in development):</h3>
 <ul>
-<li>Use double / GMP</li>
-<li>Add usual constants</li>
+<li>Add usual constants in external functions</li>
+<li>Autoconf tool not working with mpfr library yet</li>
 </ul>
 <h3>Code corrections</h3>
-<ul>
-<li>Correct indent</li>
-<li>Comments</li>
-</ul>
 <h3>Doc</h3>
 <ul>
 <li>Doxygen</li>
@@ -127,7 +124,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 15 2015 17:54:25 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 23 2015 09:02:32 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

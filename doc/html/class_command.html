@@ -105,6 +105,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a0a461c50ca91c39c699d35da1ae4d66d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="command_8h.html#aafce48252f7b3163fa15e458dd84ba12">command_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#a0a461c50ca91c39c699d35da1ae4d66d">getCommand</a> (std::string command)</td></tr>
 <tr class="memdesc:a0a461c50ca91c39c699d35da1ae4d66d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the command.  <a href="#a0a461c50ca91c39c699d35da1ae4d66d">More...</a><br /></td></tr>
 <tr class="separator:a0a461c50ca91c39c699d35da1ae4d66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08b18f7dba9ce77a466fd92c5617d927"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#a08b18f7dba9ce77a466fd92c5617d927">getValue</a> (std::string command)</td></tr>
+<tr class="memdesc:a08b18f7dba9ce77a466fd92c5617d927"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value after the = in a command.  <a href="#a08b18f7dba9ce77a466fd92c5617d927">More...</a><br /></td></tr>
+<tr class="separator:a08b18f7dba9ce77a466fd92c5617d927"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a533d4d8df620c9dd0c36c4d67a379ae5"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#a533d4d8df620c9dd0c36c4d67a379ae5">getHelp</a> (void)</td></tr>
 <tr class="memdesc:a533d4d8df620c9dd0c36c4d67a379ae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get help about the commands.  <a href="#a533d4d8df620c9dd0c36c4d67a379ae5">More...</a><br /></td></tr>
 <tr class="separator:a533d4d8df620c9dd0c36c4d67a379ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -212,13 +215,46 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 
 </div>
 </div>
+<a class="anchor" id="a08b18f7dba9ce77a466fd92c5617d927"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int Command::getValue </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the value after the = in a command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td><a class="el" href="class_command.html" title="This class handles the different commands and arguments. ">Command</a> to analyze </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Value </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>C:/Users/yann.kurzo/Documents/Programmation/calculator/calculator/src/include/<a class="el" href="command_8h_source.html">command.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 15 2015 17:54:25 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 23 2015 09:02:32 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
