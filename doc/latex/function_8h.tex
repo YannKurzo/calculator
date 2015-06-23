@@ -5,7 +5,8 @@
 This file defines the \hyperlink{class_function}{Function} class.  
 
 
-{\ttfamily \#include \char`\"{}external\+Functions.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mpfr\+Interface.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}external\+Functions\+Double.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$string$>$}\\*
 {\ttfamily \#include $<$cmath$>$}\\*
 {\ttfamily \#include $<$map$>$}\\*
@@ -20,7 +21,10 @@ class \hyperlink{class_function}{Function}
 \begin{DoxyCompactItemize}
 \item 
 \#define \hyperlink{function_8h_aab90cd668cd8bf7816ad9eb7aea209e7}{A\+D\+D}(str,  nb\+Parameters,  function\+Name,  help)~\{str, \{nb\+Parameters, reinterpret\+\_\+cast$<$\hyperlink{function_8h_a171e664ee3179d3d1f1a7b04a747724c}{func\+\_\+ptr}$>$(\&function\+Name), help\}\}
-\begin{DoxyCompactList}\small\item\em Macro to easily add a new function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Macro to easily add a new function. \end{DoxyCompactList}\item 
+\hypertarget{function_8h_a0f34c734f321363d78f9788a7b99883b}{}\#define {\bfseries A\+D\+D\+S\+A\+M\+E\+N\+A\+M\+E}(str,  nb\+Parameters,  function\+Name,  help)~\{str, \{nb\+Parameters, reinterpret\+\_\+cast$<$\hyperlink{function_8h_a171e664ee3179d3d1f1a7b04a747724c}{func\+\_\+ptr}$>$(\&function\+Name), help\}\}\label{function_8h_a0f34c734f321363d78f9788a7b99883b}
+
+\end{DoxyCompactItemize}
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -70,7 +74,7 @@ Macro to easily add a new function.
 \hline
 {\em nb\+Parameters} & Number of parameters of the function \\
 \hline
-{\em function\+Name} & Name of the function in the library or declared in \hyperlink{external_functions_8h}{external\+Functions.\+h} \\
+{\em function\+Name} & Name of the function in the library or declared in external\+Functions.\+h \\
 \hline
 {\em help} & Help notice for this function \\
 \hline

@@ -588,6 +588,8 @@ ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
 LIBOBJS
+MPFRINSTALLED_FALSE
+MPFRINSTALLED_TRUE
 am__fastdepCXX_FALSE
 am__fastdepCXX_TRUE
 CXXDEPMODE
@@ -3204,41 +3206,21 @@ $as_echo "$ac_cv_search_mpfr_init" >&6; }
 ac_res=$ac_cv_search_mpfr_init
 if test "$ac_res" != no; then :
   test "$ac_res" = "none required" || LIBS="$ac_res $LIBS"
-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
-$as_echo "yes" >&6; }
+   mpfrInstalled=true;
 else
-  { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING:
-    The mpfr library is not installed!
-    Check the src/include/config.h file to set the right configuration to compile without mpfr library!
-    " >&5
-$as_echo "$as_me: WARNING:
-    The mpfr library is not installed!
-    Check the src/include/config.h file to set the right configuration to compile without mpfr library!
-    " >&2;}
+   mpfrInstalled=false;
 
 fi
 
+# Pass to Makefile.am
+ if test x$mpfrInstalled = xtrue; then
+  MPFRINSTALLED_TRUE=
+  MPFRINSTALLED_FALSE='#'
+else
+  MPFRINSTALLED_TRUE='#'
+  MPFRINSTALLED_FALSE=
+fi
 
-#AC_COMPILE_IFELSE(
-#    [AC_LANG_SOURCE(
-#        [[
-#        #include "../calculator/src/include/config.h"
-#
-#        #if(USE_MPFR_LIBRARY != 1)
-#          #error Using double library
-#        #endif
-#        ]]
-#        )
-#    ],
-#    AC_SEARCH_LIBS(
-#        [mpfr_init],
-#        [mpfr],
-#        [AC_MSG_NOTICE([Using mpfr library for calculation])],
-#        [AC_MSG_ERROR([You need the mpfr library to compile with this configuration.
-#            Check the src/include/config.h file to modify the configuration!])]
-#    ),
-#    [AC_MSG_NOTICE([Using double for calculation])]
-#)
 
 # ------------------------------------------------
 # Output
@@ -3375,6 +3357,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${am__fastdepCXX_TRUE}" && test -z "${am__fastdepCXX_FALSE}"; then
   as_fn_error $? "conditional \"am__fastdepCXX\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${MPFRINSTALLED_TRUE}" && test -z "${MPFRINSTALLED_FALSE}"; then
+  as_fn_error $? "conditional \"MPFRINSTALLED\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 
@@ -4699,3 +4685,23 @@ if test -n "$ac_unrecognized_opts" && test "$enable_option_checking" != no; then
 $as_echo "$as_me: WARNING: unrecognized options: $ac_unrecognized_opts" >&2;}
 fi
 
+
+# Show warning if mpfr is not installed
+if test $mpfrInstalled = false; then
+    { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING:
+    The mpfr library is not installed!
+    Either:
+      - Install the mpfr library and rerun configure, or
+      - Set the right configuration to compile without mpfr library
+        in the src/include/config.h file!
+        (see README.md in compilation section for more information)
+    " >&5
+$as_echo "$as_me: WARNING:
+    The mpfr library is not installed!
+    Either:
+      - Install the mpfr library and rerun configure, or
+      - Set the right configuration to compile without mpfr library
+        in the src/include/config.h file!
+        (see README.md in compilation section for more information)
+    " >&2;}
+fi

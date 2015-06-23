@@ -246,6 +246,7 @@ AM_CPPFLAGS = -I$(srcdir)/include -std=c++11 -pedantic -Wall -Wextra \
 	-Wshadow -Wsign-conversion -Wsign-promo -Wstrict-null-sentinel \
 	-Wstrict-overflow=5 -Wswitch-default -Wundef -Werror \
 	-Wno-unused -Wzero-as-null-pointer-constant -Wuseless-cast
+@MPFRINSTALLED_TRUE@AM_LDFLAGS = "-lmpfr -lgmp"
 calculator_SOURCES = main.cc analyze.cc application.cc command.cc externalFunctionsDouble.cc externalFunctionsMpfr.cc function.cc lexer.cc mpfrInterface.cc parserExec.cc token.cc
 all: all-am
 
@@ -564,13 +565,6 @@ uninstall-am: uninstall-binPROGRAMS
 	ps ps-am tags tags-am uninstall uninstall-am \
 	uninstall-binPROGRAMS
 
-
-AC_SEARCH_LIBS(
-    [mpfr_init],
-    [mpfr],
-    [ AM_LDFLAGS = "-lmpfr -lgmp" ],
-    []
-)
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

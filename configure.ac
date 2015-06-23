@@ -23,36 +23,26 @@ AC_CONFIG_FILES(
 AC_SEARCH_LIBS(
     [mpfr_init],
     [mpfr],
-    [AC_MSG_RESULT([yes])],
-    [AC_MSG_WARN([
-    The mpfr library is not installed!
-    Check the src/include/config.h file to set the right configuration to compile without mpfr library!
-    ])]
+    [ mpfrInstalled=true; ],
+    [ mpfrInstalled=false; ]
 )
-
-#AC_COMPILE_IFELSE(
-#    [AC_LANG_SOURCE(
-#        [[
-#        #include "../calculator/src/include/config.h"
-#        
-#        #if(USE_MPFR_LIBRARY != 1)
-#          #error Using double library
-#        #endif
-#        ]]
-#        )
-#    ],              
-#    AC_SEARCH_LIBS(
-#        [mpfr_init],
-#        [mpfr],
-#        [AC_MSG_NOTICE([Using mpfr library for calculation])],
-#        [AC_MSG_ERROR([You need the mpfr library to compile with this configuration. 
-#            Check the src/include/config.h file to modify the configuration!])]
-#    ),
-#    [AC_MSG_NOTICE([Using double for calculation])]
-#)
+# Pass to Makefile.am
+AM_CONDITIONAL([MPFRINSTALLED], [test x$mpfrInstalled = xtrue])
      
 # ------------------------------------------------
 # Output
 # ------------------------------------------------
 
 AC_OUTPUT
+
+# Show warning if mpfr is not installed
+if test $mpfrInstalled = false; then
+    AC_MSG_WARN([
+    The mpfr library is not installed!
+    Either:
+      - Install the mpfr library and rerun configure, or 
+      - Set the right configuration to compile without mpfr library 
+        in the src/include/config.h file!
+        (see README.md in compilation section for more information)
+    ])
+fi
