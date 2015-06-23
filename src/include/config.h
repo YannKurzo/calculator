@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 
-//  ==========================================================================
+//  ==================================================================
 /// @file   config.h
 /// @author Yann Kurzo
 /// @date   June 17, 2015, 8:32 PM
@@ -14,16 +13,16 @@
 
 /// @brief  Use double to make calculations when defined to 1
 /// @note   When defined to 1, USE_MPFR_LIBRARY must be defined to 0
-#define USE_DOUBLE_TYPE         1
+#define USE_DOUBLE_TYPE         0
 
 /// @brief  Use MPFR library to make calculations when defined to 1
 /// @note   When defined to 1, USE_DOUBLE_TYPE must be defined to 0
-#define USE_MPFR_LIBRARY        0
+#define USE_MPFR_LIBRARY        1
 
 //  ==================================================================
 
 /// @brief  Defined to 1 to display the operation steps
-#define DISPLAY_OPERATIONS      1
+#define DISPLAY_OPERATIONS      0
 
 /// @brief  Maximum number of parameters for the functions
 /// @note   When it is changed, other parts of the code must be adapted.

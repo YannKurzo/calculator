@@ -36,7 +36,7 @@ typedef struct
 static const command_t commands[] =
 {
     {eCOMMAND_LIST_AVAILABLE_FUNCTIONS, "list-available-functions", "-l", "Show a list of available functions"},
-    {eCOMMAND_SET_PRECISION, "set-precision", "-p", "Set the precision (only when using Mpfr library): set-precision=25 / -p=25 (without spaces)"},
+    {eCOMMAND_SET_PRECISION, "set-precision", "-p", "Set the precision (only with Mpfr library). Use:\n    set-precision=25 / -p=25"},
     {eCOMMAND_HELP, "help", "-h", "Show this"},
     {eCOMMAND_EXIT, "exit", "-q", "Exit the program"}
 };
