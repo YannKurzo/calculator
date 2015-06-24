@@ -27,8 +27,11 @@ This program can parse a string entered by the user. It calculates the mathemati
 ### Missing features (in development):
 - Add usual constants in external functions
 - Autoconf tool not working with mpfr library yet
+- Check printing with mpfr
+- Configuration output format for argument mode
 
 ### Code corrections
+- Update help depending on command or argument
 
 ### Doc
 - Doxygen
