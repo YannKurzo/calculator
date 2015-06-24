@@ -42,7 +42,7 @@ This program can parse a string entered by the user. It calculates the mathemati
   * ./configure --help
 - Getting the mpfr library (this library is only necessary for compiling for big numbers)
   * Linux: http://www.mpfr.org/mpfr-current/#download
-  * Cygwin: use the setup to install it
+  * Cygwin: https://cygwin.com/install.html (use the setup to install the library)
 
 ### Code corrections
 - Update help depending on command or argument
