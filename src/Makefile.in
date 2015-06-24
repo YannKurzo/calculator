@@ -238,6 +238,18 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
+
+# Source files
+calculator_SOURCES = main.cc analyze.cc application.cc command.cc \
+	externalFunctionsDouble.cc externalFunctionsMpfr.cc \
+	function.cc lexer.cc mpfrInterface.cc parserExec.cc token.cc \
+	util.cc
+
+# Include files
+
+# C++11 standard
+
+# Warning and errors
 AM_CPPFLAGS = -I$(srcdir)/include -std=c++11 -pedantic -Wall -Wextra \
 	-Wcast-align -Wcast-qual -Wctor-dtor-privacy \
 	-Wdisabled-optimization -Wformat=2 -Winit-self -Wlogical-op \
@@ -246,8 +258,6 @@ AM_CPPFLAGS = -I$(srcdir)/include -std=c++11 -pedantic -Wall -Wextra \
 	-Wshadow -Wsign-conversion -Wsign-promo -Wstrict-null-sentinel \
 	-Wstrict-overflow=5 -Wswitch-default -Wundef -Werror \
 	-Wno-unused -Wzero-as-null-pointer-constant -Wuseless-cast
-#endif
-calculator_SOURCES = main.cc analyze.cc application.cc command.cc externalFunctionsDouble.cc externalFunctionsMpfr.cc function.cc lexer.cc mpfrInterface.cc parserExec.cc token.cc util.cc
 all: all-am
 
 .SUFFIXES:
@@ -566,9 +576,6 @@ uninstall-am: uninstall-binPROGRAMS
 	ps ps-am tags tags-am uninstall uninstall-am \
 	uninstall-binPROGRAMS
 
-
-#if MPFRINSTALLED
- #   AM_LDFLAGS = -lmpfr -lgmp
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
