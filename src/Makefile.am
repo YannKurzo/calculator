@@ -28,8 +28,3 @@ AM_CPPFLAGS += -Wmissing-include-dirs -Wnoexcept -Wold-style-cast -Woverloaded-v
 AM_CPPFLAGS += -Wredundant-decls -Wshadow -Wsign-conversion -Wsign-promo -Wstrict-null-sentinel
 AM_CPPFLAGS += -Wstrict-overflow=5 -Wswitch-default -Wundef -Werror -Wno-unused
 AM_CPPFLAGS += -Wzero-as-null-pointer-constant -Wuseless-cast
-
-# Check mpfr library
-if MPFRINSTALLED
-    AM_LDFLAGS = -lmpfr -lgmp
-endif
