@@ -32,6 +32,8 @@ This program can parse a string entered by the user. It calculates the mathemati
 
 ### Code corrections
 - Update help depending on command or argument
+- String error detection:
+  * "+4" => Core dump
 
 ### Doc
 - Doxygen
