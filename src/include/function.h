@@ -95,7 +95,7 @@ static functionMap_t functions_m =
     ADD("round" , 1, round, "Round to nearest"),
     
     // Other functions
-    ADD("abs"   , 1, abs,   "Compute absolute value"),
+    ADD("abs"   , 1, fabs,  "Compute absolute value"),
     
     // Defined in externalFunctions.h
     ADDSAMENAME("pi"    , 0, pi,    "Return pi"),
