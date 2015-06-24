@@ -10,6 +10,7 @@
 
 #include "lexer.h"
 #include "function.h"
+#include "util.h"
 
 #include <iostream>
 #include <cctype>

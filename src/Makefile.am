@@ -8,4 +8,4 @@ AM_CPPFLAGS += -pedantic -Wall -Wextra -Wcast-align -Wcast-qual -Wctor-dtor-priv
  #   AM_LDFLAGS = -lmpfr -lgmp
 #endif
 
-calculator_SOURCES = main.cc analyze.cc application.cc command.cc externalFunctionsDouble.cc externalFunctionsMpfr.cc function.cc lexer.cc mpfrInterface.cc parserExec.cc token.cc
+calculator_SOURCES = main.cc analyze.cc application.cc command.cc externalFunctionsDouble.cc externalFunctionsMpfr.cc function.cc lexer.cc mpfrInterface.cc parserExec.cc token.cc util.cc

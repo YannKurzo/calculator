@@ -95,7 +95,7 @@ am_calculator_OBJECTS = main.$(OBJEXT) analyze.$(OBJEXT) \
 	externalFunctionsDouble.$(OBJEXT) \
 	externalFunctionsMpfr.$(OBJEXT) function.$(OBJEXT) \
 	lexer.$(OBJEXT) mpfrInterface.$(OBJEXT) parserExec.$(OBJEXT) \
-	token.$(OBJEXT)
+	token.$(OBJEXT) util.$(OBJEXT)
 calculator_OBJECTS = $(am_calculator_OBJECTS)
 calculator_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
@@ -247,7 +247,7 @@ AM_CPPFLAGS = -I$(srcdir)/include -std=c++11 -pedantic -Wall -Wextra \
 	-Wstrict-overflow=5 -Wswitch-default -Wundef -Werror \
 	-Wno-unused -Wzero-as-null-pointer-constant -Wuseless-cast
 #endif
-calculator_SOURCES = main.cc analyze.cc application.cc command.cc externalFunctionsDouble.cc externalFunctionsMpfr.cc function.cc lexer.cc mpfrInterface.cc parserExec.cc token.cc
+calculator_SOURCES = main.cc analyze.cc application.cc command.cc externalFunctionsDouble.cc externalFunctionsMpfr.cc function.cc lexer.cc mpfrInterface.cc parserExec.cc token.cc util.cc
 all: all-am
 
 .SUFFIXES:
@@ -346,6 +346,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mpfrInterface.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/parserExec.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/token.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/util.Po@am__quote@
 
 .cc.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
