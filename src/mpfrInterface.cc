@@ -10,8 +10,9 @@
 
 #include "mpfrInterface.h"
 
-
 #if(USE_MPFR_LIBRARY == 1)
+
+#include "util.h"
 
 #include <string>
 
