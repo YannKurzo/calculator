@@ -26,9 +26,23 @@ This program can parse a string entered by the user. It calculates the mathemati
 
 ### Missing features (in development):
 - Add usual constants in external functions
-- Autoconf tool not working with mpfr library yet
 - Check printing with mpfr
 - Configuration output format for argument mode
+
+### Compilation
+- This program uses the autoconf / automake tool for the compilation.
+- To be able to compile, the following tools are necessary:
+  * a UNIX like environment (Linux / cygwin for Windows)
+  * the "make" command
+- For the compilation, run the following commands:
+  * ./configure
+  * make
+  * make install
+- Help can be found by using:
+  * ./configure --help
+- Getting the mpfr library (this library is only necessary for compiling for big numbers)
+  * Linux: http://www.mpfr.org/mpfr-current/#download
+  * Cygwin: use the setup to install it
 
 ### Code corrections
 - Update help depending on command or argument
