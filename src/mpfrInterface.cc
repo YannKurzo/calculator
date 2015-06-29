@@ -161,7 +161,7 @@ Mpfr operator%(Mpfr const& mpfr1, Mpfr const& mpfr2)
     result %= mpfr2;
     return result;
 }
-
+#include <iostream>
 void Mpfr::display(std::ostream& flow) const
 {
     // Basic checks
@@ -194,12 +194,22 @@ void Mpfr::display(std::ostream& flow) const
         {
             flow << "-";
         }
-
+        
         // If bigger than 1
         if(exp > 0)
         {
             unsigned long int comma = static_cast<unsigned long int>(exp) + sign;
-            flow << digits.substr(sign, comma-sign) << "." << digits.substr(comma, digits.size());
+            
+            // Check ending zeroes
+            unsigned long int end = digits.size()-1;
+            while(digits.at(end) == '0' && end >= comma)
+                --end;
+            
+            // If there is nothing after the comma
+            if(comma > end)
+                flow << digits.substr(sign, comma-sign);
+            else
+                flow << digits.substr(sign, comma-sign) << "." << digits.substr(comma, end-sign);
         }
         // Otherwise
         else
@@ -207,8 +217,14 @@ void Mpfr::display(std::ostream& flow) const
             flow << "0.";
             for(unsigned long int i=0; i<static_cast<unsigned long int>(-exp); ++i)
                 flow << "0";
+            
+            // Check ending zeroes
+            unsigned long int end = digits.size()-1;
+            while(digits.at(end) == '0' && end > 0)
+                --end;
 
-            flow << digits.substr(sign, digits.size());
+            // Print after the comma
+            flow << digits.substr(sign, end-sign+1);
         }
     }
 }
