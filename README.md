@@ -9,24 +9,21 @@ This program can parse a string entered by the user. It calculates the mathemati
 - Operator priority
 - Brackets
 - Functions
-- Implicit multiplication (Ex: 2(4+3) == 2*(4+3) || 2pi() == 2*pi() )
 - Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)
 - Argument mode
-  * "calculator 2*5 2+8" (multiple calculation in a row)
+  * "calculator "2*5" "2+8"" (multiple calculation in a row, use quotation marks)
   * "calculator -h" (shortcut argument)
   * "calculator --help" (full argument)
 - Command mode
-  * 2*5 (single calculation at a time)
+  * 2*5 2+8 (multiple calculation in a row, separated by spaces)
   * "-h" command (shortcut command)
   * "help" command (full command)
-- Argument and commands
-  * Use help to get a list
-  * Actual list: exit, list-available-functions, help
+- Use the help command to get a list of available commands
 - Calculation using double type or mpfr library (see config.h file)
 
 ### Missing features (in development):
 - Add save / restore with =
-- Configuration output format for argument mode
+- Implicit multiplication (Ex: 2(4+3) == 2*(4+3) || 2pi() == 2*pi() )
 
 ### Compilation
 - This program uses the autoconf / automake tool for the compilation.
@@ -44,7 +41,6 @@ This program can parse a string entered by the user. It calculates the mathemati
   * Cygwin: https://cygwin.com/install.html (use the setup to install the library)
 
 ### Code corrections
-- Update help depending on command or argument
 - String error detection:
   * "+4" => Core dump
 
