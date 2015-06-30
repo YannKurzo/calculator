@@ -46,8 +46,6 @@ The program can be launched without parameters. It will then work as a bash and 
   * Cygwin: https://cygwin.com/install.html (use the setup to install the library)
 
 ### Code corrections
-- String error detection:
-  * "+4" => Core dump
 
 ### Doc
 - Doxygen
