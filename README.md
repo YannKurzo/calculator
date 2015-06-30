@@ -22,6 +22,7 @@ The program can be launched from a command line with multiple parameters. It wil
  
 ##### Command mode
 The program can be launched without parameters. It will then work as a bash and execute each calculation entered by the user without quitting the program. To quit, the "exit" (or "-q") can be used.
+ - Use:
   * 2*5 2+8 (multiple calculation in a row, separated by spaces)
   * "-h" command (shortcut command)
   * "help" command (full command)
