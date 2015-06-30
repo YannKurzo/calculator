@@ -54,4 +54,15 @@ void Constant::addConstant(std::string constantName, calculType_t value)
 #elif(USE_MPFR_LIBRARY == 1)
     constants_m.insert(ADD_CONSTANT(constantName, 0., to_string(value), "User constant"));
 #endif
+    
+    // Re-set if it was already defined (only for user constants))
+    if(constants_m[constantName].help == "User constant")
+    {
+        constants_m.erase(constantName);
+#if(USE_DOUBLE_TYPE == 1)
+        constants_m.insert(ADD_CONSTANT(constantName, value, to_string(value), "User constant"));
+#elif(USE_MPFR_LIBRARY == 1)
+        constants_m.insert(ADD_CONSTANT(constantName, 0., to_string(value), "User constant"));
+#endif
+    }
 }
