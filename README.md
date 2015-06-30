@@ -46,6 +46,7 @@ The program can be launched without parameters. It will then work as a bash and 
   * Cygwin: https://cygwin.com/install.html (use the setup to install the library)
 
 ### Code corrections
+- Infinite loop with x*constant with implicite multiplication
 
 ### Doc
 - Doxygen
