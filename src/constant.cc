@@ -47,8 +47,10 @@ std::string Constant::getConstantList(void)
     return str;
 }
 
-void Constant::addConstant(std::string constantName, calculType_t value)
+bool Constant::addConstant(std::string constantName, calculType_t value)
 {
+    bool ret = true;
+    
 #if(USE_DOUBLE_TYPE == 1)
     constants_m.insert(ADD_CONSTANT(constantName, value, to_string(value), "User constant"));
 #elif(USE_MPFR_LIBRARY == 1)
@@ -65,4 +67,11 @@ void Constant::addConstant(std::string constantName, calculType_t value)
         constants_m.insert(ADD_CONSTANT(constantName, 0., to_string(value), "User constant"));
 #endif
     }
+    else
+    {
+        // Constant was not set
+        ret = false;
+    }
+    
+    return ret;
 }

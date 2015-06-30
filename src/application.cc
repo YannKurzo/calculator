@@ -16,6 +16,8 @@
 
 using namespace std;
 
+#define THROW(str) throw runtime_error(str);
+
 Application::Application(int argc, char* argv[])
 {
     argc_m = argc;
@@ -59,11 +61,6 @@ void Application::startArgument(void)
         {
             startAnalyse();
         }
-        // Else cancel
-/*        else
-        {
-            break;
-        }*/
     }
 }
 
@@ -171,7 +168,11 @@ void Application::startAnalyse(void)
         // Check if setting new variable
         if(variable_m != "")
         {
-            Constant::addConstant(variable_m, an.getResult());
+            // Check if the variable can be modified
+            if(!Constant::addConstant(variable_m, an.getResult()))
+            {
+                THROW("Variable not set (existing constant)!");
+            }
             str_m = variable_m;
         }
         

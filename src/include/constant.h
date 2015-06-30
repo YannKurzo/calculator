@@ -103,7 +103,7 @@ class Constant
         /// @brief  Add a new constant
         /// @param  constantName Constant name
         /// @param  value Value
-        static void addConstant(std::string constantName, calculType_t value);
+        static bool addConstant(std::string constantName, calculType_t value);
 };
 
 
