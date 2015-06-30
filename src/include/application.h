@@ -26,6 +26,9 @@ class Application
         /// String to compute
         std::string str_m;
         
+        /// String for defining variable with =
+        std::string variable_m;
+        
         /// Number of main arguments
         int argc_m;
         

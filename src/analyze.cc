@@ -11,6 +11,7 @@
 #include "config.h"
 #include "analyze.h"
 #include "lexer.h"
+#include "constant.h"
 
 #include <iostream>
 

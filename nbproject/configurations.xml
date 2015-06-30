@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="95">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="src" displayName="src" projectFiles="true">
+      <logicalFolder name="include" displayName="include" projectFiles="true">
+        <itemPath>src/include/analyze.h</itemPath>
+        <itemPath>src/include/application.h</itemPath>
+        <itemPath>src/include/command.h</itemPath>
+        <itemPath>src/include/config.h</itemPath>
+        <itemPath>src/include/constant.h</itemPath>
+        <itemPath>src/include/externalFunctionsDouble.h</itemPath>
+        <itemPath>src/include/externalFunctionsMpfr.h</itemPath>
+        <itemPath>src/include/function.h</itemPath>
+        <itemPath>src/include/lexer.h</itemPath>
+        <itemPath>src/include/mpfrInterface.h</itemPath>
+        <itemPath>src/include/parserExec.h</itemPath>
+        <itemPath>src/include/token.h</itemPath>
+        <itemPath>src/include/util.h</itemPath>
+      </logicalFolder>
+      <itemPath>src/analyze.cc</itemPath>
+      <itemPath>src/application.cc</itemPath>
+      <itemPath>src/command.cc</itemPath>
+      <itemPath>src/constant.cc</itemPath>
+      <itemPath>src/externalFunctionsDouble.cc</itemPath>
+      <itemPath>src/externalFunctionsMpfr.cc</itemPath>
+      <itemPath>src/function.cc</itemPath>
+      <itemPath>src/lexer.cc</itemPath>
+      <itemPath>src/main.cc</itemPath>
+      <itemPath>src/mpfrInterface.cc</itemPath>
+      <itemPath>src/parserExec.cc</itemPath>
+      <itemPath>src/token.cc</itemPath>
+      <itemPath>src/util.cc</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>src</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <standard>8</standard>
+          <incDir>
+            <pElem>src/include</pElem>
+          </incDir>
+        </ccTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibLibItem>mpfr</linkerLibLibItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="src/analyze.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/application.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/command.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/constant.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/externalFunctionsDouble.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/externalFunctionsMpfr.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/function.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/include/analyze.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/application.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/command.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/config.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/constant.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/externalFunctionsDouble.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/include/externalFunctionsMpfr.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/include/function.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/lexer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/mpfrInterface.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/parserExec.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/token.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/util.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/lexer.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/main.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/mpfrInterface.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/parserExec.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/token.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/util.cc" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="src/analyze.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/application.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/command.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/constant.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/externalFunctionsDouble.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/externalFunctionsMpfr.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/function.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/include/analyze.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/application.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/command.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/config.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/constant.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/externalFunctionsDouble.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/include/externalFunctionsMpfr.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/include/function.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/lexer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/mpfrInterface.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/parserExec.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/token.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/include/util.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/lexer.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/main.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/mpfrInterface.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/parserExec.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/token.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/util.cc" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

@@ -34,7 +34,7 @@ void Lexer::start(void)
 	
     // Check brackets
     checkBrackets();
-	
+    
 	// Push every token from the string
 	pushTokens();
 	

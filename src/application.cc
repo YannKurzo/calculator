@@ -145,6 +145,18 @@ command_e Application::checkCommand(void)
 
 void Application::startAnalyse(void)
 {
+    // Check equality sign
+    std::size_t signPosition = str_m.find(string("="));
+    if(signPosition != string::npos)
+    {
+        variable_m = str_m.substr(0, signPosition);
+        str_m = str_m.substr(signPosition+1, str_m.size());
+    }
+    else
+    {
+        variable_m = "";
+    }
+    
     // Analyze
     Analyze an(str_m);
     
@@ -155,7 +167,14 @@ void Application::startAnalyse(void)
         
         // Calculates
         an.parserExec();
-
+        
+        // Check if setting new variable
+        if(variable_m != "")
+        {
+            Constant::addConstant(variable_m, an.getResult());
+            str_m = variable_m;
+        }
+        
         // Display result
         cout << "Result:" << endl;
         cout << "        " << str_m << " = " << an.getResult() << endl << endl;

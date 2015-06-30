@@ -99,6 +99,11 @@ class Constant
         /// @brief  Get a string containing the list of implemented constants
         /// @return Constants list
         static std::string getConstantList(void);
+        
+        /// @brief  Add a new constant
+        /// @param  constantName Constant name
+        /// @param  value Value
+        static void addConstant(std::string constantName, calculType_t value);
 };
 
 
