@@ -10,16 +10,21 @@ This program can parse a string entered by the user. It calculates the mathemati
 - Brackets
 - Functions
 - Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)
-- Argument mode
+- Use the help command to get a list of available commands
+- Calculation using double type or mpfr library (see config.h file)
+
+##### Argument mode
+The program can be launched from a command line with multiple parameters. It will displays all the results separated by spaces and then automatically quit the program.
+ - Use:
   * "calculator "2*5" "2+8"" (multiple calculation in a row, use quotation marks)
   * "calculator -h" (shortcut argument)
   * "calculator --help" (full argument)
-- Command mode
+ 
+##### Command mode
+The program can be launched without parameters. It will then work as a bash and execute each calculation entered by the user without quitting the program. To quit, the "exit" (or "-q") can be used.
   * 2*5 2+8 (multiple calculation in a row, separated by spaces)
   * "-h" command (shortcut command)
   * "help" command (full command)
-- Use the help command to get a list of available commands
-- Calculation using double type or mpfr library (see config.h file)
 
 ### Missing features (in development):
 - Add save / restore with =
