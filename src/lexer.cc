@@ -88,7 +88,7 @@ void Lexer::pushTokens(void)
 		// Functions
 		else
 		{
-			i = pushFunction(i);
+			i = pushFunctionOrConstant(i);
 		}
     }
 	
@@ -160,7 +160,7 @@ unsigned int Lexer::pushComma(unsigned int startIndex)
     return startIndex;
 }
 
-unsigned int Lexer::pushFunction(unsigned int startIndex)
+unsigned int Lexer::pushFunctionOrConstant(unsigned int startIndex)
 {
 	unsigned int stopIndex = startIndex + 1;
 	
@@ -181,12 +181,12 @@ unsigned int Lexer::pushFunction(unsigned int startIndex)
         // Check if function exists
         if(Function::getFunction(str) == NULL)
         {
-            THROW("Function " + tokenVector_m.back().getStr() + "() is not implemented!");
+            THROW("Function " + str + "() is not implemented!");
         }
         // Check for brackets when at the end of the string
         else if(stopIndex == str_m.length())
         {
-            THROW("Missing brackets at function " + tokenVector_m.back().getStr() + "()!");
+            THROW("Missing brackets at function " + str + "()!");
         }
         
         // Add function
@@ -204,11 +204,11 @@ unsigned int Lexer::pushFunction(unsigned int startIndex)
     // If it is a constant
     else
     {
-        // Check if function exists
-        // if(Constant::getConstant(str) == "")
-        // {
-            // THROW("Constant " + tokenVector_m.back().getStr() + " is not implemented!");
-        // }
+        // Check if constant exists
+        if(!Constant::exist(str))
+        {
+            THROW("Constant " + str + " is not implemented!");
+        }
         
         // Add Constant
         tokenVector_m.push_back(Token(Token::eTOKENTYPE_CONSTANT, str));

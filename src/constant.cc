@@ -26,6 +26,11 @@ std::string Constant::getConstant(const std::string &str)
     return constants_m[str].value;
 }
 
+bool Constant::exist(const std::string &str)
+{
+    return (constants_m[str].help != "");
+}
+
 std::string Constant::getConstantList(void)
 {
     string str("");

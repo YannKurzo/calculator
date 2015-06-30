@@ -59,6 +59,11 @@ class ParserExec
         /// @return The number of token that were erased
         unsigned int exec(unsigned int index);
         
+        /// @brief	Replace the constant by its value
+        /// @param  constantName Name of the constant
+        /// @return The value of the constant
+        calculType_t execConstant(std::string constantName);
+        
         /// @brief	Calculate with normal operators (+ - * / ^ %)
         /// @param  op Operator string
         /// @param  left Left operand

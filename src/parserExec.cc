@@ -98,12 +98,12 @@ unsigned int ParserExec::exec(unsigned int index)
     if(type == Token::eTOKENTYPE_CONSTANT)
     {
 		// Calculate
-        calculType_t res(Constant::getConstant(tokenVector_m[index].getStr()));
-        tokenVector_m[index].setN(res);
+        tokenVector_m[index].setN(
+            execConstant(
+                tokenVector_m[index].getStr()
+            )
+        );
         
-#if(DISPLAY_OPERATIONS == 1)
-        cout << tokenVector_m[index].getStr() << " = " << Constant::getConstant(tokenVector_m[index].getStr()) << endl;
-#endif
 		// Update vector length
         vectorLenghtChange = 0;
     }
@@ -174,6 +174,17 @@ unsigned int ParserExec::exec(unsigned int index)
     }
 	
 	return vectorLenghtChange;
+}
+
+calculType_t ParserExec::execConstant(std::string constantName)
+{
+    calculType_t res(Constant::getConstant(constantName));
+        
+#if(DISPLAY_OPERATIONS == 1)
+    cout << constantName << " = " << res << endl;
+#endif
+
+    return res;
 }
 
 calculType_t ParserExec::execOperator(std::string op, calculType_t left, calculType_t right)

@@ -68,6 +68,8 @@ class Constant
 #elif(USE_MPFR_LIBRARY == 1)
         static std::string getConstant(const std::string &str);
 #endif
+
+        static bool exist(const std::string &str);
         
         /// @brief  Get a string containing the list of implemented constants
         /// @return Constants list

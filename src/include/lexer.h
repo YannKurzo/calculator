@@ -69,10 +69,10 @@ class Lexer
         /// @return New index after pushing the number
         unsigned int pushComma(unsigned int startIndex);
 
-        /// @brief	Push the function starting at the defined index of the string
-        /// @param  startIndex Starting index of the function
+        /// @brief	Push the function or constant starting at the defined index of the string
+        /// @param  startIndex Starting index of the function / constant
         /// @return New index after pushing the number
-        unsigned int pushFunction(unsigned int startIndex);
+        unsigned int pushFunctionOrConstant(unsigned int startIndex);
 
         /// @brief  Erase all unnecessary characters of the string
         void cleanString(void);
