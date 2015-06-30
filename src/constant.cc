@@ -17,7 +17,11 @@
 
 using namespace std;
 
-constantType_t Constant::getConstant(const std::string &str)
+#if(USE_DOUBLE_TYPE == 1)
+double Constant::getConstant(const std::string &str)
+#elif(USE_MPFR_LIBRARY == 1)
+std::string Constant::getConstant(const std::string &str)
+#endif
 {
     return constants_m[str].value;
 }

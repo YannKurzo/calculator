@@ -48,6 +48,11 @@ Mpfr::Mpfr(const char *str)
     init(str);
 }
 
+Mpfr::Mpfr(const std::string& str)
+{
+    init(str.c_str());
+}
+
 Mpfr::Mpfr(double n)
 {
     init(to_string(n).c_str());

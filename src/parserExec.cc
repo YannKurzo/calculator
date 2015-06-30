@@ -98,7 +98,8 @@ unsigned int ParserExec::exec(unsigned int index)
     if(type == Token::eTOKENTYPE_CONSTANT)
     {
 		// Calculate
-        tokenVector_m[index].setN(Constant::getConstant(tokenVector_m[index].getStr()));
+        calculType_t res(Constant::getConstant(tokenVector_m[index].getStr()));
+        tokenVector_m[index].setN(res);
         
 #if(DISPLAY_OPERATIONS == 1)
         cout << tokenVector_m[index].getStr() << " = " << Constant::getConstant(tokenVector_m[index].getStr()) << endl;

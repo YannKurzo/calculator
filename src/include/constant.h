@@ -24,16 +24,18 @@
 /// @param  help Help notice for this function
 #if(USE_DOUBLE_TYPE == 1)
 #define ADD_CONSTANT(str, doubleValue, mpfrValue, help) {str, {doubleValue, help}}
-typedef double constantType_t;
 #elif(USE_MPFR_LIBRARY == 1)
 #define ADD_CONSTANT(str, doubleValue, mpfrValue, help) {str, {mpfrValue, help}}
-typedef std::string constantType_t;
 #endif
 
 /// @brief  Structure to hold a constant
 typedef struct
 {
-    constantType_t value;       ///< 
+#if(USE_DOUBLE_TYPE == 1)
+    double value;       ///< 
+#elif(USE_MPFR_LIBRARY == 1)
+    std::string value;       ///< 
+#endif
     std::string help;           ///< Help notice
 }constant_t;
 
@@ -61,7 +63,11 @@ class Constant
         /// @brief  Get a constant
         /// @param  str Name of the constant
         /// @return Value of the constant
-        static constantType_t getConstant(const std::string &str);
+#if(USE_DOUBLE_TYPE == 1)
+        static double getConstant(const std::string &str);
+#elif(USE_MPFR_LIBRARY == 1)
+        static std::string getConstant(const std::string &str);
+#endif
         
         /// @brief  Get a string containing the list of implemented constants
         /// @return Constants list

@@ -67,6 +67,9 @@ class Mpfr
         /// @brief  Constructor from a string
         Mpfr(const char *str);
         
+        /// @brief  Constructor from a string
+        Mpfr(const std::string& str);
+        
         /// @brief  Constructor from a double
         Mpfr(double n);
         
