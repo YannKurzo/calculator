@@ -9,6 +9,8 @@
 //  ==========================================================================
 
 #include "application.h"
+#include "analyze.h"
+#include "constant.h"
 
 #include <iostream>
 
@@ -118,6 +120,9 @@ command_e Application::checkCommand(void)
                 break;
             case eCOMMAND_LIST_AVAILABLE_FUNCTIONS:
                 cout << Function::getFunctionList() << endl;
+                break;
+            case eCOMMAND_LIST_AVAILABLE_CONSTANTS:
+                cout << Constant::getConstantList() << endl;
                 break;
             case eCOMMAND_HELP:
                 cout << Command::getHelp() << endl;

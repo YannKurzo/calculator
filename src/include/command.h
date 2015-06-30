@@ -17,6 +17,7 @@
 typedef enum
 {
     eCOMMAND_LIST_AVAILABLE_FUNCTIONS,
+    eCOMMAND_LIST_AVAILABLE_CONSTANTS,
     eCOMMAND_SET_PRECISION,
     eCOMMAND_HELP,
     eCOMMAND_EXIT,
@@ -35,7 +36,8 @@ typedef struct
 /// @brief  List of commands
 static const command_t commands[] =
 {
-    {eCOMMAND_LIST_AVAILABLE_FUNCTIONS, "list-available-functions", "-l", "Show a list of available functions"},
+    {eCOMMAND_LIST_AVAILABLE_FUNCTIONS, "list-available-functions", "-f", "Show a list of available functions"},
+    {eCOMMAND_LIST_AVAILABLE_CONSTANTS, "list-available-constants", "-c", "Show a list of available constants"},
     {eCOMMAND_SET_PRECISION, "set-precision", "-p", "Set the precision (only with Mpfr library). Use:\n    set-precision=25 / -p=25"},
     {eCOMMAND_HELP, "help", "-h", "Show this"},
     {eCOMMAND_EXIT, "exit", "-q", "Exit the program"}

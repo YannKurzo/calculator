@@ -12,7 +12,6 @@
 #define	APPLICATION_H
 
 #include "mpfrInterface.h"
-#include "analyze.h"
 #include "command.h"
 
 #include <string>

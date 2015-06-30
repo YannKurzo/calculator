@@ -41,7 +41,7 @@ std::string Constant::getConstantList(void)
         str = str + "  " + it->first + " : ";
         
         // End
-        str = str + it->second.help + " (" + to_string(it->second.value) + ")\n";
+        str = str + it->second.help + " (" + to_string(it->second.value).substr(0, 15) + ")\n";
     }
     
     return str;
