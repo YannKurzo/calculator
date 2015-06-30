@@ -28,7 +28,6 @@ The program can be launched without parameters. It will then work as a bash and 
   * "help" command (full command)
 
 ### Missing features (in development):
-- Add save / restore with =
 
 ### Compilation
 - This program uses the autoconf / automake tool for the compilation.
@@ -49,6 +48,8 @@ The program can be launched without parameters. It will then work as a bash and 
 - Infinite loop with x*constant with implicite multiplication
 - Calculation results as single answer with spaces when using argument mode
 - Use stringstream for helps
+- Check string before/after "=" sign
+- Function exist creates an empty constant when it does not exist. A double call becomes erounous
 
 ### Doc
 - Doxygen
