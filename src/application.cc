@@ -25,7 +25,10 @@ Application::Application(int argc, char* argv[])
     argumentPresent_m = (argc_m > 1);
         
     // Show title
-    showTitle();
+    if(!argumentPresent_m)
+    {
+        showTitle();
+    }
     
     // Set cout precision
     cout.precision(15);
@@ -125,7 +128,7 @@ command_e Application::checkCommand(void)
                 cout << Constant::getConstantList() << endl;
                 break;
             case eCOMMAND_HELP:
-                cout << Command::getHelp() << endl;
+                cout << Command::getHelp(true, !argumentPresent_m) << endl;
                 break;
             default:
                 break;

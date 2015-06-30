@@ -12,6 +12,7 @@
 #define	COMMAND_H
 
 #include <string>
+#include <vector>
 
 /// @brief  List of available commands and arguments
 typedef enum
@@ -31,16 +32,17 @@ typedef struct
     std::string command;        ///< Command name
     std::string shortcut;       ///< Command shortcut (-h)
     std::string help;           ///< Help notice
+    std::vector<std::string> details;///< Detailed help notice
 }command_t;
 
 /// @brief  List of commands
 static const command_t commands[] =
 {
-    {eCOMMAND_LIST_AVAILABLE_FUNCTIONS, "list-available-functions", "-f", "Show a list of available functions"},
-    {eCOMMAND_LIST_AVAILABLE_CONSTANTS, "list-available-constants", "-c", "Show a list of available constants"},
-    {eCOMMAND_SET_PRECISION, "set-precision", "-p", "Set the precision (only with Mpfr library). Use:\n    set-precision=25 / -p=25"},
-    {eCOMMAND_HELP, "help", "-h", "Show this"},
-    {eCOMMAND_EXIT, "exit", "-q", "Exit the program"}
+    {eCOMMAND_LIST_AVAILABLE_FUNCTIONS, "functions-list", "-f", "Show a list of available functions",{""}},
+    {eCOMMAND_LIST_AVAILABLE_CONSTANTS, "constants-list", "-c", "Show a list of available constants",{""}},
+    {eCOMMAND_SET_PRECISION, "set-precision", "-p", "Set the precision (only with Mpfr library)",{"Use:","-p=nbBits | --set-precision=nbBits"}},
+    {eCOMMAND_HELP, "help", "-h", "Display this help",{""}},
+    {eCOMMAND_EXIT, "exit", "-q", "Exit the program",{""}}
 };
 
 /// @brief  This class handles the different commands and arguments
@@ -67,8 +69,14 @@ class Command
         static int getValue(std::string command);
         
         /// @brief  Get help about the commands
+        /// @param  detailed Detailed help if true
         /// @return String containing the help
-        static std::string getHelp(void);
+        static std::string getHelp(bool detailed, bool command);
+        
+        /// @brief  Get detailed help about a commands
+        /// @param  command Which command
+        /// @return String containing the help
+        static std::string getDetailedHelp(command_e command);
 };
 
 #endif	/* COMMAND_H */
