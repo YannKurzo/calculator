@@ -5,7 +5,7 @@ This program can parse a string entered by the user. It calculates the mathemati
 
 ### Working features:
 - Numbers
-- Operators (+,-,*,/,^,%, unary minus -)
+- Operators (+,-,\*,/,^,%, unary minus -, implicit multiplication [2pi => 2\*pi])
 - Operator priority
 - Brackets
 - Functions
@@ -29,7 +29,6 @@ The program can be launched without parameters. It will then work as a bash and 
 
 ### Missing features (in development):
 - Add save / restore with =
-- Implicit multiplication (Ex: 2(4+3) == 2 * (4+3) || 2pi() == 2 * pi() )
 
 ### Compilation
 - This program uses the autoconf / automake tool for the compilation.
