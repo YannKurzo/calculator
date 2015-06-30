@@ -26,7 +26,6 @@ This program can parse a string entered by the user. It calculates the mathemati
 
 ### Missing features (in development):
 - Add usual constants in external functions
-- Check printing with mpfr
 - Configuration output format for argument mode
 
 ### Compilation
