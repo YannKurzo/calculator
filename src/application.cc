@@ -130,6 +130,11 @@ command_e Application::checkCommand(void)
             case eCOMMAND_HELP:
                 cout << Command::getHelp(true, !argumentPresent_m) << endl;
                 break;
+            case eCOMMAND_VERSION:
+                cout << applicationName_m << " " << applicationVersion_m << endl << endl;
+                cout << "Copyright 2015 Yann Kurzo. All rights reserved." << endl;
+                cout << "This project is released under the GNU Public License" << endl;
+                break;
             default:
                 break;
         }
