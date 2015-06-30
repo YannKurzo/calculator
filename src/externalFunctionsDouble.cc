@@ -12,12 +12,14 @@
 #include "externalFunctionsDouble.h"
 
 #if(USE_DOUBLE_TYPE == 1)
+    
+#include "constant.h"
 
 #include <cmath>
 
 double pi(void)
 {
-    return 3.14159265358979323;
+    return Constant::getConstant("pi");
 }
 
 double inf(void)
