@@ -56,8 +56,8 @@ static constantMap_t constants_m =
     // ADD_CONSTANT("e"    , 1.602176565e-19,  "1.602176565e-19",  "Elementary charge"),
     ADD_CONSTANT("NA"   , 6.02214129e23,    "6.02214129e23",    "Avogadro's constant [1/mol]"),
     ADD_CONSTANT("k"    , 1.3806488e23,     "1.3806488e23",     "Boltmann's constant [J/K]"),
-    ADD_CONSTANT("R"    , 8.3144621.,       "8.3144621",        "Gas constant [J/mol K]"),
-    ADD_CONSTANT("g"    , 9.80665.,         "9.80665",          "Standard gravity [m/s²]"),
+    ADD_CONSTANT("R"    , 8.3144621,        "8.3144621",        "Gas constant [J/mol K]"),
+    ADD_CONSTANT("g"    , 9.80665,          "9.80665",          "Standard gravity [m/s²]"),
     
     // Mathematical constants
     ADD_CONSTANT("pi"   , 3.14159265358979323,

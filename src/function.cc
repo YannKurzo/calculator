@@ -26,6 +26,11 @@ func_ptr Function::getFunction(const std::string &str)
     return functions_m[str].func_p;
 }
 
+bool Function::exist(const std::string &str)
+{
+    return (functions_m[str].help != "");
+}
+
 std::string Function::getFunctionList(void)
 {
     string str("");

@@ -33,12 +33,12 @@ typedef void (*func_ptr)();
 /// @param  functionName Name of the function in the library or declared in externalFunctions.h
 /// @param  help Help notice for this function
 #if(USE_DOUBLE_TYPE == 1)
-#define ADD(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast<func_ptr>(&functionName), help}}
+#define ADD_FUNCTION(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast<func_ptr>(&functionName), help}}
 #elif(USE_MPFR_LIBRARY == 1)
-#define ADD(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast<func_ptr>(&mpfr_##functionName), help}}
+#define ADD_FUNCTION(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast<func_ptr>(&mpfr_##functionName), help}}
 #endif
 
-#define ADDSAMENAME(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast<func_ptr>(&functionName), help}}
+#define ADD_FUNCTION_SAMENAME(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast<func_ptr>(&functionName), help}}
 
 
 /// @brief  Structure to hold a function
@@ -61,50 +61,50 @@ typedef functionMap_t::iterator functionMapIterator_t;
 static functionMap_t functions_m = 
 {
     // Trigonometric functions
-    ADD("cos"   , 1, cos,   "Compute cosine"),
-    ADD("sin"   , 1, sin,   "Compute sine"),
-    ADD("tan"   , 1, tan,   "Compute tangent"),
-    ADD("acos"  , 1, acos,  "Compute arc cosine"),
-    ADD("asin"  , 1, asin,  "Compute arc sine"),
-    ADD("atan"  , 1, atan,  "Compute arc tangent"),
+    ADD_FUNCTION("cos"   , 1, cos,   "Compute cosine"),
+    ADD_FUNCTION("sin"   , 1, sin,   "Compute sine"),
+    ADD_FUNCTION("tan"   , 1, tan,   "Compute tangent"),
+    ADD_FUNCTION("acos"  , 1, acos,  "Compute arc cosine"),
+    ADD_FUNCTION("asin"  , 1, asin,  "Compute arc sine"),
+    ADD_FUNCTION("atan"  , 1, atan,  "Compute arc tangent"),
     
     // Hyperbolic functions
-    ADD("cosh"  , 1, cosh,  "Compute hyperbolic cosine"),
-    ADD("sinh"  , 1, sinh,  "Compute hyperbolic sine"),
-    ADD("tanh"  , 1, tanh,  "Compute hyperbolic tangent"),
-    ADD("acosh" , 1, acosh, "Compute arc hyperbolic cosine"),
-    ADD("asinh" , 1, asinh, "Compute arc hyperbolic sine"),
-    ADD("atanh" , 1, atanh, "Compute arc hyperbolic tangent"),
+    ADD_FUNCTION("cosh"  , 1, cosh,  "Compute hyperbolic cosine"),
+    ADD_FUNCTION("sinh"  , 1, sinh,  "Compute hyperbolic sine"),
+    ADD_FUNCTION("tanh"  , 1, tanh,  "Compute hyperbolic tangent"),
+    ADD_FUNCTION("acosh" , 1, acosh, "Compute arc hyperbolic cosine"),
+    ADD_FUNCTION("asinh" , 1, asinh, "Compute arc hyperbolic sine"),
+    ADD_FUNCTION("atanh" , 1, atanh, "Compute arc hyperbolic tangent"),
     
     // Exponential and logarithmic functions
-    ADD("exp"   , 1, exp,   "Compute exponential function"),
-    ADD("log"   , 1, log,   "Compute natural logarithm"),
-    ADD("log10" , 1, log10, "Compute common logarithm"),
-    ADD("log2"  , 1, log2,  "Compute binary logarithm"),
+    ADD_FUNCTION("exp"   , 1, exp,   "Compute exponential function"),
+    ADD_FUNCTION("log"   , 1, log,   "Compute natural logarithm"),
+    ADD_FUNCTION("log10" , 1, log10, "Compute common logarithm"),
+    ADD_FUNCTION("log2"  , 1, log2,  "Compute binary logarithm"),
     
     // Power functions
-    ADD("pow"   , 2, pow,   "Raise to power"),
-    ADD("sqrt"  , 1, sqrt,  "Compute square root"),
-    ADD("cbrt"  , 1, cbrt,  "Compute cubic root"),
-    ADD("hypot" , 2, hypot, "Compute hypotenuse"),
+    ADD_FUNCTION("pow"   , 2, pow,   "Raise to power"),
+    ADD_FUNCTION("sqrt"  , 1, sqrt,  "Compute square root"),
+    ADD_FUNCTION("cbrt"  , 1, cbrt,  "Compute cubic root"),
+    ADD_FUNCTION("hypot" , 2, hypot, "Compute hypotenuse"),
     
     // Rounding and remainder functions
-    ADD("ceil"  , 1, ceil,  "Round up value"),
-    ADD("floor" , 1, floor, "Round down value"),
-    ADD("fmod"  , 2, fmod,  "Compute remainder of division"),
-    ADD("trunc" , 1, trunc, "Truncate value"),
-    ADD("round" , 1, round, "Round to nearest"),
+    ADD_FUNCTION("ceil"  , 1, ceil,  "Round up value"),
+    ADD_FUNCTION("floor" , 1, floor, "Round down value"),
+    ADD_FUNCTION("fmod"  , 2, fmod,  "Compute remainder of division"),
+    ADD_FUNCTION("trunc" , 1, trunc, "Truncate value"),
+    ADD_FUNCTION("round" , 1, round, "Round to nearest"),
     
     // Other functions
-    ADD("abs"   , 1, abs,   "Compute absolute value"),
+    ADD_FUNCTION("abs"   , 1, abs,   "Compute absolute value"),
     
     // Defined in externalFunctions.h
-    ADDSAMENAME("pi"    , 0, pi,    "Return pi"),
-    ADDSAMENAME("inf"   , 0, inf,   "Return INFINITY")
+    ADD_FUNCTION_SAMENAME("pi"    , 0, pi,    "Return pi"),
+    ADD_FUNCTION_SAMENAME("inf"   , 0, inf,   "Return INFINITY")
 };
 
 /// @brief  This class is used to handle library or user defined functions.
-/// @note   New functions can be easily added with the ADD macro.
+/// @note   New functions can be easily added with the ADD_FUNCTION_SAMENAME macro.
 class Function
 {
     public:
@@ -117,6 +117,10 @@ class Function
         /// @param  str Name of the function
         /// @return Pointer to the function, NULL if it does not exist
         static func_ptr getFunction(const std::string &str);
+        
+        /// @brief  Check if a function exists
+        /// @return true if it exists, false otherwise
+        static bool exist(const std::string &str);
         
         /// @brief  Get a string containing the list of implemented functions
         /// @return Function list

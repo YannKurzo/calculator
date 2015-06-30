@@ -179,7 +179,7 @@ unsigned int Lexer::pushFunctionOrConstant(unsigned int startIndex)
     if(stopIndex < str_m.size() && bracketsOpen.find(str_m.at(stopIndex)) != string::npos)
     {
         // Check if function exists
-        if(Function::getFunction(str) == NULL)
+        if(!Function::exist(str))
         {
             THROW("Function " + str + "() is not implemented!");
         }
