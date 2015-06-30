@@ -91,7 +91,7 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_calculator_OBJECTS = main.$(OBJEXT) analyze.$(OBJEXT) \
-	application.$(OBJEXT) command.$(OBJEXT) \
+	application.$(OBJEXT) command.$(OBJEXT) constant.$(OBJEXT) \
 	externalFunctionsDouble.$(OBJEXT) \
 	externalFunctionsMpfr.$(OBJEXT) function.$(OBJEXT) \
 	lexer.$(OBJEXT) mpfrInterface.$(OBJEXT) parserExec.$(OBJEXT) \
@@ -241,9 +241,9 @@ top_srcdir = @top_srcdir@
 
 # Source files
 calculator_SOURCES = main.cc analyze.cc application.cc command.cc \
-	externalFunctionsDouble.cc externalFunctionsMpfr.cc \
-	function.cc lexer.cc mpfrInterface.cc parserExec.cc token.cc \
-	util.cc
+	constant.cc externalFunctionsDouble.cc \
+	externalFunctionsMpfr.cc function.cc lexer.cc mpfrInterface.cc \
+	parserExec.cc token.cc util.cc
 
 # Include files
 
@@ -348,6 +348,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/analyze.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/application.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/command.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/constant.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/externalFunctionsDouble.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/externalFunctionsMpfr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/function.Po@am__quote@

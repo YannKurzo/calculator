@@ -6,6 +6,7 @@ calculator_SOURCES = main.cc
 calculator_SOURCES += analyze.cc
 calculator_SOURCES += application.cc
 calculator_SOURCES += command.cc
+calculator_SOURCES += constant.cc
 calculator_SOURCES += externalFunctionsDouble.cc
 calculator_SOURCES += externalFunctionsMpfr.cc
 calculator_SOURCES += function.cc
