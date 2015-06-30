@@ -20,6 +20,7 @@
 /// @brief  Enumeration that determines the token priority from high to low
 typedef enum
 {
+    ePRIORITY_CONSTANT,
     ePRIORITY_BRACKET_CLOSE,
     ePRIORITY_BRACKET_OPEN,
     ePRIORITY_FUNCTION,
@@ -52,6 +53,7 @@ static const priority_e operatorPriority[] =
 /// @brief  Defines the different tokens and their own priority
 static const priority_e tokenPriority[] =
 {
+    ePRIORITY_CONSTANT,
     ePRIORITY_BRACKET_CLOSE,
     ePRIORITY_BRACKET_OPEN,
     ePRIORITY_FUNCTION,
@@ -70,13 +72,14 @@ class Token
         /// @brief  Enumeration to determine the type of the token
         typedef enum
         {
+            eTOKENTYPE_CONSTANT,
             eTOKENTYPE_BRACKET_CLOSE,
             eTOKENTYPE_BRACKET_OPEN,
             eTOKENTYPE_FUNCTION,
             eTOKENTYPE_UNARY_MINUS,
             eTOKENTYPE_OPERATOR,
             eTOKENTYPE_NUMBER,
-            eTOKENTYPE_COMMA 
+            eTOKENTYPE_COMMA
         }tokenType_e;
         
     protected:

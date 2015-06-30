@@ -23,10 +23,10 @@
 /// @param  mpfrValue Value as string
 /// @param  help Help notice for this function
 #if(USE_DOUBLE_TYPE == 1)
-#define ADD(str, doubleValue, mpfrValue, help) {str, {doubleValue, help}}
+#define ADD_CONSTANT(str, doubleValue, mpfrValue, help) {str, {doubleValue, help}}
 typedef double constantType_t;
 #elif(USE_MPFR_LIBRARY == 1)
-#define ADD(str, doubleValue, mpfrValue, help) {str, {mpfrValue, help}}
+#define ADD_CONSTANT(str, doubleValue, mpfrValue, help) {str, {mpfrValue, help}}
 typedef std::string constantType_t;
 #endif
 
@@ -49,11 +49,11 @@ typedef constantMap_t::iterator constantMapIterator_t;
 static constantMap_t constants_m = 
 {
     // Physical constants
-    ADD("c"     , 299792458., "299792458",   "Speed of light in vacuum")
+    ADD_CONSTANT("c"    , 299792458., "299792458",   "Speed of light in vacuum")
 };
 
 /// @brief  This class is used to handle constants.
-/// @note   New constants can be easily added with the ADD macro.
+/// @note   New constants can be easily added with the ADD_CONSTANT macro.
 class Constant
 {
     public:

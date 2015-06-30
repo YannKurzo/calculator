@@ -22,7 +22,7 @@
 //  ==================================================================
 
 /// @brief  Defined to 1 to display the operation steps
-#define DISPLAY_OPERATIONS      0
+#define DISPLAY_OPERATIONS      1
 
 /// @brief  Maximum number of parameters for the functions
 /// @note   When it is changed, other parts of the code must be adapted.

@@ -10,6 +10,7 @@
 
 #include "lexer.h"
 #include "function.h"
+#include "constant.h"
 #include "util.h"
 
 #include <iostream>
@@ -170,27 +171,47 @@ unsigned int Lexer::pushFunction(unsigned int startIndex)
 		++stopIndex;
     }
 
-	tokenVector_m.push_back(Token(Token::eTOKENTYPE_FUNCTION, str_m.substr(startIndex, stopIndex-startIndex)));
-	
-	// Check if function exists
-	if(Function::getFunction(tokenVector_m.back().getStr()) == NULL)
-	{
-		THROW("Function " + tokenVector_m.back().getStr() + "() is not implemented!");
-	}
-	// Check for brackets when at the end of the string
-	else if(stopIndex == str_m.length())
-	{
-		THROW("Missing brackets at function " + tokenVector_m.back().getStr() + "()!");
-	}
-	
-	// If there is no parameter to this function, skip the brackets
-	if(Function::getNbParameters(tokenVector_m.back().getStr()) == 0)
-	{
-        if(str_m.substr(stopIndex, 2) == "()")
+    // Get name
+    string str = str_m.substr(startIndex, stopIndex-startIndex);
+    
+    // If it is a function
+    if(bracketsOpen.find(str_m.at(stopIndex)) != string::npos)
+    {
+        // Check if function exists
+        if(Function::getFunction(str) == NULL)
         {
-            stopIndex += 2;
+            THROW("Function " + tokenVector_m.back().getStr() + "() is not implemented!");
         }
-	}
+        // Check for brackets when at the end of the string
+        else if(stopIndex == str_m.length())
+        {
+            THROW("Missing brackets at function " + tokenVector_m.back().getStr() + "()!");
+        }
+        
+        // Add function
+        tokenVector_m.push_back(Token(Token::eTOKENTYPE_FUNCTION, str));
+        
+        // If there is no parameter to this function, skip the brackets
+        if(Function::getNbParameters(tokenVector_m.back().getStr()) == 0)
+        {
+            if(str_m.substr(stopIndex, 2) == "()")
+            {
+                stopIndex += 2;
+            }
+        }
+    }
+    // If it is a constant
+    else
+    {
+        // Check if function exists
+        // if(Constant::getConstant(str) == "")
+        // {
+            // THROW("Constant " + tokenVector_m.back().getStr() + " is not implemented!");
+        // }
+        
+        // Add Constant
+        tokenVector_m.push_back(Token(Token::eTOKENTYPE_CONSTANT, str));
+    }
 	
 	return stopIndex - 1;
 }

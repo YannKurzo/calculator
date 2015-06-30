@@ -9,6 +9,7 @@
 //  ==========================================================================
 
 #include "parserExec.h"
+#include "constant.h"
 
 #include <iostream>
 #include <string>
@@ -93,8 +94,21 @@ unsigned int ParserExec::exec(unsigned int index)
 	unsigned int vectorLenghtChange = 0;
     Token::tokenType_e type = tokenVector_m[index].getType();
 	
+	// Constant
+    if(type == Token::eTOKENTYPE_CONSTANT)
+    {
+		// Calculate
+        tokenVector_m[index].setN(Constant::getConstant(tokenVector_m[index].getStr()));
+        
+#if(DISPLAY_OPERATIONS == 1)
+        cout << tokenVector_m[index].getStr() << " = " << Constant::getConstant(tokenVector_m[index].getStr()) << endl;
+#endif
+		// Update vector length
+        vectorLenghtChange = 0;
+    }
+    
 	// Operator
-    if(type == Token::eTOKENTYPE_OPERATOR)
+    else if(type == Token::eTOKENTYPE_OPERATOR)
     {
 		// Calculate
         tokenVector_m[index].setN(
