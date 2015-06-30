@@ -28,7 +28,7 @@ The program can be launched without parameters. It will then work as a bash and 
 
 ### Missing features (in development):
 - Add save / restore with =
-- Implicit multiplication (Ex: 2(4+3) == 2*(4+3) || 2pi() == 2*pi() )
+- Implicit multiplication (Ex: 2(4+3) == 2 * (4+3) || 2pi() == 2 * pi() )
 
 ### Compilation
 - This program uses the autoconf / automake tool for the compilation.
