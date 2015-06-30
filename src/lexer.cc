@@ -291,6 +291,7 @@ void Lexer::checkTokens(void)
     {
         Token::tokenType_e type = tokenVector_m.at(i).getType();
         Token::tokenType_e typeNext = tokenVector_m.at(i+1).getType();
+        Token::tokenType_e typePrevious = tokenVector_m.at(i-1).getType();
         
         // Check operators
         if(type == Token::eTOKENTYPE_OPERATOR ||
@@ -304,6 +305,12 @@ void Lexer::checkTokens(void)
                typeNext == Token::eTOKENTYPE_COMMA)
             {
                 THROW("There must be a number or a function right to an operator!");
+            }
+            if(type != Token::eTOKENTYPE_UNARY_MINUS &&
+               (typePrevious == Token::eTOKENTYPE_BRACKET_OPEN ||
+               typePrevious == Token::eTOKENTYPE_COMMA))
+            {
+                THROW("There must be a number or a function left from an operator!");
             }
         }
     }
