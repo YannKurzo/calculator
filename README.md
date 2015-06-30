@@ -25,7 +25,7 @@ This program can parse a string entered by the user. It calculates the mathemati
 - Calculation using double type or mpfr library (see config.h file)
 
 ### Missing features (in development):
-- Add usual constants in external functions
+- Add save / restore with =
 - Configuration output format for argument mode
 
 ### Compilation
