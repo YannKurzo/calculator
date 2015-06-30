@@ -163,8 +163,9 @@ unsigned int Lexer::pushFunction(unsigned int startIndex)
 	unsigned int stopIndex = startIndex + 1;
 	
 	// While it is not the end of the string and it is not an opening bracket
-	// Every character but the opening bracket can be considered as part of the function!
-	while(stopIndex<str_m.length() && !(bracketsOpen.find(str_m.at(stopIndex)) != string::npos))
+	// and it is not an operator
+	while(stopIndex<str_m.length() && !(bracketsOpen.find(str_m.at(stopIndex)) != string::npos) &&
+          !(operators.find(str_m.at(stopIndex)) != string::npos))
     {
 		++stopIndex;
     }
@@ -185,11 +186,10 @@ unsigned int Lexer::pushFunction(unsigned int startIndex)
 	// If there is no parameter to this function, skip the brackets
 	if(Function::getNbParameters(tokenVector_m.back().getStr()) == 0)
 	{
-        if(str_m.substr(stopIndex, 2) != "()")
+        if(str_m.substr(stopIndex, 2) == "()")
         {
-            THROW("Too much parameters in function " + tokenVector_m.back().getStr() + "()!");
+            stopIndex += 2;
         }
-		stopIndex += 2;
 	}
 	
 	return stopIndex - 1;

@@ -29,7 +29,7 @@
 #define MAX_NUMBER_PARAMETERS   3
 
 /// @brief  Define to 1 to show the vector of tokens after the lexer process
-#define ANALYSE_DEBUG           0
+#define ANALYSE_DEBUG           1
 
 //  ==================================================================
 
