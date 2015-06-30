@@ -59,6 +59,7 @@ void Lexer::pushTokens(void)
     for(unsigned int i=0; i<str_m.length(); ++i)
     {
         char c = str_m.at(i);
+        
         // Check digit and numbers
         if(isdigit(c))
         {
@@ -163,19 +164,19 @@ unsigned int Lexer::pushFunction(unsigned int startIndex)
 {
 	unsigned int stopIndex = startIndex + 1;
 	
-	// While it is not the end of the string and it is not an opening bracket
+	// While it is not the end of the string and it is not a bracket
 	// and it is not an operator
 	while(stopIndex<str_m.length() && !(bracketsOpen.find(str_m.at(stopIndex)) != string::npos) &&
           !(operators.find(str_m.at(stopIndex)) != string::npos))
     {
 		++stopIndex;
     }
-
+    
     // Get name
     string str = str_m.substr(startIndex, stopIndex-startIndex);
     
-    // If it is a function
-    if(bracketsOpen.find(str_m.at(stopIndex)) != string::npos)
+    // If it is a function (check if it is not the end of the string)
+    if(stopIndex < str_m.size() && bracketsOpen.find(str_m.at(stopIndex)) != string::npos)
     {
         // Check if function exists
         if(Function::getFunction(str) == NULL)
