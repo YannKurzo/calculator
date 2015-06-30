@@ -48,6 +48,7 @@ The program can be launched without parameters. It will then work as a bash and 
 ### Code corrections
 - Infinite loop with x*constant with implicite multiplication
 - Calculation results as single answer with spaces when using argument mode
+- Use stringstream for helps
 
 ### Doc
 - Doxygen
