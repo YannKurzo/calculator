@@ -49,7 +49,8 @@ The program can be launched without parameters. It will then work as a bash and 
 - Calculation results as single answer with spaces when using argument mode
 - Use stringstream for helps
 - Check string before/after "=" sign
-- Function exist creates an empty constant when it does not exist. A double call becomes erounous
+- Check constant valid name
+- Add help: how to define constants
 
 ### Doc
 - Doxygen
