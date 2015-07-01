@@ -84,6 +84,14 @@ std::string Command::getHelp(bool detailed, bool command)
         flow << "Each CALCULATION should be written between quotations marks \" \" to ensure" << endl;
         flow << "a good execution of the calculation." << endl;
     }
+    // Remark for setting user variables
+    else
+    {
+        flow << endl;
+        flow << "It is possible to set user variables by using \"variableName=value\". The value" << endl;
+        flow << "can be a CALCULATION. The variable names must start with a letter and must" << endl;
+        flow << "contain letters, numbers, or underscores only." << endl;
+    }
     
     return flow.str();
 }
