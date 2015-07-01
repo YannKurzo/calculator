@@ -17,6 +17,8 @@
 
 using namespace std;
 
+const string userVariable("User variable");
+
 #if(USE_DOUBLE_TYPE == 1)
 double Constant::getConstant(const std::string &str)
 #elif(USE_MPFR_LIBRARY == 1)
@@ -44,34 +46,56 @@ std::string Constant::getConstantList(void)
     
     for(constantMapIterator_t it = constants_m.begin(); it != constants_m.end(); ++it)
     {
-        // Begin
-        str = str + "  " + it->first + " : ";
-        
-        // End
-        str = str + it->second.help + " (" + to_string(it->second.value).substr(0, 15) + ")\n";
+        if(it->second.help != userVariable)
+        {
+            // Begin
+            str = str + "  " + it->first + " : ";
+
+            // End
+            str = str + it->second.help + " (" + to_string(it->second.value).substr(0, 15) + ")\n";
+        }
     }
     
     return str;
 }
 
-bool Constant::addConstant(std::string constantName, calculType_t value)
+std::string Constant::getVariableList(void)
+{
+    string str("");
+    
+    for(constantMapIterator_t it = constants_m.begin(); it != constants_m.end(); ++it)
+    {
+        if(it->second.help == userVariable)
+        {
+            // Begin
+            str = str + "  " + it->first + " : ";
+
+            // End
+            str = str + it->second.help + " (" + to_string(it->second.value).substr(0, 15) + ")\n";
+        }
+    }
+    
+    return str;
+}
+
+bool Constant::addVariable(std::string variableName, calculType_t value)
 {
     bool ret = true;
     
 #if(USE_DOUBLE_TYPE == 1)
-    constants_m.insert(ADD_CONSTANT(constantName, value, to_string(value), "User constant"));
+    constants_m.insert(ADD_CONSTANT(variableName, value, to_string(value), userVariable));
 #elif(USE_MPFR_LIBRARY == 1)
-    constants_m.insert(ADD_CONSTANT(constantName, 0., to_string(value), "User constant"));
+    constants_m.insert(ADD_CONSTANT(variableName, 0., to_string(value), userVariable));
 #endif
     
-    // Re-set if it was already defined (only for user constants))
-    if(constants_m[constantName].help == "User constant")
+    // Re-set if it was already defined (only for user variables))
+    if(constants_m[variableName].help == userVariable)
     {
-        constants_m.erase(constantName);
+        constants_m.erase(variableName);
 #if(USE_DOUBLE_TYPE == 1)
-        constants_m.insert(ADD_CONSTANT(constantName, value, to_string(value), "User constant"));
+        constants_m.insert(ADD_CONSTANT(variableName, value, to_string(value), userVariable));
 #elif(USE_MPFR_LIBRARY == 1)
-        constants_m.insert(ADD_CONSTANT(constantName, 0., to_string(value), "User constant"));
+        constants_m.insert(ADD_CONSTANT(variableName, 0., to_string(value), userVariable));
 #endif
     }
     else

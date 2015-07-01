@@ -18,7 +18,7 @@ using namespace std;
 
 command_e Command::getCommand(std::string command)
 {
-    int endCommand = command.find("->");
+    std::size_t endCommand = command.find("->");
     string com = command.substr(0, endCommand);
 
     // Check commands

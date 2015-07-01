@@ -100,10 +100,14 @@ class Constant
         /// @return Constants list
         static std::string getConstantList(void);
         
-        /// @brief  Add a new constant
-        /// @param  constantName Constant name
+        /// @brief  Get a string containing the list of user defined variables
+        /// @return Variables list
+        static std::string getVariableList(void);
+        
+        /// @brief  Add a new user variable
+        /// @param  variableName Variable name
         /// @param  value Value
-        static bool addConstant(std::string constantName, calculType_t value);
+        static bool addVariable(std::string variableName, calculType_t value);
 };
 
 

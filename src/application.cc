@@ -110,6 +110,9 @@ command_e Application::checkCommand(void)
         case eCOMMAND_LIST_AVAILABLE_CONSTANTS:
             cout << Constant::getConstantList() << endl;
             break;
+        case eCOMMAND_LIST_AVAILABLE_VARIABLES:
+            cout << Constant::getVariableList() << endl;
+            break;
         case eCOMMAND_HELP:
             cout << Command::getHelp(true, !argumentPresent_m) << endl;
             break;
@@ -128,9 +131,8 @@ command_e Application::checkCommand(void)
     return command;
 }
 
-void Application::startAnalyse(void)
+void Application::checkSetVariable(void)
 {
-    // Check equality sign
     std::size_t signPosition = str_m.find(string("="));
     if(signPosition != string::npos)
     {
@@ -141,6 +143,12 @@ void Application::startAnalyse(void)
     {
         variable_m = "";
     }
+}
+
+void Application::startAnalyse(void)
+{
+    // Check equality sign
+    checkSetVariable();
     
     // Analyze
     Analyze an(str_m);
@@ -157,7 +165,7 @@ void Application::startAnalyse(void)
         if(variable_m != "")
         {
             // Check if the variable can be modified
-            if(!Constant::addConstant(variable_m, an.getResult()))
+            if(!Constant::addVariable(variable_m, an.getResult()))
             {
                 THROW("Variable not set (existing constant)!");
             }

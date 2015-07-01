@@ -64,6 +64,9 @@ class Application
         /// @return Executed command, eNB_ARGUMENTS otherwise
         command_e checkCommand(void);
         
+        /// @brief  Check if we try to set a variable
+        void checkSetVariable(void);
+        
         /// @brief  Start the analysis with str_m as input string
         void startAnalyse(void);
 
