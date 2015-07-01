@@ -8,10 +8,12 @@ This program can parse a string entered by the user. It calculates the mathemati
 - Operators (+,-,\*,/,^,%, unary minus -, implicit multiplication [2pi => 2\*pi])
 - Operator priority
 - Brackets
-- Functions
-- Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)
+- Basic mathematical functions
+- Some basic constants
+- Saving results in temporary variables
 - Use the help command to get a list of available commands
 - Calculation using double type or mpfr library (see config.h file)
+- Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)
 
 ##### Argument mode
 The program can be launched from a command line with multiple parameters. It will displays all the results separated by spaces and then automatically quit the program.
@@ -48,8 +50,6 @@ The program can be launched without parameters. It will then work as a bash and 
 - Infinite loop with x*constant with implicite multiplication
 - Calculation results as single answer with spaces when using argument mode
 - Use stringstream for helps
-- Check constant valid name
-- Add help: how to define constants
 
 ### Doc
 - Doxygen
