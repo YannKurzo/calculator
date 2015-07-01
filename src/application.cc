@@ -84,57 +84,45 @@ void Application::startCommand(void)
 
 command_e Application::checkCommand(void)
 {
-    command_e command;
-    
-    // Get the right command
-    if(argumentPresent_m)
-    {
-        command = Command::getArgument(str_m);
-    }
-    else
-    {
-        command = Command::getCommand(str_m);
-    }
+    command_e command = Command::getCommand(str_m);
         
     // Execute the command if it is a command
-    if(command != eNB_COMMANDS)
+    switch(command)
     {
-        // Show functions and quit
-        switch(command)
-        {
-            case eCOMMAND_SET_PRECISION:
-                
+        case eCOMMAND_SET_PRECISION:
 #if(USE_DOUBLE_TYPE == 1)
-                cout << "Command not valid when not using Mpfr library!" << endl;
+            cout << "Command not valid when not using Mpfr library!" << endl;
 #elif(USE_MPFR_LIBRARY == 1)
-                if(Command::getValue(str_m) > 1)
-                {
-                    MPFR::setPrecision(static_cast<unsigned int>(Command::getValue(str_m)));
-                    cout << "Precision set to " << Command::getValue(str_m) << " bits" << endl;
-                }
-                else
-                {
-                    cout << "Parameter not valid!" << endl;
-                }
+            if(Command::getValue(str_m) > 1)
+            {
+                MPFR::setPrecision(static_cast<unsigned int>(Command::getValue(str_m)));
+                cout << "Precision set to " << Command::getValue(str_m) << " bits" << endl;
+            }
+            else
+            {
+                cout << "Parameter not valid!" << endl;
+            }
 #endif  /* USE_MPFR_LIBRARY */
-                break;
-            case eCOMMAND_LIST_AVAILABLE_FUNCTIONS:
-                cout << Function::getFunctionList() << endl;
-                break;
-            case eCOMMAND_LIST_AVAILABLE_CONSTANTS:
-                cout << Constant::getConstantList() << endl;
-                break;
-            case eCOMMAND_HELP:
-                cout << Command::getHelp(true, !argumentPresent_m) << endl;
-                break;
-            case eCOMMAND_VERSION:
-                cout << applicationName_m << " " << applicationVersion_m << endl << endl;
-                cout << "Copyright 2015 Yann Kurzo. All rights reserved." << endl;
-                cout << "This project is released under the GNU Public License" << endl;
-                break;
-            default:
-                break;
-        }
+            break;
+        case eCOMMAND_LIST_AVAILABLE_FUNCTIONS:
+            cout << Function::getFunctionList() << endl;
+            break;
+        case eCOMMAND_LIST_AVAILABLE_CONSTANTS:
+            cout << Constant::getConstantList() << endl;
+            break;
+        case eCOMMAND_HELP:
+            cout << Command::getHelp(true, !argumentPresent_m) << endl;
+            break;
+        case eCOMMAND_VERSION:
+            cout << applicationName_m << " " << applicationVersion_m << endl << endl;
+            cout << "Copyright 2015 Yann Kurzo. All rights reserved." << endl;
+            cout << "This project is released under the GNU Public License" << endl;
+            break;
+        case eCOMMAND_NOT_IMPLEMENTED:
+            cout << "This command does not exist!" << endl;
+            break;
+        default:
+            break;
     }
     
     return command;

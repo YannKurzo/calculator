@@ -16,37 +16,34 @@
 
 using namespace std;
 
-command_e Command::getArgument(std::string argument)
-{
-    string arg = argument.substr(0, argument.find("="));
-    
-    for(int i=0; i<eNB_COMMANDS; ++i)
-    {
-        if(arg == ("--" + commands[i].command) || arg == commands[i].shortcut)
-        {
-            return static_cast<command_e>(i);
-        }
-    }
-    return eNB_COMMANDS;
-}
-
 command_e Command::getCommand(std::string command)
 {
-    string com = command.substr(0, command.find("="));
-    
+    int endCommand = command.find("->");
+    string com = command.substr(0, endCommand);
+
+    // Check commands
     for(int i=0; i<eNB_COMMANDS; ++i)
     {
-        if(com == commands[i].command || com == commands[i].shortcut)
+        if(com == ("--" + commands[i].command) || com == commands[i].shortcut)
         {
             return static_cast<command_e>(i);
         }
     }
-    return eNB_COMMANDS;
+    // If there was the -> and it is not a command
+    if(endCommand != string::npos)
+    {
+        return eCOMMAND_NOT_IMPLEMENTED;
+    }
+    // Otherwise, it was not a command
+    else
+    {
+        return eNB_COMMANDS;
+    }
 }
 
 int Command::getValue(std::string command)
 {
-    return ::atoi(command.substr(command.find("=")+1, command.size()).c_str());
+    return ::atoi(command.substr(command.find("->")+2, command.size()).c_str());
 }
 
 std::string Command::getHelp(bool detailed, bool command)
@@ -54,14 +51,14 @@ std::string Command::getHelp(bool detailed, bool command)
     stringstream flow;
     flow << setiosflags(ios::left);
     
-    flow << "Usage: calculator [OPTION]... CALCULATION..." << endl;
+    flow << "Usage: calculator [OPTION[->VALUE]]... CALCULATION..." << endl;
     flow << "Execute the CALCULATION(s)." << endl << endl;
 
     for(int i=0; i<eNB_COMMANDS; ++i)
     {
         // Show help
         flow << "  " << commands[i].shortcut << ", ";
-        flow << (command ? "  " : "--") << setw(18) << commands[i].command << setw(0);
+        flow << "--" << setw(18) << commands[i].command << setw(0);
         flow << commands[i].help << endl;
         
         // Show details
@@ -75,6 +72,10 @@ std::string Command::getHelp(bool detailed, bool command)
     flow << endl;
     flow << "The CALCULATIONS must be written without spaces. Multiple CALCULATIONS can be" << endl;
     flow << "done one after another by separating them with spaces." << endl;
+    flow << endl;
+    flow << "When a command needs a parameter, the parameter must be written after the" << endl;
+    flow << "command separated by \"->\" without spaces." << endl;
+    flow << "Example: -p->25 (set precision to 25 bits)." << endl;
     
     // Remark for ""
     if(!command)

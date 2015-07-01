@@ -23,7 +23,8 @@ typedef enum
     eCOMMAND_HELP,
     eCOMMAND_VERSION,
     eCOMMAND_EXIT,
-    eNB_COMMANDS
+    eNB_COMMANDS,
+    eCOMMAND_NOT_IMPLEMENTED
 }command_e;
 
 /// @brief  Structure to hold a command
@@ -41,7 +42,7 @@ static const command_t commands[] =
 {
     {eCOMMAND_LIST_AVAILABLE_FUNCTIONS, "functions-list", "-f", "Show a list of available functions",{""}},
     {eCOMMAND_LIST_AVAILABLE_CONSTANTS, "constants-list", "-c", "Show a list of available constants",{""}},
-    {eCOMMAND_SET_PRECISION, "set-precision", "-p", "Set the precision (only with Mpfr library)",{"Use:","-p=nbBits | --set-precision=nbBits"}},
+    {eCOMMAND_SET_PRECISION, "set-precision", "-p", "Set the precision (only with Mpfr library)",{"Use:","-p->nbBits | --set-precision->nbBits"}},
     {eCOMMAND_HELP, "help", "-h", "Display this help",{""}},
     {eCOMMAND_VERSION, "version", "-v", "Display the program version",{""}},
     {eCOMMAND_EXIT, "exit", "-q", "Exit the program",{""}}
@@ -54,12 +55,7 @@ class Command
         /// Command to analyze
         std::string str_m;
 
-    public:
-        /// @brief  Get the argument
-        /// @param  argument Argument to analyze
-        /// @return Argument, or eNB_COMMANDS otherwise
-        static command_e getArgument(std::string argument);
-        
+    public:        
         /// @brief  Get the command
         /// @param  command Command to analyze
         /// @return Command, or eNB_COMMANDS otherwise
