@@ -82,6 +82,29 @@ void Application::startCommand(void)
     }
 }
 
+void Application::setPrecisionCommand(void)
+{
+#if(USE_DOUBLE_TYPE == 1)
+    cout << "Command not valid when not using Mpfr library!" << endl;
+#elif(USE_MPFR_LIBRARY == 1)
+    if(Command::getValue(str_m) > 1)
+    {
+        // Set precision
+        MPFR::setPrecision(static_cast<unsigned int>(Command::getValue(str_m)));
+        
+        // Do not display in argument mode
+        if(!argumentPresent_m)
+        {
+            cout << "Precision set to " << Command::getValue(str_m) << " bits" << endl;
+        }
+    }
+    else
+    {
+        cout << "Parameter not valid!" << endl;
+    }
+#endif  /* USE_MPFR_LIBRARY */
+}
+
 command_e Application::checkCommand(void)
 {
     command_e command = Command::getCommand(str_m);
@@ -90,19 +113,7 @@ command_e Application::checkCommand(void)
     switch(command)
     {
         case eCOMMAND_SET_PRECISION:
-#if(USE_DOUBLE_TYPE == 1)
-            cout << "Command not valid when not using Mpfr library!" << endl;
-#elif(USE_MPFR_LIBRARY == 1)
-            if(Command::getValue(str_m) > 1)
-            {
-                MPFR::setPrecision(static_cast<unsigned int>(Command::getValue(str_m)));
-                cout << "Precision set to " << Command::getValue(str_m) << " bits" << endl;
-            }
-            else
-            {
-                cout << "Parameter not valid!" << endl;
-            }
-#endif  /* USE_MPFR_LIBRARY */
+            setPrecisionCommand();
             break;
         case eCOMMAND_LIST_AVAILABLE_FUNCTIONS:
             cout << Function::getFunctionList() << endl;
@@ -179,8 +190,15 @@ void Application::startAnalyse(void)
         }
         
         // Display result
-        cout << "Result:" << endl;
-        cout << "        " << str_m << " = " << an.getResult() << endl << endl;
+        if(argumentPresent_m)
+        {
+            cout << an.getResult() << " ";
+        }
+        else
+        {
+            cout << "Result:" << endl;
+            cout << "        " << str_m << " = " << an.getResult() << endl << endl;
+        }
     }
     catch(exception const &e)
     {

@@ -60,6 +60,9 @@ class Application
         /// @brief  Start the program in command mode
         void startCommand(void);
         
+        /// @brief  Set precision command
+        void setPrecisionCommand(void);
+        
         /// @brief  Check the command depending on the mode and execute it
         /// @return Executed command, eNB_ARGUMENTS otherwise
         command_e checkCommand(void);
