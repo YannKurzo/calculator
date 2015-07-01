@@ -28,7 +28,14 @@ std::string Constant::getConstant(const std::string &str)
 
 bool Constant::exist(const std::string &str)
 {
-    return (constants_m[str].help != "");
+    bool exist = (constants_m[str].help != "");
+    
+    if(!exist)
+    {
+        constants_m.erase(str);
+    }
+    
+    return exist;
 }
 
 std::string Constant::getConstantList(void)

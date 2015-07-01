@@ -28,7 +28,14 @@ func_ptr Function::getFunction(const std::string &str)
 
 bool Function::exist(const std::string &str)
 {
-    return (functions_m[str].help != "");
+    bool exist = (functions_m[str].help != "");
+    
+    if(!exist)
+    {
+        functions_m.erase(str);
+    }
+    
+    return exist;
 }
 
 std::string Function::getFunctionList(void)
