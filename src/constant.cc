@@ -106,3 +106,23 @@ bool Constant::addVariable(std::string variableName, calculType_t value)
     
     return ret;
 }
+
+bool Constant::isValidVariableName(std::string variableName)
+{
+    // Check size
+    if(variableName.size() == 0)
+        return false;
+    
+    // Check first character
+    if(!(isalpha(variableName.at(0)) || variableName.at(0) == '_'))
+        return false;
+    
+    // Check other characters
+    for(unsigned int i=1;i<variableName.size();++i)
+    {
+        if(!(isalnum(variableName.at(i)) || variableName.at(i) == '_'))
+            return false;
+    }
+    
+    return true;
+}

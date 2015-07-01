@@ -107,7 +107,13 @@ class Constant
         /// @brief  Add a new user variable
         /// @param  variableName Variable name
         /// @param  value Value
+        /// @return true if the variable was set, false otherwise
         static bool addVariable(std::string variableName, calculType_t value);
+        
+        /// @brief  Check if the variable name is valid
+        /// @param  variableName Variable name
+        /// @return true if it is valid, false otherwise
+        static bool isValidVariableName(std::string variableName);
 };
 
 

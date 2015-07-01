@@ -137,6 +137,12 @@ void Application::checkSetVariable(void)
     if(signPosition != string::npos)
     {
         variable_m = str_m.substr(0, signPosition);
+        
+        // Check variable name validity
+        if(!Constant::isValidVariableName(variable_m))
+        {
+            THROW("Variable name is not valid!");
+        }
         str_m = str_m.substr(signPosition+1, str_m.size());
     }
     else
@@ -147,14 +153,14 @@ void Application::checkSetVariable(void)
 
 void Application::startAnalyse(void)
 {
-    // Check equality sign
-    checkSetVariable();
-    
-    // Analyze
-    Analyze an(str_m);
-    
     try
     {
+        // Check equality sign
+        checkSetVariable();
+
+        // Analyze
+        Analyze an(str_m);
+        
         // Get tokens
         an.lexer();
         
