@@ -29,6 +29,10 @@ namespace MPFR
     
     /// @brief  Dummy function for compilation
     static void setRoundingMethod(unsigned int roundingMethod) {UNUSED(roundingMethod);}
+    
+    /// @brief  Get the double precision
+    /// @return Actual precision in number of bits
+    static unsigned int getPrecision(void) {return 53;}
 
     /// @brief  Dummy function for compilation
     static void setPrecision(unsigned int precision) {UNUSED(precision);}
@@ -49,7 +53,12 @@ namespace MPFR
     /// @param  roundingMethod Rounding Method
     void setRoundingMethod(mpfr_rnd_t roundingMethod);
 
+    /// @brief  Get mpfr actual precision
+    /// @return Actual precision in number of bits
+    unsigned int getPrecision(void);
+
     /// @brief  Set mpfr default precision
+    /// @param  precision Precision in number of bits
     void setPrecision(unsigned int precision);
 }
 

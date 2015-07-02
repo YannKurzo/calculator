@@ -32,6 +32,11 @@ namespace MPFR
         roundingMethod_m = roundingMethod;
     }
     
+    unsigned int getPrecision(void)
+    {
+        return mpfr_get_default_prec();
+    }
+    
     void setPrecision(unsigned int precision)
     {
         mpfr_set_default_prec(precision);

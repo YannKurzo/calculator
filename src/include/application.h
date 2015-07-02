@@ -61,7 +61,7 @@ class Application
         void startCommand(void);
         
         /// @brief  Set precision command
-        void setPrecisionCommand(void);
+        void precisionCommand(void);
         
         /// @brief  Check the command depending on the mode and execute it
         /// @return Executed command, eNB_ARGUMENTS otherwise

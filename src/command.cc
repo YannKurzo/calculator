@@ -41,6 +41,11 @@ command_e Command::getCommand(std::string command)
     }
 }
 
+bool Command::hasParam(std::string command)
+{
+    return (command.find("->") != string::npos);
+}
+
 int Command::getValue(std::string command)
 {
     return ::atoi(command.substr(command.find("->")+2, command.size()).c_str());

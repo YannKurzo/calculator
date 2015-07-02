@@ -20,7 +20,7 @@ typedef enum
     eCOMMAND_LIST_AVAILABLE_FUNCTIONS,
     eCOMMAND_LIST_AVAILABLE_CONSTANTS,
     eCOMMAND_LIST_AVAILABLE_VARIABLES,
-    eCOMMAND_SET_PRECISION,
+    eCOMMAND_PRECISION,
     eCOMMAND_HELP,
     eCOMMAND_VERSION,
     eCOMMAND_EXIT,
@@ -44,8 +44,8 @@ static const command_t commands[] =
     {eCOMMAND_LIST_AVAILABLE_FUNCTIONS, "functions-list", "-f", "Show a list of available functions",{""}},
     {eCOMMAND_LIST_AVAILABLE_CONSTANTS, "constants-list", "-c", "Show a list of available constants",{""}},
     {eCOMMAND_LIST_AVAILABLE_VARIABLES, "variables-list", "-u", "Show the list of defined user variables",{""}},
-    {eCOMMAND_SET_PRECISION, "set-precision", "-p", "Set the precision (only with Mpfr library)",
-        {"Use: (by default, nbBits = 53 = double precision)","-p->nbBits | --set-precision->nbBits"}},
+    {eCOMMAND_PRECISION, "precision", "-p", "Set the precision (only with Mpfr library)",
+        {"Use: (by default, nbBits = 53 = double precision)","-p->nbBits | --precision->nbBits"}},
     {eCOMMAND_HELP, "help", "-h", "Display this help",{""}},
     {eCOMMAND_VERSION, "version", "-v", "Display the program version",{""}},
     {eCOMMAND_EXIT, "exit", "-q", "Exit the program",{""}}
@@ -63,6 +63,8 @@ class Command
         /// @param  command Command to analyze
         /// @return Command, or eNB_COMMANDS otherwise
         static command_e getCommand(std::string command);
+        
+        static bool hasParam(std::string command);
         
         /// @brief  Get the value after the = in a command
         /// @param  command Command to analyze

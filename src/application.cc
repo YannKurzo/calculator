@@ -82,27 +82,34 @@ void Application::startCommand(void)
     }
 }
 
-void Application::setPrecisionCommand(void)
+void Application::precisionCommand(void)
 {
-#if(USE_DOUBLE_TYPE == 1)
-    cout << "Command not valid when not using Mpfr library!" << endl;
-#elif(USE_MPFR_LIBRARY == 1)
-    if(Command::getValue(str_m) > 1)
+    if(Command::hasParam(str_m))
     {
-        // Set precision
-        MPFR::setPrecision(static_cast<unsigned int>(Command::getValue(str_m)));
-        
-        // Do not display in argument mode
-        if(!argumentPresent_m)
+#if(USE_DOUBLE_TYPE == 1)
+        cout << "Command not valid when not using Mpfr library!" << endl;
+#elif(USE_MPFR_LIBRARY == 1)
+        if(Command::getValue(str_m) > 1)
         {
-            cout << "Precision set to " << Command::getValue(str_m) << " bits" << endl;
+            // Set precision
+            MPFR::setPrecision(static_cast<unsigned int>(Command::getValue(str_m)));
+            
+            // Do not display in argument mode
+            if(!argumentPresent_m)
+            {
+                cout << "Precision set to " << Command::getValue(str_m) << " bits" << endl;
+            }
         }
+        else
+        {
+            cout << "Parameter not valid!" << endl;
+        }
+#endif  /* USE_MPFR_LIBRARY */
     }
     else
     {
-        cout << "Parameter not valid!" << endl;
+        cout << "Actual precision set to " << MPFR::getPrecision() << " bits" << endl;
     }
-#endif  /* USE_MPFR_LIBRARY */
 }
 
 command_e Application::checkCommand(void)
@@ -112,9 +119,6 @@ command_e Application::checkCommand(void)
     // Execute the command if it is a command
     switch(command)
     {
-        case eCOMMAND_SET_PRECISION:
-            setPrecisionCommand();
-            break;
         case eCOMMAND_LIST_AVAILABLE_FUNCTIONS:
             cout << Function::getFunctionList() << endl;
             break;
@@ -123,6 +127,9 @@ command_e Application::checkCommand(void)
             break;
         case eCOMMAND_LIST_AVAILABLE_VARIABLES:
             cout << Constant::getVariableList() << endl;
+            break;
+        case eCOMMAND_PRECISION:
+            precisionCommand();
             break;
         case eCOMMAND_HELP:
             cout << Command::getHelp(true, !argumentPresent_m) << endl;
