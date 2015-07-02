@@ -69,7 +69,7 @@ void Application::startCommand(void)
     cin >> str_m;
     
     // While we do not exit
-    while(str_m != "exit" && str_m != "-q")
+    while(str_m != "--exit" && str_m != "-q")
     {
         // Start analysis if it is not a command
         if(checkCommand() == eNB_COMMANDS)
