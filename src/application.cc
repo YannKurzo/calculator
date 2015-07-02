@@ -89,15 +89,15 @@ void Application::precisionCommand(void)
 #if(USE_DOUBLE_TYPE == 1)
         cout << "Command not valid when not using Mpfr library!" << endl;
 #elif(USE_MPFR_LIBRARY == 1)
-        if(Command::getValue(str_m) > 1)
+        if(Command::getValueParameter(str_m) > 1)
         {
             // Set precision
-            MPFR::setPrecision(static_cast<unsigned int>(Command::getValue(str_m)));
+            MPFR::setPrecision(static_cast<unsigned int>(Command::getValueParameter(str_m)));
             
             // Do not display in argument mode
             if(!argumentPresent_m)
             {
-                cout << "Precision set to " << Command::getValue(str_m) << " bits" << endl;
+                cout << "Precision set to " << Command::getValueParameter(str_m) << " bits" << endl;
             }
         }
         else
@@ -109,6 +109,31 @@ void Application::precisionCommand(void)
     else
     {
         cout << "Actual precision set to " << MPFR::getPrecision() << " bits" << endl;
+    }
+}
+
+void Application::clearCommand(void)
+{
+    // Clear specific variable
+    if(Command::hasParam(str_m))
+    {
+        string variableName = Command::getStringParameter(str_m);
+        
+        if(Constant::clearVariable(variableName))
+        {
+            cout << "Variable " << variableName << " is cleared" << endl;
+        }
+        else
+        {
+            cout << "Variable not cleared" << endl;
+        }
+        
+    }
+    // Clear all the variables
+    else
+    {
+        // Constant::clearAll();
+        cout << "All user defined variables are cleared" << endl;
     }
 }
 
@@ -130,6 +155,9 @@ command_e Application::checkCommand(void)
             break;
         case eCOMMAND_PRECISION:
             precisionCommand();
+            break;
+        case eCOMMAND_CLEAR:
+            clearCommand();
             break;
         case eCOMMAND_HELP:
             cout << Command::getHelp(true, !argumentPresent_m) << endl;

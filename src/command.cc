@@ -46,9 +46,14 @@ bool Command::hasParam(std::string command)
     return (command.find(parameterSign) != string::npos);
 }
 
-int Command::getValue(std::string command)
+int Command::getValueParameter(std::string command)
 {
-    return ::atoi(command.substr(command.find(parameterSign)+2, command.size()).c_str());
+    return ::atoi(getStringParameter(command).c_str());
+}
+
+std::string Command::getStringParameter(std::string command)
+{
+    return command.substr(command.find(parameterSign)+parameterSign.size(), command.size());
 }
 
 std::string Command::getHelp(bool detailed, bool command)

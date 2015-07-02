@@ -24,6 +24,7 @@ typedef enum
     eCOMMAND_LIST_AVAILABLE_CONSTANTS,
     eCOMMAND_LIST_AVAILABLE_VARIABLES,
     eCOMMAND_PRECISION,
+    eCOMMAND_CLEAR,
     eCOMMAND_HELP,
     eCOMMAND_VERSION,
     eCOMMAND_EXIT,
@@ -46,11 +47,15 @@ static const command_t commands[] =
 {
     {eCOMMAND_LIST_AVAILABLE_FUNCTIONS, "functions-list", "-f", "Show a list of available functions",{""}},
     {eCOMMAND_LIST_AVAILABLE_CONSTANTS, "constants-list", "-c", "Show a list of available constants",{""}},
-    {eCOMMAND_LIST_AVAILABLE_VARIABLES, "variables-list", "-u", "Show the list of defined user variables",{""}},
+    {eCOMMAND_LIST_AVAILABLE_VARIABLES, "variables-list", "-u", "Show the list of user defined variables",{""}},
     {eCOMMAND_PRECISION, "precision", "-p", "Set/Get the precision (number of bits of the mantissa)",
         {"Use: (default number of bits is 53)",
          "  Get: -p | --precision (without parameters)",
          "  Set: -p" + parameterSign + "nbBits | --precision" + parameterSign + "nbBits (only for Mpfr)"}},
+    {eCOMMAND_CLEAR, "clear", "-e", "Clear user defined variables",
+        {"Use:",
+         "  Clear all: -e | --clear",
+         "  Clear variable 'x': -e->x | --clear->x"}},
     {eCOMMAND_HELP, "help", "-h", "Display this help",{""}},
     {eCOMMAND_VERSION, "version", "-v", "Display the program version",{""}},
     {eCOMMAND_EXIT, "exit", "-q", "Exit the program",{""}}
@@ -69,12 +74,19 @@ class Command
         /// @return Command, or eNB_COMMANDS otherwise
         static command_e getCommand(std::string command);
         
+        /// @brief  Check if a command has parameters
+        /// @return true if it does, false otherwise
         static bool hasParam(std::string command);
         
-        /// @brief  Get the value after the = in a command
+        /// @brief  Get the value after the command
         /// @param  command Command to analyze
         /// @return Value
-        static int getValue(std::string command);
+        static int getValueParameter(std::string command);
+        
+        /// @brief  Get the parameter string after the command
+        /// @param  command Command to analyze
+        /// @return String
+        static std::string getStringParameter(std::string command);
         
         /// @brief  Get help about the commands
         /// @param  detailed Detailed help if true

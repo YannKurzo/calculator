@@ -103,6 +103,31 @@ bool Constant::addVariable(std::string variableName, calculType_t value)
     return ret;
 }
 
+bool Constant::clearVariable(std::string variableName)
+{
+    if(exist(variableName) && constants_m[variableName].help == userVariable)
+    {
+        constants_m.erase(variableName);
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+void Constant::clearAll(void)
+{
+    for(constantMapIterator_t it = constants_m.begin(); it != constants_m.end(); ++it)
+    {
+        if(it->second.help == userVariable)
+        {
+            constants_m.erase(it);
+            ++it;
+        }
+    }
+}
+
 bool Constant::isValidVariableName(std::string variableName)
 {
     // Check size
