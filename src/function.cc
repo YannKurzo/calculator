@@ -11,6 +11,8 @@
 #include "function.h"
 
 #include <iostream>
+#include <sstream>
+#include <iomanip>
 #include <cstdlib>
 #include <exception>
 
@@ -40,30 +42,34 @@ bool Function::exist(const std::string &str)
 
 std::string Function::getFunctionList(void)
 {
-    string str("");
+    stringstream flow;
+    flow << setiosflags(ios::left);
     
     for(functionMapIterator_t it = functions_m.begin(); it != functions_m.end(); ++it)
     {
         // Begin
-        str = str + "  " + it->first + "(";
+        string str("");
+        str += "  " + it->first + "(";
         
         // Parameters
         if(it->second.nbParameters > 0)
         {
             // 1st
-            str = str + "a";
+            str += "a";
             // Others
             for(unsigned int i=1; i<it->second.nbParameters; ++i)
             {
-                str = str + "," + string(1, 'a' + i);
+                str += "," + string(1, 'a' + i);
             }
         }
         
         // End
-        str = str + ") : " + it->second.help + "\n";
+        str += ")";
+        
+        flow << setw(15) << str << it->second.help << endl;;
     }
     
-    return str;
+    return flow.str();
 }
 
 #if(USE_MPFR_LIBRARY == 1)

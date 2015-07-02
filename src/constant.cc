@@ -12,6 +12,8 @@
 #include "util.h"
 
 #include <iostream>
+#include <sstream>
+#include <iomanip>
 #include <cstdlib>
 #include <exception>
 
@@ -42,40 +44,34 @@ bool Constant::exist(const std::string &str)
 
 std::string Constant::getConstantList(void)
 {
-    string str("");
+    stringstream flow;
+    flow << setiosflags(ios::left);
     
     for(constantMapIterator_t it = constants_m.begin(); it != constants_m.end(); ++it)
     {
         if(it->second.help != userVariable)
         {
-            // Begin
-            str = str + "  " + it->first + " : ";
-
-            // End
-            str = str + it->second.help + " (" + to_string(it->second.value).substr(0, 15) + ")\n";
+            flow << "  " << setw(8) << it->first << " " << it->second.help + " (" + to_string(it->second.value).substr(0, 15) + ")\n";
         }
     }
     
-    return str;
+    return flow.str();
 }
 
 std::string Constant::getVariableList(void)
 {
-    string str("");
+    stringstream flow;
+    flow << setiosflags(ios::left);
     
     for(constantMapIterator_t it = constants_m.begin(); it != constants_m.end(); ++it)
     {
         if(it->second.help == userVariable)
         {
-            // Begin
-            str = str + "  " + it->first + " : ";
-
-            // End
-            str = str + it->second.help + " (" + to_string(it->second.value).substr(0, 15) + ")\n";
+            flow << "  " << setw(8) << it->first << " " << it->second.help + " (" + to_string(it->second.value).substr(0, 15) + ")\n";
         }
     }
     
-    return str;
+    return flow.str();
 }
 
 bool Constant::addVariable(std::string variableName, calculType_t value)
