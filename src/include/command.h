@@ -14,6 +14,9 @@
 #include <string>
 #include <vector>
 
+/// @brief  Sign to send a value as a parameter
+const static std::string parameterSign("->");
+
 /// @brief  List of available commands and arguments
 typedef enum
 {
@@ -44,8 +47,10 @@ static const command_t commands[] =
     {eCOMMAND_LIST_AVAILABLE_FUNCTIONS, "functions-list", "-f", "Show a list of available functions",{""}},
     {eCOMMAND_LIST_AVAILABLE_CONSTANTS, "constants-list", "-c", "Show a list of available constants",{""}},
     {eCOMMAND_LIST_AVAILABLE_VARIABLES, "variables-list", "-u", "Show the list of defined user variables",{""}},
-    {eCOMMAND_PRECISION, "precision", "-p", "Set the precision (only with Mpfr library)",
-        {"Use: (by default, nbBits = 53 = double precision)","-p->nbBits | --precision->nbBits"}},
+    {eCOMMAND_PRECISION, "precision", "-p", "Set/Get the precision (number of bits of the mantissa)",
+        {"Use: (default number of bits is 53)",
+         "  Get: -p | --precision (without parameters)",
+         "  Set: -p" + parameterSign + "nbBits | --precision" + parameterSign + "nbBits (only for Mpfr)"}},
     {eCOMMAND_HELP, "help", "-h", "Display this help",{""}},
     {eCOMMAND_VERSION, "version", "-v", "Display the program version",{""}},
     {eCOMMAND_EXIT, "exit", "-q", "Exit the program",{""}}
