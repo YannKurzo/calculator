@@ -19,19 +19,18 @@ This program can parse a string entered by the user. It calculates the mathemati
 The program can be launched from a command line with multiple parameters. It will displays all the results separated by spaces and then automatically quit the program.
  - Use:
   * "calculator "2*5" "2+8"" (multiple calculation in a row, use quotation marks)
-  * "calculator -h" (shortcut argument)
-  * "calculator --help" (full argument)
+  * "calculator -h" (shortcut command)
+  * "calculator --help" (full command)
  
 ##### Command mode
-The program can be launched without parameters. It will then work as a bash and execute each calculation entered by the user without quitting the program. To quit, the "exit" (or "-q") can be used.
+The program can be launched without parameters. It will then work as a bash and execute each calculation entered by the user without quitting the program. To quit, the "-q" command (or "--exit") can be used.
  - Use:
-  * 2*5 2+8 (multiple calculation in a row, separated by spaces)
+  * 2*5 2+8 (multiple calculation in a row, separated by spaces, quotation marks not needed)
   * "-h" command (shortcut command)
-  * "help" command (full command)
+  * "--help" command (full command)
 
 ### Missing features (in development):
 - Commands
-  * --get-precision
   * clear / clear->variableName
 
 ### Compilation
@@ -51,7 +50,6 @@ The program can be launched without parameters. It will then work as a bash and 
 
 ### Code corrections
 - Infinite loop with x*constant with implicite multiplication
-- Use stringstream for helps
 
 ### Doc
 - Doxygen
