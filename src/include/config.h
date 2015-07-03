@@ -22,14 +22,14 @@
 //  ==================================================================
 
 /// @brief  Defined to 1 to display the operation steps
-#define DISPLAY_OPERATIONS      0
+#define DISPLAY_OPERATIONS      1
 
 /// @brief  Maximum number of parameters for the functions
 /// @note   When it is changed, other parts of the code must be adapted.
 #define MAX_NUMBER_PARAMETERS   3
 
 /// @brief  Define to 1 to show the vector of tokens after the lexer process
-#define ANALYSE_DEBUG           0
+#define ANALYSE_DEBUG           1
 
 //  ==================================================================
 

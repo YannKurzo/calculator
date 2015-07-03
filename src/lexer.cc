@@ -85,7 +85,7 @@ void Lexer::pushTokens(void)
 		{
             i = pushComma(i);
 		}
-		// Functions
+		// Functions or constant
 		else
 		{
 			i = pushFunctionOrConstant(i);
@@ -273,6 +273,7 @@ void Lexer::checkImplicitMultiplication(void)
         {
             // If next one is a function or an opening bracket
             if(tokenVector_m.at(i+1).getType() == Token::eTOKENTYPE_FUNCTION ||
+               tokenVector_m.at(i+1).getType() == Token::eTOKENTYPE_CONSTANT ||
                tokenVector_m.at(i+1).getType() == Token::eTOKENTYPE_BRACKET_OPEN)
             {
                 // Add multiplication operator
