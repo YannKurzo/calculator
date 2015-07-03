@@ -30,8 +30,6 @@ The program can be launched without parameters. It will then work as a bash and 
   * "--help" command (full command)
 
 ### Missing features (in development):
-- Commands
-  * clear / clear->variableName
 
 ### Compilation
 - This program uses the autoconf / automake tool for the compilation.
