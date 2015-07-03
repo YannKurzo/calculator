@@ -29,8 +29,6 @@ The program can be launched without parameters. It will then work as a bash and 
   * "-h" command (shortcut command)
   * "--help" command (full command)
 
-### Missing features (in development):
-
 ### Compilation
 - This program uses the autoconf / automake tool for the compilation.
 - To be able to compile, the following tools are necessary:
@@ -46,8 +44,9 @@ The program can be launched without parameters. It will then work as a bash and 
   * Linux: http://www.mpfr.org/mpfr-current/#download
   * Cygwin: https://cygwin.com/install.html (use the setup to install the library)
 
+### Missing features (in development)
+
 ### Code corrections
-- Infinite loop with x*constant with implicite multiplication
 
 ### Doc
 - Doxygen
