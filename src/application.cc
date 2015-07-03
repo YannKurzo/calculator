@@ -84,6 +84,7 @@ void Application::startCommand(void)
 
 void Application::precisionCommand(void)
 {
+    // Set the precision
     if(Command::hasParam(str_m))
     {
 #if(USE_DOUBLE_TYPE == 1)
@@ -106,6 +107,7 @@ void Application::precisionCommand(void)
         }
 #endif  /* USE_MPFR_LIBRARY */
     }
+    // Get the precision
     else
     {
         cout << "Actual precision set to " << MPFR::getPrecision() << " bits" << endl;
@@ -125,15 +127,21 @@ void Application::clearCommand(void)
         }
         else
         {
-            cout << "Variable not cleared" << endl;
+            cout << "Variable not cleared!" << endl;
         }
         
     }
     // Clear all the variables
     else
     {
-        // Constant::clearAll();
-        cout << "All user defined variables are cleared" << endl;
+        if(Constant::clearAll())
+        {
+            cout << "All user defined variables are cleared" << endl;
+        }
+        else
+        {
+            cout << "There is no user defined variables!" << endl;
+        }
     }
 }
 

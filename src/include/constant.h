@@ -110,9 +110,14 @@ class Constant
         /// @return true if the variable was set, false otherwise
         static bool addVariable(std::string variableName, calculType_t value);
         
+        /// @brief  Clear a user variable
+        /// @param  variableName Variable name
+        /// @return true if the variable was cleared, false otherwise
         static bool clearVariable(std::string variableName);
         
-        static void clearAll(void);
+        /// @brief  Clear all user variables
+        /// @return true if the variables were cleared, false otherwise
+        static bool clearAll(void);
         
         /// @brief  Check if the variable name is valid
         /// @param  variableName Variable name

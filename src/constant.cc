@@ -16,6 +16,7 @@
 #include <iomanip>
 #include <cstdlib>
 #include <exception>
+#include <vector>
 
 using namespace std;
 
@@ -116,15 +117,27 @@ bool Constant::clearVariable(std::string variableName)
     }
 }
 
-void Constant::clearAll(void)
+bool Constant::clearAll(void)
 {
+    vector<string> variableNames;
     for(constantMapIterator_t it = constants_m.begin(); it != constants_m.end(); ++it)
     {
         if(it->second.help == userVariable)
         {
-            constants_m.erase(it);
-            ++it;
+            variableNames.push_back(it->first);
         }
+    }
+    for(unsigned int i=0;i<variableNames.size();++i)
+    {
+        constants_m.erase(variableNames.at(i));
+    }
+    if(variableNames.size() > 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
     }
 }
 
