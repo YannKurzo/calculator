@@ -16,6 +16,8 @@ static unsigned int \hyperlink{class_function_a3cc694137e1698d0537d9e4672a7123a}
 \begin{DoxyCompactList}\small\item\em Get the number of parameters of the function. \end{DoxyCompactList}\item 
 static \hyperlink{function_8h_a171e664ee3179d3d1f1a7b04a747724c}{func\+\_\+ptr} \hyperlink{class_function_a58dbf2a69e3cd7a82acff3ea70e642f4}{get\+Function} (const std\+::string \&str)
 \begin{DoxyCompactList}\small\item\em Get a pointer on the function to call. \end{DoxyCompactList}\item 
+static bool \hyperlink{class_function_a8f2dcc5ab81effb838f7a31203082b5f}{exist} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Check if a function exists. \end{DoxyCompactList}\item 
 static std\+::string \hyperlink{class_function_a321f973005de0842251559fb2ab52160}{get\+Function\+List} (void)
 \begin{DoxyCompactList}\small\item\em Get a string containing the list of implemented functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -24,11 +26,25 @@ static std\+::string \hyperlink{class_function_a321f973005de0842251559fb2ab52160
 This class is used to handle library or user defined functions. 
 
 \begin{DoxyNote}{Note}
-New functions can be easily added with the A\+D\+D macro. 
+New functions can be easily added with the A\+D\+D\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+S\+A\+M\+E\+N\+A\+M\+E macro. 
 \end{DoxyNote}
 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_function_a8f2dcc5ab81effb838f7a31203082b5f}{}\index{Function@{Function}!exist@{exist}}
+\index{exist@{exist}!Function@{Function}}
+\subsubsection[{exist}]{\setlength{\rightskip}{0pt plus 5cm}static bool Function\+::exist (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{str}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_function_a8f2dcc5ab81effb838f7a31203082b5f}
+
+
+Check if a function exists. 
+
+\begin{DoxyReturn}{Returns}
+true if it exists, false otherwise 
+\end{DoxyReturn}
 \hypertarget{class_function_a58dbf2a69e3cd7a82acff3ea70e642f4}{}\index{Function@{Function}!get\+Function@{get\+Function}}
 \index{get\+Function@{get\+Function}!Function@{Function}}
 \subsubsection[{get\+Function}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf func\+\_\+ptr} Function\+::get\+Function (

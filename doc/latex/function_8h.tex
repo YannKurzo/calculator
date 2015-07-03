@@ -6,9 +6,10 @@ This file defines the \hyperlink{class_function}{Function} class.
 
 
 {\ttfamily \#include \char`\"{}mpfr\+Interface.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}external\+Functions\+Double.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}external\+Functions\+Mpfr.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$string$>$}\\*
 {\ttfamily \#include $<$cmath$>$}\\*
+{\ttfamily \#include $<$cstdlib$>$}\\*
 {\ttfamily \#include $<$map$>$}\\*
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
@@ -20,9 +21,9 @@ class \hyperlink{class_function}{Function}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{function_8h_aab90cd668cd8bf7816ad9eb7aea209e7}{A\+D\+D}(str,  nb\+Parameters,  function\+Name,  help)~\{str, \{nb\+Parameters, reinterpret\+\_\+cast$<$\hyperlink{function_8h_a171e664ee3179d3d1f1a7b04a747724c}{func\+\_\+ptr}$>$(\&function\+Name), help\}\}
+\#define \hyperlink{function_8h_a8809239df3732d15b9f894187ea0ac56}{A\+D\+D\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}(str,  nb\+Parameters,  function\+Name,  help)~\{str, \{nb\+Parameters, reinterpret\+\_\+cast$<$\hyperlink{function_8h_a171e664ee3179d3d1f1a7b04a747724c}{func\+\_\+ptr}$>$(\&mpfr\+\_\+\#\#function\+Name), help\}\}
 \begin{DoxyCompactList}\small\item\em Macro to easily add a new function. \end{DoxyCompactList}\item 
-\hypertarget{function_8h_a0f34c734f321363d78f9788a7b99883b}{}\#define {\bfseries A\+D\+D\+S\+A\+M\+E\+N\+A\+M\+E}(str,  nb\+Parameters,  function\+Name,  help)~\{str, \{nb\+Parameters, reinterpret\+\_\+cast$<$\hyperlink{function_8h_a171e664ee3179d3d1f1a7b04a747724c}{func\+\_\+ptr}$>$(\&function\+Name), help\}\}\label{function_8h_a0f34c734f321363d78f9788a7b99883b}
+\hypertarget{function_8h_a13c792a9364530a87697a1a30897b643}{}\#define {\bfseries A\+D\+D\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+S\+A\+M\+E\+N\+A\+M\+E}(str,  nb\+Parameters,  function\+Name,  help)~\{str, \{nb\+Parameters, reinterpret\+\_\+cast$<$\hyperlink{function_8h_a171e664ee3179d3d1f1a7b04a747724c}{func\+\_\+ptr}$>$(\&function\+Name), help\}\}\label{function_8h_a13c792a9364530a87697a1a30897b643}
 
 \end{DoxyCompactItemize}
 \subsection*{Typedefs}
@@ -37,6 +38,21 @@ class \hyperlink{class_function}{Function}
 \hypertarget{function_8h_ab0ba3e25af04f28f837cce7a390ee674}{}typedef function\+Map\+\_\+t\+::iterator \hyperlink{function_8h_ab0ba3e25af04f28f837cce7a390ee674}{function\+Map\+Iterator\+\_\+t}\label{function_8h_ab0ba3e25af04f28f837cce7a390ee674}
 
 \begin{DoxyCompactList}\small\item\em Iterator on function\+Map\+\_\+t. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{function_8h_a47236c269e160e9aeb330bc647f11808}{}int {\bfseries call} (std\+::string str, mpfr\+\_\+t res)\label{function_8h_a47236c269e160e9aeb330bc647f11808}
+
+\item 
+\hypertarget{function_8h_a520390cd66e46cb4781bc0b42ad9edbc}{}int {\bfseries call} (std\+::string str, mpfr\+\_\+t res, mpfr\+\_\+t op0)\label{function_8h_a520390cd66e46cb4781bc0b42ad9edbc}
+
+\item 
+\hypertarget{function_8h_a97dc39d44ba6da2e6547f74e14a13e57}{}int {\bfseries call} (std\+::string str, mpfr\+\_\+t res, mpfr\+\_\+t op0, mpfr\+\_\+t op1)\label{function_8h_a97dc39d44ba6da2e6547f74e14a13e57}
+
+\item 
+\hypertarget{function_8h_a6f66de838c37227389038f5cc5d35ba8}{}int {\bfseries call} (std\+::string str, mpfr\+\_\+t res, mpfr\+\_\+t op0, mpfr\+\_\+t op1, mpfr\+\_\+t op2)\label{function_8h_a6f66de838c37227389038f5cc5d35ba8}
+
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -54,16 +70,16 @@ Copyright 2015 Yann Kurzo. All rights reserved. This project is released under t
 
 
 \subsection{Macro Definition Documentation}
-\hypertarget{function_8h_aab90cd668cd8bf7816ad9eb7aea209e7}{}\index{function.\+h@{function.\+h}!A\+D\+D@{A\+D\+D}}
-\index{A\+D\+D@{A\+D\+D}!function.\+h@{function.\+h}}
-\subsubsection[{A\+D\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+D\+D(
+\hypertarget{function_8h_a8809239df3732d15b9f894187ea0ac56}{}\index{function.\+h@{function.\+h}!A\+D\+D\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{A\+D\+D\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}}
+\index{A\+D\+D\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N@{A\+D\+D\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}!function.\+h@{function.\+h}}
+\subsubsection[{A\+D\+D\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+D\+D\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N(
 \begin{DoxyParamCaption}
 \item[{}]{str, }
 \item[{}]{nb\+Parameters, }
 \item[{}]{function\+Name, }
 \item[{}]{help}
 \end{DoxyParamCaption}
-)~\{str, \{nb\+Parameters, reinterpret\+\_\+cast$<${\bf func\+\_\+ptr}$>$(\&function\+Name), help\}\}}\label{function_8h_aab90cd668cd8bf7816ad9eb7aea209e7}
+)~\{str, \{nb\+Parameters, reinterpret\+\_\+cast$<${\bf func\+\_\+ptr}$>$(\&mpfr\+\_\+\#\#function\+Name), help\}\}}\label{function_8h_a8809239df3732d15b9f894187ea0ac56}
 
 
 Macro to easily add a new function. 

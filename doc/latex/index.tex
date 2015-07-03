@@ -5,38 +5,73 @@ This program can parse a string entered by the user. It calculates the mathemati
 
 \begin{DoxyItemize}
 \item Numbers
-\item Operators (+,-\/,$\ast$,/,$^\wedge$,\%, unary minus -\/)
+\item Operators (+,-\/,$\ast$,/,$^\wedge$,\%, unary minus -\/, implicit multiplication \mbox{[}2pi =$>$ 2$\ast$pi\mbox{]})
 \item Operator priority
 \item Brackets
-\item Functions
-\item Implicit multiplication (Ex\+: 2(4+3) == 2$\ast$(4+3) $\vert$$\vert$ 2pi() == 2$\ast$pi() )
-\item Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)
-\item Argument mode
-\begin{DoxyItemize}
-\item \char`\"{}calculator 2$\ast$5 2+8\char`\"{} (multiple calculation in a row)
-\item \char`\"{}calculator -\/h\char`\"{} (shortcut argument)
-\item \char`\"{}calculator -\/-\/help\char`\"{} (full argument)
-\end{DoxyItemize}
-\item \hyperlink{class_command}{Command} mode
-\begin{DoxyItemize}
-\item 2$\ast$5 (single calculation at a time)
-\item \char`\"{}-\/h\char`\"{} command (shortcut command)
-\item \char`\"{}help\char`\"{} command (full command)
-\end{DoxyItemize}
-\item Argument and commands
-\begin{DoxyItemize}
-\item Use help to get a list
-\item Actual list\+: exit, list-\/available-\/functions, help
-\end{DoxyItemize}
+\item Basic mathematical functions
+\item Some basic constants
+\item Saving results in temporary variables
+\item Use the help command to get a list of available commands
 \item Calculation using double type or mpfr library (see \hyperlink{config_8h}{config.\+h} file)
+\item Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)
 \end{DoxyItemize}
 
-\subsubsection*{Missing features (in development)\+:}
+\subparagraph*{Argument mode}
+
+The program can be launched from a command line with multiple parameters. It will displays all the results separated by spaces and then automatically quit the program.
+\begin{DoxyItemize}
+\item Use\+:
+\begin{DoxyItemize}
+\item \char`\"{}calculator \char`\"{}2$\ast$5\char`\"{} \char`\"{}2+8\char`\"{}\char`\"{} (multiple calculation in a row, use quotation marks)
+\item \char`\"{}calculator -\/h\char`\"{} (shortcut command)
+\item \char`\"{}calculator -\/-\/help\char`\"{} (full command)
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\subparagraph*{\hyperlink{class_command}{Command} mode}
+
+The program can be launched without parameters. It will then work as a bash and execute each calculation entered by the user without quitting the program. To quit, the \char`\"{}-\/q\char`\"{} command (or \char`\"{}-\/-\/exit\char`\"{}) can be used.
+\begin{DoxyItemize}
+\item Use\+:
+\begin{DoxyItemize}
+\item 2$\ast$5 2+8 (multiple calculation in a row, separated by spaces, quotation marks not needed)
+\item \char`\"{}-\/h\char`\"{} command (shortcut command)
+\item \char`\"{}-\/-\/help\char`\"{} command (full command)
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\subsubsection*{Compilation}
 
 
 \begin{DoxyItemize}
-\item Add usual constants in external functions
-\item Autoconf tool not working with mpfr library yet
+\item This program uses the autoconf / automake tool for the compilation.
+\item To be able to compile, the following tools are necessary\+:
+\begin{DoxyItemize}
+\item a U\+N\+I\+X like environment (Linux / cygwin for Windows)
+\item the \char`\"{}make\char`\"{} command
+\end{DoxyItemize}
+\item For the compilation, run the following commands\+:
+\begin{DoxyItemize}
+\item ./configure
+\item make
+\item make install
+\end{DoxyItemize}
+\item Help can be found by using\+:
+\begin{DoxyItemize}
+\item ./configure --help
+\end{DoxyItemize}
+\item Getting the mpfr library (this library is only necessary for compiling for big numbers)
+\begin{DoxyItemize}
+\item Linux\+: \href{http://www.mpfr.org/mpfr-current/#download}{\tt http\+://www.\+mpfr.\+org/mpfr-\/current/\#download}
+\item Cygwin\+: \href{https://cygwin.com/install.html}{\tt https\+://cygwin.\+com/install.\+html} (use the setup to install the library)
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\subsubsection*{Missing features (in development)}
+
+
+\begin{DoxyItemize}
+\item Vectors and matrices
 \end{DoxyItemize}
 
 \subsubsection*{Code corrections}

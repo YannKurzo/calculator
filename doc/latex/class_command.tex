@@ -12,14 +12,18 @@ This class handles the different commands and arguments.
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static \hyperlink{command_8h_aafce48252f7b3163fa15e458dd84ba12}{command\+\_\+e} \hyperlink{class_command_ae11f4e8caf8655b98791f0a2f779d245}{get\+Argument} (std\+::string argument)
-\begin{DoxyCompactList}\small\item\em Get the argument. \end{DoxyCompactList}\item 
 static \hyperlink{command_8h_aafce48252f7b3163fa15e458dd84ba12}{command\+\_\+e} \hyperlink{class_command_a0a461c50ca91c39c699d35da1ae4d66d}{get\+Command} (std\+::string command)
 \begin{DoxyCompactList}\small\item\em Get the command. \end{DoxyCompactList}\item 
-static int \hyperlink{class_command_a08b18f7dba9ce77a466fd92c5617d927}{get\+Value} (std\+::string command)
-\begin{DoxyCompactList}\small\item\em Get the value after the = in a command. \end{DoxyCompactList}\item 
-static std\+::string \hyperlink{class_command_a533d4d8df620c9dd0c36c4d67a379ae5}{get\+Help} (void)
-\begin{DoxyCompactList}\small\item\em Get help about the commands. \end{DoxyCompactList}\end{DoxyCompactItemize}
+static bool \hyperlink{class_command_acd56e84b950706980dd10a0bd32e8a44}{has\+Param} (std\+::string command)
+\begin{DoxyCompactList}\small\item\em Check if a command has parameters. \end{DoxyCompactList}\item 
+static int \hyperlink{class_command_a675b10cacf1cfa1713c3e0eb6b1263d3}{get\+Value\+Parameter} (std\+::string command)
+\begin{DoxyCompactList}\small\item\em Get the value after the command. \end{DoxyCompactList}\item 
+static std\+::string \hyperlink{class_command_a7b5c3b86ee68389a5ddb732e52d7b225}{get\+String\+Parameter} (std\+::string command)
+\begin{DoxyCompactList}\small\item\em Get the parameter string after the command. \end{DoxyCompactList}\item 
+static std\+::string \hyperlink{class_command_aa64031bdfbbdcf55aba21c7864a7e49c}{get\+Help} (bool detailed, bool command)
+\begin{DoxyCompactList}\small\item\em Get help about the commands. \end{DoxyCompactList}\item 
+static std\+::string \hyperlink{class_command_aa3cc08d74680f515249d5a12f3afaeb6}{get\+Detailed\+Help} (\hyperlink{command_8h_aafce48252f7b3163fa15e458dd84ba12}{command\+\_\+e} command)
+\begin{DoxyCompactList}\small\item\em Get detailed help about a commands. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -32,25 +36,6 @@ static std\+::string \hyperlink{class_command_a533d4d8df620c9dd0c36c4d67a379ae5}
 This class handles the different commands and arguments. 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_command_ae11f4e8caf8655b98791f0a2f779d245}{}\index{Command@{Command}!get\+Argument@{get\+Argument}}
-\index{get\+Argument@{get\+Argument}!Command@{Command}}
-\subsubsection[{get\+Argument}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf command\+\_\+e} Command\+::get\+Argument (
-\begin{DoxyParamCaption}
-\item[{std\+::string}]{argument}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [static]}}\label{class_command_ae11f4e8caf8655b98791f0a2f779d245}
-
-
-Get the argument. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em argument} & Argument to analyze \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Argument, or e\+N\+B\+\_\+\+C\+O\+M\+M\+A\+N\+D\+S otherwise 
-\end{DoxyReturn}
 \hypertarget{class_command_a0a461c50ca91c39c699d35da1ae4d66d}{}\index{Command@{Command}!get\+Command@{get\+Command}}
 \index{get\+Command@{get\+Command}!Command@{Command}}
 \subsubsection[{get\+Command}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf command\+\_\+e} Command\+::get\+Command (
@@ -70,30 +55,74 @@ Get the command.
 \begin{DoxyReturn}{Returns}
 \hyperlink{class_command}{Command}, or e\+N\+B\+\_\+\+C\+O\+M\+M\+A\+N\+D\+S otherwise 
 \end{DoxyReturn}
-\hypertarget{class_command_a533d4d8df620c9dd0c36c4d67a379ae5}{}\index{Command@{Command}!get\+Help@{get\+Help}}
+\hypertarget{class_command_aa3cc08d74680f515249d5a12f3afaeb6}{}\index{Command@{Command}!get\+Detailed\+Help@{get\+Detailed\+Help}}
+\index{get\+Detailed\+Help@{get\+Detailed\+Help}!Command@{Command}}
+\subsubsection[{get\+Detailed\+Help}]{\setlength{\rightskip}{0pt plus 5cm}static std\+::string Command\+::get\+Detailed\+Help (
+\begin{DoxyParamCaption}
+\item[{{\bf command\+\_\+e}}]{command}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_command_aa3cc08d74680f515249d5a12f3afaeb6}
+
+
+Get detailed help about a commands. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & Which command \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String containing the help 
+\end{DoxyReturn}
+\hypertarget{class_command_aa64031bdfbbdcf55aba21c7864a7e49c}{}\index{Command@{Command}!get\+Help@{get\+Help}}
 \index{get\+Help@{get\+Help}!Command@{Command}}
 \subsubsection[{get\+Help}]{\setlength{\rightskip}{0pt plus 5cm}static std\+::string Command\+::get\+Help (
 \begin{DoxyParamCaption}
-\item[{void}]{}
+\item[{bool}]{detailed, }
+\item[{bool}]{command}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [static]}}\label{class_command_a533d4d8df620c9dd0c36c4d67a379ae5}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_command_aa64031bdfbbdcf55aba21c7864a7e49c}
 
 
 Get help about the commands. 
 
+
+\begin{DoxyParams}{Parameters}
+{\em detailed} & Detailed help if true \\
+\hline
+\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 String containing the help 
 \end{DoxyReturn}
-\hypertarget{class_command_a08b18f7dba9ce77a466fd92c5617d927}{}\index{Command@{Command}!get\+Value@{get\+Value}}
-\index{get\+Value@{get\+Value}!Command@{Command}}
-\subsubsection[{get\+Value}]{\setlength{\rightskip}{0pt plus 5cm}static int Command\+::get\+Value (
+\hypertarget{class_command_a7b5c3b86ee68389a5ddb732e52d7b225}{}\index{Command@{Command}!get\+String\+Parameter@{get\+String\+Parameter}}
+\index{get\+String\+Parameter@{get\+String\+Parameter}!Command@{Command}}
+\subsubsection[{get\+String\+Parameter}]{\setlength{\rightskip}{0pt plus 5cm}static std\+::string Command\+::get\+String\+Parameter (
 \begin{DoxyParamCaption}
 \item[{std\+::string}]{command}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [static]}}\label{class_command_a08b18f7dba9ce77a466fd92c5617d927}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_command_a7b5c3b86ee68389a5ddb732e52d7b225}
 
 
-Get the value after the = in a command. 
+Get the parameter string after the command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & \hyperlink{class_command}{Command} to analyze \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String 
+\end{DoxyReturn}
+\hypertarget{class_command_a675b10cacf1cfa1713c3e0eb6b1263d3}{}\index{Command@{Command}!get\+Value\+Parameter@{get\+Value\+Parameter}}
+\index{get\+Value\+Parameter@{get\+Value\+Parameter}!Command@{Command}}
+\subsubsection[{get\+Value\+Parameter}]{\setlength{\rightskip}{0pt plus 5cm}static int Command\+::get\+Value\+Parameter (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{command}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_command_a675b10cacf1cfa1713c3e0eb6b1263d3}
+
+
+Get the value after the command. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -102,6 +131,20 @@ Get the value after the = in a command.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Value 
+\end{DoxyReturn}
+\hypertarget{class_command_acd56e84b950706980dd10a0bd32e8a44}{}\index{Command@{Command}!has\+Param@{has\+Param}}
+\index{has\+Param@{has\+Param}!Command@{Command}}
+\subsubsection[{has\+Param}]{\setlength{\rightskip}{0pt plus 5cm}static bool Command\+::has\+Param (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{command}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_command_acd56e84b950706980dd10a0bd32e8a44}
+
+
+Check if a command has parameters. 
+
+\begin{DoxyReturn}{Returns}
+true if it does, false otherwise 
 \end{DoxyReturn}
 
 

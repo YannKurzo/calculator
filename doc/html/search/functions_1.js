@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['display',['display',['../class_token.html#a04cb002bc8a1ca11487fa254a4455bf9',1,'Token']]]
+  ['clearall',['clearAll',['../class_constant.html#a28ae851ca8ba805646b2edfdf55c5cd0',1,'Constant']]],
+  ['clearvariable',['clearVariable',['../class_constant.html#a888b1d893b9461ecd6a46f9de3c66c24',1,'Constant']]]
 ];

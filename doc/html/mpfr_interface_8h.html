@@ -87,41 +87,83 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">mpfrInterface.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This file defines the Mpfr class. This file defines with a typedef either double or Mpfr depending on the <a class="el" href="config_8h.html" title="This file contains all the possible configurations. ">config.h</a> file for doing the calculations.  
+<p>This file defines the <a class="el" href="class_mpfr.html" title="This class interfaces the mpfr library. ">Mpfr</a> class. This file defines with a typedef either double or <a class="el" href="class_mpfr.html" title="This class interfaces the mpfr library. ">Mpfr</a> depending on the <a class="el" href="config_8h.html" title="This file contains all the possible configurations. ">config.h</a> file for doing the calculations.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="config_8h_source.html">config.h</a>&quot;</code><br />
+<code>#include &quot;mpfr.h&quot;</code><br />
+<code>#include &lt;ostream&gt;</code><br />
 </div>
 <p><a href="mpfr_interface_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a86d500a34c624c2cae56bc25a31b12f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a86d500a34c624c2cae56bc25a31b12f3"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>UNUSED</b>(x)&#160;&#160;&#160;(void)(x)</td></tr>
-<tr class="separator:a86d500a34c624c2cae56bc25a31b12f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mpfr.html">Mpfr</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class interfaces the mpfr library.  <a href="class_mpfr.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a16492006127cd422340be2441c22c14b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16492006127cd422340be2441c22c14b"></a>
-typedef double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpfr_interface_8h.html#a16492006127cd422340be2441c22c14b">calculType_t</a></td></tr>
-<tr class="memdesc:a16492006127cd422340be2441c22c14b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculation type. <br /></td></tr>
-<tr class="separator:a16492006127cd422340be2441c22c14b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a905f16a5d11405ba304e1d331b925e96"><td class="memItemLeft" align="right" valign="top">mpfr_rnd_t&#160;</td><td class="memItemRight" valign="bottom"><b>MPFR::getRoundingMethod</b> (void)</td></tr>
+<tr class="memdesc:a905f16a5d11405ba304e1d331b925e96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the actual rounding method.  <a href="#a905f16a5d11405ba304e1d331b925e96">More...</a><br /></td></tr>
+<tr class="separator:a905f16a5d11405ba304e1d331b925e96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2e931505ac40178b5da35791b916c8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>MPFR::setRoundingMethod</b> (mpfr_rnd_t roundingMethod)</td></tr>
+<tr class="memdesc:ad2e931505ac40178b5da35791b916c8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the rounding method.  <a href="#ad2e931505ac40178b5da35791b916c8d">More...</a><br /></td></tr>
+<tr class="separator:ad2e931505ac40178b5da35791b916c8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a65610ea12f330dee82f1b122643be0"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>MPFR::getPrecision</b> (void)</td></tr>
+<tr class="memdesc:a0a65610ea12f330dee82f1b122643be0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get mpfr actual precision.  <a href="#a0a65610ea12f330dee82f1b122643be0">More...</a><br /></td></tr>
+<tr class="separator:a0a65610ea12f330dee82f1b122643be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af177a0091b64636e4f74a2c29188cc2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>MPFR::setPrecision</b> (unsigned int precision)</td></tr>
+<tr class="memdesc:af177a0091b64636e4f74a2c29188cc2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set mpfr default precision.  <a href="#af177a0091b64636e4f74a2c29188cc2c">More...</a><br /></td></tr>
+<tr class="separator:af177a0091b64636e4f74a2c29188cc2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeaf3d36c0efdc145c2698e436d6f016"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afeaf3d36c0efdc145c2698e436d6f016"></a>
+<a class="el" href="class_mpfr.html">Mpfr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpfr_interface_8h.html#afeaf3d36c0efdc145c2698e436d6f016">operator+</a> (<a class="el" href="class_mpfr.html">Mpfr</a> const &amp;mpfr1, <a class="el" href="class_mpfr.html">Mpfr</a> const &amp;mpfr2)</td></tr>
+<tr class="memdesc:afeaf3d36c0efdc145c2698e436d6f016"><td class="mdescLeft">&#160;</td><td class="mdescRight">+= operator <br /></td></tr>
+<tr class="separator:afeaf3d36c0efdc145c2698e436d6f016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a709251d398fb2b2ec4ce621a6bb87f6a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a709251d398fb2b2ec4ce621a6bb87f6a"></a>
+<a class="el" href="class_mpfr.html">Mpfr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpfr_interface_8h.html#a709251d398fb2b2ec4ce621a6bb87f6a">operator-</a> (<a class="el" href="class_mpfr.html">Mpfr</a> const &amp;mpfr1, <a class="el" href="class_mpfr.html">Mpfr</a> const &amp;mpfr2)</td></tr>
+<tr class="memdesc:a709251d398fb2b2ec4ce621a6bb87f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">-= operator <br /></td></tr>
+<tr class="separator:a709251d398fb2b2ec4ce621a6bb87f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a043f9970fff1e144596fc36505ca30c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a043f9970fff1e144596fc36505ca30c7"></a>
+<a class="el" href="class_mpfr.html">Mpfr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpfr_interface_8h.html#a043f9970fff1e144596fc36505ca30c7">operator*</a> (<a class="el" href="class_mpfr.html">Mpfr</a> const &amp;mpfr1, <a class="el" href="class_mpfr.html">Mpfr</a> const &amp;mpfr2)</td></tr>
+<tr class="memdesc:a043f9970fff1e144596fc36505ca30c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">*= operator <br /></td></tr>
+<tr class="separator:a043f9970fff1e144596fc36505ca30c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a317f8cef2d739abd15ca1e4b9f7b2436"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a317f8cef2d739abd15ca1e4b9f7b2436"></a>
+<a class="el" href="class_mpfr.html">Mpfr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpfr_interface_8h.html#a317f8cef2d739abd15ca1e4b9f7b2436">operator/</a> (<a class="el" href="class_mpfr.html">Mpfr</a> const &amp;mpfr1, <a class="el" href="class_mpfr.html">Mpfr</a> const &amp;mpfr2)</td></tr>
+<tr class="memdesc:a317f8cef2d739abd15ca1e4b9f7b2436"><td class="mdescLeft">&#160;</td><td class="mdescRight">/= operator <br /></td></tr>
+<tr class="separator:a317f8cef2d739abd15ca1e4b9f7b2436"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada54c6e41a723d07486f22777cd6ee9d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada54c6e41a723d07486f22777cd6ee9d"></a>
+<a class="el" href="class_mpfr.html">Mpfr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpfr_interface_8h.html#ada54c6e41a723d07486f22777cd6ee9d">operator^</a> (<a class="el" href="class_mpfr.html">Mpfr</a> const &amp;mpfr1, <a class="el" href="class_mpfr.html">Mpfr</a> const &amp;mpfr2)</td></tr>
+<tr class="memdesc:ada54c6e41a723d07486f22777cd6ee9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">^= operator <br /></td></tr>
+<tr class="separator:ada54c6e41a723d07486f22777cd6ee9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bbbbf9f52b88cc4ad9576603992f5d5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5bbbbf9f52b88cc4ad9576603992f5d5"></a>
+<a class="el" href="class_mpfr.html">Mpfr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpfr_interface_8h.html#a5bbbbf9f52b88cc4ad9576603992f5d5">operator%</a> (<a class="el" href="class_mpfr.html">Mpfr</a> const &amp;mpfr1, <a class="el" href="class_mpfr.html">Mpfr</a> const &amp;mpfr2)</td></tr>
+<tr class="memdesc:a5bbbbf9f52b88cc4ad9576603992f5d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">%= operator <br /></td></tr>
+<tr class="separator:a5bbbbf9f52b88cc4ad9576603992f5d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a993860352aef57b15399903c4475a608"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a993860352aef57b15399903c4475a608"></a>
+STANDARD_OUTPUT typedef <a class="el" href="class_mpfr.html">Mpfr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpfr_interface_8h.html#a993860352aef57b15399903c4475a608">calculType_t</a></td></tr>
+<tr class="memdesc:a993860352aef57b15399903c4475a608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculation type. <br /></td></tr>
+<tr class="separator:a993860352aef57b15399903c4475a608"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file defines the Mpfr class. This file defines with a typedef either double or Mpfr depending on the <a class="el" href="config_8h.html" title="This file contains all the possible configurations. ">config.h</a> file for doing the calculations. </p>
+<div class="textblock"><p>This file defines the <a class="el" href="class_mpfr.html" title="This class interfaces the mpfr library. ">Mpfr</a> class. This file defines with a typedef either double or <a class="el" href="class_mpfr.html" title="This class interfaces the mpfr library. ">Mpfr</a> depending on the <a class="el" href="config_8h.html" title="This file contains all the possible configurations. ">config.h</a> file for doing the calculations. </p>
 <dl class="section author"><dt>Author</dt><dd>Yann Kurzo </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>June 17, 2015, 8:32 PM </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright 2015 Yann Kurzo. All rights reserved. This project is released under the GNU Public License. </dd></dl>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 23 2015 09:02:32 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 3 2015 16:17:25 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

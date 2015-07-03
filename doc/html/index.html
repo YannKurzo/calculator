@@ -84,35 +84,61 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3>Working features:</h3>
 <ul>
 <li>Numbers</li>
-<li>Operators (+,-,*,/,^,%, unary minus -)</li>
+<li>Operators (+,-,*,/,^,%, unary minus -, implicit multiplication [2pi =&gt; 2*pi])</li>
 <li>Operator priority</li>
 <li>Brackets</li>
-<li>Functions</li>
-<li>Implicit multiplication (Ex: 2(4+3) == 2*(4+3) || 2pi() == 2*pi() )</li>
-<li>Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)</li>
-<li>Argument mode<ul>
-<li>"calculator 2*5 2+8" (multiple calculation in a row)</li>
-<li>"calculator -h" (shortcut argument)</li>
-<li>"calculator --help" (full argument)</li>
-</ul>
-</li>
-<li><a class="el" href="class_command.html" title="This class handles the different commands and arguments. ">Command</a> mode<ul>
-<li>2*5 (single calculation at a time)</li>
-<li>"-h" command (shortcut command)</li>
-<li>"help" command (full command)</li>
-</ul>
-</li>
-<li>Argument and commands<ul>
-<li>Use help to get a list</li>
-<li>Actual list: exit, list-available-functions, help</li>
-</ul>
-</li>
+<li>Basic mathematical functions</li>
+<li>Some basic constants</li>
+<li>Saving results in temporary variables</li>
+<li>Use the help command to get a list of available commands</li>
 <li>Calculation using double type or mpfr library (see <a class="el" href="config_8h.html" title="This file contains all the possible configurations. ">config.h</a> file)</li>
+<li>Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)</li>
 </ul>
-<h3>Missing features (in development):</h3>
+<h5>Argument mode</h5>
+<p>The program can be launched from a command line with multiple parameters. It will displays all the results separated by spaces and then automatically quit the program.</p><ul>
+<li>Use:<ul>
+<li>"calculator "2*5" "2+8"" (multiple calculation in a row, use quotation marks)</li>
+<li>"calculator -h" (shortcut command)</li>
+<li>"calculator --help" (full command)</li>
+</ul>
+</li>
+</ul>
+<h5><a class="el" href="class_command.html" title="This class handles the different commands and arguments. ">Command</a> mode</h5>
+<p>The program can be launched without parameters. It will then work as a bash and execute each calculation entered by the user without quitting the program. To quit, the "-q" command (or "--exit") can be used.</p><ul>
+<li>Use:<ul>
+<li>2*5 2+8 (multiple calculation in a row, separated by spaces, quotation marks not needed)</li>
+<li>"-h" command (shortcut command)</li>
+<li>"--help" command (full command)</li>
+</ul>
+</li>
+</ul>
+<h3>Compilation</h3>
 <ul>
-<li>Add usual constants in external functions</li>
-<li>Autoconf tool not working with mpfr library yet</li>
+<li>This program uses the autoconf / automake tool for the compilation.</li>
+<li>To be able to compile, the following tools are necessary:<ul>
+<li>a UNIX like environment (Linux / cygwin for Windows)</li>
+<li>the "make" command</li>
+</ul>
+</li>
+<li>For the compilation, run the following commands:<ul>
+<li>./configure</li>
+<li>make</li>
+<li>make install</li>
+</ul>
+</li>
+<li>Help can be found by using:<ul>
+<li>./configure &ndash;help</li>
+</ul>
+</li>
+<li>Getting the mpfr library (this library is only necessary for compiling for big numbers)<ul>
+<li>Linux: <a href="http://www.mpfr.org/mpfr-current/#download">http://www.mpfr.org/mpfr-current/#download</a></li>
+<li>Cygwin: <a href="https://cygwin.com/install.html">https://cygwin.com/install.html</a> (use the setup to install the library)</li>
+</ul>
+</li>
+</ul>
+<h3>Missing features (in development)</h3>
+<ul>
+<li>Vectors and matrices</li>
 </ul>
 <h3>Code corrections</h3>
 <h3>Doc</h3>
@@ -124,7 +150,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 23 2015 09:02:32 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 3 2015 16:17:25 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

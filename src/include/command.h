@@ -52,10 +52,10 @@ static const command_t commands[] =
         {"Use: (default number of bits is 53)",
          "  Get: -p | --precision (without parameters)",
          "  Set: -p" + parameterSign + "nbBits | --precision" + parameterSign + "nbBits (only for Mpfr)"}},
-    {eCOMMAND_CLEAR, "clear", "-e", "Clear user defined variables",
+    {eCOMMAND_CLEAR, "erase", "-e", "Clear user defined variables",
         {"Use:",
-         "  Clear all: -e | --clear",
-         "  Clear variable 'x': -e->x | --clear->x"}},
+         "  Clear all: -e | --erase",
+         "  Clear variable 'x': -e->x | --erase->x"}},
     {eCOMMAND_HELP, "help", "-h", "Display this help",{""}},
     {eCOMMAND_VERSION, "version", "-v", "Display the program version",{""}},
     {eCOMMAND_EXIT, "exit", "-q", "Exit the program",{""}}

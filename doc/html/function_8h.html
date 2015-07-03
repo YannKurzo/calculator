@@ -89,7 +89,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">function.h File Reference</div>  </div>
 </div><!--header-->
@@ -98,9 +99,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>This file defines the <a class="el" href="class_function.html" title="This class is used to handle library or user defined functions. ">Function</a> class.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="mpfr_interface_8h_source.html">mpfrInterface.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="external_functions_double_8h_source.html">externalFunctionsDouble.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="external_functions_mpfr_8h_source.html">externalFunctionsMpfr.h</a>&quot;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;cstdlib&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
 </div>
 <p><a href="function_8h_source.html">Go to the source code of this file.</a></p>
@@ -116,12 +118,12 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aab90cd668cd8bf7816ad9eb7aea209e7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="function_8h.html#aab90cd668cd8bf7816ad9eb7aea209e7">ADD</a>(str,  nbParameters,  functionName,  help)&#160;&#160;&#160;{str, {nbParameters, reinterpret_cast&lt;<a class="el" href="function_8h.html#a171e664ee3179d3d1f1a7b04a747724c">func_ptr</a>&gt;(&amp;functionName), help}}</td></tr>
-<tr class="memdesc:aab90cd668cd8bf7816ad9eb7aea209e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to easily add a new function.  <a href="#aab90cd668cd8bf7816ad9eb7aea209e7">More...</a><br /></td></tr>
-<tr class="separator:aab90cd668cd8bf7816ad9eb7aea209e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f34c734f321363d78f9788a7b99883b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f34c734f321363d78f9788a7b99883b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>ADDSAMENAME</b>(str,  nbParameters,  functionName,  help)&#160;&#160;&#160;{str, {nbParameters, reinterpret_cast&lt;<a class="el" href="function_8h.html#a171e664ee3179d3d1f1a7b04a747724c">func_ptr</a>&gt;(&amp;functionName), help}}</td></tr>
-<tr class="separator:a0f34c734f321363d78f9788a7b99883b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8809239df3732d15b9f894187ea0ac56"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="function_8h.html#a8809239df3732d15b9f894187ea0ac56">ADD_FUNCTION</a>(str,  nbParameters,  functionName,  help)&#160;&#160;&#160;{str, {nbParameters, reinterpret_cast&lt;<a class="el" href="function_8h.html#a171e664ee3179d3d1f1a7b04a747724c">func_ptr</a>&gt;(&amp;mpfr_##functionName), help}}</td></tr>
+<tr class="memdesc:a8809239df3732d15b9f894187ea0ac56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to easily add a new function.  <a href="#a8809239df3732d15b9f894187ea0ac56">More...</a><br /></td></tr>
+<tr class="separator:a8809239df3732d15b9f894187ea0ac56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13c792a9364530a87697a1a30897b643"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a13c792a9364530a87697a1a30897b643"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ADD_FUNCTION_SAMENAME</b>(str,  nbParameters,  functionName,  help)&#160;&#160;&#160;{str, {nbParameters, reinterpret_cast&lt;<a class="el" href="function_8h.html#a171e664ee3179d3d1f1a7b04a747724c">func_ptr</a>&gt;(&amp;functionName), help}}</td></tr>
+<tr class="separator:a13c792a9364530a87697a1a30897b643"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -137,6 +139,21 @@ typedef std::map&lt; std::string, <a class="el" href="structfunction__t.html">fu
 typedef functionMap_t::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="function_8h.html#ab0ba3e25af04f28f837cce7a390ee674">functionMapIterator_t</a></td></tr>
 <tr class="memdesc:ab0ba3e25af04f28f837cce7a390ee674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator on functionMap_t. <br /></td></tr>
 <tr class="separator:ab0ba3e25af04f28f837cce7a390ee674"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a47236c269e160e9aeb330bc647f11808"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47236c269e160e9aeb330bc647f11808"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>call</b> (std::string str, mpfr_t res)</td></tr>
+<tr class="separator:a47236c269e160e9aeb330bc647f11808"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a520390cd66e46cb4781bc0b42ad9edbc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a520390cd66e46cb4781bc0b42ad9edbc"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>call</b> (std::string str, mpfr_t res, mpfr_t op0)</td></tr>
+<tr class="separator:a520390cd66e46cb4781bc0b42ad9edbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97dc39d44ba6da2e6547f74e14a13e57"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97dc39d44ba6da2e6547f74e14a13e57"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>call</b> (std::string str, mpfr_t res, mpfr_t op0, mpfr_t op1)</td></tr>
+<tr class="separator:a97dc39d44ba6da2e6547f74e14a13e57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f66de838c37227389038f5cc5d35ba8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f66de838c37227389038f5cc5d35ba8"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>call</b> (std::string str, mpfr_t res, mpfr_t op0, mpfr_t op1, mpfr_t op2)</td></tr>
+<tr class="separator:a6f66de838c37227389038f5cc5d35ba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file defines the <a class="el" href="class_function.html" title="This class is used to handle library or user defined functions. ">Function</a> class. </p>
@@ -144,12 +161,12 @@ typedef functionMap_t::iterator&#160;</td><td class="memItemRight" valign="botto
 <dl class="section date"><dt>Date</dt><dd>May 26, 2015, 9:30 PM </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright 2015 Yann Kurzo. All rights reserved. This project is released under the GNU Public License. </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="aab90cd668cd8bf7816ad9eb7aea209e7"></a>
+<a class="anchor" id="a8809239df3732d15b9f894187ea0ac56"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ADD</td>
+          <td class="memname">#define ADD_FUNCTION</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">str, </td>
@@ -175,7 +192,7 @@ typedef functionMap_t::iterator&#160;</td><td class="memItemRight" valign="botto
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;{str, {nbParameters, reinterpret_cast&lt;<a class="el" href="function_8h.html#a171e664ee3179d3d1f1a7b04a747724c">func_ptr</a>&gt;(&amp;functionName), help}}</td>
+          <td></td><td>&#160;&#160;&#160;{str, {nbParameters, reinterpret_cast&lt;<a class="el" href="function_8h.html#a171e664ee3179d3d1f1a7b04a747724c">func_ptr</a>&gt;(&amp;mpfr_##functionName), help}}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -196,7 +213,7 @@ typedef functionMap_t::iterator&#160;</td><td class="memItemRight" valign="botto
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 23 2015 09:02:32 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 3 2015 16:17:25 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

@@ -2,26 +2,56 @@
 \label{mpfr_interface_8h}\index{C\+:/\+Users/yann.\+kurzo/\+Documents/\+Programmation/calculator/calculator/src/include/mpfr\+Interface.\+h@{C\+:/\+Users/yann.\+kurzo/\+Documents/\+Programmation/calculator/calculator/src/include/mpfr\+Interface.\+h}}
 
 
-This file defines the Mpfr class. This file defines with a typedef either double or Mpfr depending on the \hyperlink{config_8h}{config.\+h} file for doing the calculations.  
+This file defines the \hyperlink{class_mpfr}{Mpfr} class. This file defines with a typedef either double or \hyperlink{class_mpfr}{Mpfr} depending on the \hyperlink{config_8h}{config.\+h} file for doing the calculations.  
 
 
 {\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\\*
-\subsection*{Macros}
+{\ttfamily \#include \char`\"{}mpfr.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$ostream$>$}\\*
+\subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{mpfr_interface_8h_a86d500a34c624c2cae56bc25a31b12f3}{}\#define {\bfseries U\+N\+U\+S\+E\+D}(x)~(void)(x)\label{mpfr_interface_8h_a86d500a34c624c2cae56bc25a31b12f3}
+class \hyperlink{class_mpfr}{Mpfr}
+\begin{DoxyCompactList}\small\item\em This class interfaces the mpfr library. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+mpfr\+\_\+rnd\+\_\+t {\bfseries M\+P\+F\+R\+::get\+Rounding\+Method} (void)
+\begin{DoxyCompactList}\small\item\em Get the actual rounding method. \end{DoxyCompactList}\item 
+void {\bfseries M\+P\+F\+R\+::set\+Rounding\+Method} (mpfr\+\_\+rnd\+\_\+t rounding\+Method)
+\begin{DoxyCompactList}\small\item\em Set the rounding method. \end{DoxyCompactList}\item 
+unsigned int {\bfseries M\+P\+F\+R\+::get\+Precision} (void)
+\begin{DoxyCompactList}\small\item\em Get mpfr actual precision. \end{DoxyCompactList}\item 
+void {\bfseries M\+P\+F\+R\+::set\+Precision} (unsigned int precision)
+\begin{DoxyCompactList}\small\item\em Set mpfr default precision. \end{DoxyCompactList}\item 
+\hypertarget{mpfr_interface_8h_afeaf3d36c0efdc145c2698e436d6f016}{}\hyperlink{class_mpfr}{Mpfr} \hyperlink{mpfr_interface_8h_afeaf3d36c0efdc145c2698e436d6f016}{operator+} (\hyperlink{class_mpfr}{Mpfr} const \&mpfr1, \hyperlink{class_mpfr}{Mpfr} const \&mpfr2)\label{mpfr_interface_8h_afeaf3d36c0efdc145c2698e436d6f016}
 
-\end{DoxyCompactItemize}
-\subsection*{Typedefs}
+\begin{DoxyCompactList}\small\item\em += operator \end{DoxyCompactList}\item 
+\hypertarget{mpfr_interface_8h_a709251d398fb2b2ec4ce621a6bb87f6a}{}\hyperlink{class_mpfr}{Mpfr} \hyperlink{mpfr_interface_8h_a709251d398fb2b2ec4ce621a6bb87f6a}{operator-\/} (\hyperlink{class_mpfr}{Mpfr} const \&mpfr1, \hyperlink{class_mpfr}{Mpfr} const \&mpfr2)\label{mpfr_interface_8h_a709251d398fb2b2ec4ce621a6bb87f6a}
+
+\begin{DoxyCompactList}\small\item\em -\/= operator \end{DoxyCompactList}\item 
+\hypertarget{mpfr_interface_8h_a043f9970fff1e144596fc36505ca30c7}{}\hyperlink{class_mpfr}{Mpfr} \hyperlink{mpfr_interface_8h_a043f9970fff1e144596fc36505ca30c7}{operator$\ast$} (\hyperlink{class_mpfr}{Mpfr} const \&mpfr1, \hyperlink{class_mpfr}{Mpfr} const \&mpfr2)\label{mpfr_interface_8h_a043f9970fff1e144596fc36505ca30c7}
+
+\begin{DoxyCompactList}\small\item\em $\ast$= operator \end{DoxyCompactList}\item 
+\hypertarget{mpfr_interface_8h_a317f8cef2d739abd15ca1e4b9f7b2436}{}\hyperlink{class_mpfr}{Mpfr} \hyperlink{mpfr_interface_8h_a317f8cef2d739abd15ca1e4b9f7b2436}{operator/} (\hyperlink{class_mpfr}{Mpfr} const \&mpfr1, \hyperlink{class_mpfr}{Mpfr} const \&mpfr2)\label{mpfr_interface_8h_a317f8cef2d739abd15ca1e4b9f7b2436}
+
+\begin{DoxyCompactList}\small\item\em /= operator \end{DoxyCompactList}\item 
+\hypertarget{mpfr_interface_8h_ada54c6e41a723d07486f22777cd6ee9d}{}\hyperlink{class_mpfr}{Mpfr} \hyperlink{mpfr_interface_8h_ada54c6e41a723d07486f22777cd6ee9d}{operator$^\wedge$} (\hyperlink{class_mpfr}{Mpfr} const \&mpfr1, \hyperlink{class_mpfr}{Mpfr} const \&mpfr2)\label{mpfr_interface_8h_ada54c6e41a723d07486f22777cd6ee9d}
+
+\begin{DoxyCompactList}\small\item\em $^\wedge$= operator \end{DoxyCompactList}\item 
+\hypertarget{mpfr_interface_8h_a5bbbbf9f52b88cc4ad9576603992f5d5}{}\hyperlink{class_mpfr}{Mpfr} \hyperlink{mpfr_interface_8h_a5bbbbf9f52b88cc4ad9576603992f5d5}{operator\%} (\hyperlink{class_mpfr}{Mpfr} const \&mpfr1, \hyperlink{class_mpfr}{Mpfr} const \&mpfr2)\label{mpfr_interface_8h_a5bbbbf9f52b88cc4ad9576603992f5d5}
+
+\begin{DoxyCompactList}\small\item\em \%= operator \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{mpfr_interface_8h_a16492006127cd422340be2441c22c14b}{}typedef double \hyperlink{mpfr_interface_8h_a16492006127cd422340be2441c22c14b}{calcul\+Type\+\_\+t}\label{mpfr_interface_8h_a16492006127cd422340be2441c22c14b}
+\hypertarget{mpfr_interface_8h_a993860352aef57b15399903c4475a608}{}S\+T\+A\+N\+D\+A\+R\+D\+\_\+\+O\+U\+T\+P\+U\+T typedef \hyperlink{class_mpfr}{Mpfr} \hyperlink{mpfr_interface_8h_a993860352aef57b15399903c4475a608}{calcul\+Type\+\_\+t}\label{mpfr_interface_8h_a993860352aef57b15399903c4475a608}
 
 \begin{DoxyCompactList}\small\item\em Calculation type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-This file defines the Mpfr class. This file defines with a typedef either double or Mpfr depending on the \hyperlink{config_8h}{config.\+h} file for doing the calculations. 
+This file defines the \hyperlink{class_mpfr}{Mpfr} class. This file defines with a typedef either double or \hyperlink{class_mpfr}{Mpfr} depending on the \hyperlink{config_8h}{config.\+h} file for doing the calculations. 
 
 \begin{DoxyAuthor}{Author}
 Yann Kurzo 

@@ -99,18 +99,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ae11f4e8caf8655b98791f0a2f779d245"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="command_8h.html#aafce48252f7b3163fa15e458dd84ba12">command_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#ae11f4e8caf8655b98791f0a2f779d245">getArgument</a> (std::string argument)</td></tr>
-<tr class="memdesc:ae11f4e8caf8655b98791f0a2f779d245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the argument.  <a href="#ae11f4e8caf8655b98791f0a2f779d245">More...</a><br /></td></tr>
-<tr class="separator:ae11f4e8caf8655b98791f0a2f779d245"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a461c50ca91c39c699d35da1ae4d66d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="command_8h.html#aafce48252f7b3163fa15e458dd84ba12">command_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#a0a461c50ca91c39c699d35da1ae4d66d">getCommand</a> (std::string command)</td></tr>
 <tr class="memdesc:a0a461c50ca91c39c699d35da1ae4d66d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the command.  <a href="#a0a461c50ca91c39c699d35da1ae4d66d">More...</a><br /></td></tr>
 <tr class="separator:a0a461c50ca91c39c699d35da1ae4d66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08b18f7dba9ce77a466fd92c5617d927"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#a08b18f7dba9ce77a466fd92c5617d927">getValue</a> (std::string command)</td></tr>
-<tr class="memdesc:a08b18f7dba9ce77a466fd92c5617d927"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value after the = in a command.  <a href="#a08b18f7dba9ce77a466fd92c5617d927">More...</a><br /></td></tr>
-<tr class="separator:a08b18f7dba9ce77a466fd92c5617d927"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a533d4d8df620c9dd0c36c4d67a379ae5"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#a533d4d8df620c9dd0c36c4d67a379ae5">getHelp</a> (void)</td></tr>
-<tr class="memdesc:a533d4d8df620c9dd0c36c4d67a379ae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get help about the commands.  <a href="#a533d4d8df620c9dd0c36c4d67a379ae5">More...</a><br /></td></tr>
-<tr class="separator:a533d4d8df620c9dd0c36c4d67a379ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd56e84b950706980dd10a0bd32e8a44"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#acd56e84b950706980dd10a0bd32e8a44">hasParam</a> (std::string command)</td></tr>
+<tr class="memdesc:acd56e84b950706980dd10a0bd32e8a44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a command has parameters.  <a href="#acd56e84b950706980dd10a0bd32e8a44">More...</a><br /></td></tr>
+<tr class="separator:acd56e84b950706980dd10a0bd32e8a44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a675b10cacf1cfa1713c3e0eb6b1263d3"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#a675b10cacf1cfa1713c3e0eb6b1263d3">getValueParameter</a> (std::string command)</td></tr>
+<tr class="memdesc:a675b10cacf1cfa1713c3e0eb6b1263d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value after the command.  <a href="#a675b10cacf1cfa1713c3e0eb6b1263d3">More...</a><br /></td></tr>
+<tr class="separator:a675b10cacf1cfa1713c3e0eb6b1263d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b5c3b86ee68389a5ddb732e52d7b225"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#a7b5c3b86ee68389a5ddb732e52d7b225">getStringParameter</a> (std::string command)</td></tr>
+<tr class="memdesc:a7b5c3b86ee68389a5ddb732e52d7b225"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the parameter string after the command.  <a href="#a7b5c3b86ee68389a5ddb732e52d7b225">More...</a><br /></td></tr>
+<tr class="separator:a7b5c3b86ee68389a5ddb732e52d7b225"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa64031bdfbbdcf55aba21c7864a7e49c"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#aa64031bdfbbdcf55aba21c7864a7e49c">getHelp</a> (bool detailed, bool command)</td></tr>
+<tr class="memdesc:aa64031bdfbbdcf55aba21c7864a7e49c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get help about the commands.  <a href="#aa64031bdfbbdcf55aba21c7864a7e49c">More...</a><br /></td></tr>
+<tr class="separator:aa64031bdfbbdcf55aba21c7864a7e49c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3cc08d74680f515249d5a12f3afaeb6"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_command.html#aa3cc08d74680f515249d5a12f3afaeb6">getDetailedHelp</a> (<a class="el" href="command_8h.html#aafce48252f7b3163fa15e458dd84ba12">command_e</a> command)</td></tr>
+<tr class="memdesc:aa3cc08d74680f515249d5a12f3afaeb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get detailed help about a commands.  <a href="#aa3cc08d74680f515249d5a12f3afaeb6">More...</a><br /></td></tr>
+<tr class="separator:aa3cc08d74680f515249d5a12f3afaeb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -122,39 +128,6 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class handles the different commands and arguments. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ae11f4e8caf8655b98791f0a2f779d245"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="command_8h.html#aafce48252f7b3163fa15e458dd84ba12">command_e</a> Command::getArgument </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>argument</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the argument. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">argument</td><td>Argument to analyze </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Argument, or eNB_COMMANDS otherwise </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="a0a461c50ca91c39c699d35da1ae4d66d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -188,7 +161,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 
 </div>
 </div>
-<a class="anchor" id="a533d4d8df620c9dd0c36c4d67a379ae5"></a>
+<a class="anchor" id="aa3cc08d74680f515249d5a12f3afaeb6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -196,10 +169,10 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::string Command::getHelp </td>
+          <td class="memname">static std::string Command::getDetailedHelp </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="command_8h.html#aafce48252f7b3163fa15e458dd84ba12">command_e</a>&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -210,12 +183,18 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </table>
 </div><div class="memdoc">
 
-<p>Get help about the commands. </p>
+<p>Get detailed help about a commands. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>Which command </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>String containing the help </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a08b18f7dba9ce77a466fd92c5617d927"></a>
+<a class="anchor" id="aa64031bdfbbdcf55aba21c7864a7e49c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -223,7 +202,50 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static int Command::getValue </td>
+          <td class="memname">static std::string Command::getHelp </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>detailed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>command</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get help about the commands. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">detailed</td><td>Detailed help if true </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>String containing the help </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7b5c3b86ee68389a5ddb732e52d7b225"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string Command::getStringParameter </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>command</em></td><td>)</td>
@@ -237,7 +259,40 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </table>
 </div><div class="memdoc">
 
-<p>Get the value after the = in a command. </p>
+<p>Get the parameter string after the command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td><a class="el" href="class_command.html" title="This class handles the different commands and arguments. ">Command</a> to analyze </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>String </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a675b10cacf1cfa1713c3e0eb6b1263d3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int Command::getValueParameter </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the value after the command. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">command</td><td><a class="el" href="class_command.html" title="This class handles the different commands and arguments. ">Command</a> to analyze </td></tr>
@@ -248,13 +303,40 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 
 </div>
 </div>
+<a class="anchor" id="acd56e84b950706980dd10a0bd32e8a44"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool Command::hasParam </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if a command has parameters. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if it does, false otherwise </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>C:/Users/yann.kurzo/Documents/Programmation/calculator/calculator/src/include/<a class="el" href="command_8h_source.html">command.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 23 2015 09:02:32 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jul 3 2015 16:17:25 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

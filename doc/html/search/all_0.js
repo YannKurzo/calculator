@@ -2,7 +2,9 @@ var searchData=
 [
   ['actualprocess_5fe',['actualProcess_e',['../class_analyze.html#aee7ac80c3a9b19650f0d3dd3bf8712d9',1,'Analyze']]],
   ['actualprocess_5fm',['actualProcess_m',['../class_analyze.html#a41743a35d696fd86ab0e4af616a6cd9a',1,'Analyze']]],
-  ['add',['ADD',['../function_8h.html#aab90cd668cd8bf7816ad9eb7aea209e7',1,'function.h']]],
+  ['add_5fconstant',['ADD_CONSTANT',['../constant_8h.html#a5cf1026f3489b281c45fb0bf19e61ad6',1,'constant.h']]],
+  ['add_5ffunction',['ADD_FUNCTION',['../function_8h.html#a8809239df3732d15b9f894187ea0ac56',1,'function.h']]],
+  ['addvariable',['addVariable',['../class_constant.html#aabc7cc09c77ce3b3dcf020129825af1c',1,'Constant']]],
   ['analyse_5fdebug',['ANALYSE_DEBUG',['../config_8h.html#a53cfdac9f26e36585e8c9a7e41d210c0',1,'config.h']]],
   ['analyze',['Analyze',['../class_analyze.html',1,'Analyze'],['../class_analyze.html#a373e5e79d15401c429b980f819ce76b3',1,'Analyze::Analyze()']]],
   ['analyze_2eh',['analyze.h',['../analyze_8h.html',1,'']]],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inf',['inf',['../external_functions_double_8h.html#ae1ca4597a88f7a45b463cc87346b0187',1,'externalFunctionsDouble.h']]]
+  ['exist',['exist',['../class_constant.html#a2123372df263446010225865fb0a6928',1,'Constant::exist()'],['../class_function.html#a8f2dcc5ab81effb838f7a31203082b5f',1,'Function::exist()']]]
 ];

@@ -1,0 +1,74 @@
+\hypertarget{constant_8h}{}\section{C\+:/\+Users/yann.kurzo/\+Documents/\+Programmation/calculator/calculator/src/include/constant.h File Reference}
+\label{constant_8h}\index{C\+:/\+Users/yann.\+kurzo/\+Documents/\+Programmation/calculator/calculator/src/include/constant.\+h@{C\+:/\+Users/yann.\+kurzo/\+Documents/\+Programmation/calculator/calculator/src/include/constant.\+h}}
+
+
+This file defines the \hyperlink{class_constant}{Constant} class.  
+
+
+{\ttfamily \#include \char`\"{}mpfr\+Interface.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$cstdlib$>$}\\*
+{\ttfamily \#include $<$map$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structconstant__t}{constant\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Structure to hold a constant. \end{DoxyCompactList}\item 
+class \hyperlink{class_constant}{Constant}
+\begin{DoxyCompactList}\small\item\em This class is used to handle constants. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{constant_8h_a5cf1026f3489b281c45fb0bf19e61ad6}{A\+D\+D\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T}(str,  double\+Value,  mpfr\+Value,  help)~\{str, \{mpfr\+Value, help\}\}
+\begin{DoxyCompactList}\small\item\em Macro to easily add a new constant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{constant_8h_aa464f748d1547ca2a111b29561baa29e}{}typedef std\+::map$<$ std\+::string, \hyperlink{structconstant__t}{constant\+\_\+t} $>$ \hyperlink{constant_8h_aa464f748d1547ca2a111b29561baa29e}{constant\+Map\+\_\+t}\label{constant_8h_aa464f748d1547ca2a111b29561baa29e}
+
+\begin{DoxyCompactList}\small\item\em Map to store the constants. \end{DoxyCompactList}\item 
+\hypertarget{constant_8h_ac2490162e6db35307d0a61cad0ce3481}{}typedef constant\+Map\+\_\+t\+::iterator \hyperlink{constant_8h_ac2490162e6db35307d0a61cad0ce3481}{constant\+Map\+Iterator\+\_\+t}\label{constant_8h_ac2490162e6db35307d0a61cad0ce3481}
+
+\begin{DoxyCompactList}\small\item\em Iterator on constant\+Map\+\_\+t. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file defines the \hyperlink{class_constant}{Constant} class. 
+
+\begin{DoxyAuthor}{Author}
+Yann Kurzo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+May 26, 2015, 9\+:30 P\+M 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright 2015 Yann Kurzo. All rights reserved. This project is released under the G\+N\+U Public License. 
+\end{DoxyCopyright}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{constant_8h_a5cf1026f3489b281c45fb0bf19e61ad6}{}\index{constant.\+h@{constant.\+h}!A\+D\+D\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T@{A\+D\+D\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T}}
+\index{A\+D\+D\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T@{A\+D\+D\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T}!constant.\+h@{constant.\+h}}
+\subsubsection[{A\+D\+D\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+D\+D\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T(
+\begin{DoxyParamCaption}
+\item[{}]{str, }
+\item[{}]{double\+Value, }
+\item[{}]{mpfr\+Value, }
+\item[{}]{help}
+\end{DoxyParamCaption}
+)~\{str, \{mpfr\+Value, help\}\}}\label{constant_8h_a5cf1026f3489b281c45fb0bf19e61ad6}
+
+
+Macro to easily add a new constant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Name of the constant used by the user \\
+\hline
+{\em double\+Value} & Value as double \\
+\hline
+{\em mpfr\+Value} & Value as string \\
+\hline
+{\em help} & Help notice for this constant \\
+\hline
+\end{DoxyParams}
