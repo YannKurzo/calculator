@@ -45,6 +45,7 @@ The program can be launched without parameters. It will then work as a bash and 
   * Cygwin: https://cygwin.com/install.html (use the setup to install the library)
 
 ### Missing features (in development)
+- Vectors and matrices
 
 ### Code corrections
 
