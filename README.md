@@ -55,4 +55,4 @@ The program can be launched without parameters. It will then work as a bash and 
 
 ### Copyright
 Copyright 2015 Yann Kurzo. All rights reserved.
-This project is released under the GNU Public License (see gpl-3.0.txt).
+This project is released under the GNU Public License (see LICENSE file).
