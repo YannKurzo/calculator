@@ -48,6 +48,7 @@ The program can be launched without parameters. It will then work as a bash and 
 - Vectors and matrices
 
 ### Code corrections
+- THROW in util file
 
 ### Doc
 - Doxygen
