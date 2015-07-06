@@ -47,6 +47,7 @@ The program can be launched without parameters. It will then work as a bash and 
 ### Missing features (in development)
 
 ### Code corrections
+- Bug when displaying big numbers with mpfr
 
 ### Doc
 - Doxygen
