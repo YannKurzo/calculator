@@ -14,7 +14,6 @@
 #include <sstream>
 #include <iomanip>
 #include <cstdlib>
-#include <exception>
 
 using namespace std;
 

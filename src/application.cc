@@ -10,13 +10,12 @@
 
 #include "application.h"
 #include "analyze.h"
+#include "util.h"
 #include "constant.h"
 
 #include <iostream>
 
 using namespace std;
-
-#define THROW(str) throw runtime_error(str);
 
 Application::Application(int argc, char* argv[])
 {

@@ -14,6 +14,9 @@
 #include <string>
 #include <sstream>
 
+// Used to throw standard exception
+#define THROW(str) throw runtime_error(str);
+
 namespace std
 {
     // Implement std::to_string for compatibility with some compilers

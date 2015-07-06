@@ -9,6 +9,7 @@
 //  ==========================================================================
 
 #include "parserExec.h"
+#include "util.h"
 #include "constant.h"
 
 #include <iostream>
@@ -16,8 +17,6 @@
 #include <cmath>
 
 using namespace std;
-
-#define THROW(str) throw runtime_error(str);
 
 ParserExec::ParserExec(const TokenVector &tokenList)
 {
