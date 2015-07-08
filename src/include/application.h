@@ -63,6 +63,9 @@ class Application
         /// @brief  Precision command
         void precisionCommand(void);
         
+        /// @brief  Scientific command
+        void scientificCommand(void);
+        
         /// @brief  Clear command
         void clearCommand(void);
         

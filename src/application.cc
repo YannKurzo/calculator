@@ -113,6 +113,46 @@ void Application::precisionCommand(void)
     }
 }
 
+void Application::scientificCommand(void)
+{
+    // Set the display mode
+    if(Command::hasParam(str_m))
+    {
+        int sci = Command::getValueParameter(str_m);
+        
+        if(sci >= 0 && sci <= 1)
+        {
+            if(sci == 0)
+            {
+                cout << "Display mode set to normal" << endl;
+#if(USE_DOUBLE_TYPE == 1)
+                cout.unsetf(ios_base::floatfield);
+#elif(USE_MPFR_LIBRARY == 1)
+    
+#endif  /* USE_MPFR_LIBRARY */
+            }
+            else
+            {
+                cout << "Display mode set to scientific" << endl;
+#if(USE_DOUBLE_TYPE == 1)
+                cout << std::scientific;
+#elif(USE_MPFR_LIBRARY == 1)
+    
+#endif  /* USE_MPFR_LIBRARY */
+            }
+        }
+        else
+        {
+            cout << "Parameter not valid!" << endl;
+        }
+    }
+    // Problem
+    else
+    {
+        cout << "Parameter is missing" << endl;
+    }
+}
+
 void Application::clearCommand(void)
 {
     // Clear specific variable
@@ -162,6 +202,9 @@ command_e Application::checkCommand(void)
             break;
         case eCOMMAND_PRECISION:
             precisionCommand();
+            break;
+        case eCOMMAND_SCIENTIFIC:
+            scientificCommand();
             break;
         case eCOMMAND_CLEAR:
             clearCommand();
