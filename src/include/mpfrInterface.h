@@ -36,6 +36,10 @@ namespace MPFR
 
     /// @brief  Dummy function for compilation
     static void setPrecision(unsigned int precision) {UNUSED(precision);}
+    
+    /// @brief  Set display mode
+    /// @param  scientific Scientific mode if true, normal otherwise
+    void setDisplayMode(bool scientific);
 }
     
 #elif(USE_MPFR_LIBRARY == 1)
@@ -60,6 +64,10 @@ namespace MPFR
     /// @brief  Set mpfr default precision
     /// @param  precision Precision in number of bits
     void setPrecision(unsigned int precision);
+    
+    /// @brief  Set display mode
+    /// @param  scientific Scientific mode if true, normal otherwise
+    void setDisplayMode(bool scientific);
 }
 
 /// @brief  This class interfaces the mpfr library

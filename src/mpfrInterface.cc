@@ -20,6 +20,7 @@ using namespace std;
 
 namespace MPFR
 {
+    // Rounding
     static mpfr_rnd_t roundingMethod_m = MPFR_RNDN;
 
     mpfr_rnd_t getRoundingMethod(void)
@@ -32,6 +33,7 @@ namespace MPFR
         roundingMethod_m = roundingMethod;
     }
     
+    // Precision
     unsigned int getPrecision(void)
     {
         return mpfr_get_default_prec();
@@ -40,6 +42,14 @@ namespace MPFR
     void setPrecision(unsigned int precision)
     {
         mpfr_set_default_prec(precision);
+    }
+    
+    // Display mode
+    static bool displayMode_m = false;
+    
+    void setDisplayMode(bool scientific)
+    {
+        displayMode_m = scientific;
     }
 }
 
