@@ -49,6 +49,7 @@ The program can be launched without parameters. It will then work as a bash and 
 - Get last command
 
 ### Code corrections
+- Simplify mpfr display
 
 ### Doc
 - Doxygen
