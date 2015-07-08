@@ -215,18 +215,31 @@ void Mpfr::display(std::ostream& flow) const
             while(digits.at(end) == '0' && end >= comma)
                 --end;
             
-            // If there is nothing after the comma
-            if(comma > end)
-                flow << digits.substr(sign, comma-sign);
-            else
-                flow << digits.substr(sign, comma-sign) << "." << digits.substr(comma, end-sign);
+            // Print before the comma
+            flow << digits.substr(sign, comma-sign);
+            
+            // If there something after the comma
+            if(comma <= end)
+            {
+                flow << "." << digits.substr(comma, end-comma+1);
+            }
+            // If we must add 0 before the comma
+            else if(static_cast<unsigned long int>(exp) > end + 1)
+            {
+                for(unsigned long int i=0;i<comma-end-1;++i)
+                {
+                flow << "0";
+                }
+            }
         }
         // Otherwise
         else
         {
             flow << "0.";
             for(unsigned long int i=0; i<static_cast<unsigned long int>(-exp); ++i)
+            {
                 flow << "0";
+            }
             
             // Check ending zeroes
             unsigned long int end = digits.size()-1;
