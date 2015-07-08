@@ -128,7 +128,7 @@ void Application::scientificCommand(void)
 #if(USE_DOUBLE_TYPE == 1)
                 cout.unsetf(ios_base::floatfield);
 #elif(USE_MPFR_LIBRARY == 1)
-    
+                MPFR::setDisplayMode(false);
 #endif  /* USE_MPFR_LIBRARY */
             }
             else
@@ -137,7 +137,7 @@ void Application::scientificCommand(void)
 #if(USE_DOUBLE_TYPE == 1)
                 cout << std::scientific;
 #elif(USE_MPFR_LIBRARY == 1)
-    
+                MPFR::setDisplayMode(true);
 #endif  /* USE_MPFR_LIBRARY */
             }
         }

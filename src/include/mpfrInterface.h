@@ -36,10 +36,6 @@ namespace MPFR
 
     /// @brief  Dummy function for compilation
     static void setPrecision(unsigned int precision) {UNUSED(precision);}
-    
-    /// @brief  Set display mode
-    /// @param  scientific Scientific mode if true, normal otherwise
-    void setDisplayMode(bool scientific);
 }
     
 #elif(USE_MPFR_LIBRARY == 1)
