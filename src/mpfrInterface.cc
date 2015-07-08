@@ -45,11 +45,11 @@ namespace MPFR
     }
     
     // Display mode
-    static bool displayMode_m = false;
+    static bool scientificDisplayMode_m = false;
     
     void setDisplayMode(bool scientific)
     {
-        displayMode_m = scientific;
+        scientificDisplayMode_m = scientific;
     }
 }
 
@@ -218,27 +218,49 @@ void Mpfr::display(std::ostream& flow) const
         // If bigger than 1
         if(exp > 0)
         {
-            unsigned long int comma = static_cast<unsigned long int>(exp) + sign;
+            unsigned long int comma = sign;
+            
+            if(!MPFR::scientificDisplayMode_m)
+            {
+                comma = static_cast<unsigned long int>(exp) + sign;
+            }
             
             // Check ending zeroes
             unsigned long int end = digits.size()-1;
             while(digits.at(end) == '0' && end >= comma)
                 --end;
             
-            // Print before the comma
-            flow << digits.substr(sign, comma-sign);
-            
-            // If there something after the comma
-            if(comma <= end)
+            // Check display mode
+            if(MPFR::scientificDisplayMode_m)
             {
-                flow << "." << digits.substr(comma, end-comma+1);
-            }
-            // If we must add 0 before the comma
-            else if(static_cast<unsigned long int>(exp) > end + 1)
-            {
-                for(unsigned long int i=0;i<comma-end-1;++i)
+                // Print before the comma
+                flow << digits.substr(sign, 1);
+                
+                // If there something after the comma
+                if(sign+1 <= end)
                 {
-                flow << "0";
+                    flow << "." << digits.substr(sign+1, end-sign);
+                }
+                // Print exponent
+                flow << "+e" << exp-1;
+            }
+            else
+            {
+                // Print before the comma
+                flow << digits.substr(sign, comma-sign);
+                
+                // If there something after the comma
+                if(comma <= end)
+                {
+                    flow << "." << digits.substr(comma, end-comma+1);
+                }
+                // If we must add 0 before the comma
+                else if(static_cast<unsigned long int>(exp) > end + 1)
+                {
+                    for(unsigned long int i=0;i<comma-end-1;++i)
+                    {
+                        flow << "0";
+                    }
                 }
             }
         }
