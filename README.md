@@ -45,10 +45,10 @@ The program can be launched without parameters. It will then work as a bash and 
   * Cygwin: https://cygwin.com/install.html (use the setup to install the library)
 
 ### Missing features (in development)
+- Use scientific mode for displaying results (user command)
 - Get last command
 
 ### Code corrections
-- Bug when displaying big numbers with mpfr
 
 ### Doc
 - Doxygen
