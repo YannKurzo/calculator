@@ -13,6 +13,7 @@ This program can parse a string entered by the user. It calculates the mathemati
 - Saving results in temporary variables
 - Use the help command to get a list of available commands
 - Calculation using double type or mpfr library (see config.h file)
+- When using mpfr library, it is possible to define the precision (the number of bits of the mantissa). It is useful not only for high precision, but also for checking how the coding of the floating point numbers work.
 - Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)
 
 ##### Argument mode
@@ -45,11 +46,9 @@ The program can be launched without parameters. It will then work as a bash and 
   * Cygwin: https://cygwin.com/install.html (use the setup to install the library)
 
 ### Missing features (in development)
-- Use scientific mode for displaying results (user command)
 - Get last command
 
 ### Code corrections
-- Simplify mpfr display
 
 ### Doc
 - Doxygen
