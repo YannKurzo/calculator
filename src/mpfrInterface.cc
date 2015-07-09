@@ -15,6 +15,7 @@
 #include "util.h"
 
 #include <string>
+#include <cstdlib>
 
 using namespace std;
 
@@ -207,79 +208,83 @@ void Mpfr::display(std::ostream& flow) const
         // Create string and clear
         string digits(s);
         mpfr_free_str(s);
-
+        
         // Check sign
-        unsigned long int sign = (digits.at(0) == '-');
-        if(sign != 0)
+        unsigned int sign = (digits.at(0) == '-');
+        
+        // Erase zeros
+        while(digits.size()-1 != 0 && digits.at(digits.size()-1) == '0')
         {
-            flow << "-";
+            digits.erase(digits.end()-1);
         }
         
-        // If bigger than 1
-        if(exp > 0)
+        // Print 0
+        if(digits == "0")
         {
-            unsigned long int comma = sign;
-            
-            if(!MPFR::scientificDisplayMode_m)
-            {
-                comma = static_cast<unsigned long int>(exp) + sign;
-            }
-            
-            // Check ending zeroes
-            unsigned long int end = digits.size()-1;
-            while(digits.at(end) == '0' && end >= comma)
-                --end;
-            
-            // Check display mode
-            if(MPFR::scientificDisplayMode_m)
-            {
-                // Print before the comma
-                flow << digits.substr(sign, 1);
-                
-                // If there something after the comma
-                if(sign+1 <= end)
-                {
-                    flow << "." << digits.substr(sign+1, end-sign);
-                }
-                // Print exponent
-                flow << "+e" << exp-1;
-            }
-            else
-            {
-                // Print before the comma
-                flow << digits.substr(sign, comma-sign);
-                
-                // If there something after the comma
-                if(comma <= end)
-                {
-                    flow << "." << digits.substr(comma, end-comma+1);
-                }
-                // If we must add 0 before the comma
-                else if(static_cast<unsigned long int>(exp) > end + 1)
-                {
-                    for(unsigned long int i=0;i<comma-end-1;++i)
-                    {
-                        flow << "0";
-                    }
-                }
-            }
+            cout << "0" << endl;
         }
-        // Otherwise
         else
         {
-            flow << "0.";
-            for(unsigned long int i=0; i<static_cast<unsigned long int>(-exp); ++i)
+            // Print in exponential format
+            if(MPFR::scientificDisplayMode_m)
             {
-                flow << "0";
+                // Check if number needs a point
+                if(digits.size() > sign + 1)
+                {
+                    digits.insert(sign + 1, ".");
+                }
+                // Check if the exponent is needed
+                if(exp != 1)
+                {
+                    digits.insert(digits.size(), "e" + to_string(exp - 1));
+                }
+                // Print
+                cout << digits << endl;
             }
-            
-            // Check ending zeroes
-            unsigned long int end = digits.size()-1;
-            while(digits.at(end) == '0' && end > 0)
-                --end;
-
-            // Print after the comma
-            flow << digits.substr(sign, end-sign+1);
+            // Print in normal format
+            else
+            {
+                // Few variables
+                int signedSize = digits.size();
+                int signedSign = static_cast<int>(sign);
+                
+                // Check if number is below 1
+                if(exp < 1)
+                {
+                    // Print minus if necessary
+                    if(digits.at(0) == '-')
+                    {
+                        cout << "-";
+                        digits.erase(0, 1);
+                    }
+                    
+                    // Print beggining
+                    cout << "0.";
+                    
+                    // Add zeroes at the beginning
+                    for(int i=exp; i < 0; ++i)
+                    {
+                        cout << "0";
+                    }
+                }
+                // Check if number needs a point
+                else if(signedSize > exp)
+                {
+                    digits.insert(static_cast<unsigned int>(exp + signedSign), ".");
+                }
+                
+                // Print digits
+                cout << digits;
+                
+                // Add zeroes at the end
+                for(unsigned int i=digits.size(); i < exp + sign; ++i)
+                {
+                    cout << "0";
+                }
+                
+                // End of line
+                cout << endl;
+            }
         }
     }
 }
