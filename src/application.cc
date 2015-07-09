@@ -37,6 +37,11 @@ Application::Application(int argc, char* argv[])
 
 void Application::start(void)
 {
+#if(HAVE_NCURSES == 1)
+    cout << "NCURSES" << end;
+#else
+    cout << "NONE" << endl;
+#endif
     if(argumentPresent_m)
     {
         startArgument();

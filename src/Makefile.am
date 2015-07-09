@@ -18,6 +18,7 @@ calculator_SOURCES += util.cc
 
 # Include files
 AM_CPPFLAGS = -I$(srcdir)/include
+AM_CPPFLAGS += -include ../config.h
 
 # C++11 standard
 AM_CPPFLAGS += -std=c++11

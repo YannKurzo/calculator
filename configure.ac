@@ -17,6 +17,17 @@ AC_CONFIG_FILES(
 )
 
 # ------------------------------------------------
+# Check for ncurses 
+# ------------------------------------------------
+
+AC_SEARCH_LIBS(
+    [getch],
+    [ncurses],
+    [ AC_DEFINE([ HAVE_NCURSES ], [ 1 ]) ],
+    [ AC_DEFINE([ HAVE_NCURSES ], [ 0 ]) ],
+)
+
+# ------------------------------------------------
 # Check if mpfr library is installed
 # ------------------------------------------------
 
