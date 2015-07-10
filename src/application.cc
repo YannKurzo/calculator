@@ -9,6 +9,7 @@
 //  ==========================================================================
 
 #include "application.h"
+#include "config.h"
 #include "analyze.h"
 #include "util.h"
 #include "constant.h"
@@ -34,16 +35,9 @@ Application::Application(int argc, char* argv[])
     // Set cout precision
     cout.precision(15);
 }
-#if HAVE_CONFIG_H
-# include <autoConfig.h>
-#endif
+
 void Application::start(void)
-{
-#if(HAVE_NCURSES == 1)
-    cout << "NCURSES" << endl;
-#else
-    cout << "NONE" << endl;
-#endif
+{    
     if(argumentPresent_m)
     {
         startArgument();
@@ -69,10 +63,13 @@ void Application::startArgument(void)
         }
     }
 }
-
+#include <deque>
 void Application::startCommand(void)
 {
+    deque<string> history;
+    // Get new line
     cin >> str_m;
+    history.push_back(str_m);
     
     // While we do not exit
     while(str_m != "--exit" && str_m != "-q")
@@ -83,8 +80,17 @@ void Application::startCommand(void)
             startAnalyse();
         }
         
+        // Check for arrow
+        string checkArrow = "";
+        if(getArrow(checkArrow) == ARROW_UP)
+        {
+            checkArrow = history.at(history.size()-1);
+            cout << checkArrow;
+        }
+        
         // Get new line
         cin >> str_m;
+        str_m = checkArrow + str_m;
     }
 }
 

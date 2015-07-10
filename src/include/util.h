@@ -29,5 +29,17 @@ namespace std
     }
 }
 
+// Use getch to check for an arrow
+typedef enum
+{
+    ARROW_UP,
+    ARROW_RIGHT,
+    ARROW_DOWN,
+    ARROW_LEFT,
+    ARROW_NONE
+}arrow_e;
+
+arrow_e getArrow(std::string &str);
+
 #endif	/* UTIL_H */
 
