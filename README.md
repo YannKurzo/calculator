@@ -46,10 +46,11 @@ The program can be launched without parameters. It will then work as a bash and 
   * Cygwin: https://cygwin.com/install.html (use the setup to install the library)
 
 ### Missing features (in development)
-- Get last command
+- Get last command (using getch with conio fow Windows / playing with terminal for Posix => Check with configure)
 
 ### Code corrections
 - Power operator 2^3^2 => 2^(3^2)
+- Bug when displaying values of constants and user defined variables
 
 ### Doc
 - Doxygen
