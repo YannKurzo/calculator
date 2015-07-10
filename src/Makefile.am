@@ -10,6 +10,7 @@ calculator_SOURCES += constant.cc
 calculator_SOURCES += externalFunctionsDouble.cc
 calculator_SOURCES += externalFunctionsMpfr.cc
 calculator_SOURCES += function.cc
+calculator_SOURCES += input.cc
 calculator_SOURCES += lexer.cc
 calculator_SOURCES += mpfrInterface.cc
 calculator_SOURCES += parserExec.cc

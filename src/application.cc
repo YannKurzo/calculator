@@ -13,6 +13,7 @@
 #include "analyze.h"
 #include "util.h"
 #include "constant.h"
+#include "input.h"
 
 #include <iostream>
 
@@ -63,13 +64,15 @@ void Application::startArgument(void)
         }
     }
 }
-#include <deque>
+
 void Application::startCommand(void)
 {
-    deque<string> history;
+    // Input management
+    Input in = Input();
+    
     // Get new line
-    cin >> str_m;
-    history.push_back(str_m);
+    in.getInput(str_m);
+    // cin >> str_m;
     
     // While we do not exit
     while(str_m != "--exit" && str_m != "-q")
@@ -80,17 +83,9 @@ void Application::startCommand(void)
             startAnalyse();
         }
         
-        // Check for arrow
-        string checkArrow = "";
-        if(getArrow(checkArrow) == ARROW_UP)
-        {
-            checkArrow = history.at(history.size()-1);
-            cout << checkArrow;
-        }
-        
         // Get new line
-        cin >> str_m;
-        str_m = checkArrow + str_m;
+        in.getInput(str_m);
+        // cin >> str_m;
     }
 }
 

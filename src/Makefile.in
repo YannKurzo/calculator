@@ -94,8 +94,8 @@ am_calculator_OBJECTS = main.$(OBJEXT) analyze.$(OBJEXT) \
 	application.$(OBJEXT) command.$(OBJEXT) constant.$(OBJEXT) \
 	externalFunctionsDouble.$(OBJEXT) \
 	externalFunctionsMpfr.$(OBJEXT) function.$(OBJEXT) \
-	lexer.$(OBJEXT) mpfrInterface.$(OBJEXT) parserExec.$(OBJEXT) \
-	token.$(OBJEXT) util.$(OBJEXT)
+	input.$(OBJEXT) lexer.$(OBJEXT) mpfrInterface.$(OBJEXT) \
+	parserExec.$(OBJEXT) token.$(OBJEXT) util.$(OBJEXT)
 calculator_OBJECTS = $(am_calculator_OBJECTS)
 calculator_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
@@ -242,8 +242,8 @@ top_srcdir = @top_srcdir@
 # Source files
 calculator_SOURCES = main.cc analyze.cc application.cc command.cc \
 	constant.cc externalFunctionsDouble.cc \
-	externalFunctionsMpfr.cc function.cc lexer.cc mpfrInterface.cc \
-	parserExec.cc token.cc util.cc
+	externalFunctionsMpfr.cc function.cc input.cc lexer.cc \
+	mpfrInterface.cc parserExec.cc token.cc util.cc
 
 # Include files
 
@@ -354,6 +354,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/externalFunctionsDouble.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/externalFunctionsMpfr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/function.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/input.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lexer.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mpfrInterface.Po@am__quote@
