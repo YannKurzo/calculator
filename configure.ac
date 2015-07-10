@@ -9,7 +9,7 @@ AM_INIT_AUTOMAKE(
 AC_PROG_CXX
 AC_LANG(C++)
 AC_CONFIG_HEADERS(
-    [config.h]
+    [autoConfig.h]
 )
 AC_CONFIG_FILES(
     [Makefile

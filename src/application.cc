@@ -34,11 +34,13 @@ Application::Application(int argc, char* argv[])
     // Set cout precision
     cout.precision(15);
 }
-
+#if HAVE_CONFIG_H
+# include <autoConfig.h>
+#endif
 void Application::start(void)
 {
 #if(HAVE_NCURSES == 1)
-    cout << "NCURSES" << end;
+    cout << "NCURSES" << endl;
 #else
     cout << "NONE" << endl;
 #endif
