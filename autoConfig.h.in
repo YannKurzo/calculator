@@ -24,5 +24,8 @@
 /* Version number of package */
 #undef VERSION
 
-/* NCURSES */
-#undef HAVE_NCURSES
+/* CONIO */
+#undef HAVE_CONIO
+
+/* SYS/IOCTL */
+#undef HAVE_IOCTL

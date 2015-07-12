@@ -42,6 +42,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/externalFunctionsDouble.o \
 	${OBJECTDIR}/src/externalFunctionsMpfr.o \
 	${OBJECTDIR}/src/function.o \
+	${OBJECTDIR}/src/input.o \
 	${OBJECTDIR}/src/lexer.o \
 	${OBJECTDIR}/src/main.o \
 	${OBJECTDIR}/src/mpfrInterface.o \
@@ -108,6 +109,11 @@ ${OBJECTDIR}/src/function.o: src/function.cc
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/function.o src/function.cc
+
+${OBJECTDIR}/src/input.o: src/input.cc 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/input.o src/input.cc
 
 ${OBJECTDIR}/src/lexer.o: src/lexer.cc 
 	${MKDIR} -p ${OBJECTDIR}/src

@@ -11,11 +11,6 @@
 #ifndef CONFIG_H
 #define	CONFIG_H
 
-/// @brief  Check for autoconfig header
-#if HAVE_CONFIG_H
-#include <autoConfig.h>
-#endif
-
 /// @brief  Use double to make calculations when defined to 1
 /// @note   When defined to 1, USE_MPFR_LIBRARY must be defined to 0
 #define USE_DOUBLE_TYPE         1

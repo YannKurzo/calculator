@@ -17,14 +17,19 @@ AC_CONFIG_FILES(
 )
 
 # ------------------------------------------------
-# Check for ncurses 
+# Check for header files for getch
 # ------------------------------------------------
 
-AC_SEARCH_LIBS(
-    [getch],
-    [ncurses],
-    [ AC_DEFINE([ HAVE_NCURSES ], [ 1 ]) ],
-    [ AC_DEFINE([ HAVE_NCURSES ], [ 0 ]) ],
+AC_CHECK_HEADERS(
+    [conio.h],
+    [ AC_DEFINE([ HAVE_CONIO ], [ 1 ]) ],
+    [ AC_DEFINE([ HAVE_CONIO ], [ 0 ]) ]
+)
+
+AC_CHECK_HEADERS(
+    [sys/ioctl.h],
+    [ AC_DEFINE([ HAVE_IOCTL ], [ 1 ]) ],
+    [ AC_DEFINE([ HAVE_IOCTL ], [ 0 ]) ]
 )
 
 # ------------------------------------------------

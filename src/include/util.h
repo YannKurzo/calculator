@@ -11,6 +11,11 @@
 #ifndef UTIL_H
 #define	UTIL_H
 
+// Check for autoconfig header
+#if HAVE_CONFIG_H
+#include <autoConfig.h>
+#endif /* HAVE_CONFIG_H */
+
 #include <string>
 #include <sstream>
 
@@ -32,12 +37,17 @@ namespace std
 // Use getch to check for an arrow
 typedef enum
 {
-    ARROW_UP,
-    ARROW_RIGHT,
-    ARROW_DOWN,
-    ARROW_LEFT,
-    ARROW_NONE
+    INPUT_ARROW_UP,
+    INPUT_ARROW_RIGHT,
+    INPUT_ARROW_DOWN,
+    INPUT_ARROW_LEFT,
+    INPUT_BACK,
+    INPUT_NONE
 }arrow_e;
+
+#if(HAVE_IOCTL == 1)
+int getch( void );
+#endif
 
 arrow_e getArrow(std::string &str);
 

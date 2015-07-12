@@ -9,39 +9,87 @@
 //  ==========================================================================
 
 #include "input.h"
-#include "iostream"
+#include "util.h"
+
+#include <iostream>
 
 using namespace std;
 
 Input::Input(void)
 {
-    
+    historyNumber_m = 0;
 }
 
 void Input::getInput(std::string &str)
-{
+{   
     str = "";
     
+#if(HAVE_CONIO == 0 && HAVE_IOCTL == 0)
     cin >> str;
+#else
+    /// TEST
+    cout << "Test: ";
     
-    // while(str.find("\n") == string::npos)
-    // {
-        // str += getchar();
-        // // Check for arrow
-        // string checkArrow = "";
-        // if(getArrow(checkArrow) == ARROW_UP)
-        // {
-            // checkArrow = history_m.at(history_m.size()-1);
-            // cout << checkArrow;
-        // }
-        
-        // // Get new line
-        // cin >> str;
-        // str = checkArrow + str;
-        
-    // }
+//    getArrow(str);
+    while(str.find("\n") == string::npos)
+    {
+        // Check for arrow
+        string checkArrow = "";
+        int arrow = getArrow(checkArrow);
+        switch(arrow)
+        {
+            case INPUT_ARROW_UP:
+                if(historyNumber_m < history_m.size()-1)
+                {
+                    ++historyNumber_m;
+                    checkArrow = history_m.at(history_m.size()-historyNumber_m-1);
+                    for(int i=str.size()-1; i>=0; --i)
+                    {
+                        cout << "\b \b";
+                    }
+                    str = checkArrow;
+                    cout << checkArrow;
+                }
+                break;
+            case INPUT_ARROW_DOWN:
+//                if(historyNumber_m > 0)
+//                {
+//                    --historyNumber_m;
+//                    checkArrow = history_m.at(history_m.size()-historyNumber_m-1);
+//                    for(int i=str.size()-1; i>=0; --i)
+//                    {
+//                        cout << "\b \b";
+//                    }
+//                    str = checkArrow;
+//                    cout << checkArrow;
+//                }
+                break;
+            case INPUT_ARROW_RIGHT:
+                break;
+            case INPUT_ARROW_LEFT:
+                break;
+            case INPUT_BACK:
+                if(str.size() > 0)
+                {
+                    str.pop_back();
+                    cout << "\b \b";
+                }
+                break;
+            default:
+                // Add current char
+                str += checkArrow;
+                cout << checkArrow;
+                break;
+        }
+    }
+    
+    // Erase '\n'
+    str.pop_back();
+    
     // Update history
     history_m.push_back(str);
     
     // Check history size
+    
+#endif
 }

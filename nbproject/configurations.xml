@@ -11,6 +11,7 @@
         <itemPath>src/include/externalFunctionsDouble.h</itemPath>
         <itemPath>src/include/externalFunctionsMpfr.h</itemPath>
         <itemPath>src/include/function.h</itemPath>
+        <itemPath>src/include/input.h</itemPath>
         <itemPath>src/include/lexer.h</itemPath>
         <itemPath>src/include/mpfrInterface.h</itemPath>
         <itemPath>src/include/parserExec.h</itemPath>
@@ -24,6 +25,7 @@
       <itemPath>src/externalFunctionsDouble.cc</itemPath>
       <itemPath>src/externalFunctionsMpfr.cc</itemPath>
       <itemPath>src/function.cc</itemPath>
+      <itemPath>src/input.cc</itemPath>
       <itemPath>src/lexer.cc</itemPath>
       <itemPath>src/main.cc</itemPath>
       <itemPath>src/mpfrInterface.cc</itemPath>
@@ -103,6 +105,8 @@
       </item>
       <item path="src/include/function.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/include/input.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/include/lexer.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/mpfrInterface.h" ex="false" tool="3" flavor2="0">
@@ -112,6 +116,8 @@
       <item path="src/include/token.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/util.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/input.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/lexer.cc" ex="false" tool="1" flavor2="0">
       </item>
@@ -182,6 +188,8 @@
       </item>
       <item path="src/include/function.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/include/input.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/include/lexer.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/mpfrInterface.h" ex="false" tool="3" flavor2="0">
@@ -191,6 +199,8 @@
       <item path="src/include/token.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/include/util.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/input.cc" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/lexer.cc" ex="false" tool="1" flavor2="0">
       </item>

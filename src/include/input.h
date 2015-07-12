@@ -22,6 +22,9 @@ class Input
         /// Command history
         std::deque<std::string> history_m;
         
+        /// Actual command
+        unsigned int historyNumber_m;
+        
     public:
         /// @brief  Constructor
         Input(void);
