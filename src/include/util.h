@@ -18,6 +18,7 @@
 
 #include <string>
 #include <sstream>
+#include <stdexcept>
 
 // Used to throw standard exception
 #define THROW(str) throw runtime_error(str);
