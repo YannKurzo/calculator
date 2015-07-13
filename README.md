@@ -51,6 +51,10 @@ The program can be launched without parameters. It will then work as a bash and 
   * The executable is located in "calculator_build/src/"
 
 ##### Compilation on Windows to be able to launch outside Cygwin
+- By default, the executable can only be used on Cygwin. To be able to use it as a normal program on Windows, the configure command should be launched as follow (using mingw compiler and linking libraries as static):
+  * ../calculator/configure CXX=x86_64-w64-mingw32-g++ CXXFLAGS="-static-libgcc -static-libstdc++"
+  * make
+- When using this configuration, the mpfr library is not installed by default!
 
 ##### Help
 - Help can be found by using:
