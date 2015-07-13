@@ -26,7 +26,7 @@ enum
     CHAR_RIGHT = 77,
     CHAR_DOWN = 80,
     CHAR_LEFT = 75,
-    CHAR_DELETE = 51,
+    CHAR_DELETE = 83,
     CHAR_BACKSPACE = 8
 };
 
@@ -114,8 +114,10 @@ char_e getCharacter(std::string &str)
                 ret = INPUT_ARROW_LEFT;
                 break;
             case CHAR_DELETE:
+#if(HAVE_IOCTL == 1)
                 // Get last char
                 getch();
+#endif /* HAVE_IOCTL */
                 ret = INPUT_DELETE;
                 break;
             default:
@@ -145,13 +147,18 @@ char_e getCharacter(std::string &str)
     // Get normal characters
     else
     {
-        // Check for cariage return
+#if(HAVE_CONIO == 1)
+        // Check for cariage return (2 characters on Windows)
         if(escapeChar1 == '\r')
         {
-            str = "\n" + str;
+            str += "\n";
         }
-        // Get back the character
-        str = static_cast<char>(escapeChar1) + str;
+        else
+#endif /* HAVE_CONIO */
+        {
+            // Get back the character
+            str = static_cast<char>(escapeChar1) + str;
+        }
     }
     
     return ret;

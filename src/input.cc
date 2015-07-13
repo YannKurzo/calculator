@@ -191,7 +191,7 @@ void Input::getInput(std::string &str)
                     if(tmpStr == "\n" || tmpStr == "\r")
                     {
                         // Push at the end
-                        str.push_back(tmpStr.at(0));
+                        str = str + tmpStr;
                     }
                     // Otherwise, it is a normal character
                     else
