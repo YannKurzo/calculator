@@ -5,7 +5,7 @@ This program can parse a string entered by the user. It calculates the mathemati
 
 ### Working features:
 - Numbers
-- Operators (+,-,\*,/,^,%, unary minus -, implicit multiplication [2pi => 2\*pi])
+- Operators (+,-,\*,/,^,%, unary minus -, implicit multiplication [`2pi => 2\*pi`])
 - Operator priority
 - Brackets
 - Basic mathematical functions
@@ -20,16 +20,16 @@ This program can parse a string entered by the user. It calculates the mathemati
 ##### Argument mode
 The program can be launched from a command line with multiple parameters. It will displays all the results separated by spaces and then automatically quit the program.
  - Use:
-  * "calculator "2*5" "2+8"" (multiple calculation in a row, use quotation marks)
-  * "calculator -h" (shortcut command)
-  * "calculator --help" (full command)
+  * `"calculator "2*5" "2+8""` (multiple calculation in a row, use quotation marks)
+  * `"calculator -h"` (shortcut command)
+  * `"calculator --help"` (full command)
  
 ##### Command mode
 The program can be launched without parameters. It will then work as a bash and execute each calculation entered by the user without quitting the program. To quit, the "-q" command (or "--exit") can be used.
  - Use:
-  * 2*5 (one calculation at a time)
-  * "-h" command (shortcut command)
-  * "--help" command (full command)
+  * `2*5` (one calculation at a time)
+  * `"-h"` command (shortcut command)
+  * `"--help"` command (full command)
 
 ### Compilation and installation
 
@@ -38,27 +38,27 @@ The program can be launched without parameters. It will then work as a bash and 
   * a UNIX like environment (Linux / cygwin for Windows)
   * the "make" command
 - For the compilation, run the following commands:
-  * clone "https://github.com/YannKurzo/calculator.git"
-  * mkdir calculator_build
-  * cd calculator_build
-  * ../calculator/configure
-  * make
+  * `clone "https://github.com/YannKurzo/calculator.git"`
+  * `mkdir calculator_build`
+  * `cd calculator_build`
+  * `../calculator/configure`
+  * `make`
 
 ##### Installation
 - On Linux
-  * make install
+  * `make install`
 - On Windows
-  * The executable is located in "calculator_build/src/"
+  * The executable is located in "`calculator_build/src/`"
 
 ##### Compilation on Windows to be able to launch outside Cygwin
 - By default, the executable can only be used on Cygwin. To be able to use it as a normal program on Windows, the configure command should be launched as follow (using mingw compiler and linking libraries as static):
-  * ../calculator/configure CXX=x86_64-w64-mingw32-g++ CXXFLAGS="-static-libgcc -static-libstdc++"
-  * make
+  * `../calculator/configure CXX=x86_64-w64-mingw32-g++ CXXFLAGS="-static-libgcc -static-libstdc++"`
+  * `make`
 - When using this configuration, the mpfr library is not installed by default!
 
 ##### Help
 - Help can be found by using:
-  * ./configure --help
+  * `./configure --help`
 - Getting the mpfr library (this library is only necessary for compiling for big numbers)
   * Linux: http://www.mpfr.org/mpfr-current/#download
   * Cygwin: https://cygwin.com/install.html (use the setup to install the library)
