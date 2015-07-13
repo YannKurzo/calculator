@@ -15,6 +15,7 @@ This program can parse a string entered by the user. It calculates the mathemati
 - Calculation using double type or mpfr library (see config.h file)
 - When using mpfr library, it is possible to define the precision (the number of bits of the mantissa). It is useful not only for high precision, but also for checking how the coding of the floating point numbers work.
 - Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)
+- History of commands accessible with keyboard arrows (compatible with Windows and Posix systems)
 
 ##### Argument mode
 The program can be launched from a command line with multiple parameters. It will displays all the results separated by spaces and then automatically quit the program.
@@ -46,10 +47,9 @@ The program can be launched without parameters. It will then work as a bash and 
   * Cygwin: https://cygwin.com/install.html (use the setup to install the library)
 
 ### Missing features (in development)
-- Get last command (using getch with conio fow Windows / playing with terminal for Posix => Check with configure)
+- Power operator priority 2^3^2 => 2^(3^2)
 
 ### Code corrections
-- Power operator 2^3^2 => 2^(3^2)
 - Bug when displaying values of constants and user defined variables
 - Bug when writing "constant="
 
