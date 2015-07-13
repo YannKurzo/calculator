@@ -9,13 +9,15 @@
 //  ==========================================================================
 
 #include "input.h"
-#include "util.h"
 
 #include <iostream>
+#include <deque>
 
 using namespace std;
 
-/// Command history
+#if(HAVE_GETCH == 1)
+    
+// Command history (static to avoid erasing it between commands)
 static std::deque<std::string> history_m;
 
 Input::Input(void)
@@ -65,20 +67,25 @@ void Input::coutErase(std::string &str)
 
 bool Input::coutGo(int pos, std::string &str)
 {
+    // If it is a legal move
     if(pos_m + pos >= 0 && pos_m + pos <= static_cast<int>(str.size()))
     {
+        // Check if we go to the left
         if(pos < 0)
         {
             for(int i=pos; i<0; ++i)
             {
+                // Go left by printing '\b'
                 cout << "\b";
                 --pos_m;
             }
         }
+        // Check if we go to the right
         else
         {
             for(int i=pos; i>0; --i)
             {
+                // Go left by printing the characters
                 cout << str.at(pos_m);
                 ++pos_m;
             }
@@ -110,9 +117,12 @@ void Input::coutAdd(std::string &c, std::string &str)
     }
 }
 
+#endif /* HAVE_GETCH */
+
 void Input::getInput(std::string &str)
 {   
-#if(HAVE_CONIO == 0 && HAVE_IOCTL == 0)
+#if(HAVE_GETCH == 0)
+    // If getch does not exist, do not use history
     cin >> str;
 #else
     // Add new element
@@ -204,5 +214,5 @@ void Input::getInput(std::string &str)
         // Update history
         history_m.at(history_m.size()-1) = str;
     }
-#endif
+#endif /* HAVE_GETCH */
 }

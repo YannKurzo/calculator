@@ -25,6 +25,7 @@ enum
     CHAR_RIGHT = 77,
     CHAR_DOWN = 80,
     CHAR_LEFT = 75,
+    CHAR_DELETE = 51,
     CHAR_BACKSPACE = 8
 };
 #endif /* HAVE_CONIO */
@@ -79,7 +80,7 @@ char_e getCharacter(std::string &str)
         
     if(escapeChar2 == CHAR_ESCAPE2)
     {
-#endif
+#endif /* HAVE_IOCTL */
         int actualChar = getch();
         
         switch(actualChar)
@@ -112,7 +113,7 @@ char_e getCharacter(std::string &str)
     {
         str = static_cast<char>(escapeChar2) + str;
     }
-#endif
+#endif /* HAVE_IOCTL */
     }
     // Get ctrl + C and ctrl + D
     else if(escapeChar1 == 0x03 || escapeChar1 == 0x04)

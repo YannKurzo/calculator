@@ -34,6 +34,16 @@ namespace std
     }
 }
 
+#if(HAVE_IOCTL == 1)
+int getch( void );
+#endif
+
+#if(HAVE_IOCTL == 0 && HAVE_CONIO == 0)
+#define HAVE_GETCH  0
+#else
+#define HAVE_GETCH  1
+#endif
+
 // Use getch to check for an arrow
 typedef enum
 {
@@ -45,10 +55,6 @@ typedef enum
     INPUT_DELETE,
     INPUT_NORMAL_CHAR
 }char_e;
-
-#if(HAVE_IOCTL == 1)
-int getch( void );
-#endif
 
 char_e getCharacter(std::string &str);
 
