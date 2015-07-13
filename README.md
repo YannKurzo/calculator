@@ -27,7 +27,7 @@ The program can be launched from a command line with multiple parameters. It wil
 ##### Command mode
 The program can be launched without parameters. It will then work as a bash and execute each calculation entered by the user without quitting the program. To quit, the "-q" command (or "--exit") can be used.
  - Use:
-  * 2*5 2+8 (multiple calculation in a row, separated by spaces, quotation marks not needed)
+  * 2*5 (one calculation at a time)
   * "-h" command (shortcut command)
   * "--help" command (full command)
 
@@ -37,7 +37,9 @@ The program can be launched without parameters. It will then work as a bash and 
   * a UNIX like environment (Linux / cygwin for Windows)
   * the "make" command
 - For the compilation, run the following commands:
-  * ./configure
+  * clone "https://github.com/YannKurzo/calculator.git"
+  * mkdir calculator_build
+  * ../calculator/configure
   * make
   * make install
 - Help can be found by using:
