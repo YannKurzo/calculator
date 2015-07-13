@@ -83,8 +83,11 @@ void Input::getInput(std::string &str)
         }
     }
     
-    // Erase '\n'
-    str.pop_back();
+    // Erase "\r\n"
+    while(str.back() == '\r' || str.back() == '\n')
+    {
+        str.pop_back();
+    }
     
     // Update history
     history_m.push_back(str);

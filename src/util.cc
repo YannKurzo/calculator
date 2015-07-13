@@ -11,6 +11,7 @@
 #include "util.h"
 
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -24,11 +25,12 @@ enum
     CHAR_RIGHT = 77,
     CHAR_DOWN = 80,
     CHAR_LEFT = 75,
-    CHAR_BACK = 127
+    CHAR_BACKSPACE = 8
 };
 #endif /* HAVE_CONIO */
 
 #if(HAVE_IOCTL == 1)
+#include <cstdio>
 #include <sys/ioctl.h>
 #include <termios.h>
 
@@ -40,7 +42,7 @@ enum
     CHAR_RIGHT = 67,
     CHAR_DOWN = 66,
     CHAR_LEFT = 68,
-    CHAR_BACK = 127
+    CHAR_BACKSPACE = 127
 };
 
 int getch( void )
@@ -94,6 +96,7 @@ arrow_e getArrow(std::string &str)
                 ret = INPUT_ARROW_LEFT;
                 break;
             default:
+                // Get back the character
                 str = static_cast<char>(arrowChar) + str;
                 break;
         }
@@ -105,12 +108,25 @@ arrow_e getArrow(std::string &str)
     }
 #endif
     }
-    else if(escapeChar1 == CHAR_BACK)
+    // Get ctrl + C and ctrl + D
+    else if(escapeChar1 == 0x03 || escapeChar1 == 0x04)
+    {
+        exit(0);
+    }
+    // Get backspace
+    else if(escapeChar1 == CHAR_BACKSPACE)
     {
         ret = INPUT_BACK;
     }
+    // Get normal characters
     else
     {
+        // Check for cariage return
+        if(escapeChar1 == '\r')
+        {
+            str = "\n" + str;
+        }
+        // Get back the character
         str = static_cast<char>(escapeChar1) + str;
     }
     
