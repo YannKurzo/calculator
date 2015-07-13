@@ -42,6 +42,7 @@ typedef enum
     INPUT_ARROW_DOWN,
     INPUT_ARROW_LEFT,
     INPUT_BACK,
+    INPUT_DELETE,
     INPUT_NORMAL_CHAR
 }char_e;
 

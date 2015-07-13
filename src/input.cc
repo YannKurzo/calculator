@@ -56,7 +56,7 @@ void Input::coutErase(std::string &str)
     }
 }
 
-void Input::coutGo(int pos, std::string &str)
+bool Input::coutGo(int pos, std::string &str)
 {
     if(pos_m + pos >= 0 && pos_m + pos <= static_cast<int>(str.size()))
     {
@@ -76,6 +76,11 @@ void Input::coutGo(int pos, std::string &str)
                 ++pos_m;
             }
         }
+        return true;
+    }
+    else
+    {
+        return false;
     }
 }
 
@@ -159,6 +164,12 @@ cout << "Test: ";
                     break;
                 case INPUT_BACK:
                     coutErase(str);
+                    break;
+                case INPUT_DELETE:
+                    if(coutGo(1, str))
+                    {
+                        coutErase(str);
+                    }
                     break;
                 default:
                     coutAdd(tmpStr, str);

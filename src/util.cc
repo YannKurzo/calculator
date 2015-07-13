@@ -42,6 +42,7 @@ enum
     CHAR_RIGHT = 67,
     CHAR_DOWN = 66,
     CHAR_LEFT = 68,
+    CHAR_DELETE = 51,
     CHAR_BACKSPACE = 127
 };
 
@@ -94,6 +95,11 @@ char_e getCharacter(std::string &str)
                 break;
             case CHAR_LEFT:
                 ret = INPUT_ARROW_LEFT;
+                break;
+            case CHAR_DELETE:
+                // Get last char
+                getch();
+                ret = INPUT_DELETE;
                 break;
             default:
                 // Get back the character

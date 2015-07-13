@@ -38,7 +38,7 @@ class Input
         
         void coutErase(std::string &str);
         
-        void coutGo(int pos, std::string &str);
+        bool coutGo(int pos, std::string &str);
 
         void coutAdd(std::string &c, std::string &str);
 };
