@@ -51,6 +51,7 @@ The program can be launched without parameters. It will then work as a bash and 
 ### Code corrections
 - Power operator 2^3^2 => 2^(3^2)
 - Bug when displaying values of constants and user defined variables
+- Bug when writing "constant="
 
 ### Doc
 - Doxygen
