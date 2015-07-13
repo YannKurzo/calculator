@@ -27,8 +27,8 @@ AM_CPPFLAGS += -std=gnu++11
 # Warning and errors
 AM_CPPFLAGS += -pedantic -Wall -Wextra -Wcast-align -Wcast-qual -Wctor-dtor-privacy
 AM_CPPFLAGS += -Wdisabled-optimization -Wformat=2 -Winit-self -Wlogical-op -Wmissing-declarations
-AM_CPPFLAGS += -Wmissing-include-dirs -Wnoexcept -Wold-style-cast -Woverloaded-virtual
+AM_CPPFLAGS += -Wmissing-include-dirs -Wnoexcept -Woverloaded-virtual
 AM_CPPFLAGS += -Wredundant-decls -Wshadow -Wsign-promo -Wstrict-null-sentinel
 AM_CPPFLAGS += -Wstrict-overflow=5 -Wswitch-default -Wundef -Werror -Wno-unused
 AM_CPPFLAGS += -Wzero-as-null-pointer-constant -Wuseless-cast
-#-Wsign-conversion
+#-Wsign-conversion -Wold-style-cast

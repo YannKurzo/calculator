@@ -258,10 +258,10 @@ AM_CPPFLAGS = -I$(srcdir)/include -std=gnu++11 -pedantic -Wall -Wextra \
 	-Wcast-align -Wcast-qual -Wctor-dtor-privacy \
 	-Wdisabled-optimization -Wformat=2 -Winit-self -Wlogical-op \
 	-Wmissing-declarations -Wmissing-include-dirs -Wnoexcept \
-	-Wold-style-cast -Woverloaded-virtual -Wredundant-decls \
-	-Wshadow -Wsign-promo -Wstrict-null-sentinel \
-	-Wstrict-overflow=5 -Wswitch-default -Wundef -Werror \
-	-Wno-unused -Wzero-as-null-pointer-constant -Wuseless-cast
+	-Woverloaded-virtual -Wredundant-decls -Wshadow -Wsign-promo \
+	-Wstrict-null-sentinel -Wstrict-overflow=5 -Wswitch-default \
+	-Wundef -Werror -Wno-unused -Wzero-as-null-pointer-constant \
+	-Wuseless-cast
 all: all-am
 
 .SUFFIXES:
@@ -582,7 +582,7 @@ uninstall-am: uninstall-binPROGRAMS
 	ps ps-am tags tags-am uninstall uninstall-am \
 	uninstall-binPROGRAMS
 
-#-Wsign-conversion
+#-Wsign-conversion -Wold-style-cast
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
