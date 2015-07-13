@@ -31,22 +31,31 @@ The program can be launched without parameters. It will then work as a bash and 
   * "-h" command (shortcut command)
   * "--help" command (full command)
 
-### Compilation
-- This program uses the autoconf / automake tool for the compilation.
+### Compilation and installation
+##### Compilation
 - To be able to compile, the following tools are necessary:
   * a UNIX like environment (Linux / cygwin for Windows)
   * the "make" command
 - For the compilation, run the following commands:
   * clone "https://github.com/YannKurzo/calculator.git"
   * mkdir calculator_build
+  * cd calculator_build
   * ../calculator/configure
   * make
+##### Installation
+- On Linux
   * make install
+- On Windows
+  * The executable is located in calculator_build/src/calculator.exe
+##### Compilation on Windows to be able to launch outside Cygwin
+
+##### Help
 - Help can be found by using:
   * ./configure --help
 - Getting the mpfr library (this library is only necessary for compiling for big numbers)
   * Linux: http://www.mpfr.org/mpfr-current/#download
   * Cygwin: https://cygwin.com/install.html (use the setup to install the library)
+- This program uses the autoconf / automake tools for the compilation.
 
 ### Missing features (in development)
 - Power operator priority 2^3^2 => 2^(3^2)
