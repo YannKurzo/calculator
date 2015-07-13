@@ -48,7 +48,7 @@ The program can be launched without parameters. It will then work as a bash and 
 - On Linux
   * make install
 - On Windows
-  * The executable is located in calculator_build/src/calculator.exe
+  * The executable is located in "calculator_build/src/"
 
 ##### Compilation on Windows to be able to launch outside Cygwin
 
