@@ -80,9 +80,9 @@ char_e getCharacter(std::string &str)
     if(escapeChar2 == CHAR_ESCAPE2)
     {
 #endif
-        int arrowChar = getch();
+        int actualChar = getch();
         
-        switch(arrowChar)
+        switch(actualChar)
         {
             case CHAR_UP:
                 ret = INPUT_ARROW_UP;
@@ -103,7 +103,7 @@ char_e getCharacter(std::string &str)
                 break;
             default:
                 // Get back the character
-                str = static_cast<char>(arrowChar) + str;
+                str = static_cast<char>(actualChar) + str;
                 break;
         }
 #if(HAVE_IOCTL == 1)

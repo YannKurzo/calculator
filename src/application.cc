@@ -72,7 +72,6 @@ void Application::startCommand(void)
     
     // Get new line
     in.getInput(str_m);
-    // cin >> str_m;
     
     // While we do not exit
     while(str_m != "--exit" && str_m != "-q")
@@ -85,7 +84,6 @@ void Application::startCommand(void)
         
         // Get new line
         in.getInput(str_m);
-        // cin >> str_m;
     }
 }
 

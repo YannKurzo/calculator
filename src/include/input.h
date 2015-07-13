@@ -18,13 +18,11 @@
 ///         the mathematical result.
 class Input
 {
-    protected:
-        /// Command history
-        std::deque<std::string> history_m;
-        
+    protected:        
         /// Actual command
-        unsigned int historyNumber_m;
+        int historyNumber_m;
         
+        /// Actual position in string
         int pos_m;
         
     public:

@@ -15,6 +15,9 @@
 
 using namespace std;
 
+/// Command history
+static std::deque<std::string> history_m;
+
 Input::Input(void)
 {
     pos_m = 0;
@@ -23,6 +26,9 @@ Input::Input(void)
 
 void Input::coutEraseAll(std::string &str)
 {
+    // Move at the end
+    coutGo(str.size() - pos_m, str);
+    
     // Erase screen
     for(int i=str.size()-1; i>=0; --i)
     {
@@ -30,6 +36,7 @@ void Input::coutEraseAll(std::string &str)
     }
     // Erase string
     str = "";
+    pos_m = 0;
 }
 
 void Input::coutErase(std::string &str)
@@ -88,10 +95,10 @@ void Input::coutAdd(std::string &c, std::string &str)
 {
     // Insert character
     str.insert(pos_m, c);
-    ++pos_m;
-        
+    pos_m += c.size();
+    
     // Print the rest of characters
-    for(int i=pos_m-1; i<static_cast<int>(str.size()); ++i)
+    for(int i=pos_m-c.size(); i<static_cast<int>(str.size()); ++i)
     {
         cout << str.at(i);
     }
@@ -108,14 +115,14 @@ void Input::getInput(std::string &str)
 #if(HAVE_CONIO == 0 && HAVE_IOCTL == 0)
     cin >> str;
 #else
-    /// TEST
-    
+    // Add new element
     str = "";
+    history_m.push_back(str);
+    historyNumber_m = history_m.size() - 1;
 
     // While there is only white spaces
     while(str.size() == 0 || str.find_first_not_of(" \t\n\v\f\r") == std::string::npos)
     {
-cout << "Test: ";
         // Init
         pos_m = 0;
         str = "";
@@ -130,31 +137,28 @@ cout << "Test: ";
             switch(specialChar)
             {
                 case INPUT_ARROW_UP:
-                    coutEraseAll(str);
-                    // if(historyNumber_m < history_m.size()-1)
-                    // {
-                        // ++historyNumber_m;
-                        // checkArrow = history_m.at(history_m.size()-historyNumber_m-1);
-                        // for(int i=str.size()-1; i>=0; --i)
-                        // {
-                            // cout << "\b \b";
-                        // }
-                        // str = checkArrow;
-                        // cout << checkArrow;
-                    // }
+                    // Save
+                    history_m.at(historyNumber_m) = str;
+                        
+                    if(historyNumber_m > 0)
+                    {
+                        // Replace
+                        --historyNumber_m;
+                        coutEraseAll(str);
+                        coutAdd(history_m.at(historyNumber_m), str);
+                    }
                     break;
                 case INPUT_ARROW_DOWN:
-    // //                if(historyNumber_m > 0)
-    // //                {
-    // //                    --historyNumber_m;
-    // //                    checkArrow = history_m.at(history_m.size()-historyNumber_m-1);
-    // //                    for(int i=str.size()-1; i>=0; --i)
-    // //                    {
-    // //                        cout << "\b \b";
-    // //                    }
-    // //                    str = checkArrow;
-    // //                    cout << checkArrow;
-    // //                }
+                    // Save
+                    history_m.at(historyNumber_m) = str;
+                        
+                    if(historyNumber_m < static_cast<int>(history_m.size()-1))
+                    {
+                        // Replace
+                        ++historyNumber_m;
+                        coutEraseAll(str);
+                        coutAdd(history_m.at(historyNumber_m), str);
+                    }
                     break;
                 case INPUT_ARROW_RIGHT:
                     coutGo(1, str);
@@ -166,13 +170,24 @@ cout << "Test: ";
                     coutErase(str);
                     break;
                 case INPUT_DELETE:
+                    // Check if there is something to the right
                     if(coutGo(1, str))
                     {
                         coutErase(str);
                     }
                     break;
                 default:
-                    coutAdd(tmpStr, str);
+                    // Check for end of line characters
+                    if(tmpStr == "\n" || tmpStr == "\r")
+                    {
+                        // Push at the end
+                        str.push_back(tmpStr.at(0));
+                    }
+                    // Otherwise, it is a normal character
+                    else
+                    {
+                        coutAdd(tmpStr, str);
+                    }
                     break;
             }
         }
@@ -182,10 +197,12 @@ cout << "Test: ";
         {
             str.pop_back();
         }
-        // Update history
-        // history_m.push_back(str);
         
-        // Check history size
+        // Print new line
+        cout << endl;
+        
+        // Update history
+        history_m.at(history_m.size()-1) = str;
     }
 #endif
 }
