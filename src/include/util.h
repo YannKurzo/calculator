@@ -39,12 +39,12 @@ int getch( void );
 #endif
 
 #if(HAVE_IOCTL == 0 && HAVE_CONIO == 0)
-#define HAVE_GETCH  0
+    #define HAVE_GETCH  0
 #else
-#define HAVE_GETCH  1
+    #define HAVE_GETCH  1
 #endif
 
-// Use getch to check for an arrow
+// Use getch to check for special characters
 typedef enum
 {
     INPUT_ARROW_UP,

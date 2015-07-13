@@ -16,6 +16,7 @@
 using namespace std;
 
 #if(HAVE_CONIO == 1)
+    
 #include <conio.h>
 
 enum
@@ -28,9 +29,11 @@ enum
     CHAR_DELETE = 51,
     CHAR_BACKSPACE = 8
 };
+
 #endif /* HAVE_CONIO */
 
 #if(HAVE_IOCTL == 1)
+    
 #include <cstdio>
 #include <sys/ioctl.h>
 #include <termios.h>
@@ -47,24 +50,37 @@ enum
     CHAR_BACKSPACE = 127
 };
 
-int getch( void )
+// Implement getch function of conio.h using termios (for Posix systems)
+int getch(void)
 {
     char ch;
-    int fd = fileno(stdin);
     struct termio old_tty, new_tty;
+    
+    // Get file descriptor
+    int fd = fileno(stdin);
 
+    // Save old terminal parameters
     ioctl(fd, TCGETA, &old_tty);
+    
+    // Create new terminal parameters based on the old one
     new_tty = old_tty;
+    // Disable signals
     new_tty.c_lflag &= ~(ICANON | ECHO | ISIG);
+    // Update terminal parameters
     ioctl(fd, TCSETA, &new_tty);
+    
+    // Read 1 character
     if(fread(&ch, 1, sizeof(ch), stdin) != 1)
     {
-        cout << "Problem with fread!" << endl;
+        THROW("Problem with fread() in Posix implementation of getch()!");
     }
+    
+    // Reset to old terminal
     ioctl(fd, TCSETA, &old_tty);
 
     return ch;
 }
+
 #endif /* HAVE_IOCTL */
 
 char_e getCharacter(std::string &str)
@@ -111,6 +127,7 @@ char_e getCharacter(std::string &str)
     }
     else
     {
+        // Get back the character
         str = static_cast<char>(escapeChar2) + str;
     }
 #endif /* HAVE_IOCTL */
