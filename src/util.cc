@@ -65,9 +65,9 @@ int getch( void )
 }
 #endif /* HAVE_IOCTL */
 
-arrow_e getArrow(std::string &str)
+char_e getCharacter(std::string &str)
 {
-    arrow_e ret = INPUT_NONE;
+    char_e ret = INPUT_NORMAL_CHAR;
     
     int escapeChar1 = getch();
     

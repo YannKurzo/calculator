@@ -25,12 +25,22 @@ class Input
         /// Actual command
         unsigned int historyNumber_m;
         
+        int pos_m;
+        
     public:
         /// @brief  Constructor
         Input(void);
         
         /// @brief  Get the next command
         void getInput(std::string &str);
+        
+        void coutEraseAll(std::string &str);
+        
+        void coutErase(std::string &str);
+        
+        void coutGo(int pos, std::string &str);
+
+        void coutAdd(std::string &c, std::string &str);
 };
 
 

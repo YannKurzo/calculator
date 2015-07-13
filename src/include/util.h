@@ -42,14 +42,14 @@ typedef enum
     INPUT_ARROW_DOWN,
     INPUT_ARROW_LEFT,
     INPUT_BACK,
-    INPUT_NONE
-}arrow_e;
+    INPUT_NORMAL_CHAR
+}char_e;
 
 #if(HAVE_IOCTL == 1)
 int getch( void );
 #endif
 
-arrow_e getArrow(std::string &str);
+char_e getCharacter(std::string &str);
 
 #endif	/* UTIL_H */
 
