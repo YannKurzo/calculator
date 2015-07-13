@@ -32,6 +32,7 @@ The program can be launched without parameters. It will then work as a bash and 
   * "--help" command (full command)
 
 ### Compilation and installation
+
 ##### Compilation
 - To be able to compile, the following tools are necessary:
   * a UNIX like environment (Linux / cygwin for Windows)
@@ -42,11 +43,13 @@ The program can be launched without parameters. It will then work as a bash and 
   * cd calculator_build
   * ../calculator/configure
   * make
+
 ##### Installation
 - On Linux
   * make install
 - On Windows
   * The executable is located in calculator_build/src/calculator.exe
+
 ##### Compilation on Windows to be able to launch outside Cygwin
 
 ##### Help
