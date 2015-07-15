@@ -246,6 +246,10 @@ void Application::checkSetVariable(void)
             THROW("Variable name is not valid!");
         }
         str_m = str_m.substr(signPosition+1, str_m.size());
+        if(str_m.size() == 0)
+        {
+            THROW("No value is specified!")
+        }
     }
     else
     {

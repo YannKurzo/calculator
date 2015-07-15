@@ -273,7 +273,7 @@ void Mpfr::display(std::ostream& flow) const
                     }
                 }
                 // Check if number needs a point
-                else if(signedSize > exp)
+                else if(signedSize > exp + signedSign)
                 {
                     digits.insert(static_cast<unsigned int>(exp + signedSign), ".");
                 }
