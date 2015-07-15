@@ -82,7 +82,12 @@ std::string Constant::getConstantList(void)
 
 std::string Constant::getVariableList(void)
 {
-    return getList(true);
+    string str = getList(true);
+    if(str == "")
+    {
+        str = "No user defined variables!";
+    }
+    return str;
 }
 
 bool Constant::addVariable(const std::string &variableName, calculType_t value)
