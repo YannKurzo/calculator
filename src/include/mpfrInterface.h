@@ -22,6 +22,7 @@ typedef double calculType_t;
 
 namespace MPFR
 {
+    /// @brief  Dummy macro to avoid unused variable warning
     #define UNUSED(x) (void)(x)
 
     /// @brief  Dummy function for compilation

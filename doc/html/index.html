@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">calculator Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>This program can parse a string entered by the user. It calculates the mathematical result of the string. The program can be configured at compilation time by modifying the <code><a class="el" href="config_8h.html" title="This file contains all the possible configurations. ">config.h</a></code> file. Using the double type si limited in precision. It is then possible to use the mpfr library to do the calculation, so that the precision can be defined by the user. In that case the precision can be much larger than a double precision.</p>
+<div class="textblock"><p>This program can parse a string entered by the user. It calculates the mathematical result of the string. The program can be configured at compilation time by modifying the <code><a class="el" href="config_8h.html" title="This file contains all the possible configurations. ">src/include/config.h</a></code> file. Using the double type si limited in precision. It is then possible to use the mpfr library to do the calculation, so that the precision can be defined by the user. In that case the precision can be much larger than a double precision.</p>
 <h3>Working features:</h3>
 <ul>
 <li>Numbers</li>
@@ -91,7 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>Some basic constants</li>
 <li>Saving results in temporary variables</li>
 <li>Use the help command to get a list of available commands</li>
-<li>The program can be configured with using double type or mpfr library for calculation (see <a class="el" href="config_8h.html" title="This file contains all the possible configurations. ">config.h</a> file)</li>
+<li>The program can be configured with using double type or mpfr library for calculation (see <code><a class="el" href="config_8h.html" title="This file contains all the possible configurations. ">src/include/config.h</a></code> file)</li>
 <li>By using the mpfr library, the user can defined the precision of the floating point numbers (number of bits in the mantissa).</li>
 <li>Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)</li>
 <li>History of commands accessible with keyboard arrows (compatible with Windows and Posix systems)</li>
@@ -180,7 +180,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 15 2015 15:51:33 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 15 2015 16:02:37 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
