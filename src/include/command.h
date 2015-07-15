@@ -94,7 +94,8 @@ class Command
         static std::string getStringParameter(std::string command);
         
         /// @brief  Get help about the commands
-        /// @param  detailed Detailed help if true
+        /// @param  detailed Detailed help if true, Basic help otherwise
+        /// @param  command Command help mode if true, argument help mode otherwise
         /// @return String containing the help
         static std::string getHelp(bool detailed, bool command);
         

@@ -27,7 +27,7 @@
 /// @brief  Function pointer for every function
 typedef void (*func_ptr)();
 
-/// @brief  Macro to easily add a new function
+/// @brief  Macro to easily add a new function which the name is defined by mpfr_FUNCTION
 /// @param  str Name of the function used by the user
 /// @param  nbParameters Number of parameters of the function
 /// @param  functionName Name of the function in the library or declared in externalFunctions.h
@@ -38,6 +38,11 @@ typedef void (*func_ptr)();
 #define ADD_FUNCTION(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast<func_ptr>(&mpfr_##functionName), help}}
 #endif
 
+/// @brief  Macro to easily add a new function from externalFunction files
+/// @param  str Name of the function used by the user
+/// @param  nbParameters Number of parameters of the function
+/// @param  functionName Name of the function in the library or declared in externalFunctions.h
+/// @param  help Help notice for this function
 #define ADD_FUNCTION_SAMENAME(str, nbParameters, functionName, help) {str, {nbParameters, reinterpret_cast<func_ptr>(&functionName), help}}
 
 
@@ -127,15 +132,14 @@ class Function
         static std::string getFunctionList(void);
 };
 
+/// @cond TEMPLATE_CODE
 #if(USE_DOUBLE_TYPE == 1)
 
-/// @cond TEMPLATE_CODE
 template<class... Ts>
 double call(std::string str, const Ts&... args)
 {
     return reinterpret_cast<double(*)(Ts...)>(Function::getFunction(str))(args...);
 }
-/// @endcond TEMPLATE_CODEEXTERNALFUNCTIONS_H
 
 #elif(USE_MPFR_LIBRARY == 1)
 
@@ -150,6 +154,7 @@ int call(std::string str, mpfr_t res, mpfr_t op0, mpfr_t op1);
 int call(std::string str, mpfr_t res, mpfr_t op0, mpfr_t op1, mpfr_t op2);
 
 #endif
+/// @endcond TEMPLATE_CODE
 
 
 #endif	/* FUNCTION_H */

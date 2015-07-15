@@ -22,10 +22,9 @@ class \hyperlink{class_function}{Function}
 \begin{DoxyCompactItemize}
 \item 
 \#define \hyperlink{function_8h_a8809239df3732d15b9f894187ea0ac56}{A\+D\+D\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N}(str,  nb\+Parameters,  function\+Name,  help)~\{str, \{nb\+Parameters, reinterpret\+\_\+cast$<$\hyperlink{function_8h_a171e664ee3179d3d1f1a7b04a747724c}{func\+\_\+ptr}$>$(\&mpfr\+\_\+\#\#function\+Name), help\}\}
-\begin{DoxyCompactList}\small\item\em Macro to easily add a new function. \end{DoxyCompactList}\item 
-\hypertarget{function_8h_a13c792a9364530a87697a1a30897b643}{}\#define {\bfseries A\+D\+D\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+S\+A\+M\+E\+N\+A\+M\+E}(str,  nb\+Parameters,  function\+Name,  help)~\{str, \{nb\+Parameters, reinterpret\+\_\+cast$<$\hyperlink{function_8h_a171e664ee3179d3d1f1a7b04a747724c}{func\+\_\+ptr}$>$(\&function\+Name), help\}\}\label{function_8h_a13c792a9364530a87697a1a30897b643}
-
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Macro to easily add a new function which the name is defined by mpfr\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N. \end{DoxyCompactList}\item 
+\#define \hyperlink{function_8h_a13c792a9364530a87697a1a30897b643}{A\+D\+D\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+S\+A\+M\+E\+N\+A\+M\+E}(str,  nb\+Parameters,  function\+Name,  help)~\{str, \{nb\+Parameters, reinterpret\+\_\+cast$<$\hyperlink{function_8h_a171e664ee3179d3d1f1a7b04a747724c}{func\+\_\+ptr}$>$(\&function\+Name), help\}\}
+\begin{DoxyCompactList}\small\item\em Macro to easily add a new function from external\+Function files. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -38,21 +37,6 @@ class \hyperlink{class_function}{Function}
 \hypertarget{function_8h_ab0ba3e25af04f28f837cce7a390ee674}{}typedef function\+Map\+\_\+t\+::iterator \hyperlink{function_8h_ab0ba3e25af04f28f837cce7a390ee674}{function\+Map\+Iterator\+\_\+t}\label{function_8h_ab0ba3e25af04f28f837cce7a390ee674}
 
 \begin{DoxyCompactList}\small\item\em Iterator on function\+Map\+\_\+t. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Functions}
-\begin{DoxyCompactItemize}
-\item 
-\hypertarget{function_8h_a47236c269e160e9aeb330bc647f11808}{}int {\bfseries call} (std\+::string str, mpfr\+\_\+t res)\label{function_8h_a47236c269e160e9aeb330bc647f11808}
-
-\item 
-\hypertarget{function_8h_a520390cd66e46cb4781bc0b42ad9edbc}{}int {\bfseries call} (std\+::string str, mpfr\+\_\+t res, mpfr\+\_\+t op0)\label{function_8h_a520390cd66e46cb4781bc0b42ad9edbc}
-
-\item 
-\hypertarget{function_8h_a97dc39d44ba6da2e6547f74e14a13e57}{}int {\bfseries call} (std\+::string str, mpfr\+\_\+t res, mpfr\+\_\+t op0, mpfr\+\_\+t op1)\label{function_8h_a97dc39d44ba6da2e6547f74e14a13e57}
-
-\item 
-\hypertarget{function_8h_a6f66de838c37227389038f5cc5d35ba8}{}int {\bfseries call} (std\+::string str, mpfr\+\_\+t res, mpfr\+\_\+t op0, mpfr\+\_\+t op1, mpfr\+\_\+t op2)\label{function_8h_a6f66de838c37227389038f5cc5d35ba8}
-
-\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -82,7 +66,32 @@ Copyright 2015 Yann Kurzo. All rights reserved. This project is released under t
 )~\{str, \{nb\+Parameters, reinterpret\+\_\+cast$<${\bf func\+\_\+ptr}$>$(\&mpfr\+\_\+\#\#function\+Name), help\}\}}\label{function_8h_a8809239df3732d15b9f894187ea0ac56}
 
 
-Macro to easily add a new function. 
+Macro to easily add a new function which the name is defined by mpfr\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Name of the function used by the user \\
+\hline
+{\em nb\+Parameters} & Number of parameters of the function \\
+\hline
+{\em function\+Name} & Name of the function in the library or declared in external\+Functions.\+h \\
+\hline
+{\em help} & Help notice for this function \\
+\hline
+\end{DoxyParams}
+\hypertarget{function_8h_a13c792a9364530a87697a1a30897b643}{}\index{function.\+h@{function.\+h}!A\+D\+D\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+S\+A\+M\+E\+N\+A\+M\+E@{A\+D\+D\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+S\+A\+M\+E\+N\+A\+M\+E}}
+\index{A\+D\+D\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+S\+A\+M\+E\+N\+A\+M\+E@{A\+D\+D\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+S\+A\+M\+E\+N\+A\+M\+E}!function.\+h@{function.\+h}}
+\subsubsection[{A\+D\+D\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+S\+A\+M\+E\+N\+A\+M\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+D\+D\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+\_\+\+S\+A\+M\+E\+N\+A\+M\+E(
+\begin{DoxyParamCaption}
+\item[{}]{str, }
+\item[{}]{nb\+Parameters, }
+\item[{}]{function\+Name, }
+\item[{}]{help}
+\end{DoxyParamCaption}
+)~\{str, \{nb\+Parameters, reinterpret\+\_\+cast$<${\bf func\+\_\+ptr}$>$(\&function\+Name), help\}\}}\label{function_8h_a13c792a9364530a87697a1a30897b643}
+
+
+Macro to easily add a new function from external\+Function files. 
 
 
 \begin{DoxyParams}{Parameters}

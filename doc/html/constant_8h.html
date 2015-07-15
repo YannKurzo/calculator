@@ -98,6 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>This file defines the <a class="el" href="class_constant.html" title="This class is used to handle constants. ">Constant</a> class.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="mpfr_interface_8h_source.html">mpfrInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="util_8h_source.html">util.h</a>&quot;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;cstdlib&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
@@ -115,9 +116,12 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a5cf1026f3489b281c45fb0bf19e61ad6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constant_8h.html#a5cf1026f3489b281c45fb0bf19e61ad6">ADD_CONSTANT</a>(str,  doubleValue,  mpfrValue,  help)&#160;&#160;&#160;{str, {mpfrValue, help}}</td></tr>
+<tr class="memitem:a5cf1026f3489b281c45fb0bf19e61ad6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constant_8h.html#a5cf1026f3489b281c45fb0bf19e61ad6">ADD_CONSTANT</a>(str,  doubleValue,  mpfrValue,  help)&#160;&#160;&#160;{str, {mpfrValue, mpfrValue, help}}</td></tr>
 <tr class="memdesc:a5cf1026f3489b281c45fb0bf19e61ad6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to easily add a new constant.  <a href="#a5cf1026f3489b281c45fb0bf19e61ad6">More...</a><br /></td></tr>
 <tr class="separator:a5cf1026f3489b281c45fb0bf19e61ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8255cd9ccebc85b4c4a649cc44d861c2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="constant_8h.html#a8255cd9ccebc85b4c4a649cc44d861c2">ADD_USER</a>(str,  value,  help)&#160;&#160;&#160;{str, {value, &quot;&quot;, help}}</td></tr>
+<tr class="memdesc:a8255cd9ccebc85b4c4a649cc44d861c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to easily add a new user defined variable.  <a href="#a8255cd9ccebc85b4c4a649cc44d861c2">More...</a><br /></td></tr>
+<tr class="separator:a8255cd9ccebc85b4c4a649cc44d861c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -167,7 +171,7 @@ typedef constantMap_t::iterator&#160;</td><td class="memItemRight" valign="botto
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;{str, {mpfrValue, help}}</td>
+          <td></td><td>&#160;&#160;&#160;{str, {mpfrValue, mpfrValue, help}}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -185,10 +189,52 @@ typedef constantMap_t::iterator&#160;</td><td class="memItemRight" valign="botto
 
 </div>
 </div>
+<a class="anchor" id="a8255cd9ccebc85b4c4a649cc44d861c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADD_USER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">str, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">value, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">help&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;{str, {value, &quot;&quot;, help}}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro to easily add a new user defined variable. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>Name of the variable used by the user </td></tr>
+    <tr><td class="paramname">value</td><td>Value as calculType_t </td></tr>
+    <tr><td class="paramname">help</td><td>Help notice for this constant </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 3 2015 16:17:24 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 15 2015 15:51:33 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

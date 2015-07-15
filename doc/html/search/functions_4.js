@@ -1,12 +1,14 @@
 var searchData=
 [
   ['getcommand',['getCommand',['../class_command.html#a0a461c50ca91c39c699d35da1ae4d66d',1,'Command']]],
-  ['getconstant',['getConstant',['../class_constant.html#a086fe0e1f8d42475cf03f81ae9ccce12',1,'Constant']]],
+  ['getconstant',['getConstant',['../class_constant.html#a71937e033e6b5aca6f34afd0d18c80b7',1,'Constant']]],
   ['getconstantlist',['getConstantList',['../class_constant.html#a55802cdca68fe477a661fa8d426d5ae7',1,'Constant']]],
   ['getdetailedhelp',['getDetailedHelp',['../class_command.html#aa3cc08d74680f515249d5a12f3afaeb6',1,'Command']]],
   ['getfunction',['getFunction',['../class_function.html#a58dbf2a69e3cd7a82acff3ea70e642f4',1,'Function']]],
   ['getfunctionlist',['getFunctionList',['../class_function.html#a321f973005de0842251559fb2ab52160',1,'Function']]],
   ['gethelp',['getHelp',['../class_command.html#aa64031bdfbbdcf55aba21c7864a7e49c',1,'Command']]],
+  ['getinput',['getInput',['../class_input.html#a1fd743c876434a6aff0aa24c08abacec',1,'Input']]],
+  ['getlist',['getList',['../class_constant.html#ad8e0484b85273bae2c95113afe80e4d6',1,'Constant']]],
   ['getn',['getN',['../class_token.html#afc6828db91b34b4b13afd9383b829c78',1,'Token']]],
   ['getnbparameters',['getNbParameters',['../class_function.html#a3cc694137e1698d0537d9e4672a7123a',1,'Function']]],
   ['getpriority',['getPriority',['../class_token.html#a87c0015a5a932014b9de9fa0441988ea',1,'Token']]],

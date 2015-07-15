@@ -6,6 +6,7 @@ This file defines the \hyperlink{class_constant}{Constant} class.
 
 
 {\ttfamily \#include \char`\"{}mpfr\+Interface.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$string$>$}\\*
 {\ttfamily \#include $<$cstdlib$>$}\\*
 {\ttfamily \#include $<$map$>$}\\*
@@ -19,8 +20,10 @@ class \hyperlink{class_constant}{Constant}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{constant_8h_a5cf1026f3489b281c45fb0bf19e61ad6}{A\+D\+D\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T}(str,  double\+Value,  mpfr\+Value,  help)~\{str, \{mpfr\+Value, help\}\}
-\begin{DoxyCompactList}\small\item\em Macro to easily add a new constant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\#define \hyperlink{constant_8h_a5cf1026f3489b281c45fb0bf19e61ad6}{A\+D\+D\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T}(str,  double\+Value,  mpfr\+Value,  help)~\{str, \{mpfr\+Value, mpfr\+Value, help\}\}
+\begin{DoxyCompactList}\small\item\em Macro to easily add a new constant. \end{DoxyCompactList}\item 
+\#define \hyperlink{constant_8h_a8255cd9ccebc85b4c4a649cc44d861c2}{A\+D\+D\+\_\+\+U\+S\+E\+R}(str,  value,  help)~\{str, \{value, \char`\"{}\char`\"{}, help\}\}
+\begin{DoxyCompactList}\small\item\em Macro to easily add a new user defined variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -56,7 +59,7 @@ Copyright 2015 Yann Kurzo. All rights reserved. This project is released under t
 \item[{}]{mpfr\+Value, }
 \item[{}]{help}
 \end{DoxyParamCaption}
-)~\{str, \{mpfr\+Value, help\}\}}\label{constant_8h_a5cf1026f3489b281c45fb0bf19e61ad6}
+)~\{str, \{mpfr\+Value, mpfr\+Value, help\}\}}\label{constant_8h_a5cf1026f3489b281c45fb0bf19e61ad6}
 
 
 Macro to easily add a new constant. 
@@ -68,6 +71,28 @@ Macro to easily add a new constant.
 {\em double\+Value} & Value as double \\
 \hline
 {\em mpfr\+Value} & Value as string \\
+\hline
+{\em help} & Help notice for this constant \\
+\hline
+\end{DoxyParams}
+\hypertarget{constant_8h_a8255cd9ccebc85b4c4a649cc44d861c2}{}\index{constant.\+h@{constant.\+h}!A\+D\+D\+\_\+\+U\+S\+E\+R@{A\+D\+D\+\_\+\+U\+S\+E\+R}}
+\index{A\+D\+D\+\_\+\+U\+S\+E\+R@{A\+D\+D\+\_\+\+U\+S\+E\+R}!constant.\+h@{constant.\+h}}
+\subsubsection[{A\+D\+D\+\_\+\+U\+S\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+D\+D\+\_\+\+U\+S\+E\+R(
+\begin{DoxyParamCaption}
+\item[{}]{str, }
+\item[{}]{value, }
+\item[{}]{help}
+\end{DoxyParamCaption}
+)~\{str, \{value, \char`\"{}\char`\"{}, help\}\}}\label{constant_8h_a8255cd9ccebc85b4c4a649cc44d861c2}
+
+
+Macro to easily add a new user defined variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Name of the variable used by the user \\
+\hline
+{\em value} & Value as calcul\+Type\+\_\+t \\
 \hline
 {\em help} & Help notice for this constant \\
 \hline

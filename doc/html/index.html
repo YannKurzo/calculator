@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">calculator Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>This program can parse a string entered by the user. It calculates the mathematical result of the string. The program can be configured at compilation time by modifying the <a class="el" href="config_8h.html" title="This file contains all the possible configurations. ">config.h</a> file. By default, it uses double type to make calculation. It is possible to use the mpfr library to do the calculation, so that the precision can be defined by the user and that it can be much larger than a double precision.</p>
+<div class="textblock"><p>This program can parse a string entered by the user. It calculates the mathematical result of the string. The program can be configured at compilation time by modifying the <code><a class="el" href="config_8h.html" title="This file contains all the possible configurations. ">config.h</a></code> file. Using the double type si limited in precision. It is then possible to use the mpfr library to do the calculation, so that the precision can be defined by the user. In that case the precision can be much larger than a double precision.</p>
 <h3>Working features:</h3>
 <ul>
 <li>Numbers</li>
@@ -91,66 +91,96 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>Some basic constants</li>
 <li>Saving results in temporary variables</li>
 <li>Use the help command to get a list of available commands</li>
-<li>Calculation using double type or mpfr library (see <a class="el" href="config_8h.html" title="This file contains all the possible configurations. ">config.h</a> file)</li>
+<li>The program can be configured with using double type or mpfr library for calculation (see <a class="el" href="config_8h.html" title="This file contains all the possible configurations. ">config.h</a> file)</li>
+<li>By using the mpfr library, the user can defined the precision of the floating point numbers (number of bits in the mantissa).</li>
 <li>Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)</li>
+<li>History of commands accessible with keyboard arrows (compatible with Windows and Posix systems)</li>
 </ul>
 <h5>Argument mode</h5>
 <p>The program can be launched from a command line with multiple parameters. It will displays all the results separated by spaces and then automatically quit the program.</p><ul>
 <li>Use:<ul>
-<li>"calculator "2*5" "2+8"" (multiple calculation in a row, use quotation marks)</li>
-<li>"calculator -h" (shortcut command)</li>
-<li>"calculator --help" (full command)</li>
+<li><code>calculator "2*5" "2+8"</code> (multiple calculation in a row, use quotation marks)</li>
+<li><code>calculator -h</code> (shortcut command)</li>
+<li><code>calculator --help</code> (full command)</li>
 </ul>
 </li>
 </ul>
 <h5><a class="el" href="class_command.html" title="This class handles the different commands and arguments. ">Command</a> mode</h5>
 <p>The program can be launched without parameters. It will then work as a bash and execute each calculation entered by the user without quitting the program. To quit, the "-q" command (or "--exit") can be used.</p><ul>
 <li>Use:<ul>
-<li>2*5 2+8 (multiple calculation in a row, separated by spaces, quotation marks not needed)</li>
-<li>"-h" command (shortcut command)</li>
-<li>"--help" command (full command)</li>
+<li><code>2*5</code> (one calculation at a time)</li>
+<li><code>-h</code> command (shortcut command)</li>
+<li><code>--help</code> command (full command)</li>
 </ul>
 </li>
 </ul>
-<h3>Compilation</h3>
+<h3>Compilation and installation</h3>
+<h5>Prerequisite</h5>
 <ul>
-<li>This program uses the autoconf / automake tool for the compilation.</li>
 <li>To be able to compile, the following tools are necessary:<ul>
-<li>a UNIX like environment (Linux / cygwin for Windows)</li>
+<li>a UNIX like environment (Linux / Cygwin for Windows / ...)</li>
 <li>the "make" command</li>
 </ul>
 </li>
+<li>The following tools are optional:<ul>
+<li>mpfr library (this library is only necessary for compiling for high precision calculations)</li>
+</ul>
+</li>
+</ul>
+<h5>Standard compilation and installation</h5>
+<ul>
 <li>For the compilation, run the following commands:<ul>
-<li>./configure</li>
-<li>make</li>
-<li>make install</li>
+<li><code>clone "https://github.com/YannKurzo/calculator.git"</code></li>
+<li><code>mkdir calculator_build</code></li>
+<li><code>cd calculator_build</code></li>
+<li><code>../calculator/configure</code></li>
+<li><code>make</code></li>
+<li><code>make install</code></li>
+<li>The program can now be used.</li>
 </ul>
 </li>
+</ul>
+<h5>Compilation on Windows to be able to launch the program outside Cygwin</h5>
+<ul>
+<li>With the default configuration, the executable can only be used on Cygwin. To be able to use it as a normal program on Windows, some options must be passed to the configure script.</li>
+<li>We must use the mingw compiler.</li>
+<li>We must link the libraries as static.</li>
+<li>You can use the following commands:<ul>
+<li><code>clone "https://github.com/YannKurzo/calculator.git"</code></li>
+<li><code>mkdir calculator_build</code></li>
+<li><code>cd calculator_build</code></li>
+<li><code>../calculator/configure CXX=x86_64-w64-mingw32-g++ CXXFLAGS="-static-libgcc -static-libstdc++"</code></li>
+<li><code>make</code></li>
+<li>The executable is located in <code>calculator_build/src/</code></li>
+</ul>
+</li>
+<li><b>When using these parameters, the mpfr library is not installed by default! The cygwinInstallation.md shows the installation steps to be able to use it outside Cygwin.</b></li>
+</ul>
+<h5>Help</h5>
+<ul>
 <li>Help can be found by using:<ul>
-<li>./configure &ndash;help</li>
+<li><code>./configure --help</code></li>
 </ul>
 </li>
-<li>Getting the mpfr library (this library is only necessary for compiling for big numbers)<ul>
+<li>Getting the mpfr library<ul>
 <li>Linux: <a href="http://www.mpfr.org/mpfr-current/#download">http://www.mpfr.org/mpfr-current/#download</a></li>
 <li>Cygwin: <a href="https://cygwin.com/install.html">https://cygwin.com/install.html</a> (use the setup to install the library)</li>
 </ul>
 </li>
+<li>This program uses the autoconf / automake tools for the compilation.</li>
 </ul>
 <h3>Missing features (in development)</h3>
-<ul>
-<li>Vectors and matrices</li>
-</ul>
 <h3>Code corrections</h3>
 <h3>Doc</h3>
 <ul>
 <li>Doxygen</li>
 </ul>
 <h3>Copyright</h3>
-<p>Copyright 2015 Yann Kurzo. All rights reserved. This project is released under the GNU Public License (see gpl-3.0.txt). </p>
+<p>Copyright 2015 Yann Kurzo. All rights reserved. This project is released under the GNU Public License (see LICENSE file). </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 3 2015 16:17:25 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 15 2015 15:51:33 for calculator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

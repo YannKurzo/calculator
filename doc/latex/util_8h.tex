@@ -7,12 +7,22 @@ Define a few utilitary functions.
 
 {\ttfamily \#include $<$string$>$}\\*
 {\ttfamily \#include $<$sstream$>$}\\*
+{\ttfamily \#include $<$stdexcept$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{util_8h_ab91a62567fdd54bb5b10e31d1df03c35}{}\#define \hyperlink{util_8h_ab91a62567fdd54bb5b10e31d1df03c35}{T\+H\+R\+O\+W}(str)~throw runtime\+\_\+error(str);\label{util_8h_ab91a62567fdd54bb5b10e31d1df03c35}
+
+\begin{DoxyCompactList}\small\item\em Used to throw standard exception. \end{DoxyCompactList}\item 
+\hypertarget{util_8h_aa5515b074371384939713dffd9a56e3c}{}\#define \hyperlink{util_8h_aa5515b074371384939713dffd9a56e3c}{H\+A\+V\+E\+\_\+\+G\+E\+T\+C\+H}~0\label{util_8h_aa5515b074371384939713dffd9a56e3c}
+
+\begin{DoxyCompactList}\small\item\em Define H\+A\+V\+E\+\_\+\+G\+E\+T\+C\+H to 1 if the getch function exists. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{namespacestd_a7a1382a56f67d3d755a52a343b4c1e59}{}{\footnotesize template$<$typename T $>$ }\\std\+::string {\bfseries std\+::to\+\_\+string} (T value)\label{namespacestd_a7a1382a56f67d3d755a52a343b4c1e59}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Implement std\+::to\+\_\+string for compatibility with some compilers. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}

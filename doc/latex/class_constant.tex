@@ -12,15 +12,17 @@ This class is used to handle constants.
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static std\+::string \hyperlink{class_constant_a086fe0e1f8d42475cf03f81ae9ccce12}{get\+Constant} (const std\+::string \&str)
+static \hyperlink{mpfr_interface_8h_a993860352aef57b15399903c4475a608}{calcul\+Type\+\_\+t} \hyperlink{class_constant_a71937e033e6b5aca6f34afd0d18c80b7}{get\+Constant} (const std\+::string \&str)
 \begin{DoxyCompactList}\small\item\em Get a constant. \end{DoxyCompactList}\item 
 static bool \hyperlink{class_constant_a2123372df263446010225865fb0a6928}{exist} (const std\+::string \&str)
 \begin{DoxyCompactList}\small\item\em Check if a constant exists. \end{DoxyCompactList}\item 
+static std\+::string \hyperlink{class_constant_ad8e0484b85273bae2c95113afe80e4d6}{get\+List} (bool variable\+List)
+\begin{DoxyCompactList}\small\item\em Get a string containing the list of implemented constants or user defined variables. \end{DoxyCompactList}\item 
 static std\+::string \hyperlink{class_constant_a55802cdca68fe477a661fa8d426d5ae7}{get\+Constant\+List} (void)
 \begin{DoxyCompactList}\small\item\em Get a string containing the list of implemented constants. \end{DoxyCompactList}\item 
 static std\+::string \hyperlink{class_constant_af25afa9fd97935831fb5edddffadb00e}{get\+Variable\+List} (void)
 \begin{DoxyCompactList}\small\item\em Get a string containing the list of user defined variables. \end{DoxyCompactList}\item 
-static bool \hyperlink{class_constant_aabc7cc09c77ce3b3dcf020129825af1c}{add\+Variable} (std\+::string variable\+Name, \hyperlink{mpfr_interface_8h_a993860352aef57b15399903c4475a608}{calcul\+Type\+\_\+t} value)
+static bool \hyperlink{class_constant_a1e6217b412fe68e5e9cb1250403cb532}{add\+Variable} (const std\+::string \&variable\+Name, \hyperlink{mpfr_interface_8h_a993860352aef57b15399903c4475a608}{calcul\+Type\+\_\+t} value)
 \begin{DoxyCompactList}\small\item\em Add a new user variable. \end{DoxyCompactList}\item 
 static bool \hyperlink{class_constant_a888b1d893b9461ecd6a46f9de3c66c24}{clear\+Variable} (std\+::string variable\+Name)
 \begin{DoxyCompactList}\small\item\em Clear a user variable. \end{DoxyCompactList}\item 
@@ -39,14 +41,14 @@ New constants can be easily added with the A\+D\+D\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_constant_aabc7cc09c77ce3b3dcf020129825af1c}{}\index{Constant@{Constant}!add\+Variable@{add\+Variable}}
+\hypertarget{class_constant_a1e6217b412fe68e5e9cb1250403cb532}{}\index{Constant@{Constant}!add\+Variable@{add\+Variable}}
 \index{add\+Variable@{add\+Variable}!Constant@{Constant}}
 \subsubsection[{add\+Variable}]{\setlength{\rightskip}{0pt plus 5cm}static bool Constant\+::add\+Variable (
 \begin{DoxyParamCaption}
-\item[{std\+::string}]{variable\+Name, }
+\item[{const std\+::string \&}]{variable\+Name, }
 \item[{{\bf calcul\+Type\+\_\+t}}]{value}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [static]}}\label{class_constant_aabc7cc09c77ce3b3dcf020129825af1c}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_constant_a1e6217b412fe68e5e9cb1250403cb532}
 
 
 Add a new user variable. 
@@ -108,13 +110,13 @@ Check if a constant exists.
 \begin{DoxyReturn}{Returns}
 true if it exists, false otherwise 
 \end{DoxyReturn}
-\hypertarget{class_constant_a086fe0e1f8d42475cf03f81ae9ccce12}{}\index{Constant@{Constant}!get\+Constant@{get\+Constant}}
+\hypertarget{class_constant_a71937e033e6b5aca6f34afd0d18c80b7}{}\index{Constant@{Constant}!get\+Constant@{get\+Constant}}
 \index{get\+Constant@{get\+Constant}!Constant@{Constant}}
-\subsubsection[{get\+Constant}]{\setlength{\rightskip}{0pt plus 5cm}static std\+::string Constant\+::get\+Constant (
+\subsubsection[{get\+Constant}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf calcul\+Type\+\_\+t} Constant\+::get\+Constant (
 \begin{DoxyParamCaption}
 \item[{const std\+::string \&}]{str}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [static]}}\label{class_constant_a086fe0e1f8d42475cf03f81ae9ccce12}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_constant_a71937e033e6b5aca6f34afd0d18c80b7}
 
 
 Get a constant. 
@@ -140,6 +142,25 @@ Get a string containing the list of implemented constants.
 
 \begin{DoxyReturn}{Returns}
 Constants list 
+\end{DoxyReturn}
+\hypertarget{class_constant_ad8e0484b85273bae2c95113afe80e4d6}{}\index{Constant@{Constant}!get\+List@{get\+List}}
+\index{get\+List@{get\+List}!Constant@{Constant}}
+\subsubsection[{get\+List}]{\setlength{\rightskip}{0pt plus 5cm}static std\+::string Constant\+::get\+List (
+\begin{DoxyParamCaption}
+\item[{bool}]{variable\+List}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{class_constant_ad8e0484b85273bae2c95113afe80e4d6}
+
+
+Get a string containing the list of implemented constants or user defined variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em variable\+List} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Constants list if variable\+List is false, user defined variable list otherwise 
 \end{DoxyReturn}
 \hypertarget{class_constant_af25afa9fd97935831fb5edddffadb00e}{}\index{Constant@{Constant}!get\+Variable\+List@{get\+Variable\+List}}
 \index{get\+Variable\+List@{get\+Variable\+List}!Constant@{Constant}}

@@ -20,12 +20,12 @@
 #include <sstream>
 #include <stdexcept>
 
-// Used to throw standard exception
+/// @brief  Used to throw standard exception
 #define THROW(str) throw runtime_error(str);
 
 namespace std
 {
-    // Implement std::to_string for compatibility with some compilers
+    /// @brief  Implement std::to_string for compatibility with some compilers
     template <typename T>
     std::string to_string(T value)
     {
@@ -35,29 +35,41 @@ namespace std
     }
 }
 
-#if(HAVE_IOCTL == 1)
-int getch( void );
-#endif
-
+/// @brief  Define HAVE_GETCH to 1 if the getch function exists
 #if(HAVE_IOCTL == 0 && HAVE_CONIO == 0)
     #define HAVE_GETCH  0
 #else
     #define HAVE_GETCH  1
 #endif
 
-// Use getch to check for special characters
-typedef enum
-{
-    INPUT_ARROW_UP,
-    INPUT_ARROW_RIGHT,
-    INPUT_ARROW_DOWN,
-    INPUT_ARROW_LEFT,
-    INPUT_BACK,
-    INPUT_DELETE,
-    INPUT_NORMAL_CHAR
-}char_e;
+#if(HAVE_GETCH == 1)
+    
+    #if(HAVE_IOCTL == 1)
+    /// @brief  Get a character from the console without waiting on enter
+    /// @return The character value
+    /// @note   The returned character depends on the OS
+    int getch( void );
+    #endif
 
-char_e getCharacter(std::string &str);
+    /// @brief  Enumeration for special characters
+    typedef enum
+    {
+        INPUT_ARROW_UP,
+        INPUT_ARROW_RIGHT,
+        INPUT_ARROW_DOWN,
+        INPUT_ARROW_LEFT,
+        INPUT_BACK,
+        INPUT_DELETE,
+        INPUT_NORMAL_CHAR
+    }char_e;
+
+    /// @brief  Get a character from the console without waiting on enter
+    /// @param  str Entered characters if it is not a special character
+    /// @return INPUT_NORMAL_CHAR if it is a normal character, see char_e enumeration otherwise
+    /// @note   The returned values do not depend on the OS
+    char_e getCharacter(std::string &str);
+
+#endif /* HAVE_GETCH */
 
 #endif	/* UTIL_H */
 

@@ -1,4 +1,4 @@
-This program can parse a string entered by the user. It calculates the mathematical result of the string. The program can be configured at compilation time by modifying the \hyperlink{config_8h}{config.\+h} file. By default, it uses double type to make calculation. It is possible to use the mpfr library to do the calculation, so that the precision can be defined by the user and that it can be much larger than a double precision.
+This program can parse a string entered by the user. It calculates the mathematical result of the string. The program can be configured at compilation time by modifying the {\ttfamily \hyperlink{config_8h}{config.\+h}} file. Using the double type si limited in precision. It is then possible to use the mpfr library to do the calculation, so that the precision can be defined by the user. In that case the precision can be much larger than a double precision.
 
 \subsubsection*{Working features\+:}
 
@@ -12,8 +12,10 @@ This program can parse a string entered by the user. It calculates the mathemati
 \item Some basic constants
 \item Saving results in temporary variables
 \item Use the help command to get a list of available commands
-\item Calculation using double type or mpfr library (see \hyperlink{config_8h}{config.\+h} file)
+\item The program can be configured with using double type or mpfr library for calculation (see \hyperlink{config_8h}{config.\+h} file)
+\item By using the mpfr library, the user can defined the precision of the floating point numbers (number of bits in the mantissa).
 \item Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)
+\item History of commands accessible with keyboard arrows (compatible with Windows and Posix systems)
 \end{DoxyItemize}
 
 \subparagraph*{Argument mode}
@@ -22,9 +24,9 @@ The program can be launched from a command line with multiple parameters. It wil
 \begin{DoxyItemize}
 \item Use\+:
 \begin{DoxyItemize}
-\item \char`\"{}calculator \char`\"{}2$\ast$5\char`\"{} \char`\"{}2+8\char`\"{}\char`\"{} (multiple calculation in a row, use quotation marks)
-\item \char`\"{}calculator -\/h\char`\"{} (shortcut command)
-\item \char`\"{}calculator -\/-\/help\char`\"{} (full command)
+\item {\ttfamily calculator \char`\"{}2$\ast$5\char`\"{} \char`\"{}2+8\char`\"{}} (multiple calculation in a row, use quotation marks)
+\item {\ttfamily calculator -\/h} (shortcut command)
+\item {\ttfamily calculator -\/-\/help} (full command)
 \end{DoxyItemize}
 \end{DoxyItemize}
 
@@ -34,45 +36,81 @@ The program can be launched without parameters. It will then work as a bash and 
 \begin{DoxyItemize}
 \item Use\+:
 \begin{DoxyItemize}
-\item 2$\ast$5 2+8 (multiple calculation in a row, separated by spaces, quotation marks not needed)
-\item \char`\"{}-\/h\char`\"{} command (shortcut command)
-\item \char`\"{}-\/-\/help\char`\"{} command (full command)
+\item {\ttfamily 2$\ast$5} (one calculation at a time)
+\item {\ttfamily -\/h} command (shortcut command)
+\item {\ttfamily -\/-\/help} command (full command)
 \end{DoxyItemize}
 \end{DoxyItemize}
 
-\subsubsection*{Compilation}
+\subsubsection*{Compilation and installation}
+
+\subparagraph*{Prerequisite}
 
 
 \begin{DoxyItemize}
-\item This program uses the autoconf / automake tool for the compilation.
 \item To be able to compile, the following tools are necessary\+:
 \begin{DoxyItemize}
-\item a U\+N\+I\+X like environment (Linux / cygwin for Windows)
+\item a U\+N\+I\+X like environment (Linux / Cygwin for Windows / ...)
 \item the \char`\"{}make\char`\"{} command
 \end{DoxyItemize}
+\item The following tools are optional\+:
+\begin{DoxyItemize}
+\item mpfr library (this library is only necessary for compiling for high precision calculations)
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\subparagraph*{Standard compilation and installation}
+
+
+\begin{DoxyItemize}
 \item For the compilation, run the following commands\+:
 \begin{DoxyItemize}
-\item ./configure
-\item make
-\item make install
+\item {\ttfamily clone \char`\"{}https\+://github.\+com/\+Yann\+Kurzo/calculator.\+git\char`\"{}}
+\item {\ttfamily mkdir calculator\+\_\+build}
+\item {\ttfamily cd calculator\+\_\+build}
+\item {\ttfamily ../calculator/configure}
+\item {\ttfamily make}
+\item {\ttfamily make install}
+\item The program can now be used.
 \end{DoxyItemize}
+\end{DoxyItemize}
+
+\subparagraph*{Compilation on Windows to be able to launch the program outside Cygwin}
+
+
+\begin{DoxyItemize}
+\item With the default configuration, the executable can only be used on Cygwin. To be able to use it as a normal program on Windows, some options must be passed to the configure script.
+\item We must use the mingw compiler.
+\item We must link the libraries as static.
+\item You can use the following commands\+:
+\begin{DoxyItemize}
+\item {\ttfamily clone \char`\"{}https\+://github.\+com/\+Yann\+Kurzo/calculator.\+git\char`\"{}}
+\item {\ttfamily mkdir calculator\+\_\+build}
+\item {\ttfamily cd calculator\+\_\+build}
+\item {\ttfamily ../calculator/configure C\+X\+X=x86\+\_\+64-\/w64-\/mingw32-\/g++ C\+X\+X\+F\+L\+A\+G\+S=\char`\"{}-\/static-\/libgcc -\/static-\/libstdc++\char`\"{}}
+\item {\ttfamily make}
+\item The executable is located in {\ttfamily calculator\+\_\+build/src/}
+\end{DoxyItemize}
+\item {\bfseries When using these parameters, the mpfr library is not installed by default! The cygwin\+Installation.\+md shows the installation steps to be able to use it outside Cygwin.}
+\end{DoxyItemize}
+
+\subparagraph*{Help}
+
+
+\begin{DoxyItemize}
 \item Help can be found by using\+:
 \begin{DoxyItemize}
-\item ./configure --help
+\item {\ttfamily ./configure -\/-\/help}
 \end{DoxyItemize}
-\item Getting the mpfr library (this library is only necessary for compiling for big numbers)
+\item Getting the mpfr library
 \begin{DoxyItemize}
 \item Linux\+: \href{http://www.mpfr.org/mpfr-current/#download}{\tt http\+://www.\+mpfr.\+org/mpfr-\/current/\#download}
 \item Cygwin\+: \href{https://cygwin.com/install.html}{\tt https\+://cygwin.\+com/install.\+html} (use the setup to install the library)
 \end{DoxyItemize}
+\item This program uses the autoconf / automake tools for the compilation.
 \end{DoxyItemize}
 
 \subsubsection*{Missing features (in development)}
-
-
-\begin{DoxyItemize}
-\item Vectors and matrices
-\end{DoxyItemize}
 
 \subsubsection*{Code corrections}
 
@@ -85,4 +123,4 @@ The program can be launched without parameters. It will then work as a bash and 
 
 \subsubsection*{Copyright}
 
-Copyright 2015 Yann Kurzo. All rights reserved. This project is released under the G\+N\+U Public License (see gpl-\/3.\+0.\+txt). 
+Copyright 2015 Yann Kurzo. All rights reserved. This project is released under the G\+N\+U Public License (see L\+I\+C\+E\+N\+S\+E file). 
