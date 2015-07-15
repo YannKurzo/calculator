@@ -12,6 +12,7 @@
 #define	CONSTANT_H
 
 #include "mpfrInterface.h"
+#include "util.h"
 
 #include <string>
 #include <cstdlib>
@@ -25,17 +26,19 @@
 #if(USE_DOUBLE_TYPE == 1)
 #define ADD_CONSTANT(str, doubleValue, mpfrValue, help) {str, {doubleValue, help}}
 #elif(USE_MPFR_LIBRARY == 1)
-#define ADD_CONSTANT(str, doubleValue, mpfrValue, help) {str, {mpfrValue, help}}
+#define ADD_CONSTANT(str, value, mpfrValue, help) {str, {mpfrValue, help}}
 #endif
+
+/// @brief  Macro to easily add a new user defined variable
+/// @param  str Name of the variable used by the user
+/// @param  value Value as calculType_t
+/// @param  help Help notice for this constant
+#define ADD_USER(str, value, help) {str, {value, help}}
 
 /// @brief  Structure to hold a constant
 typedef struct
 {
-#if(USE_DOUBLE_TYPE == 1)
-    double value;               ///< Value in double format
-#elif(USE_MPFR_LIBRARY == 1)
-    std::string value;          ///< Value in string format
-#endif
+    calculType_t value;         ///< Value
     std::string help;           ///< Help notice
 }constant_t;
 
@@ -86,11 +89,7 @@ class Constant
         /// @brief  Get a constant
         /// @param  str Name of the constant
         /// @return Value of the constant
-#if(USE_DOUBLE_TYPE == 1)
-        static double getConstant(const std::string &str);
-#elif(USE_MPFR_LIBRARY == 1)
-        static std::string getConstant(const std::string &str);
-#endif
+        static calculType_t getConstant(const std::string &str);
 
         /// @brief  Check if a constant exists
         /// @return true if it exists, false otherwise
@@ -108,7 +107,7 @@ class Constant
         /// @param  variableName Variable name
         /// @param  value Value
         /// @return true if the variable was set, false otherwise
-        static bool addVariable(std::string variableName, calculType_t value);
+        static bool addVariable(const std::string &variableName, calculType_t value);
         
         /// @brief  Clear a user variable
         /// @param  variableName Variable name

@@ -55,7 +55,7 @@ void Analyze::parserExec(void)
 	actualProcess_m = ePARSEREXEC_DONE;
 }
 
-calculType_t Analyze::getResult(void) 
+calculType_t Analyze::getResult(void)
 {
 	// Check if the previous process has been done
 	if(actualProcess_m < ePARSEREXEC_DONE)

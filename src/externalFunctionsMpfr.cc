@@ -22,7 +22,7 @@ using namespace std;
 
 void pi(mpfr_t n)
 {
-    mpfr_set_str(n, Constant::getConstant("pi").c_str(), 10, MPFR_RNDN);
+    mpfr_set(n, Constant::getConstant("pi").n_m, MPFR_RNDN);
 }
 
 void inf(mpfr_t n)

@@ -9,7 +9,6 @@
 //  ==========================================================================
 
 #include "constant.h"
-#include "util.h"
 
 #include <iostream>
 #include <sstream>
@@ -20,13 +19,9 @@
 
 using namespace std;
 
-const string userVariable("User variable");
+const string cUserVariable("User variable");
 
-#if(USE_DOUBLE_TYPE == 1)
-double Constant::getConstant(const std::string &str)
-#elif(USE_MPFR_LIBRARY == 1)
-std::string Constant::getConstant(const std::string &str)
-#endif
+calculType_t Constant::getConstant(const std::string &str)
 {
     return constants_m[str].value;
 }
@@ -50,7 +45,7 @@ std::string Constant::getConstantList(void)
     
     for(constantMapIterator_t it = constants_m.begin(); it != constants_m.end(); ++it)
     {
-        if(it->second.help != userVariable)
+        if(it->second.help != cUserVariable)
         {
             flow << "  " << setw(8) << it->first << " " << it->second.help + " (" + to_string(it->second.value).substr(0, 15) + ")\n";
         }
@@ -66,7 +61,7 @@ std::string Constant::getVariableList(void)
     
     for(constantMapIterator_t it = constants_m.begin(); it != constants_m.end(); ++it)
     {
-        if(it->second.help == userVariable)
+        if(it->second.help == cUserVariable)
         {
             flow << "  " << setw(8) << it->first << " " << it->second.help + " (" + to_string(it->second.value).substr(0, 15) + ")\n";
         }
@@ -75,30 +70,26 @@ std::string Constant::getVariableList(void)
     return flow.str();
 }
 
-bool Constant::addVariable(std::string variableName, calculType_t value)
+bool Constant::addVariable(const std::string &variableName, calculType_t value)
 {
     bool ret = true;
     
-#if(USE_DOUBLE_TYPE == 1)
-    constants_m.insert(ADD_CONSTANT(variableName, value, to_string(value), userVariable));
-#elif(USE_MPFR_LIBRARY == 1)
-    constants_m.insert(ADD_CONSTANT(variableName, 0., to_string(value), userVariable));
-#endif
-    
-    // Re-set if it was already defined (only for user variables))
-    if(constants_m[variableName].help == userVariable)
+    if(exist(variableName))
     {
+        if(constants_m[variableName].help == cUserVariable)
+        {
         constants_m.erase(variableName);
-#if(USE_DOUBLE_TYPE == 1)
-        constants_m.insert(ADD_CONSTANT(variableName, value, to_string(value), userVariable));
-#elif(USE_MPFR_LIBRARY == 1)
-        constants_m.insert(ADD_CONSTANT(variableName, 0., to_string(value), userVariable));
-#endif
+        constants_m.insert(ADD_USER(variableName, value, cUserVariable));
+        }
+        else
+        {
+            // Constant was not set
+            ret = false;
+        }
     }
     else
     {
-        // Constant was not set
-        ret = false;
+        constants_m.insert(ADD_USER(variableName, value, cUserVariable));
     }
     
     return ret;
@@ -106,7 +97,7 @@ bool Constant::addVariable(std::string variableName, calculType_t value)
 
 bool Constant::clearVariable(std::string variableName)
 {
-    if(exist(variableName) && constants_m[variableName].help == userVariable)
+    if(exist(variableName) && constants_m[variableName].help == cUserVariable)
     {
         constants_m.erase(variableName);
         return true;
@@ -122,7 +113,7 @@ bool Constant::clearAll(void)
     vector<string> variableNames;
     for(constantMapIterator_t it = constants_m.begin(); it != constants_m.end(); ++it)
     {
-        if(it->second.help == userVariable)
+        if(it->second.help == cUserVariable)
         {
             variableNames.push_back(it->first);
         }
