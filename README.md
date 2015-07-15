@@ -1,7 +1,7 @@
 
 # calculator v1.0
 
-This program can parse a string entered by the user. It calculates the mathematical result of the string. The program can be configured at compilation time by modifying the config.h file. By default, it uses double type to make calculation. It is possible to use the mpfr library to do the calculation, so that the precision can be defined by the user and that it can be much larger than a double precision.
+This program can parse a string entered by the user. It calculates the mathematical result of the string. The program can be configured at compilation time by modifying the `config.h` file. Using the double type si limited in precision. It is then possible to use the mpfr library to do the calculation, so that the precision can be defined by the user. In that case the precision can be much larger than a double precision.
 
 ### Working features:
 - Numbers
