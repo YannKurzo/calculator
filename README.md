@@ -51,7 +51,7 @@ The program can be launched without parameters. It will then work as a bash and 
   * The program can now be used.
 
 ##### Compilation on Windows to be able to launch the program outside Cygwin
-- With the default configuration, the executable can only be used on Cygwin. To be able to use it as a normal program on Windows, somem options must be passed to the configure script.
+- With the default configuration, the executable can only be used on Cygwin. To be able to use it as a normal program on Windows, some options must be passed to the configure script.
 - We must use the mingw compiler.
 - We must link the libraries as static.
 - You can use the following commands:
