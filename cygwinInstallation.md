@@ -40,6 +40,7 @@ In order to do that, the gmp and the mpfr libraries must be compiled and install
 - The `-static-libgcc` and `-static-libstdc++` flags should be specified to avoid the need of DLLs. On the other hand, the executable size gets bigger.
   * `../calculator/configure CXX=x86_64-w64-mingw32-g++ CXXFLAGS="-static-libgcc -static-libstdc++ -I/usr/local/include" LIBS="-L/usr/local/lib -lmpfr -lgmp"`
   * `make`
+  * The executable is located in `calculator_build/src/`
 
 ### Copyright
 Copyright 2015 Yann Kurzo. All rights reserved.
