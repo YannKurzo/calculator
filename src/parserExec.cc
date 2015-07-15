@@ -77,12 +77,25 @@ unsigned int ParserExec::findHighestOp(unsigned int lowerIndex, unsigned int upp
     unsigned int ret = lowerIndex;
     int priority = tokenVector_m[lowerIndex].getPriority();
     
+    // Find highest operator. If operators have the same priority, take the first one from the left
     for(unsigned int i = lowerIndex+1; i<=upperIndex; ++i)
     {
         if(tokenVector_m[i].getPriority() < priority)
         {
             priority = tokenVector_m[i].getPriority();
             ret = i;
+        }
+    }
+    // If highest priority is the power operator, take the first one from the right
+    if(priority == ePRIORITY_OP_POWER)
+    {
+        for(unsigned int i = upperIndex; i>=lowerIndex+1; --i)
+        {
+            if(tokenVector_m[i].getPriority() == ePRIORITY_OP_POWER)
+            {
+                ret = i;
+                break;
+            }
         }
     }
     return ret;
