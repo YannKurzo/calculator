@@ -75,7 +75,6 @@ The program can be launched without parameters. It will then work as a bash and 
 - Power operator priority 2^3^2 => 2^(3^2)
 
 ### Code corrections
-- Bug when writing "constant="
 
 ### Doc
 - Doxygen
