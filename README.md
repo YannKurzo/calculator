@@ -1,7 +1,7 @@
 
 # calculator v1.0
 
-This program can parse a string entered by the user. It calculates the mathematical result of the string. The program can be configured at compilation time by modifying the `config.h` file. Using the double type si limited in precision. It is then possible to use the mpfr library to do the calculation, so that the precision can be defined by the user. In that case the precision can be much larger than a double precision.
+This program can parse a string entered by the user. It calculates the mathematical result of the string. The program can be configured at compilation time by modifying the `src/include/config.h` file. Using the double type si limited in precision. It is then possible to use the mpfr library to do the calculation, so that the precision can be defined by the user. In that case the precision can be much larger than a double precision.
 
 ### Working features:
 - Numbers
@@ -12,7 +12,7 @@ This program can parse a string entered by the user. It calculates the mathemati
 - Some basic constants
 - Saving results in temporary variables
 - Use the help command to get a list of available commands
-- The program can be configured with using double type or mpfr library for calculation (see config.h file)
+- The program can be configured with using double type or mpfr library for calculation (see `src/include/config.h` file)
 - By using the mpfr library, the user can defined the precision of the floating point numbers (number of bits in the mantissa).
 - Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)
 - History of commands accessible with keyboard arrows (compatible with Windows and Posix systems)
