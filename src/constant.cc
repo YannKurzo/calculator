@@ -24,9 +24,16 @@ const string cUserVariable("User variable");
 calculType_t Constant::getConstant(const std::string &str)
 {
 #if(USE_DOUBLE_TYPE == 1)
-        return constants_m[str].value;
+    return constants_m[str].value;
 #elif(USE_MPFR_LIBRARY == 1)
+    if(constants_m[str].strValue == "")
+    {
+        return constants_m[str].value;
+    }
+    else
+    {
         return calculType_t(constants_m[str].strValue);
+    }
 #endif
 }
 
@@ -86,8 +93,8 @@ bool Constant::addVariable(const std::string &variableName, calculType_t value)
     {
         if(constants_m[variableName].help == cUserVariable)
         {
-        constants_m.erase(variableName);
-        constants_m.insert(ADD_USER(variableName, value, cUserVariable));
+            constants_m.erase(variableName);
+            constants_m.insert(ADD_USER(variableName, value, cUserVariable));
         }
         else
         {
