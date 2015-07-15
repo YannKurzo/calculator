@@ -12,8 +12,8 @@ This program can parse a string entered by the user. It calculates the mathemati
 - Some basic constants
 - Saving results in temporary variables
 - Use the help command to get a list of available commands
-- Calculation using double type or mpfr library (see config.h file)
-- When using mpfr library, it is possible to define the precision (the number of bits of the mantissa). It is useful not only for high precision, but also for checking how the coding of the floating point numbers work.
+- The program can be configured with using double type or mpfr library for calculation (see config.h file)
+- By using the mpfr library, the user can defined the precision of the floating point numbers (number of bits in the mantissa).
 - Check entered string (function parameters, operation without operators, bracket problems, ...) (not perfect)
 - History of commands accessible with keyboard arrows (compatible with Windows and Posix systems)
 
