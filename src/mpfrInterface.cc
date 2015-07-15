@@ -48,6 +48,11 @@ namespace MPFR
     // Display mode
     static bool scientificDisplayMode_m = false;
     
+    bool getDisplayMode(void)
+    {
+        return scientificDisplayMode_m;
+    }
+    
     void setDisplayMode(bool scientific)
     {
         scientificDisplayMode_m = scientific;
@@ -221,7 +226,7 @@ void Mpfr::display(std::ostream& flow) const
         // Print 0
         if(digits == "0")
         {
-            cout << "0" << endl;
+            flow << "0";
         }
         else
         {
@@ -239,7 +244,7 @@ void Mpfr::display(std::ostream& flow) const
                     digits.insert(digits.size(), "e" + to_string(exp - 1));
                 }
                 // Print
-                cout << digits << endl;
+                flow << digits;
             }
             // Print in normal format
             else
@@ -254,17 +259,17 @@ void Mpfr::display(std::ostream& flow) const
                     // Print minus if necessary
                     if(digits.at(0) == '-')
                     {
-                        cout << "-";
+                        flow << "-";
                         digits.erase(0, 1);
                     }
                     
                     // Print beggining
-                    cout << "0.";
+                    flow << "0.";
                     
                     // Add zeroes at the beginning
                     for(int i=exp; i < 0; ++i)
                     {
-                        cout << "0";
+                        flow << "0";
                     }
                 }
                 // Check if number needs a point
@@ -274,16 +279,13 @@ void Mpfr::display(std::ostream& flow) const
                 }
                 
                 // Print digits
-                cout << digits;
+                flow << digits;
                 
                 // Add zeroes at the end
                 for(unsigned int i=digits.size(); i < exp + sign; ++i)
                 {
-                    cout << "0";
+                    flow << "0";
                 }
-                
-                // End of line
-                cout << endl;
             }
         }
     }

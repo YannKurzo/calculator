@@ -23,7 +23,11 @@ const string cUserVariable("User variable");
 
 calculType_t Constant::getConstant(const std::string &str)
 {
-    return constants_m[str].value;
+#if(USE_DOUBLE_TYPE == 1)
+        return constants_m[str].value;
+#elif(USE_MPFR_LIBRARY == 1)
+        return calculType_t(constants_m[str].strValue);
+#endif
 }
 
 bool Constant::exist(const std::string &str)
@@ -38,36 +42,40 @@ bool Constant::exist(const std::string &str)
     return exist;
 }
 
-std::string Constant::getConstantList(void)
+std::string Constant::getList(bool variableList)
 {
     stringstream flow;
+    flow.precision(15);
     flow << setiosflags(ios::left);
+    
+#if(USE_MPFR_LIBRARY == 1)
+    bool displayModeOld = MPFR::getDisplayMode();
+    MPFR::setDisplayMode(true);
+#endif /* USE_MPFR_LIBRARY */
     
     for(constantMapIterator_t it = constants_m.begin(); it != constants_m.end(); ++it)
     {
-        if(it->second.help != cUserVariable)
+        if((it->second.help == cUserVariable && variableList) || (it->second.help != cUserVariable && !variableList))
         {
-            flow << "  " << setw(8) << it->first << " " << it->second.help + " (" + to_string(it->second.value).substr(0, 15) + ")\n";
+            flow << "  " << setw(8) << it->first << " " << it->second.help << " (" << it->second.value << ")\n";
         }
     }
+    
+#if(USE_MPFR_LIBRARY == 1)
+    MPFR::setDisplayMode(displayModeOld);
+#endif /* USE_MPFR_LIBRARY */
     
     return flow.str();
 }
 
+std::string Constant::getConstantList(void)
+{
+    return getList(false);
+}
+
 std::string Constant::getVariableList(void)
 {
-    stringstream flow;
-    flow << setiosflags(ios::left);
-    
-    for(constantMapIterator_t it = constants_m.begin(); it != constants_m.end(); ++it)
-    {
-        if(it->second.help == cUserVariable)
-        {
-            flow << "  " << setw(8) << it->first << " " << it->second.help + " (" + to_string(it->second.value).substr(0, 15) + ")\n";
-        }
-    }
-    
-    return flow.str();
+    return getList(true);
 }
 
 bool Constant::addVariable(const std::string &variableName, calculType_t value)

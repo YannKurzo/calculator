@@ -61,6 +61,10 @@ namespace MPFR
     /// @param  precision Precision in number of bits
     void setPrecision(unsigned int precision);
     
+    /// @brief  Get display mode
+    /// @param  scientific Scientific mode if true, normal otherwise
+    bool getDisplayMode(void);
+    
     /// @brief  Set display mode
     /// @param  scientific Scientific mode if true, normal otherwise
     void setDisplayMode(bool scientific);

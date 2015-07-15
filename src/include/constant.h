@@ -24,21 +24,22 @@
 /// @param  mpfrValue Value as string
 /// @param  help Help notice for this constant
 #if(USE_DOUBLE_TYPE == 1)
-#define ADD_CONSTANT(str, doubleValue, mpfrValue, help) {str, {doubleValue, help}}
+#define ADD_CONSTANT(str, doubleValue, mpfrValue, help) {str, {doubleValue, mpfrValue, help}}
 #elif(USE_MPFR_LIBRARY == 1)
-#define ADD_CONSTANT(str, value, mpfrValue, help) {str, {mpfrValue, help}}
+#define ADD_CONSTANT(str, doubleValue, mpfrValue, help) {str, {mpfrValue, mpfrValue, help}}
 #endif
 
 /// @brief  Macro to easily add a new user defined variable
 /// @param  str Name of the variable used by the user
 /// @param  value Value as calculType_t
 /// @param  help Help notice for this constant
-#define ADD_USER(str, value, help) {str, {value, help}}
+#define ADD_USER(str, value, help) {str, {value, "", help}}
 
 /// @brief  Structure to hold a constant
 typedef struct
 {
     calculType_t value;         ///< Value
+    std::string strValue;       ///< Full precision value
     std::string help;           ///< Help notice
 }constant_t;
 
@@ -94,6 +95,11 @@ class Constant
         /// @brief  Check if a constant exists
         /// @return true if it exists, false otherwise
         static bool exist(const std::string &str);
+        
+        /// @brief  Get a string containing the list of implemented constants or user defined variables
+        /// @param  variableList
+        /// @return Constants list if variableList is false, user defined variable list otherwise
+        static std::string getList(bool variableList);
         
         /// @brief  Get a string containing the list of implemented constants
         /// @return Constants list
