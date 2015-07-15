@@ -168,6 +168,7 @@ unsigned int Lexer::pushFunctionOrConstant(unsigned int startIndex)
 	// and it is not an operator
 	while(stopIndex<str_m.length() && !(bracketsOpen.find(str_m.at(stopIndex)) != string::npos) &&
           !(bracketsClose.find(str_m.at(stopIndex)) != string::npos) &&
+          !(string(",").find(str_m.at(stopIndex)) != string::npos) &&
           !(operators.find(str_m.at(stopIndex)) != string::npos))
     {
 		++stopIndex;
