@@ -72,11 +72,8 @@ The program can be launched without parameters. It will then work as a bash and 
 - This program uses the autoconf / automake tools for the compilation.
 
 ### Missing features (in development)
-- Power operator priority 2^3^2 => 2^(3^2)
 
 ### Code corrections
-- Bug when displaying values of constants and user defined variables
-- Bug when writing "constant="
 
 ### Doc
 - Doxygen
