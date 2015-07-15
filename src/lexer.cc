@@ -167,6 +167,7 @@ unsigned int Lexer::pushFunctionOrConstant(unsigned int startIndex)
 	// While it is not the end of the string and it is not a bracket
 	// and it is not an operator
 	while(stopIndex<str_m.length() && !(bracketsOpen.find(str_m.at(stopIndex)) != string::npos) &&
+          !(bracketsClose.find(str_m.at(stopIndex)) != string::npos) &&
           !(operators.find(str_m.at(stopIndex)) != string::npos))
     {
 		++stopIndex;
@@ -174,6 +175,8 @@ unsigned int Lexer::pushFunctionOrConstant(unsigned int startIndex)
     
     // Get name
     string str = str_m.substr(startIndex, stopIndex-startIndex);
+    
+    cout << "S" << startIndex << "S" << stopIndex << "s" << str << endl;
     
     // If it is a function (check if it is not the end of the string)
     if(stopIndex < str_m.size() && bracketsOpen.find(str_m.at(stopIndex)) != string::npos)
