@@ -6,14 +6,14 @@ In order to do that, the mpfr and the gmp libraries must be compiled and install
 
 ### GMP library:
 
-# Download and preparation
+##### Download and preparation
 - `mkdir gmp`
 - `cd gmp`
 - `wget https://gmplib.org/download/gmp/gmp-6.0.0a.tar.bz2` or download from mpfr library website: https://gmplib.org/#DOWNLOAD (take the .tar.bz2 version)
 - `tar -vxjf gmp-6.0.0a.tar.bz2`
 - `mkdir gmp-6.0.0_build`
 
-# Compilation and installation
+##### Compilation and installation
 - `cd gmp-6.0.0_build`
 - `../gmp-6.0.0/configure CC=x86_64-w64-mingw32-gcc`
 - `make`
@@ -21,14 +21,14 @@ In order to do that, the mpfr and the gmp libraries must be compiled and install
 
 ### Mpfr library:
 
-# Download and preparation
+##### Download and preparation
 - `mkdir mpfr`
 - `cd mpfr`
 - `wget http://www.mpfr.org/mpfr-current/mpfr-3.1.3.tar.bz2` or download from mpfr library website: http://www.mpfr.org/mpfr-current/#download (take the .tar.bz2 version)
 - `tar -vxjf mpfr-3.1.3.tar.bz2`
 - `mkdir mpfr-3.1.3_build`
 
-# Compilation and installation
+##### Compilation and installation
 - `cd mpfr-3.1.3_build`
 - `../mpfr-3.1.3/configure CC=x86_64-w64-mingw32-gcc --with-gmp-include=/usr/local/include --with-gmp-lib=/usr/local/lib --enable-static --disable-shared`
 - `make`
