@@ -35,7 +35,7 @@ The program can be launched without parameters. It will then work as a bash and 
 
 ##### Compilation
 - To be able to compile, the following tools are necessary:
-  * a UNIX like environment (Linux / cygwin for Windows)
+  * a UNIX like environment (Linux / Cygwin for Windows / ...)
   * the "make" command
 - For the compilation, run the following commands:
   * `clone "https://github.com/YannKurzo/calculator.git"`
