@@ -2,7 +2,7 @@
 # cygwinInstallation v1.0
 
 This file explains how to install the mpfr library on cygwin, so that the program can be compiled to be normally executed on Windows (and not from Cygwin terminal).
-In order to do that, the mpfr and the gmp libraries must be compiled and installed.
+In order to do that, the gmp and the mpfr libraries must be compiled and installed.
 
 ### GMP library:
 
