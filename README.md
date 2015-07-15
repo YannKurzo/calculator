@@ -33,33 +33,40 @@ The program can be launched without parameters. It will then work as a bash and 
 
 ### Compilation and installation
 
-##### Compilation
+##### Prerequisite
 - To be able to compile, the following tools are necessary:
   * a UNIX like environment (Linux / Cygwin for Windows / ...)
   * the "make" command
+- The following tools are optional:
+  * mpfr library (this library is only necessary for compiling for high precision calculations)
+ 
+##### Standard compilation and installation
 - For the compilation, run the following commands:
   * `clone "https://github.com/YannKurzo/calculator.git"`
   * `mkdir calculator_build`
   * `cd calculator_build`
   * `../calculator/configure`
   * `make`
-
-##### Installation
-- On Linux
   * `make install`
-- On Windows
-  * The executable is located in `calculator_build/src/`
+  * The program can now be used.
 
-##### Compilation on Windows to be able to launch outside Cygwin
-- By default, the executable can only be used on Cygwin. To be able to use it as a normal program on Windows, the configure command should be launched as follow (using mingw compiler and linking libraries as static):
+##### Compilation on Windows to be able to launch the program outside Cygwin
+- With the default configuration, the executable can only be used on Cygwin. To be able to use it as a normal program on Windows, somem options must be passed to the configure script.
+- We must use the mingw compiler.
+- We must link the libraries as static.
+- You can use the following commands:
+  * `clone "https://github.com/YannKurzo/calculator.git"`
+  * `mkdir calculator_build`
+  * `cd calculator_build`
   * `../calculator/configure CXX=x86_64-w64-mingw32-g++ CXXFLAGS="-static-libgcc -static-libstdc++"`
   * `make`
-- **When using this configuration, the mpfr library is not installed by default! The cygwinInstallation.md shows the installation steps.**
+  * The executable is located in `calculator_build/src/`
+- **When using these parameters, the mpfr library is not installed by default! The cygwinInstallation.md shows the installation steps to be able to use it outside Cygwin.**
 
 ##### Help
 - Help can be found by using:
   * `./configure --help`
-- Getting the mpfr library (this library is only necessary for compiling for big numbers)
+- Getting the mpfr library
   * Linux: http://www.mpfr.org/mpfr-current/#download
   * Cygwin: https://cygwin.com/install.html (use the setup to install the library)
 - This program uses the autoconf / automake tools for the compilation.
